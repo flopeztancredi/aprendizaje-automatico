@@ -1979,9 +1979,21 @@
     let fixedHighlightMode = localStorage.getItem(highlightModeStorageKey) === 'true';
     let activeHighlightColor = localStorage.getItem(highlightColorStorageKey) || 'yellow';
     if (!highlightColors.some(button => button.dataset.color === activeHighlightColor)) activeHighlightColor = 'yellow';
+    const highlightHistory = [];
+    const highlightRedo = [];
 
     function saveHighlights() {
       localStorage.setItem(highlightStorageKey, JSON.stringify(highlights));
+    }
+
+    function cloneHighlights(items = highlights) {
+      return items.map(item => ({ ...item }));
+    }
+
+    function recordHighlightState() {
+      highlightHistory.push(cloneHighlights());
+      if (highlightHistory.length > 100) highlightHistory.shift();
+      highlightRedo.length = 0;
     }
 
     function unwrapHighlights() {
@@ -2179,6 +2191,7 @@
 
     function addHighlight(color) {
       if (!pendingHighlight) return;
+      recordHighlightState();
       setActiveHighlightColor(color);
       let start = pendingHighlight.start;
       let end = pendingHighlight.end;
@@ -2213,6 +2226,7 @@
     function recolorHighlight(color) {
       const item = highlights.find(highlight => highlight.id === activeHighlightId);
       if (!item) return;
+      recordHighlightState();
       setActiveHighlightColor(color);
       item.color = color;
       saveHighlights();
@@ -2232,10 +2246,55 @@
 
     highlightRemove.addEventListener('click', () => {
       if (!activeHighlightId) return;
+      recordHighlightState();
       highlights = highlights.filter(item => item.id !== activeHighlightId);
       saveHighlights();
       renderHighlights();
       closeHighlightToolbar();
+    });
+
+    function restoreHighlightState(state) {
+      highlights = cloneHighlights(state);
+      pendingHighlight = null;
+      activeHighlightId = null;
+      clearSelectedHighlight();
+      saveHighlights();
+      renderHighlights();
+      if (fixedHighlightMode) showHighlightToolbar('fixed');
+      else closeHighlightToolbar(true);
+    }
+
+    function undoHighlight() {
+      if (!highlightHistory.length) return;
+      highlightRedo.push(cloneHighlights());
+      restoreHighlightState(highlightHistory.pop());
+    }
+
+    function redoHighlight() {
+      if (!highlightRedo.length) return;
+      highlightHistory.push(cloneHighlights());
+      restoreHighlightState(highlightRedo.pop());
+    }
+
+    document.addEventListener('keydown', event => {
+      const target = event.target;
+      const isEditable = target instanceof HTMLInputElement ||
+        target instanceof HTMLTextAreaElement ||
+        target instanceof HTMLSelectElement ||
+        target.isContentEditable;
+      if (isEditable || !(event.ctrlKey || event.metaKey)) return;
+
+      const key = event.key.toLowerCase();
+      if (key === 'z' && event.shiftKey) {
+        event.preventDefault();
+        redoHighlight();
+      } else if (key === 'z') {
+        event.preventDefault();
+        undoHighlight();
+      } else if (key === 'y') {
+        event.preventDefault();
+        redoHighlight();
+      }
     });
 
     highlightPin.addEventListener('click', () => setFixedHighlightMode(!fixedHighlightMode));
