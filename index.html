@@ -107,7 +107,14 @@
     .brand {
       margin: 0 8px 14px;
     }
+    .brand-row {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+    }
     .brand strong { display: block; line-height: 1.2; }
+    #menu-close { display: none; }
 
     .search-wrap { position: relative; margin-bottom: 18px; }
     .search-wrap svg {
@@ -496,10 +503,23 @@
     }
 
     .top-mobile { display: none; }
+    .nav-backdrop { display: none; }
     @media (max-width: 1050px) {
       .sidebar { transform: translateX(-100%); transition: transform .22s ease; box-shadow: var(--shadow); }
       body.nav-open .sidebar { transform: translateX(0); }
+      body.nav-open { overflow: hidden; }
       .main { margin-left: 0; }
+      .nav-backdrop {
+        display: block;
+        position: fixed;
+        inset: 0;
+        z-index: 25;
+        background: rgba(7, 23, 31, .36);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity .22s ease;
+      }
+      body.nav-open .nav-backdrop { opacity: 1; pointer-events: auto; }
       .top-mobile {
         position: sticky;
         top: 0;
@@ -514,6 +534,19 @@
       }
       .top-mobile button { border: 0; background: transparent; cursor: pointer; }
       .top-mobile strong { font-size: 14px; }
+      #menu-close {
+        display: inline-flex;
+        align-items: center;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 4px 8px;
+        color: var(--muted);
+        background: var(--surface);
+        font-size: 12px;
+        line-height: 1.2;
+        cursor: pointer;
+      }
+      #menu-close:hover { color: var(--ink); border-color: var(--accent); }
     }
 
     @media (max-width: 720px) {
@@ -541,10 +574,14 @@
 </head>
 <body>
   <div class="progress" aria-hidden="true"><span id="reading-progress"></span></div>
+  <div class="nav-backdrop" id="nav-backdrop" aria-hidden="true"></div>
 
   <aside class="sidebar" id="sidebar">
     <div class="brand">
-      <strong>Aprendizaje Automático</strong>
+      <div class="brand-row">
+        <strong>Aprendizaje Automático</strong>
+        <button id="menu-close" type="button" aria-label="Cerrar navegación">Cerrar</button>
+      </div>
     </div>
 
     <div class="search-wrap">
@@ -594,7 +631,7 @@
 
   <div class="main">
     <div class="top-mobile">
-      <button id="menu-toggle" type="button" aria-label="Abrir navegación">Menu</button>
+      <button id="menu-toggle" type="button" aria-label="Abrir navegación" aria-expanded="false">Menu</button>
       <strong>Aprendizaje Automático</strong>
       <button id="mobile-theme" type="button" aria-label="Cambiar tema">Tema</button>
     </div>
@@ -1704,9 +1741,21 @@
     document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
     document.getElementById('mobile-theme').addEventListener('click', toggleTheme);
     document.getElementById('print-button').addEventListener('click', () => window.print());
-    document.getElementById('menu-toggle').addEventListener('click', () => body.classList.toggle('nav-open'));
+    const menuToggle = document.getElementById('menu-toggle');
+    const menuClose = document.getElementById('menu-close');
+    const navBackdrop = document.getElementById('nav-backdrop');
 
-    navLinks.forEach(link => link.addEventListener('click', () => body.classList.remove('nav-open')));
+    function setNavOpen(open) {
+      body.classList.toggle('nav-open', open);
+      menuToggle.setAttribute('aria-expanded', String(open));
+      menuToggle.setAttribute('aria-label', open ? 'Cerrar navegación' : 'Abrir navegación');
+    }
+
+    menuToggle.addEventListener('click', () => setNavOpen(!body.classList.contains('nav-open')));
+    menuClose.addEventListener('click', () => setNavOpen(false));
+    navBackdrop.addEventListener('click', () => setNavOpen(false));
+
+    navLinks.forEach(link => link.addEventListener('click', () => setNavOpen(false)));
 
     function updateProgress() {
       const max = document.documentElement.scrollHeight - window.innerHeight;
