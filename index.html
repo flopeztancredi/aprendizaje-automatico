@@ -1,0 +1,2242 @@
+<!doctype html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Apunte para el final de Aprendizaje Automático, FIUBA.">
+  <link rel="icon" href="data:image/png;base64,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" type="image/png">
+  <title>Aprendizaje Automático | Final FIUBA</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f3f7f9;
+      --surface: #ffffff;
+      --surface-2: #eaf1f5;
+      --ink: #17242c;
+      --muted: #61717c;
+      --line: #d9e4e9;
+      --accent: #167e9e;
+      --accent-2: #d9f1f7;
+      --accent-ink: #0b5369;
+      --warm: #9b5f1d;
+      --warm-bg: #fff1dc;
+      --danger: #9e3f46;
+      --danger-bg: #fdebed;
+      --blue: #4267b2;
+      --blue-bg: #eaf0fc;
+      --hl-yellow: #ffe08a;
+      --hl-mint: #9fe4f2;
+      --hl-pink: #ffc1d2;
+      --hl-blue: #bcd7ff;
+      --shadow: 0 18px 55px rgba(18, 44, 58, .08);
+      --radius: 18px;
+      --sidebar: 292px;
+    }
+
+    html[data-theme="dark"] {
+      color-scheme: dark;
+      --bg: #0d161c;
+      --surface: #142129;
+      --surface-2: #1b2c36;
+      --ink: #edf5f8;
+      --muted: #9eb0ba;
+      --line: #293c47;
+      --accent: #63c9e7;
+      --accent-2: #153b49;
+      --accent-ink: #caf3ff;
+      --warm: #f0b766;
+      --warm-bg: #3b2c19;
+      --danger: #f19aa2;
+      --danger-bg: #3e2226;
+      --blue: #9bbcf7;
+      --blue-bg: #1d304e;
+      --hl-yellow: #725d19;
+      --hl-mint: #185a6d;
+      --hl-pink: #71384b;
+      --hl-blue: #294f78;
+      --shadow: 0 18px 55px rgba(0, 0, 0, .24);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 24px; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 16px;
+      line-height: 1.68;
+      text-rendering: optimizeLegibility;
+    }
+
+    a { color: inherit; }
+    button, input { font: inherit; }
+    button { color: inherit; }
+    code, .formula {
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+      font-size: .92em;
+    }
+
+    .progress {
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 100;
+      height: 3px;
+      background: transparent;
+    }
+    .progress span {
+      display: block;
+      width: 0;
+      height: 100%;
+      background: var(--accent);
+    }
+
+    .layout { min-height: 100vh; }
+    .sidebar {
+      position: fixed;
+      inset: 0 auto 0 0;
+      width: var(--sidebar);
+      padding: 26px 20px 24px;
+      border-right: 1px solid var(--line);
+      background: color-mix(in srgb, var(--bg) 92%, transparent);
+      backdrop-filter: blur(18px);
+      overflow-y: auto;
+      z-index: 30;
+    }
+
+    .brand {
+      margin: 0 8px 14px;
+    }
+    .brand strong { display: block; line-height: 1.2; }
+
+    .search-wrap { position: relative; margin-bottom: 18px; }
+    .search-wrap svg {
+      position: absolute;
+      left: 13px;
+      top: 12px;
+      width: 18px;
+      color: var(--muted);
+    }
+    #search {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 10px 12px 10px 39px;
+      color: var(--ink);
+      background: var(--surface);
+      outline: none;
+    }
+    #search:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-2); }
+    .search-results {
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 0;
+      right: 0;
+      z-index: 60;
+      max-height: min(440px, 62vh);
+      overflow-y: auto;
+      padding: 7px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+    .search-results[hidden] { display: none; }
+    .search-summary {
+      padding: 7px 9px 8px;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .search-result {
+      display: block;
+      width: 100%;
+      padding: 10px 9px;
+      border: 0;
+      border-radius: 9px;
+      color: var(--ink);
+      background: transparent;
+      text-align: left;
+      cursor: pointer;
+    }
+    .search-result:hover,
+    .search-result.active { background: var(--surface-2); }
+    .search-result small {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--accent-ink);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+    }
+    .search-result span {
+      display: -webkit-box;
+      overflow: hidden;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.45;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 3;
+    }
+    .search-result mark {
+      padding: 0 2px;
+      border-radius: 3px;
+      color: var(--ink);
+      background: var(--accent-2);
+    }
+    .search-empty {
+      padding: 14px 9px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.5;
+    }
+    .search-target { animation: search-pulse 2.2s ease; }
+    @keyframes search-pulse {
+      0%, 35% { background: var(--accent-2); box-shadow: 0 0 0 5px var(--accent-2); }
+      100% { background: transparent; box-shadow: none; }
+    }
+
+    .nav-title {
+      margin: 18px 10px 8px;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .toc { display: grid; gap: 3px; }
+    .toc-item {
+      position: relative;
+      border-radius: 9px;
+      transition: .18s ease;
+    }
+    .toc a {
+      display: grid;
+      grid-template-columns: 24px 1fr;
+      gap: 7px;
+      align-items: baseline;
+      padding: 7px 9px 7px 36px;
+      border-radius: 9px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.35;
+      text-decoration: none;
+      transition: .18s ease;
+    }
+    .toc a span { color: color-mix(in srgb, var(--muted) 70%, transparent); font-variant-numeric: tabular-nums; }
+    .toc-item:hover, .toc-item.active { background: var(--surface-2); }
+    .toc a:hover, .toc a.active { color: var(--ink); }
+    .toc a.active span { color: var(--accent); }
+    .nav-check {
+      position: absolute;
+      top: 50%;
+      left: 9px;
+      z-index: 2;
+      display: grid;
+      place-items: center;
+      width: 18px;
+      height: 18px;
+      padding: 0;
+      border: 1px solid var(--line);
+      border-radius: 5px;
+      color: var(--surface);
+      background: transparent;
+      font-size: 12px;
+      font-weight: 900;
+      line-height: 1;
+      cursor: pointer;
+      transform: translateY(-50%);
+      transition: .18s ease;
+    }
+    .nav-check:hover { border-color: var(--accent); }
+    .toc-item.prepared .nav-check { border-color: var(--accent); background: var(--accent); }
+    .toc-item.prepared a {
+      opacity: .58;
+      text-decoration: line-through;
+      text-decoration-thickness: 1px;
+    }
+
+    .side-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-top: 20px;
+    }
+    .icon-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      min-height: 39px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: var(--surface);
+      cursor: pointer;
+    }
+    .icon-button:hover { border-color: var(--accent); }
+    .icon-button.active { border-color: var(--accent); color: var(--accent-ink); background: var(--accent-2); }
+    .icon-button svg { width: 17px; }
+    .icon-button.wide { grid-column: 1 / -1; }
+
+    mark.user-highlight {
+      padding: .04em .05em;
+      border-radius: 4px;
+      color: inherit;
+      cursor: pointer;
+      box-decoration-break: clone;
+      -webkit-box-decoration-break: clone;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    mark.user-highlight[data-color="yellow"] { background: var(--hl-yellow); }
+    mark.user-highlight[data-color="mint"] { background: var(--hl-mint); }
+    mark.user-highlight[data-color="pink"] { background: var(--hl-pink); }
+    mark.user-highlight[data-color="blue"] { background: var(--hl-blue); }
+    mark.user-highlight.selected { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+    .highlight-toolbar {
+      position: fixed;
+      left: 50%;
+      bottom: 24px;
+      z-index: 90;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      max-width: calc(100vw - 28px);
+      padding: 9px 10px 9px 14px;
+      border: 1px solid var(--line);
+      border-radius: 15px;
+      background: color-mix(in srgb, var(--surface) 94%, transparent);
+      box-shadow: 0 16px 48px rgba(15, 25, 22, .2);
+      backdrop-filter: blur(16px);
+      transform: translateX(-50%);
+    }
+    .highlight-toolbar[hidden] { display: none; }
+    .highlight-label {
+      margin-right: 3px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .highlight-colors { display: flex; gap: 6px; }
+    .highlight-color {
+      width: 26px;
+      height: 26px;
+      padding: 0;
+      border: 2px solid var(--surface);
+      border-radius: 50%;
+      box-shadow: 0 0 0 1px var(--line);
+      cursor: pointer;
+    }
+    .highlight-color[data-color="yellow"] { background: var(--hl-yellow); }
+    .highlight-color[data-color="mint"] { background: var(--hl-mint); }
+    .highlight-color[data-color="pink"] { background: var(--hl-pink); }
+    .highlight-color[data-color="blue"] { background: var(--hl-blue); }
+    .highlight-color:hover { transform: translateY(-1px) scale(1.06); }
+    .highlight-color.active { outline: 2px solid var(--accent); outline-offset: 2px; }
+    .highlight-color:disabled { opacity: .35; cursor: default; transform: none; }
+    .highlight-tool-button {
+      display: grid;
+      place-items: center;
+      width: 30px;
+      height: 30px;
+      padding: 0;
+      border: 0;
+      border-radius: 8px;
+      color: var(--muted);
+      background: transparent;
+      cursor: pointer;
+    }
+    .highlight-tool-button.active { color: var(--surface); background: var(--accent); }
+    .highlight-pin { width: auto; padding: 0 9px; font-size: 11px; font-weight: 800; }
+    .highlight-tool-button:hover { color: var(--ink); background: var(--surface-2); }
+    .highlight-tool-button svg { width: 17px; height: 17px; }
+    #highlight-remove { color: var(--danger); }
+
+    .main { margin-left: var(--sidebar); }
+    .content { width: min(1080px, calc(100% - 64px)); margin: 0 auto; padding: 54px 0 110px; }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(30px, 5vw, 54px);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+    .hero:after {
+      content: "";
+      position: absolute;
+      width: 420px;
+      height: 420px;
+      right: -180px;
+      top: -220px;
+      border-radius: 50%;
+      background: radial-gradient(circle, var(--accent-2), transparent 68%);
+      pointer-events: none;
+    }
+    h1 {
+      max-width: 780px;
+      margin: 0;
+      font-size: clamp(42px, 7vw, 76px);
+      line-height: .98;
+      letter-spacing: -.055em;
+    }
+    .chapter {
+      padding-top: 82px;
+      scroll-margin-top: 10px;
+    }
+    .chapter-head {
+      display: grid;
+      grid-template-columns: 60px 1fr;
+      gap: 20px;
+      align-items: start;
+      margin-bottom: 28px;
+    }
+    .chapter-number {
+      display: grid;
+      place-items: center;
+      width: 54px;
+      height: 54px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      color: var(--accent);
+      background: var(--surface);
+      font-weight: 800;
+      font-variant-numeric: tabular-nums;
+    }
+    h2 {
+      margin: 0;
+      font-size: clamp(30px, 4vw, 44px);
+      line-height: 1.08;
+      letter-spacing: -.038em;
+    }
+    h3 { margin: 34px 0 13px; font-size: 23px; line-height: 1.25; letter-spacing: -.02em; }
+    h4 { margin: 24px 0 9px; font-size: 17px; }
+    p { margin: 0 0 14px; }
+    ul, ol { padding-left: 22px; }
+    li { margin: 6px 0; }
+    strong { letter-spacing: -.01em; }
+
+    .study-list { margin: 10px 0 22px; }
+    .study-list li { margin: 10px 0; padding-left: 3px; }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 9px;
+      border-radius: 999px;
+      color: var(--accent-ink);
+      background: var(--accent-2);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+    .tag.warm { color: var(--warm); background: var(--warm-bg); }
+    .tag.blue { color: var(--blue); background: var(--blue-bg); }
+    .tag.red { color: var(--danger); background: var(--danger-bg); }
+
+    .callout {
+      margin: 20px 0;
+      padding: 20px 22px;
+      border-left: 4px solid var(--accent);
+      border-radius: 0 14px 14px 0;
+      background: var(--accent-2);
+      color: var(--accent-ink);
+    }
+    .callout.warning { border-color: var(--warm); background: var(--warm-bg); color: var(--warm); }
+    .callout.danger { border-color: var(--danger); background: var(--danger-bg); color: var(--danger); }
+    .callout.blue { border-color: var(--blue); background: var(--blue-bg); color: var(--blue); }
+    .callout strong { color: inherit; }
+    .callout p:last-child { margin-bottom: 0; }
+
+    .table-wrap { overflow-x: auto; margin: 18px 0 24px; border: 1px solid var(--line); border-radius: 15px; }
+    table { width: 100%; border-collapse: collapse; background: var(--surface); font-size: 14px; }
+    th, td { padding: 13px 15px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+    th { color: var(--muted); background: var(--surface-2); font-size: 11px; letter-spacing: .07em; text-transform: uppercase; }
+    tr:last-child td { border-bottom: 0; }
+
+    .formula { display: inline-block; padding: 7px 9px; border-radius: 8px; color: var(--accent-ink); background: var(--accent-2); }
+
+    details {
+      margin: 10px 0;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--surface);
+      overflow: clip;
+    }
+    summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 17px 19px;
+      cursor: pointer;
+      font-weight: 700;
+      list-style: none;
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary:after { content: "+"; color: var(--accent); font-size: 22px; font-weight: 400; }
+    details[open] summary:after { content: "x"; font-size: 15px; }
+    .details-body { padding: 0 20px 20px; color: var(--muted); }
+    .details-body strong { color: var(--ink); }
+
+    .exam-answer {
+      position: relative;
+      padding: 16px 18px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--surface);
+    }
+
+    .top-mobile { display: none; }
+    @media (max-width: 1050px) {
+      .sidebar { transform: translateX(-100%); transition: transform .22s ease; box-shadow: var(--shadow); }
+      body.nav-open .sidebar { transform: translateX(0); }
+      .main { margin-left: 0; }
+      .top-mobile {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 12px 18px;
+        border-bottom: 1px solid var(--line);
+        background: color-mix(in srgb, var(--bg) 90%, transparent);
+        backdrop-filter: blur(16px);
+      }
+      .top-mobile button { border: 0; background: transparent; cursor: pointer; }
+      .top-mobile strong { font-size: 14px; }
+    }
+
+    @media (max-width: 720px) {
+      .content { width: min(100% - 28px, 1080px); padding-top: 20px; }
+      .hero { padding: 32px 24px; border-radius: 21px; }
+      .chapter { padding-top: 62px; }
+      .chapter-head { grid-template-columns: 44px 1fr; gap: 12px; }
+      .chapter-number { width: 42px; height: 42px; border-radius: 12px; }
+      .highlight-toolbar { bottom: 14px; flex-wrap: wrap; justify-content: center; }
+    }
+
+    @media print {
+      :root { --bg: #fff; --surface: #fff; --surface-2: #f4f4f2; --ink: #111; --muted: #444; --line: #ddd; }
+      .sidebar, .top-mobile, .progress, .side-actions, .search-wrap, .highlight-toolbar { display: none !important; }
+      .main { margin: 0; }
+      .content { width: 100%; padding: 0; }
+      .hero { box-shadow: none; break-after: page; }
+      .chapter { padding-top: 34px; break-before: page; }
+      details, .callout { break-inside: avoid; }
+      details > .details-body { display: block !important; }
+      details:not([open]) > .details-body { display: block !important; }
+      summary:after { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="progress" aria-hidden="true"><span id="reading-progress"></span></div>
+
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">
+      <strong>Aprendizaje Automático</strong>
+    </div>
+
+    <div class="search-wrap">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg>
+      <input id="search" type="search" placeholder="Buscar concepto..." autocomplete="off" aria-label="Buscar en el apunte" aria-controls="search-results" aria-expanded="false">
+      <div class="search-results" id="search-results" role="listbox" aria-label="Resultados de búsqueda" hidden></div>
+    </div>
+
+    <div class="nav-title">Núcleo</div>
+    <nav class="toc" aria-label="Tabla de contenidos">
+      <a href="#ciclo"><span>01</span>Fundamentos y ciclo de ML</a>
+      <a href="#problema"><span>02</span>Problema y viabilidad</a>
+      <a href="#datos"><span>03</span>Datos, acceso y EDA</a>
+      <a href="#features"><span>04</span>Ingeniería de características</a>
+      <a href="#entrenamiento"><span>05</span>Entrenamiento y métricas</a>
+      <a href="#automl"><span>06</span>AutoML</a>
+      <a href="#regularizacion"><span>07</span>Regularización</a>
+      <a href="#xai"><span>08</span>Explicabilidad y sesgos</a>
+      <a href="#mlops"><span>09</span>MLOps y drift</a>
+    </nav>
+    <div class="nav-title">Extensiones</div>
+    <nav class="toc" aria-label="Contenidos complementarios">
+      <a href="#vibe"><span>10</span>Vibe coding</a>
+      <a href="#rag"><span>11</span>RAG y bases vectoriales</a>
+      <a href="#seguridad"><span>12</span>Seguridad en LLM</a>
+      <a href="#agentes"><span>13</span>Agentes inteligentes</a>
+      <a href="#cobots"><span>14</span>Cobots y gemelos digitales</a>
+      <a href="#preguntas"><span>15</span>Banco de preguntas</a>
+      <a href="#glosario"><span>16</span>Glosario</a>
+    </nav>
+
+    <div class="side-actions">
+      <button class="icon-button" id="theme-toggle" type="button" title="Cambiar tema">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg>
+        Tema
+      </button>
+      <button class="icon-button" id="print-button" type="button" title="Imprimir o guardar como PDF">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9V2h12v7"></path><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><path d="M6 14h12v8H6z"></path></svg>
+        PDF
+      </button>
+      <button class="icon-button wide" id="highlight-help" type="button" title="Seleccioná texto para resaltarlo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m9 11-6 6v4h4l6-6"></path><path d="m14 4 6 6-7 7-6-6z"></path><path d="M3 21h18"></path></svg>
+        Resaltador
+      </button>
+    </div>
+  </aside>
+
+  <div class="main">
+    <div class="top-mobile">
+      <button id="menu-toggle" type="button" aria-label="Abrir navegación">Menu</button>
+      <strong>Aprendizaje Automático</strong>
+      <button id="mobile-theme" type="button" aria-label="Cambiar tema">Tema</button>
+    </div>
+
+    <main class="content" id="content">
+      <header class="hero">
+        <h1>Aprendizaje Automático</h1>
+      </header>
+
+      <section class="chapter" id="ciclo" data-title="qué es aprendizaje automático machine learning algoritmo modelo entrenamiento inferencia dataset feature target ciclo vida proceso metodología go no go producción">
+        <div class="chapter-head">
+          <div class="chapter-number">01</div>
+          <div><h2>Fundamentos y ciclo de Machine Learning</h2></div>
+        </div>
+
+        <h3>Qué es el aprendizaje automático</h3>
+        <p>El aprendizaje automático, o Machine Learning, es una forma de construir sistemas que detectan regularidades en datos y las usan para predecir, clasificar, agrupar, recomendar o detectar anomalías. En lugar de programar todas las reglas posibles, se entregan ejemplos a un algoritmo para que ajuste sus parámetros. El resultado no piensa ni comprende: aplica patrones aprendidos.</p>
+        <p>Inteligencia Artificial es el campo más amplio. Machine Learning es una de sus formas de construir sistemas, basada en aprendizaje desde datos. Deep Learning es, a su vez, una rama de Machine Learning que utiliza redes neuronales, modelos formados por capas de unidades conectadas, con varias capas internas.</p>
+
+        <h3>Qué puede aprender y dónde se limita</h3>
+        <p>La formulación que atraviesa la cursada es: <strong>Machine Learning mira el pasado, abstrae patrones y los aplica a casos nuevos</strong>. Es potente cuando la tarea está tipificada, es decir, cuando el procedimiento está bien conocido y la variabilidad posible es acotada. Si aparece una situación completamente nueva, fuera de los patrones observados, el modelo no tiene experiencia desde la cual extrapolar.</p>
+        <p>El profesor lo resume de forma deliberadamente provocadora: la IA actual no es inteligencia humana, sino un mecanismo estadístico o probabilístico que produce resultados convincentes. Puede extrapolar dentro de un dominio aprendido, pero no transfiere conocimiento entre dominios con la flexibilidad de una persona.</p>
+        <p>El ejemplo para fijar esta limitación es el robot que dobla una camisa. Para una persona es una tarea cotidiana, pero cada camisa cae de una forma distinta y genera muchísimas configuraciones posibles. La dificultad no era solo la motricidad fina, sino resolver una situación variable usando abstracción y conocimiento general. La conclusión de la clase fue que el mejor resultado surge al <strong>complementar IA con inteligencia natural</strong>: la máquina aporta velocidad y repetición, la persona aporta criterio, abstracción y conocimiento del problema.</p>
+
+        <h3>Las piezas mínimas</h3>
+        <ul class="study-list">
+          <li><strong>Dataset:</strong> conjunto de datos usado para desarrollar el sistema. Cada fila suele representar una observación, como una venta, un cliente o una medición.</li>
+          <li><strong>Feature o característica:</strong> variable de entrada que el modelo utiliza, como precio, temperatura, fecha o cantidad comprada.</li>
+          <li><strong>Target:</strong> resultado que se quiere predecir cuando existe una respuesta conocida, como fraude o no fraude, ventas futuras o tiempo hasta una falla.</li>
+          <li><strong>Algoritmo de aprendizaje:</strong> procedimiento que busca una relación entre las entradas y el resultado, o una estructura dentro de los datos.</li>
+          <li><strong>Entrenamiento:</strong> proceso de ajustar el algoritmo con datos históricos.</li>
+          <li><strong>Modelo:</strong> resultado obtenido después del entrenamiento, con los valores y relaciones ya aprendidos.</li>
+          <li><strong>Inferencia:</strong> uso del modelo entrenado sobre datos nuevos para obtener una predicción o decisión.</li>
+        </ul>
+
+        <p>En un e-commerce, una fila puede ser una compra, las features pueden incluir precio, fecha, producto y cliente, y el target puede indicar si habrá devolución. El entrenamiento usa compras pasadas y la inferencia estima qué ocurrirá con una compra nueva.</p>
+
+        <h3>ML no se construye igual que el software tradicional</h3>
+        <p>La diferencia sustancial marcada en clase es el sentido del flujo de datos. Una aplicación tradicional suele ser <strong>productora de datos</strong>: su operación, transacciones y logs generan información. Un sistema de ML es primero un gran <strong>ingestor de datos</strong>: necesita historia para entrenarse y abstraer el modelo. En producción puede generar una salida muy pequeña, por ejemplo una clase o un número, en comparación con el volumen usado para desarrollarlo.</p>
+
+        <h3>El ciclo de vida</h3>
+        <ol class="study-list" aria-label="Flujo del ciclo de Machine Learning">
+          <li>Validar el problema y definir el criterio de éxito.</li>
+          <li>Investigar viabilidad y acceso a los datos.</li>
+          <li>Realizar el análisis exploratorio de datos, EDA, y decidir Go o No Go.</li>
+          <li>Limpiar los datos y realizar ingeniería de características.</li>
+          <li>Entrenar, validar y ajustar el modelo.</li>
+          <li>Explicar resultados y detectar sesgos.</li>
+          <li>Diseñar la interfaz y planificar el uso productivo.</li>
+          <li>Desplegar el modelo de forma versionada, reproducible y observable.</li>
+          <li>Monitorear desempeño y cambios en los datos o en su comportamiento.</li>
+          <li>Reentrenar o iniciar una nueva iteración cuando corresponda.</li>
+          <li>Retirar o decomisar el sistema y documentar el cierre.</li>
+        </ol>
+        <p>La gestión del conocimiento y la trazabilidad atraviesan todas las etapas.</p>
+
+        <h3>Por qué no es lineal</h3>
+        <p>El proyecto avanza con información incompleta. El EDA puede revelar que los datos no alcanzan. La validación puede mostrar patrones heterogéneos. La explicabilidad puede revelar una variable irrelevante o sesgada. Producción puede mostrar que cambiaron los datos o su relación con el resultado. Cada hallazgo puede obligar a volver a una etapa anterior.</p>
+        <p>La ciencia de datos trabaja con un grado alto de incertidumbre. Por eso requiere más método, no menos: planificación, validaciones, puntos de Go o No Go, bitácora y posibilidad de reprocesar. En palabras de la clase, <strong>un dataset termina de entenderse cuando el modelo ya está funcionando</strong>, porque recién entonces aparecen errores, patrones y comportamientos que no eran visibles al comienzo.</p>
+        <p>Cada etapa debe tener un entregable, una versión identificable y un criterio de <strong>Go o No Go</strong>.</p>
+
+        <ul class="study-list">
+          <li><strong>Go:</strong> el problema merece ML, hay datos accesibles y representativos, recursos suficientes, una métrica de éxito acordada y riesgos manejables.</li>
+          <li><strong>No Go:</strong> el problema se resuelve mejor con reglas, faltan datos críticos, la calidad es irrecuperable, no hay acceso, el costo es inviable o el riesgo supera el valor.</li>
+        </ul>
+
+        <div class="callout warning"><strong>El estudio de viabilidad termina después del EDA.</strong> Puede consumir entre 25% y 33% del esfuerzo total. Con sus resultados se reestiman preparación, entrenamiento y producción.</div>
+
+        <h3>Gestión del conocimiento</h3>
+        <p>Cada extracción, error, transformación, métrica, decisión y resultado debe quedar en una bitácora y alimentar una base de conocimiento de proyectos. La experiencia externa ayuda, pero no reemplaza la experiencia propia de la empresa: sus sistemas, personas, permisos, tiempos y formas de gestión tienen una idiosincrasia que no se transfiere de manera directa desde otra organización.</p>
+
+        <h3>Roles y entregables</h3>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Rol</th><th>Responsabilidad dominante</th><th>Entregable clave</th></tr></thead>
+          <tbody>
+            <tr><td>Owner o experto de negocio</td><td>Define el problema, valida criterios y contrasta las explicaciones.</td><td>Criterio de éxito y validación empírica.</td></tr>
+            <tr><td>Ingeniero de datos</td><td>Acceso, calidad, EDA, limpieza y primera ingeniería de características.</td><td>Dataset trazable y reporte de calidad.</td></tr>
+            <tr><td>Científico de datos</td><td>Selección de familias, iteraciones, hiperparámetros, validación, explicación y sesgos.</td><td>Modelo evaluado más documento de interpretación.</td></tr>
+            <tr><td>Ingeniería de producción</td><td>Integración, seguridad, latencia, despliegue, monitoreo y reentrenamiento.</td><td>Servicio productivo observable y reproducible.</td></tr>
+          </tbody>
+        </table></div>
+
+        <p>El conocimiento de negocio ya no puede tratarse como un agregado ocasional. La figura del científico de datos itinerante, que salta de industria en industria aplicando la misma receta, pierde valor a medida que los problemas se vuelven más específicos. Para plantear features, interpretar anomalías y validar explicaciones hace falta especializarse en una vertical.</p>
+
+        <p class="exam-answer"><strong>Respuesta:</strong> un proyecto de ML es un ciclo iterativo que empieza validando si el problema y los datos justifican ML, continúa con preparación, entrenamiento y controles éticos, y termina con monitoreo, decomiso y documentación. El modelo es solo uno de sus componentes.</p>
+      </section>
+
+      <section class="chapter" id="problema" data-title="definición problema viabilidad criterio éxito acceso datos métrica negocio">
+        <div class="chapter-head">
+          <div class="chapter-number">02</div>
+          <div><h2>Definición del problema y viabilidad</h2></div>
+        </div>
+
+        <h3>Las preguntas iniciales</h3>
+        <ol>
+          <li><strong>¿El problema amerita Machine Learning?</strong> Si una regla determinística, una consulta o una automatización convencional lo resuelve, ML agrega costo y riesgo sin aportar valor.</li>
+          <li><strong>¿Ya fue resuelto?</strong> Revisar papers, casos, algoritmos, datasets y métricas usadas evita reinventar y permite estimar viabilidad.</li>
+          <li><strong>¿Qué se quiere predecir o decidir?</strong> Definir target, unidad de análisis, horizonte temporal y usuario de la salida.</li>
+          <li><strong>¿Cómo se medirá el éxito?</strong> Acordar antes del entrenamiento una métrica técnica y un umbral de negocio.</li>
+          <li><strong>¿Existen los datos y se puede acceder?</strong> Existencia y acceso son problemas distintos.</li>
+          <li><strong>¿Hay capacidad?</strong> Datos, cómputo, almacenamiento, conocimiento del dominio, seguridad, tiempo y presupuesto.</li>
+        </ol>
+
+        <div class="callout danger">
+          <strong>Sesgo que se evita.</strong> Si se elige la métrica después de ver los resultados, se puede favorecer al algoritmo que mejor luce, no al que resuelve el problema. El criterio de éxito se fija primero.
+        </div>
+
+        <h3>Éxito técnico y éxito de negocio</h3>
+        <p>El criterio de éxito debe incluir una métrica técnica, un umbral, el costo de cada error, latencia, costo operativo y utilidad para quien usa la predicción. En un clasificador médico con falsos negativos graves, el recall, proporción de positivos reales detectados, puede ser más importante que la accuracy, proporción total de aciertos.</p>
+
+        <ul class="study-list">
+          <li><strong>Detección de cáncer:</strong> el objetivo no es acertar la mayoría total si la clase sana domina. Se prioriza capturar la mayor proporción de enfermos, aun aceptando más falsos positivos. Por eso importa el recall.</li>
+          <li><strong>ML innecesario:</strong> si una regla o consulta alcanza el criterio de éxito con menor costo y riesgo, la decisión correcta es No Go para ML.</li>
+        </ul>
+
+        <h3>Estimación en dos tramos</h3>
+        <p>No conviene prometer todo el proyecto cuando todavía se desconoce la calidad real. Primero se estima hasta el EDA. Con el informe de datos se reestiman limpieza, features, entrenamiento, infraestructura y producción. Este es el llamado <strong>doble proyecto</strong>.</p>
+
+        <p class="exam-answer"><strong>Respuesta:</strong> la viabilidad tiene dos niveles: pertinencia de ML para el problema y capacidad de la organización para implementarlo. La decisión Go o No Go se toma después del EDA, con acceso, calidad, recursos, riesgos y criterio de éxito ya evaluados.</p>
+      </section>
+
+      <section class="chapter" id="datos" data-title="datos acceso EDA análisis exploratorio nulos duplicados outliers correlación pandas calidad">
+        <div class="chapter-head">
+          <div class="chapter-number">03</div>
+          <div><h2>Datos, acceso y análisis exploratorio</h2></div>
+        </div>
+
+        <h3>Existencia, acceso y capacidad</h3>
+        <p>Que una empresa afirme que los datos existen no significa que el equipo pueda usarlos. Pueden faltar permisos, anonimización, cumplimiento normativo, acuerdos entre áreas, claves de unión o infraestructura. Solo con acceso efectivo se conocen volumen, nivel de detalle o granularidad, formato y calidad.</p>
+        <div class="callout blue"><strong>Estimación inicial de almacenamiento usada en clase.</strong> La regla general fue reservar aproximadamente 2,25 veces el tamaño del dataset original. Con una gestión más agresiva puede bajarse a 1,75, eliminando o archivando estados intermedios, pero se pierde la posibilidad de reprocesar inmediatamente desde cualquier paso. Es una heurística empírica, no una constante universal.</div>
+
+        <h3>Qué hace el EDA</h3>
+        <ul class="study-list">
+          <li><strong>Estructura:</strong> filas, columnas, target, claves, tipos, memoria, granularidad y períodos cubiertos.</li>
+          <li><strong>Calidad:</strong> nulos, duplicados, rangos imposibles, categorías inconsistentes, codificación y errores de captura.</li>
+          <li><strong>Comportamiento:</strong> distribuciones, valores únicos, desbalance, correlaciones, estacionalidad, cambios y outliers.</li>
+        </ul>
+
+        <h3>Secuencia de trabajo</h3>
+        <ol>
+          <li>Preservar una copia inmutable de los datos originales.</li>
+          <li>Entender cantidad de filas y columnas, esquema, tipos y uso de memoria.</li>
+          <li>Optimizar tipos si mejora rendimiento, sin alterar el significado.</li>
+          <li>Revisar valores únicos, rangos y frecuencias por columna.</li>
+          <li>Cuantificar nulos y duplicados, también por segmentos.</li>
+          <li>Visualizar distribuciones y relaciones.</li>
+          <li>Investigar anomalías con consultas dirigidas y con expertos.</li>
+          <li>Documentar cada hallazgo, hipótesis, evidencia y pregunta abierta.</li>
+          <li>Emitir informe de calidad y recomendación Go o No Go.</li>
+        </ol>
+
+        <p><strong>Optimización de tipos:</strong> una columna guardada como float que solo contiene enteros puede convertirse a un entero compatible. Si un int64 solo almacena valores entre 1 y 100, puede usarse un tipo menor. Antes de convertir hay que revisar rango, precisión, nulos y valores futuros posibles.</p>
+
+        <div class="callout">
+          <strong>Arqueología de datos.</strong> El EDA es un movimiento de ida y vuelta: observar una letra extraña en un código, filtrar registros, comparar facturas, preguntar al área y reconstruir el proceso que produjo el dato. La intuición genera hipótesis, no conclusiones.
+        </div>
+
+        <h3>Nulos y duplicados</h3>
+        <p>No existe un porcentaje mágico aplicable a todos los proyectos. Un 1% de nulos en millones de filas puede tolerarse, mientras 5% a 7% en pocos miles puede ser grave. La decisión correcta depende de cantidad absoluta, patrón de ausencia, variable afectada, sesgo introducido y posibilidad de imputación.</p>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Situación</th><th>Pregunta correcta</th><th>Posibles acciones</th></tr></thead>
+          <tbody>
+            <tr><td>Nulo</td><td>¿Ausencia real, error de captura o dato no aplicable?</td><td>Eliminar fila, eliminar feature, imputar, crear indicador o recuperar fuente.</td></tr>
+            <tr><td>Duplicado</td><td>¿Repetición inválida o varios eventos legítimos iguales?</td><td>Eliminar, consolidar, deduplicar por clave o mantener.</td></tr>
+            <tr><td>Categoría inconsistente</td><td>¿Mayúsculas, espacios o códigos distintos expresan lo mismo?</td><td>Normalizar con reglas trazables y validar con negocio.</td></tr>
+            <tr><td>Rango imposible</td><td>¿Error técnico, ajuste operativo o fraude?</td><td>Investigar origen antes de corregir.</td></tr>
+          </tbody>
+        </table></div>
+
+        <h3>Outlier no significa error</h3>
+        <p>Un outlier es una <strong>observación fuera de norma</strong>. Puede ser un error, un fraude, un evento extraordinario o una transacción válida pero rara. Detectarlo corresponde al EDA. Decidir si se elimina, transforma, segmenta o modela aparte corresponde a la preparación y depende del objetivo y del algoritmo.</p>
+
+        <ul class="study-list">
+          <li><strong>Moldavsky y las camperas:</strong> una compra excepcional de decenas de camperas en un local de Once fue válida y beneficiosa, pero no representaba la venta cotidiana. Es una anomalía, no un error. Si se deja sin análisis, puede forzar al modelo de ventas a explicar como habitual un caso que quizá ocurrió una sola vez en diez años.</li>
+          <li><strong>Black Friday:</strong> las ventas masivas son correctas, pero no representan el funcionamiento habitual, llamado Business as Usual. Pueden separarse y alimentar otro modelo con features de promociones, descuentos y eventos.</li>
+          <li><strong>Aseguradora:</strong> pagos de siniestros negativos llevaron a descubrir una aplicación sin validación de rango y ajustes manuales para forzar balances. El proyecto se frenó, se trazó el origen y se comunicó a dirección.</li>
+          <li><strong>E-commerce:</strong> las notas de crédito deben vincularse con la venta original. En el caso visto, compras al inicio del mes y devoluciones al precio actualizado producían una ganancia por inflación y contaminaban las estadísticas de ventas.</li>
+          <li><strong>SUBE y serendipia:</strong> las tarjetas defectuosas se concentraban en una posición de cada caja. El patrón permitió descubrir que el apilado dañaba los chips antes de la grabación. Fue un objetivo secundario o hallazgo por serendipia: conocimiento útil que apareció mientras se investigaba otra cosa.</li>
+        </ul>
+
+        <p>El caso de la aseguradora deja tres moralejas adicionales. El ingeniero de datos puede ser la única persona que revise los registros uno por uno. Ese análisis funciona también como ciberseguridad reactiva, porque descubre después de la grabación lo que los controles en tiempo real no vieron. Además, comunicar un fraude o un error estructural exige asertividad: hay que sostener el hallazgo con evidencia, reconstruir su historia y explicarlo a quienes deben decidir.</p>
+
+        <p>La experiencia de EDA se acumula en tres niveles: problemas generales como nulos y tipos incorrectos, patrones propios de una industria y particularidades de los sistemas de cada empresa. OSDU fue citado como referencia del dominio de datos de Oil and Gas. La única forma de “afinar el ojo” es practicar con datasets distintos, por ejemplo los disponibles en Kaggle, y registrar qué hipótesis funcionaron.</p>
+
+        <h3>Correlación</h3>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Método</th><th>Qué captura</th><th>Cuándo sirve</th></tr></thead>
+          <tbody>
+            <tr><td>Pearson</td><td>Relación lineal entre variables numéricas.</td><td>Cuando la forma es aproximadamente lineal y no dominan outliers.</td></tr>
+            <tr><td>Spearman</td><td>Relación monótona usando rangos.</td><td>Cuando la relación mantiene orden pero no es lineal.</td></tr>
+            <tr><td>Kendall Tau</td><td>Concordancia entre pares ordenados.</td><td>Muestras menores, muchos empates o análisis robusto de orden.</td></tr>
+          </tbody>
+        </table></div>
+        <p>Correlación no implica causalidad. Puede ser espuria y vale solo dentro del período y población observados. También puede mostrar redundancia entre features, pero eliminar una variable exige entender negocio y algoritmo.</p>
+
+        <h3>Herramientas y formatos</h3>
+        <p>Pandas permite la inspección fina. Herramientas de EDA automático como DataPrep o AutoViz generan perfiles, mapas de calor, distribuciones y gráficos de violín con poco código. Automatizan cálculos, no la interpretación. Para intermedios, CSV es legible e interoperable. Una serialización binaria con joblib preserva objetos y transformaciones, pero requiere el entorno correspondiente.</p>
+
+        <p class="exam-answer"><strong>Respuesta:</strong> el EDA describe estructura, calidad y comportamiento sin modificar el dato original. Revisa nulos, duplicados, inconsistencias, distribuciones, correlaciones y outliers. El informe resultante define la limpieza y aporta evidencia para el Go o No Go.</p>
+      </section>
+
+      <section class="chapter" id="features" data-title="limpieza data cleaning feature engineering características transformación escalado fechas PCA roles">
+        <div class="chapter-head">
+          <div class="chapter-number">04</div>
+          <div><h2>Limpieza e ingeniería de características</h2></div>
+        </div>
+
+        <h3>Tres conceptos que no deben mezclarse</h3>
+        <ul class="study-list">
+          <li><strong>EDA, diagnosticar:</strong> observar, cuantificar, formular hipótesis y documentar. No corregir todavía.</li>
+          <li><strong>Data cleaning, sanear:</strong> corregir o tratar nulos, duplicados, formatos, categorías y errores para obtener calidad mínima.</li>
+          <li><strong>Feature engineering, representar:</strong> crear variables que expongan patrones relevantes para el algoritmo.</li>
+        </ul>
+
+        <h3>Ejemplos de ingeniería de características</h3>
+        <ul>
+          <li>Descomponer fecha y hora en año, mes, día, hora, día de semana, fin de semana, estación y trimestre.</li>
+          <li>Codificar categorías de forma compatible con la familia de modelos.</li>
+          <li>Reescalar magnitudes para evitar que diferencias de escala dominen el aprendizaje.</li>
+          <li>Aplicar transformaciones logarítmicas a distribuciones muy asimétricas cuando tenga sentido.</li>
+          <li>Construir ratios, acumulados, ventanas temporales o interacciones basadas en conocimiento del dominio.</li>
+          <li>Eliminar redundancias o variables sin utilidad comprobada.</li>
+          <li>Reducir varias variables a componentes mediante análisis de componentes principales, PCA, cuando se acepta perder interpretabilidad directa.</li>
+        </ul>
+        <p><strong>PCA, análisis de componentes principales,</strong> combina variables correlacionadas en un número menor de componentes numéricos. Puede reducir dimensiones y cómputo, pero cada componente deja de representar una variable de negocio directa.</p>
+
+        <h3>Fuentes para crear features</h3>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Capa</th><th>Contenido</th><th>Ejemplo</th></tr></thead>
+          <tbody>
+            <tr><td>Genérica</td><td>Técnicas recurrentes en múltiples industrias.</td><td>Fechas, escalado, codificación, tratamiento de correlación.</td></tr>
+            <tr><td>Por industria</td><td>Representaciones habituales del sector.</td><td>Promociones y cohortes en comercio, señales de sensores en industria.</td></tr>
+            <tr><td>Por empresa y experiencia</td><td>Sistemas, procesos, cultura de carga e hipótesis propias del proyecto.</td><td>Una combinación que anticipa fraude o un error recurrente de una aplicación interna.</td></tr>
+          </tbody>
+        </table></div>
+
+        <div class="callout warning">
+          <strong>No saturar al algoritmo.</strong> Más columnas no significa más conocimiento. Features irrelevantes agregan almacenamiento, tiempo, riesgo de ruido y complejidad. La selección debe comparar desempeño, estabilidad, costo e interpretabilidad.
+        </div>
+
+        <h3>Selección y reducción</h3>
+        <p>Antes de entrenar puede estimarse relevancia mediante varianza, cardinalidad, correlación, información mutua o experiencia, pero la importancia real se contrasta luego del entrenamiento. Si varias features tienen peso casi nulo y al retirarlas la métrica pasa, por ejemplo, de 0,82 a 0,81, la simplificación puede ser conveniente.</p>
+        <p>Si las métricas quedan persistentemente muy por debajo de lo esperado, una hipótesis es que faltan features que describan el patrón. No es una demostración automática: también puede fallar el target, la calidad, el algoritmo, la separación de datos o la propia posibilidad predictiva.</p>
+
+        <h3>Responsabilidades superpuestas</h3>
+        <p>El ingeniero de datos realiza la preparación genérica. El científico de datos puede revisarla al elegir la familia de algoritmos, porque el tratamiento de outliers, el escalado y la reducción dependen del modelo.</p>
+
+        <p><strong>Leakage o fuga de información:</strong> ocurre cuando el entrenamiento recibe un dato que no estaría disponible al momento de predecir, o cuando información del test se filtra hacia el entrenamiento. La métrica parece mejorar, pero no representa el uso real.</p>
+
+        <p class="exam-answer"><strong>Respuesta:</strong> la ingeniería de características cambia la representación del dataset, por ejemplo descomponiendo fechas o creando ratios. Usa técnicas estadísticas, conocimiento del dominio y experiencia. Una feature se conserva si mejora desempeño, estabilidad o interpretabilidad sin introducir leakage.</p>
+      </section>
+
+      <section class="chapter" id="entrenamiento" data-title="supervisado no supervisado clasificación regresión clustering train test cross validation métricas accuracy precision recall f1 confusion">
+        <div class="chapter-head">
+          <div class="chapter-number">05</div>
+          <div><h2>Entrenamiento, validación y métricas</h2></div>
+        </div>
+
+        <h3>Las tres familias de problemas</h3>
+        <p><strong>Clasificación, regresión y clustering.</strong> Las dos primeras son familias de problemas supervisados y la tercera es no supervisada.</p>
+        <ul class="study-list">
+          <li><strong>Clasificación:</strong> aprendizaje supervisado que predice una clase discreta a partir de ejemplos con target, como fraude o no fraude.</li>
+          <li><strong>Regresión:</strong> aprendizaje supervisado que predice un valor continuo, como demanda, precio o tiempo hasta falla.</li>
+          <li><strong>Clustering:</strong> aprendizaje no supervisado que busca grupos o estructura sin una etiqueta objetivo conocida.</li>
+        </ul>
+
+        <div class="callout warning"><strong>Taxonomía alternativa.</strong> También se habla de aprendizaje supervisado, no supervisado y por refuerzo. En aprendizaje por refuerzo, un agente interactúa con un entorno y aprende a partir de recompensas o penalizaciones. Ante una pregunta por tres familias, conviene responder primero clasificación, regresión y clustering, y luego aclarar cómo se agrupan por paradigma.</div>
+
+        <h3>Por qué se habla de familias y no de un mejor algoritmo</h3>
+        <p>Los patrones y su distribución interna son invisibles antes de entrenar. Dos empresas pueden querer predecir las mismas ventas y tener columnas con los mismos nombres, pero distinto volumen, historia, concentración y distribución de casos. Por eso un algoritmo puede funcionar mejor en una y otro algoritmo de la misma familia en la otra.</p>
+        <p>La selección práctica consiste en identificar primero la familia adecuada al tipo de salida, luego entrenar y comparar varios algoritmos de esa familia con la métrica definida para el problema. AutoML automatiza buena parte de esa comparación. En el vocabulario usado en clase, las tres familias también aparecen como <strong>caracterización o clustering, clasificación y predicción o regresión</strong>.</p>
+
+        <div class="table-wrap"><table>
+          <thead><tr><th>Familia</th><th>Target</th><th>Salida</th><th>Ejemplos</th><th>Métricas típicas</th></tr></thead>
+          <tbody>
+            <tr><td>Clasificación</td><td>Sí, categórico.</td><td>Clase o probabilidad.</td><td>Fraude, churn, falla en las próximas 24 horas.</td><td>Recall, precision, F1, ROC AUC, PR AUC.</td></tr>
+            <tr><td>Regresión</td><td>Sí, numérico.</td><td>Valor continuo.</td><td>Ventas, precio, vida útil restante.</td><td>MAE, RMSE, R cuadrado, MAPE con cuidado.</td></tr>
+            <tr><td>Clustering</td><td>No.</td><td>Grupo o estructura.</td><td>Segmentos de clientes, regímenes operativos.</td><td>Silhouette, cohesión, separación y utilidad de negocio.</td></tr>
+          </tbody>
+        </table></div>
+
+        <h3>Datos de entrada en ML tradicional y Deep Learning</h3>
+        <p>Deep Learning es una rama de Machine Learning basada en redes neuronales con varias capas. Puede aprender representaciones internas a partir de datos menos estructurados. Un tensor es simplemente un arreglo numérico de una o más dimensiones, usado para representar lotes, imágenes, audio o texto codificado.</p>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Dimensión</th><th>ML tradicional</th><th>Deep Learning</th></tr></thead>
+          <tbody>
+            <tr><td>Representación usual</td><td>Matriz tabular de features ya diseñadas.</td><td>Tensores de alta dimensión.</td></tr>
+            <tr><td>Datos frecuentes</td><td>Numéricos y categóricos estructurados, luego de codificación.</td><td>Imagen, audio, texto, video, señales y también datos tabulares.</td></tr>
+            <tr><td>Features</td><td>Mayor ingeniería manual y conocimiento de dominio.</td><td>Aprende representaciones internas, aunque sigue necesitando preparación.</td></tr>
+            <tr><td>Volumen</td><td>Suele funcionar con menos datos.</td><td>Suele requerir mucho más volumen para generalizar.</td></tr>
+            <tr><td>Cómputo</td><td>Frecuentemente menor y entrenamientos más rápidos.</td><td>Frecuentemente mayor, con GPU u otros aceleradores.</td></tr>
+            <tr><td>Interpretabilidad</td><td>Muchos modelos tabulares son más fáciles de explicar.</td><td>Redes profundas suelen quedar como caja gris.</td></tr>
+          </tbody>
+        </table></div>
+
+        <p class="exam-answer"><strong>Respuesta:</strong> ML tradicional suele recibir datos estructurados ya convertidos en features, mientras Deep Learning puede aprender representaciones desde imágenes, audio y texto. Deep Learning no usa un tipo de dato exclusivo, pero normalmente necesita más volumen y cómputo. La diferencia principal es cuánto de la representación define una persona y cuánto aprende la red.</p>
+
+        <h3>Separación de datos</h3>
+        <p>El conjunto de prueba o holdout se separa antes y no participa en selección ni ajuste. Sirve como evaluación final sobre datos no vistos. Dentro del conjunto de entrenamiento se usa validación cruzada para comparar modelos e hiperparámetros. Si se mira repetidamente el test y se ajusta en función de él, deja de ser una evaluación independiente.</p>
+
+        <div class="callout blue"><strong>80/20 no es una ley.</strong> Es una proporción habitual. La división depende del volumen, la temporalidad, el desbalance, los grupos y el costo de reservar datos. En series temporales no debe romperse el orden causal.</div>
+
+        <h3>Matriz de confusión</h3>
+        <div class="table-wrap"><table>
+          <thead><tr><th></th><th>Predijo positivo</th><th>Predijo negativo</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Real positivo</strong></td><td>TP, verdadero positivo</td><td>FN, falso negativo</td></tr>
+            <tr><td><strong>Real negativo</strong></td><td>FP, falso positivo</td><td>TN, verdadero negativo</td></tr>
+          </tbody>
+        </table></div>
+
+        <div class="table-wrap"><table>
+          <thead><tr><th>Métrica</th><th>Fórmula</th><th>Interpretación</th></tr></thead>
+          <tbody>
+            <tr><td>Accuracy</td><td><span class="formula">(TP + TN) / Total</span></td><td>Proporción total de aciertos. Puede engañar cuando hay desbalance.</td></tr>
+            <tr><td>Precision</td><td><span class="formula">TP / (TP + FP)</span></td><td>De lo predicho positivo, cuánto era realmente positivo. Importa si el falso positivo es costoso.</td></tr>
+            <tr><td>Recall o sensibilidad</td><td><span class="formula">TP / (TP + FN)</span></td><td>De los positivos reales, cuántos se detectaron. Importa si omitir un positivo es grave.</td></tr>
+            <tr><td>F1</td><td><span class="formula">2 x Precision x Recall / (Precision + Recall)</span></td><td>Media armónica que equilibra precision y recall.</td></tr>
+            <tr><td>ROC AUC</td><td>Área bajo la curva ROC</td><td>La curva compara verdaderos positivos con falsos positivos al variar el umbral. El área resume qué tan bien ordena positivos por encima de negativos.</td></tr>
+            <tr><td>PR AUC</td><td>Área bajo la curva precision y recall</td><td>La curva compara precision con recall al variar el umbral. Suele ser más informativa con clase positiva escasa.</td></tr>
+          </tbody>
+        </table></div>
+
+        <h3>Métricas de regresión</h3>
+        <ul class="study-list">
+          <li><strong>MAE:</strong> promedio del valor absoluto de los errores. Se interpreta en la misma unidad del target.</li>
+          <li><strong>RMSE:</strong> raíz del promedio de errores al cuadrado. Penaliza con más fuerza los errores grandes.</li>
+          <li><strong>R cuadrado:</strong> proporción de variabilidad explicada respecto de predecir siempre el promedio. Puede ser negativa en datos nuevos.</li>
+          <li><strong>MAPE:</strong> error porcentual absoluto medio. Es intuitivo, pero falla o se distorsiona cuando los valores reales son cero o muy pequeños.</li>
+        </ul>
+
+        <h3>Cómo elegir una métrica</h3>
+        <ol>
+          <li>Definir cuál es la clase positiva y quién usa la decisión.</li>
+          <li>Asignar consecuencias a FP y FN.</li>
+          <li>Revisar prevalencia y desbalance.</li>
+          <li>Elegir métrica primaria, métricas de resguardo y umbral de operación.</li>
+          <li>Traducir el resultado a costo o valor de negocio.</li>
+        </ol>
+
+        <p><strong>Ejemplo visto en clase:</strong> sobre el mismo dataset, un algoritmo obtuvo recall de 85% y accuracy de 40%, mientras Gradient Boosting obtuvo accuracy de 81% y recall de 35%. Si el problema exige detectar la mayor cantidad de positivos reales, gana el primero. Si se hubiera elegido accuracy sin pensar el costo de error, se habría elegido Gradient Boosting. El algoritmo ganador cambia con la métrica.</p>
+        <p>AutoML redujo el conocimiento operativo necesario para entrenar y comparar muchos algoritmos. Ese conocimiento no desapareció, sino que <strong>se mudó del entrenamiento a la definición e interpretación de las métricas</strong>. El entrenamiento repetitivo está en gran medida resuelto por herramientas, pero entender qué significa éxito sigue dependiendo del problema.</p>
+
+        <h3>Cross validation</h3>
+        <p>En K fold cross validation se divide el conjunto de entrenamiento en K partes. Se entrena K veces, usando cada fold una vez para validación y el resto para entrenamiento. Así todos los registros participan en ambos roles y se obtiene una distribución de resultados, no una sola cifra afortunada.</p>
+        <p>Son habituales entre 3 y 10 folds. K mayor reduce el tamaño de cada validación y aumenta costo. La elección depende de volumen, varianza y restricciones.</p>
+
+        <ul class="study-list">
+          <li><strong>Media, lectura usada en clase:</strong> indica cuán bien o cuán mal el modelo discrimina los patrones que encontró.</li>
+          <li><strong>Desviación estándar, lectura usada en clase:</strong> indica si encontró todos los patrones. Una dispersión alta señala que algún fold contiene un comportamiento distinto y obliga a investigar su distribución.</li>
+        </ul>
+
+        <div class="callout warning"><strong>Matiz técnico.</strong> Una desviación baja demuestra estabilidad entre los folds observados, no que estén presentes todos los patrones posibles del mundo ni que el modelo los haya aprendido. La formulación anterior es la interpretación operativa enseñada en la cursada para detectar heterogeneidad, no una demostración matemática de cobertura total.</div>
+
+        <h3>Heterogeneidad de patrones</h3>
+        <p>Los patrones pueden cambiar con el tiempo o concentrarse en segmentos. Pandemia, Black Friday o un cambio de sistema son cortes que pueden justificar modelos separados. Hay que usar splits temporales o por grupos cuando el muestreo aleatorio mezclaría futuro con pasado o registros relacionados.</p>
+
+        <h3>Hiperparámetros</h3>
+        <p>Son valores configurados antes del entrenamiento que controlan complejidad, regularización, tasa de aprendizaje o estructura. Grid search prueba una grilla fija de combinaciones, random search toma combinaciones al azar y la optimización bayesiana usa resultados anteriores para elegir la siguiente prueba. El ajuste no persigue solo subir una métrica: también puede reducir cómputo, latencia o variabilidad.</p>
+
+        <p class="exam-answer"><strong>Respuesta:</strong> se reserva un test independiente y se usa cross validation dentro de entrenamiento para estimar rendimiento y estabilidad. La métrica depende del costo de error: recall si importa evitar falsos negativos, precision si importan los falsos positivos y F1 si se necesita equilibrar ambos.</p>
+      </section>
+
+      <section class="chapter" id="automl" data-title="automl pycaret tpot h2o autofeat flaml lazypredict programación genética pipeline">
+        <div class="chapter-head">
+          <div class="chapter-number">06</div>
+          <div><h2>AutoML</h2></div>
+        </div>
+
+        <p><strong>AutoML, Automated Machine Learning,</strong> reúne herramientas que automatizan partes repetitivas del entrenamiento y la comparación de modelos. Suele recibir un dataset preparado, el target, el tipo de problema, la métrica, la estrategia de validación y un presupuesto de tiempo. Como salida produce resultados comparables y uno o más pipelines candidatos. Un pipeline es una secuencia ordenada de transformaciones y modelo.</p>
+        <p>No significa que el proyecto de ML sea automático. Su primer valor suele ser generar un <strong>baseline</strong>, una referencia inicial contra la cual medir mejoras posteriores.</p>
+
+        <h3>Qué puede automatizar</h3>
+        <ul>
+          <li>Preprocesamientos y pipelines estandarizados.</li>
+          <li>Comparación de múltiples algoritmos.</li>
+          <li>Validación cruzada y registro de métricas.</li>
+          <li>Búsqueda de hiperparámetros.</li>
+          <li>Selección o generación de features en algunas herramientas.</li>
+          <li>Reportes, gráficos y exportación de modelos, código y resultados.</li>
+        </ul>
+
+        <h3>Qué no delega</h3>
+        <p>Definición del problema, acceso y calidad, prevención de leakage, métrica adecuada, diseño del split, validación con expertos, análisis de sesgos, restricciones de producción, monitoreo y responsabilidad.</p>
+
+        <div class="table-wrap"><table>
+          <thead><tr><th>Herramienta</th><th>Qué hace</th><th>Uso pragmático</th></tr></thead>
+          <tbody>
+            <tr><td>PyCaret</td><td>Orquesta algoritmos de librerías existentes y permite comparar modelos con pocas líneas.</td><td>Baseline rápido y experimentación guiada.</td></tr>
+            <tr><td>TPOT</td><td>Usa programación genética: crea, combina y evalúa pipelines candidatos, conserva los mejores y repite la búsqueda. Permite fijar un presupuesto de tiempo.</td><td>Exporta código basado en librerías estándar y no necesita TPOT durante la inferencia.</td></tr>
+            <tr><td>H2O AutoML</td><td>Compara modelos, arma ensambles, combinaciones de varios modelos, y muestra un ranking o leaderboard junto con métricas, matriz de confusión, heatmaps y explicaciones de contribución de variables, como SHAP.</td><td>Experimentación más completa, con ecosistema empresarial.</td></tr>
+            <tr><td>AutoFeat</td><td>Generación y selección automática de características para datos tabulares.</td><td>Proponer transformaciones, siempre revisando sentido y leakage.</td></tr>
+            <tr><td>FLAML</td><td>AutoML liviano con presupuesto de tiempo o recursos para clasificación, regresión y series temporales.</td><td>Obtener una primera solución con costo controlado.</td></tr>
+            <tr><td>LazyPredict</td><td>Compara rápidamente modelos básicos de clasificación o regresión.</td><td>Baseline preliminar, no producto final.</td></tr>
+          </tbody>
+        </table></div>
+
+        <h3>Criterios para seleccionar herramienta</h3>
+        <p>Actividad del proyecto, licencia, reproducibilidad, integración, seguridad, capacidad de exportar, soporte de tipos de problema, observabilidad, costo y dependencia en producción. Una herramienta open source abandonada puede ser adecuada para aprender, pero riesgosa como base corporativa.</p>
+
+        <p><strong>TPOT y el factor CISO:</strong> las empresas suelen tener listas distintas de librerías permitidas en desarrollo, testing, UAT y producción. TPOT puede utilizarse en un ambiente de desarrollo más flexible y exportar un pipeline basado en librerías estándar, sin necesitar TPOT en producción. Esto evita que el orquestador de AutoML tenga que ser aprobado para el entorno productivo y fue señalado en clase como una ventaja concreta de su exportación.</p>
+
+        <p class="exam-answer"><strong>Respuesta:</strong> AutoML automatiza comparación de algoritmos, pipelines, validación y ajuste. No define el problema, no corrige datos deficientes y no decide métricas, sesgos aceptables ni restricciones productivas.</p>
+      </section>
+
+      <section class="chapter" id="regularizacion" data-title="overfitting underfitting regularización generalización bias variance ridge lasso early stopping dropout augmentation">
+        <div class="chapter-head">
+          <div class="chapter-number">07</div>
+          <div><h2>Generalización, sobreajuste y regularización</h2></div>
+        </div>
+
+        <p><strong>Generalizar</strong> significa mantener un desempeño razonable sobre datos nuevos, no vistos durante el entrenamiento. Si el modelo no aprende suficiente, hay underfitting. Si se adapta demasiado al entrenamiento y falla afuera, hay overfitting. La regularización reúne técnicas que controlan esa adaptación. Bias es el error sistemático de un modelo demasiado rígido, mientras variance es su sensibilidad a los cambios de muestra.</p>
+
+        <ul class="study-list">
+          <li><strong>Underfitting, modelo demasiado simple:</strong> error alto en entrenamiento y validación. No captura la señal suficiente y suele asociarse con sesgo alto.</li>
+          <li><strong>Buen balance:</strong> errores bajos y cercanos, estabilidad razonable y comportamiento consistente en producción.</li>
+          <li><strong>Overfitting, modelo que memoriza:</strong> error muy bajo en entrenamiento y peor en validación o producción. Suele asociarse con varianza alta.</li>
+        </ul>
+
+        <h3>Dos fuentes frecuentes de sobreajuste</h3>
+        <ol>
+          <li><strong>Dataset sesgado o poco representativo:</strong> el modelo aprende bien los pocos patrones disponibles, pero el mundo real contiene otros.</li>
+          <li><strong>Capacidad o entrenamiento mal calibrados:</strong> el modelo se adapta al detalle y ruido, o intenta representar demasiados patrones con una arquitectura y presupuesto inadecuados.</li>
+        </ol>
+
+        <h3>Redes neuronales y backpropagation</h3>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Concepto</th><th>Descripción</th></tr></thead>
+          <tbody>
+            <tr><td>Arquitectura</td><td>Capa de entrada, una o más capas ocultas y capa de salida. Las conexiones tienen pesos que determinan cuánto se propaga cada señal.</td></tr>
+            <tr><td>Backpropagation</td><td>Calcula el error en la salida y lo propaga hacia atrás para ajustar los pesos. El proceso se repite sobre los ejemplos hasta alcanzar un criterio de parada.</td></tr>
+            <tr><td>Capacidad</td><td>Más unidades o capas permiten representar más patrones, pero aumentan cómputo, tiempo de estabilización y riesgo de sobreajuste.</td></tr>
+            <tr><td>Interferencia</td><td>Al ajustar pesos para una clase puede empeorar otra ya aprendida. El ejemplo de clase usó letras manuscritas como B y D, P y Q, M y N.</td></tr>
+            <tr><td>Redes encadenadas</td><td>Una primera red reconoce grupos o metaconceptos y otra distingue las clases confundibles dentro del grupo. Reduce patrones por subred, pero no reemplaza validación ni regularización.</td></tr>
+          </tbody>
+        </table></div>
+
+        <p>La definición intuitiva usada por el profesor es que una red neuronal funciona como una <strong>base de datos sofisticada</strong>: no guarda filas, sino la abstracción de los patrones en sus pesos. Entrenar significa encontrar los pesos o umbrales de activación que permiten propagar la señal correcta y estabilizar la red. El ejemplo de las sillas muestra la idea de abstracción: una persona no memoriza todas las sillas vistas, conserva rasgos generales que le permiten reconocer una nueva.</p>
+        <p>La capacidad de patrones es finita para una arquitectura y un presupuesto dados. Agregar neuronas o capas amplía capacidad, pero el tiempo necesario para estabilizar la red puede crecer de forma muy fuerte y, en la explicación de clase, exponencial. Por eso se mostró el encadenamiento de redes: una primera red reconoce metaconceptos, por ejemplo “P o Q”, y otra red especializada resuelve esa distinción con menos patrones simultáneos.</p>
+        <p><strong>Definición empírica usada en clase:</strong> Deep Learning combina buenas prácticas de preprocesamiento con un encadenamiento particular de una o más redes neuronales para obtener resultados precisos. Técnicamente, la definición más general es el aprendizaje con redes neuronales de múltiples capas que construyen representaciones jerárquicas. La primera explica el recorrido histórico de la cursada, la segunda es la definición estándar.</p>
+
+        <p>Una métrica extremadamente alta no prueba sobreajuste, pero debe activar revisión. Comparar entrenamiento, validación, cross validation y producción permite distinguir un problema fácil de una falsa seguridad.</p>
+
+        <h3>Compromiso bias y variance</h3>
+        <p>Un modelo muy simple hace supuestos fuertes y tiene bias alto. Uno muy flexible responde demasiado a cambios de muestra y tiene variance alta. Regularizar significa introducir restricciones o mecanismos que favorecen soluciones que generalizan, aceptando a veces una pequeña pérdida en entrenamiento.</p>
+
+        <div class="table-wrap"><table>
+          <thead><tr><th>Técnica</th><th>Mecanismo</th><th>Efecto o riesgo</th></tr></thead>
+          <tbody>
+            <tr><td>L2, Ridge</td><td>Penaliza pesos grandes al cuadrado.</td><td>Reduce magnitudes sin llevar muchas exactamente a cero.</td></tr>
+            <tr><td>L1, Lasso</td><td>Penaliza valor absoluto de pesos.</td><td>Puede llevar coeficientes a cero y seleccionar variables.</td></tr>
+            <tr><td>Early stopping</td><td>Detiene cuando validación deja de mejorar.</td><td>Evita seguir ajustando ruido.</td></tr>
+            <tr><td>Dropout</td><td>Desactiva unidades aleatoriamente durante entrenamiento.</td><td>Reduce coadaptación en redes neuronales.</td></tr>
+            <tr><td>Data augmentation</td><td>Crea variaciones plausibles o datos sintéticos.</td><td>Aumenta diversidad, siempre que preserve la etiqueta y la realidad.</td></tr>
+            <tr><td>Simplificación</td><td>Menos profundidad, parámetros o features.</td><td>Ajusta capacidad al volumen y complejidad real.</td></tr>
+            <tr><td>Más datos representativos</td><td>Amplía cobertura de la distribución.</td><td>Mejor que repetir más veces los mismos sesgos.</td></tr>
+          </tbody>
+        </table></div>
+
+        <div class="callout warning"><strong>Data augmentation no es magia.</strong> Datos sintéticos pobres pueden amplificar sesgos, duplicar ruido o crear situaciones imposibles. Deben validarse contra reglas físicas, estadísticas y de negocio.</div>
+
+        <h3>Señal de producción</h3>
+        <p>Si un modelo obtiene 96% en entrenamiento, 95% en test y cae a 75% al desplegar, el test puede no representar el entorno, puede haber leakage, puede haber cambiado la distribución o puede existir sobreajuste. Es una señal para investigar, no un diagnóstico único.</p>
+
+        <p class="exam-answer"><strong>Respuesta:</strong> sobreajuste es obtener buen rendimiento en entrenamiento y peor rendimiento en datos nuevos por haber aprendido ruido o detalles específicos de la muestra. Se reduce con L1, L2, early stopping, dropout, augmentation, menor complejidad o más datos representativos.</p>
+      </section>
+
+      <section class="chapter" id="xai" data-title="explicabilidad interpretabilidad XAI SHAP LIME integrated gradients sesgos fairness caja negra blanca gris">
+        <div class="chapter-head">
+          <div class="chapter-number">08</div>
+          <div><h2>Explicabilidad y detección de sesgos</h2></div>
+        </div>
+
+        <h3>De caja negra a explicación</h3>
+        <p><strong>XAI, Explainable Artificial Intelligence,</strong> reúne técnicas para entender qué variables influyeron en un modelo y por qué produjo una salida. Un modelo es interpretable de forma inherente cuando su funcionamiento puede inspeccionarse directamente, como un árbol pequeño. En una caja negra, la explicación suele construirse después de predecir mediante una técnica post hoc, como SHAP.</p>
+        <p>Explicar no convierte automáticamente al modelo en correcto, causal o justo. Solo aporta evidencia sobre su comportamiento.</p>
+
+        <ul class="study-list">
+          <li><strong>Explicación global:</strong> muestra qué variables y relaciones dominan el comportamiento promedio del modelo.</li>
+          <li><strong>Explicación local:</strong> muestra por qué una observación particular recibió esa salida.</li>
+          <li><strong>Explicación contrafáctica:</strong> muestra qué cambio mínimo en la entrada habría modificado la decisión.</li>
+        </ul>
+
+        <h3>Herramientas mencionadas</h3>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Técnica</th><th>Uso</th><th>Cuidado</th></tr></thead>
+          <tbody>
+            <tr><td>SHAP</td><td>Reparte la diferencia entre la predicción y un valor de referencia entre las variables, usando valores de Shapley provenientes de teoría de juegos.</td><td>Puede ser costoso y la interpretación depende de la distribución de referencia.</td></tr>
+            <tr><td>LIME</td><td>Aproxima localmente el modelo con uno interpretable.</td><td>Puede variar con muestreo y parámetros.</td></tr>
+            <tr><td>Integrated Gradients</td><td>Atribuye importancia en redes a partir de gradientes integrados desde una referencia.</td><td>La referencia elegida afecta la explicación.</td></tr>
+            <tr><td>Importancia de árbol</td><td>Resume contribución en modelos basados en árboles.</td><td>Algunas importancias favorecen variables de alta cardinalidad.</td></tr>
+          </tbody>
+        </table></div>
+
+        <h3>Por qué XAI importa</h3>
+        <ul>
+          <li>Permite revisar si el modelo usa señales plausibles o atajos.</li>
+          <li>Facilita la validación con el owner y los expertos de dominio.</li>
+          <li>Ayuda a descubrir reglas de negocio y formalizar conocimiento tácito.</li>
+          <li>Soporta auditoría, reclamos, mejora y cumplimiento.</li>
+          <li>Guía nuevas iteraciones de features y pruebas de sesgo.</li>
+        </ul>
+
+        <h3>ML, dinámica de sistemas y conocimiento</h3>
+        <p>La dinámica de sistemas de Jay Forrester y el pensamiento sistémico difundido por Peter Senge modelan interacciones y retroalimentaciones entre procesos. Un modelo de ML puede predecir sin representar esas relaciones. Las explicaciones validadas por expertos deben documentarse como conocimiento o reglas de negocio, pero no prueban causalidad.</p>
+
+        <h3>Sesgo en datos y modelo</h3>
+        <p>Los datos históricos reflejan decisiones y desigualdades anteriores. Un algoritmo puede reproducirlas o amplificarlas. También puede usar un proxy, una variable que revela indirectamente otra, como el código postal respecto del nivel socioeconómico, aunque se elimine una variable sensible. Por eso no alcanza con mirar importancia sobre entrenamiento.</p>
+
+        <h3>Proceso de prueba</h3>
+        <ol>
+          <li>Identificar grupos, variables sensibles y daños posibles.</li>
+          <li>Revisar representación, etiquetas, calidad y proxies.</li>
+          <li>Construir conjuntos de prueba y pares contrafácticos.</li>
+          <li>Comparar tasas de error y resultados entre grupos.</li>
+          <li>Analizar explicaciones locales y globales.</li>
+          <li>Mitigar en datos, features, objetivo, umbral o algoritmo.</li>
+          <li>Documentar límites, pruebas y decisión residual.</li>
+          <li>Monitorear en producción, porque la equidad también deriva.</li>
+        </ol>
+
+        <div class="callout danger"><strong>Caso de crédito.</strong> Un modelo asignaba peso a sexo y raza y terminaba discriminando. El algoritmo no posee intención, pero el equipo sigue siendo responsable por dataset, objetivo, pruebas, despliegue y consecuencias.</div>
+
+        <h3>XAI no es fairness</h3>
+        <p>Una explicación muestra cómo decidió. Fairness evalúa si el comportamiento satisface un criterio normativo entre grupos. Se relacionan, pero no son equivalentes. Un modelo puede ser explicable y discriminatorio, o menos interpretable y mostrar mejores métricas de equidad.</p>
+
+        <p class="exam-answer"><strong>Respuesta:</strong> XAI atribuye influencia a las variables de forma global o local. Las pruebas de sesgo comparan predicciones, errores y resultados entre grupos o contrafácticos. Una explicación puede ayudar a detectar un proxy, pero no demuestra fairness.</p>
+      </section>
+
+      <section class="chapter" id="mlops" data-title="MLOps producción latencia seguridad computo logs trazabilidad drift data concept prediction reentrenamiento decomiso MLflow">
+        <div class="chapter-head">
+          <div class="chapter-number">09</div>
+          <div><h2>Producción, MLOps y drift</h2></div>
+        </div>
+
+        <p><strong>MLOps</strong> es el conjunto de prácticas para versionar, desplegar, observar y mantener modelos de Machine Learning en producción. Conecta el trabajo de datos y modelado con ingeniería de software y operación. No es una herramienta específica ni empieza después de entrenar.</p>
+
+        <h3>Por qué un buen modelo no llega a producción</h3>
+        <p><strong>Cifra citada en clase:</strong> alrededor del 40% de los proyectos que llegan validados nunca alcanzan producción por errores u horrores de gestión. No se presentó como una estadística universal, sino como advertencia para no separar el modelado de la planificación productiva.</p>
+        <ul class="study-list">
+          <li><strong>Latencia:</strong> la aplicación que lo integra ya tiene un contrato de respuesta. El modelo debe cumplirlo con carga real.</li>
+          <li><strong>Seguridad:</strong> datos, dependencias, acceso, interfaz, respuestas y artefactos requieren controles.</li>
+          <li><strong>Cómputo:</strong> el entrenamiento viable no garantiza inferencia viable por costo, memoria, aceleradores o concurrencia.</li>
+        </ul>
+
+        <p>Latencia, seguridad, costo, integración y capacidad de cómputo deben evaluarse durante la viabilidad, no después del entrenamiento.</p>
+
+        <h3>Qué debe registrarse</h3>
+        <ul>
+          <li>Versión de código, modelo, dataset, features y configuración.</li>
+          <li>Fecha, parámetros, hiperparámetros, métricas y artefactos del experimento.</li>
+          <li>Entradas y salidas productivas con controles de privacidad.</li>
+          <li>Latencia, errores, uso de memoria, CPU o GPU y disponibilidad.</li>
+          <li>Distribuciones de entrada y salida, y desempeño cuando llega el valor real o ground truth.</li>
+          <li>Decisiones de aprobación, reentrenamiento, reversión y decomiso.</li>
+        </ul>
+
+        <h3>MLflow y versionado</h3>
+        <p>MLflow aparece como herramienta para registrar experimentos, parámetros, métricas y artefactos, comparar corridas y reconstruir modelos. Git versiona bien código, pero los datasets suelen necesitar estrategias específicas por su tamaño. La trazabilidad completa vincula código, datos, entorno y ejecución.</p>
+
+        <h3>Tipos de drift</h3>
+        <p>Drift significa que el entorno productivo dejó de parecerse al representado durante el desarrollo. El cambio puede estar en las entradas, en la relación con el target, en las predicciones o en el propio pipeline.</p>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Tipo</th><th>Qué cambia</th><th>Ejemplo</th></tr></thead>
+          <tbody>
+            <tr><td>Data drift</td><td>Distribución de las variables de entrada.</td><td>Cambian edades, consumos, sensores o canales.</td></tr>
+            <tr><td>Concept drift</td><td>Relación entre las entradas y el target.</td><td>El mismo comportamiento deja de significar fraude.</td></tr>
+            <tr><td>Prediction drift</td><td>Distribución de predicciones.</td><td>Sube de golpe la tasa de positivos.</td></tr>
+            <tr><td>Cambio en la fuente</td><td>Pipeline o significado del dato.</td><td>Un sensor cambia unidades o una categoría se recodifica.</td></tr>
+          </tbody>
+        </table></div>
+
+        <p>Prediction drift es una alarma, no un diagnóstico. Puede indicar cambio real, data drift, concept drift o un error de pipeline. Reentrenar automáticamente ante cualquier cambio puede empeorar el sistema. Primero se diagnostica.</p>
+
+        <h3>Cierre responsable</h3>
+        <p>El decomiso incluye retirar servicios de predicción y tareas automáticas, archivar versiones y evidencia, resolver dependencias, comunicar a usuarios, revisar obligaciones de retención y registrar lecciones. Solo entonces el proyecto queda cerrado.</p>
+
+        <p class="exam-answer"><strong>Respuesta:</strong> MLOps versiona código, datos, modelos y configuración, automatiza despliegues y registra operación. El monitoreo mide drift de entradas, relación con el target, predicciones y desempeño para decidir si corresponde corregir el pipeline, reentrenar, revertir o decomisar.</p>
+      </section>
+
+      <section class="chapter" id="vibe" data-title="vibe coding generación código LLM patrones amnesia tokens Antigravity MCP Dunning Kruger">
+        <div class="chapter-head">
+          <div class="chapter-number">10</div>
+          <div><h2>Vibe coding y supervisión humana</h2></div>
+        </div>
+
+        <p><strong>Vibe coding</strong> es el desarrollo de software asistido por modelos generativos mediante instrucciones en lenguaje natural. Un modelo generativo produce texto o código continuando patrones aprendidos. Procesa el contenido en tokens, fragmentos de palabras, signos o código que también determinan el costo y el límite de contexto.</p>
+        <p>La analogía usada en clase es la del <strong>ilusionista</strong>: el resultado hace pensar que hay comprensión detrás de la pantalla, pero el mecanismo sigue siendo probabilístico. Que el código compile no demuestra que la jerarquía, los contratos, la seguridad o la mantenibilidad sean correctos.</p>
+
+        <h3>Flujo de trabajo</h3>
+        <ol>
+          <li>Cargar el documento base o el corpus en NotebookLM y extraer conceptos, preguntas y referencias.</li>
+          <li>Actualizar y contrastar la búsqueda con Gemini y Consensus, preferentemente sobre papers en inglés.</li>
+          <li>Extraer dataset, variables, ecuaciones, arquitectura y pipeline.</li>
+          <li>Crear un documento técnico en Markdown como especificación.</li>
+          <li>Dar al editor asistido reglas, contexto y criterios de prueba.</li>
+          <li>Generar una primera versión ejecutable con datos sintéticos.</li>
+          <li>Registrar decisiones, errores y ejecuciones en una bitácora como <code>memory.md</code>.</li>
+          <li>Leer, probar y refinar el código con conocimiento de ingeniería.</li>
+        </ol>
+
+        <h3>Ejemplo mostrado en clase</h3>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Etapa</th><th>Aplicación</th></tr></thead>
+          <tbody>
+            <tr><td>Investigación</td><td>Papers sobre generación de registros sónicos sintéticos DTC y DTS para Oil and Gas.</td></tr>
+            <tr><td>Especificación</td><td>Documento Markdown con 13 variables de entrada, 2 targets, ecuaciones, transformaciones e hiperparámetros.</td></tr>
+            <tr><td>Implementación</td><td>Escalado MinMax y una red con dos capas ocultas de 13 neuronas, activación sigmoide y backpropagation.</td></tr>
+            <tr><td>Control</td><td>Generación de datos sintéticos, validaciones y registro de decisiones en <code>memory.md</code>.</td></tr>
+          </tbody>
+        </table></div>
+
+        <h3>Riesgos</h3>
+        <ul class="study-list">
+          <li><strong>Amnesia de código:</strong> el equipo deja de entender estructura y decisiones, y solo puede modificar el sistema volviendo a pedirle todo al modelo.</li>
+          <li><strong>Promedio funcional:</strong> el código generado suele reflejar patrones frecuentes. Puede compilar sin ser eficiente, seguro, mantenible o bien diseñado.</li>
+          <li><strong>Colapso de diversidad:</strong> si futuros modelos se entrenan con código producido por modelos anteriores, se acentúa la media y disminuye la desviación. El resultado tiende a soluciones cada vez más parecidas, con menos alternativas de diseño y menor evolución.</li>
+          <li><strong>Costo de contexto:</strong> pasar repositorios enteros consume tokens, expone información y vuelve impreciso el alcance. El problema señalado no es principalmente el precio unitario del token, sino la cantidad necesaria para comunicar todo el código y sus relaciones.</li>
+          <li><strong>Falsa confianza:</strong> la analogía con Dunning Kruger advierte que una respuesta segura no demuestra comprensión ni corrección.</li>
+        </ul>
+
+        <p>En la experiencia relatada por el profesor, el costo de combinar programadores senior con grandes consumos de tokens igualaba o superaba el esquema previo. La productividad aparece cuando se reduce el contexto necesario y se usa a las personas para diseñar y revisar, no cuando se entrega el repositorio completo al modelo.</p>
+
+        <h3>Patrones como compresión de contexto</h3>
+        <p>Un patrón es una solución probada a un problema recurrente. La propuesta de clase es trabajar como un <strong>embudo, de lo general a lo particular</strong>: primero arquitectura, luego patrones de diseño, módulos y contratos, y recién después código. Ese scaffolding o andamiaje permite pedir cambios acotados, reducir contexto y evaluar el resultado. Para código legado, primero puede ser necesario refactorizar y documentar límites.</p>
+        <p>La frase fuerte de la clase fue: <strong>la única forma de que el vibe coding funcione es pasarle los patrones con los que tiene que trabajar</strong>. No es una condición lógica absoluta, sino una regla de ingeniería para obtener software menos promedio, más modular y revisable.</p>
+
+        <h3>Dunning Kruger y sesgo heredado</h3>
+        <p>El efecto Dunning Kruger describe la tendencia a sobreestimar el propio dominio cuando el conocimiento es superficial. El caso recordatorio es el ladrón que se puso jugo de limón en la cara porque creyó que eso lo volvería invisible para las cámaras. Su error no era falta de seguridad, sino una explicación falsa sostenida con certeza.</p>
+        <p>La conexión con los LLM es que suelen responder con tono seguro aunque la respuesta sea incompleta o incorrecta. La clase llama <strong>sesgo heredado</strong> al riesgo de que la persona adopte esa certeza como propia. El antídoto es conocimiento de base suficiente para interpelar al modelo, repreguntar, comparar alternativas y revisar el resultado.</p>
+
+        <div class="table-wrap"><table>
+          <thead><tr><th>Nivel</th><th>Decisión humana</th><th>Ayuda del modelo</th></tr></thead>
+          <tbody>
+            <tr><td>Problema</td><td>Objetivo, restricciones, riesgo y prueba de éxito.</td><td>Explorar alternativas y preguntas.</td></tr>
+            <tr><td>Arquitectura</td><td>Patrones, límites, contratos, seguridad y datos.</td><td>Proponer opciones y una estructura inicial.</td></tr>
+            <tr><td>Implementación</td><td>Criterios de calidad y aceptación.</td><td>Generar, refactorizar y documentar.</td></tr>
+            <tr><td>Verificación</td><td>Resultados esperados, pruebas, revisión y aprobación.</td><td>Ejecutar controles y sugerir casos.</td></tr>
+          </tbody>
+        </table></div>
+
+        <h3>Herramientas citadas</h3>
+        <p>NotebookLM para consultar un corpus, Gemini y Consensus para investigación, Antigravity como entorno de generación y MCP como protocolo de integración.</p>
+
+        <p class="exam-answer"><strong>Respuesta:</strong> vibe coding acelera la escritura, pero puede producir amnesia de código, errores no detectados y alto consumo de contexto. Se controla con arquitectura explícita, módulos pequeños, bitácora, pruebas, revisión del código y aprobación humana.</p>
+      </section>
+
+      <section class="chapter" id="rag" data-title="RAG retrieval augmented generation bases vectoriales embeddings cosine euclidean atención alucinación chunking trazabilidad LLM">
+        <div class="chapter-head">
+          <div class="chapter-number">11</div>
+          <div><h2>RAG, LLM y bases vectoriales</h2></div>
+        </div>
+
+        <p>Un <strong>LLM, Large Language Model,</strong> es un modelo entrenado con grandes cantidades de texto para predecir tokens y generar una continuación. Recibe un prompt, la entrada con instrucciones y contexto, y produce una respuesta. No funciona como una base de datos ni garantiza que una afirmación sea verdadera.</p>
+        <p><strong>RAG, Retrieval Augmented Generation,</strong> combina recuperación y generación. Busca fragmentos en un corpus, colección de documentos, y los agrega al prompt del LLM para que responda con esa evidencia.</p>
+        <p>Cada fragmento o chunk puede guardarse junto con metadata, como fuente, fecha y permisos. Un embedding lo representa como un vector numérico para buscar contenido semánticamente cercano.</p>
+
+        <h3>Las tres limitaciones del LLM y las tres ventajas de RAG</h3>
+        <ol class="study-list">
+          <li><strong>Fine tuning costoso:</strong> especializar y mantener un modelo requiere datos, cómputo y un nuevo proceso de ajuste. <strong>RAG:</strong> se pone a punto con mucho menos cómputo porque incorpora conocimiento mediante documentos e índice.</li>
+          <li><strong>Obsolescencia:</strong> el conocimiento guardado en los pesos queda atrasado. <strong>RAG:</strong> se actualiza cambiando documentos y reindexando, sin volver a entrenar todo el modelo.</li>
+          <li><strong>Opacidad:</strong> es difícil reconstruir por qué los pesos produjeron una respuesta. <strong>RAG:</strong> permite trazar qué fragmentos y documentos fueron recuperados.</li>
+        </ol>
+
+        <h3>Pipeline básico</h3>
+        <ol class="study-list">
+          <li>Ingestar documentos confiables.</li>
+          <li>Limpiar, dividir en fragmentos o chunks y agregar metadata.</li>
+          <li>Convertir los chunks en embeddings.</li>
+          <li>Indexar los vectores.</li>
+          <li>Recuperar los vecinos relevantes para la consulta.</li>
+          <li>Generar la respuesta con contexto y fuentes.</li>
+        </ol>
+
+        <h3>Embeddings y similitud</h3>
+        <p>Un embedding representa contenido en un vector donde cercanía pretende capturar similitud semántica. La consulta se embebe con el mismo modelo y se buscan vecinos mediante similitud coseno, producto interno o distancia euclídea. PCA puede visualizar en pocas dimensiones, pero no forma parte necesaria de la búsqueda.</p>
+        <p>La similitud coseno compara la orientación de dos vectores, la distancia euclídea mide la distancia recta entre ellos y el producto interno combina orientación y magnitud. La medida correcta depende de cómo fue entrenado y normalizado el modelo de embeddings.</p>
+
+        <h3>Por qué la base vectorial siempre responde</h3>
+        <p>La cadena argumental enseñada en clase es la siguiente:</p>
+        <ol class="study-list">
+          <li>Una consulta SQL exacta puede no devolver filas. Una búsqueda vectorial es difusa: ordena los fragmentos por cercanía semántica.</li>
+          <li>El índice siempre puede devolver el vector más cercano, aunque ese vecino siga siendo poco relevante.</li>
+          <li>No existe un punto de corte universal y verificado que separe una respuesta correcta de una incorrecta. Un umbral elegido sin evaluación para ese sistema es arbitrario.</li>
+          <li>Por eso, en la formulación de la cátedra, la base vectorial siempre responde y, si lo recuperado no es lo que se necesitaba, se lo llama alucinación.</li>
+        </ol>
+        <p><strong>Matiz técnico:</strong> en una implementación real sí pueden configurarse umbrales, abstención, filtros y un segundo ordenamiento. Eso reduce recuperaciones malas, pero ningún valor garantiza verdad para todas las consultas. Además, conviene distinguir recuperación irrelevante de alucinación generativa: la base recupera y el LLM redacta.</p>
+
+        <h3>Por qué usar RAG</h3>
+        <ul>
+          <li>Actualiza conocimiento cambiando documentos e índice, sin reentrenar todo el LLM.</li>
+          <li>Restringe el contexto a fuentes empresariales.</li>
+          <li>Permite citar y auditar documentos recuperados.</li>
+          <li>Reduce costo frente a ciertos ajustes o entrenamientos.</li>
+          <li>Se integra como herramienta dentro de agentes y flujos.</li>
+        </ul>
+
+        <h3>Limitaciones</h3>
+        <p>RAG no garantiza corrección. Puede fallar por documentos malos, fragmentación inadecuada, embeddings poco aptos, consulta ambigua, metadata ausente, una cantidad incorrecta de resultados recuperados, llamada top K, pérdida de contexto, prompt deficiente o generación que ignora la evidencia. Deben evaluarse tanto la recuperación como la respuesta final.</p>
+
+        <h3>Atención</h3>
+        <p>El mecanismo de atención pondera qué tokens del contexto son relevantes para cada token procesado y permitió modelar dependencias largas de forma paralelizable. No equivale a comprensión humana, aunque produzca texto coherente.</p>
+
+        <h3>RAG frente a fine tuning</h3>
+        <p>Fine tuning es un entrenamiento adicional que modifica pesos o adaptadores de un modelo para especializar su comportamiento. RAG no modifica el modelo: cambia el contexto que recibe en cada consulta.</p>
+        <div class="table-wrap"><table>
+          <thead><tr><th>RAG</th><th>Fine tuning</th></tr></thead>
+          <tbody>
+            <tr><td>Inyecta conocimiento en tiempo de consulta.</td><td>Modifica pesos o adaptadores del modelo.</td></tr>
+            <tr><td>Es apropiado para corpus cambiante y trazable.</td><td>Es apropiado para conducta, formato o especialización estable.</td></tr>
+            <tr><td>Depende de calidad de recuperación y contexto.</td><td>Depende de datos de ajuste y puede olvidar o sesgar.</td></tr>
+            <tr><td>Se actualiza reindexando.</td><td>Se actualiza con otro proceso de entrenamiento.</td></tr>
+          </tbody>
+        </table></div>
+
+        <p><strong>Trilogía empresarial planteada en clase:</strong> Machine Learning o Deep Learning detecta y predice patrones, RAG aporta conocimiento documental actualizable y trazable, y los agentes ejecutan tareas coordinadas por un orquestador como n8n. La combinación fue presentada como el estado del arte para aplicaciones empresariales.</p>
+
+        <p class="exam-answer"><strong>Respuesta:</strong> RAG recupera fragmentos mediante embeddings y los agrega al contexto del LLM. El corpus se actualiza reindexando, sin reentrenar el modelo. Deben evaluarse por separado recuperación, fidelidad a las fuentes, citas, latencia y seguridad.</p>
+      </section>
+
+      <section class="chapter" id="seguridad" data-title="seguridad LLM brechas vulnerabilidades prompt injection datos sensibles poisoning supply chain output agency system prompt vector embeddings misinformation consumption OWASP">
+        <div class="chapter-head">
+          <div class="chapter-number">12</div>
+          <div><h2>Principales brechas de seguridad en LLM</h2></div>
+        </div>
+
+        <h3>Las cinco que hay que nombrar primero</h3>
+        <ol class="study-list">
+          <li><strong>Prompt injection:</strong> una entrada directa o un contenido externo introduce instrucciones que cambian el comportamiento previsto. Puede revelar datos, alterar decisiones o disparar herramientas.</li>
+          <li><strong>Divulgación de información sensible:</strong> el sistema expone PII, información personal identificable, secretos, datos empresariales, fragmentos de entrenamiento, contexto de otros usuarios o credenciales.</li>
+          <li><strong>Envenenamiento y cadena de suministro:</strong> datos, embeddings, modelos, adaptadores, dependencias o repositorios comprometidos insertan sesgos, puertas traseras o código malicioso.</li>
+          <li><strong>Manejo inseguro de salidas:</strong> la aplicación confía en texto generado y lo ejecuta o renderiza sin validar, habilitando inyección de comandos, SQL, XSS o acciones no previstas.</li>
+          <li><strong>Agencia excesiva:</strong> el modelo recibe más herramientas, permisos o autonomía que la necesaria. Una alucinación o inyección puede producir una acción real dañina.</li>
+        </ol>
+
+        <div class="callout warning"><strong>El LLM no es un control de seguridad.</strong> Un prompt no reemplaza autorización, validación, aislamiento ni permisos mínimos. Los controles críticos deben ser determinísticos y externos al modelo.</div>
+
+        <p><strong>Caso OpenClaw citado en clase:</strong> durante 15 a 20 días fue adoptado con entusiasmo como asistente capaz de planificar y orquestar tareas, hasta que se hicieron visibles sus agujeros de seguridad. La moraleja no es evitar agentes, sino desplegarlos dentro de asistentes y orquestadores controlados, con permisos acotados y acciones sensibles sujetas a aprobación.</p>
+
+        <h3>OWASP Top 10 para aplicaciones de LLM, edición 2025</h3>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Riesgo</th><th>Qué puede pasar</th><th>Defensa principal</th></tr></thead>
+          <tbody>
+            <tr><td>LLM01 Prompt Injection</td><td>Instrucciones hostiles directas o escondidas en web, archivos, imágenes o RAG desvían al modelo.</td><td>Tratar entradas y contenido recuperado como no confiables, aislar instrucciones, limitar herramientas y validar acciones.</td></tr>
+            <tr><td>LLM02 Sensitive Information Disclosure</td><td>Fuga de información personal identificable, propiedad intelectual, secretos o información entre usuarios.</td><td>Minimizar los datos enviados, clasificarlos, ocultar información sensible, controlar accesos y nunca poner secretos en prompts.</td></tr>
+            <tr><td>LLM03 Supply Chain</td><td>Modelo, dataset, paquete, plugin o proveedor comprometido.</td><td>Verificar origen y firmas, inventariar componentes, fijar versiones y evaluar terceros.</td></tr>
+            <tr><td>LLM04 Data and Model Poisoning</td><td>Datos de entrenamiento, fine tuning o embeddings manipulados alteran salidas.</td><td>Curar datos, limitar permisos de escritura, validar, versionar, detectar anomalías y poder revertir cambios.</td></tr>
+            <tr><td>LLM05 Improper Output Handling</td><td>La salida se usa como código, HTML, SQL o comando sin validar.</td><td>Validar la estructura, parametrizar consultas, neutralizar caracteres peligrosos y separar texto de ejecución.</td></tr>
+            <tr><td>LLM06 Excessive Agency</td><td>El modelo ejecuta acciones de demasiado impacto o alcance.</td><td>Dar permisos mínimos, limitar acciones posibles, exigir aprobación humana y ejecutar en un entorno aislado.</td></tr>
+            <tr><td>LLM07 System Prompt Leakage</td><td>Se expone configuración interna y, si fue mal diseñada, secretos o estructura sensible.</td><td>No considerar secreto al prompt ni usarlo como autorización. Externalizar secretos y controles.</td></tr>
+            <tr><td>LLM08 Vector and Embedding Weaknesses</td><td>RAG recupera información sin permiso, documentos maliciosos o datos de otro usuario o área.</td><td>Controlar permisos antes y después de recuperar, aislar datos y validar documentos y metadata al ingresar.</td></tr>
+            <tr><td>LLM09 Misinformation</td><td>Contenido falso o sin respaldo se usa para decidir.</td><td>Exigir respaldo en fuentes, citas, capacidad de abstenerse, revisión y verificación en dominios críticos.</td></tr>
+            <tr><td>LLM10 Unbounded Consumption</td><td>Bucles, prompts enormes o uso automatizado agotan tokens, cómputo y presupuesto.</td><td>Aplicar cuotas, límites de solicitudes, presupuestos, tiempos máximos y límites de contexto.</td></tr>
+          </tbody>
+        </table></div>
+
+        <h3>Prompt injection directa e indirecta</h3>
+        <ul class="study-list">
+          <li><strong>Directa:</strong> el usuario escribe una instrucción hostil en la conversación, por ejemplo para ignorar políticas o revelar contexto.</li>
+          <li><strong>Indirecta:</strong> la instrucción está dentro de una página, correo, PDF, imagen o documento recuperado. El sistema la confunde con contenido confiable.</li>
+        </ul>
+        <p>Un jailbreak busca evadir restricciones de comportamiento. Una prompt injection explota la mezcla entre datos e instrucciones para desviar la aplicación. Se solapan, pero la inyección es especialmente peligrosa cuando hay herramientas y datos privados.</p>
+
+        <h3>Seguridad específica de RAG</h3>
+        <ul>
+          <li><strong>Poisoning del corpus:</strong> documentos maliciosos manipulan futuras respuestas.</li>
+          <li><strong>Fuga entre usuarios o áreas:</strong> el índice recupera un chunk que el solicitante no debería ver.</li>
+          <li><strong>Prompt injection indirecta:</strong> el documento recuperado contiene instrucciones para el agente.</li>
+          <li><strong>Embeddings y metadata:</strong> controles de acceso deficientes permiten inferir, enumerar o recuperar información sensible.</li>
+          <li><strong>Fuentes falsas:</strong> una respuesta parece respaldada, pero cita contenido adulterado o irrelevante.</li>
+        </ul>
+
+        <p class="exam-answer"><strong>Respuesta:</strong> las brechas principales son prompt injection, fuga de información sensible, envenenamiento de datos o embeddings, cadena de suministro, manejo inseguro de la salida y agencia excesiva. En RAG se agregan fallas de permisos y documentos maliciosos. Las defensas son permisos mínimos, aislamiento, validación de entradas y salidas, trazabilidad, cuotas y aprobación humana para acciones sensibles.</p>
+
+        <p><a href="https://genai.owasp.org/llm-top-10/" target="_blank" rel="noreferrer">Referencia: OWASP Top 10 para aplicaciones de LLM y GenAI.</a></p>
+      </section>
+
+      <section class="chapter" id="agentes" data-title="agentes inteligentes autonomía reactividad proactividad multiagente orquestador colaboración n8n MCP memoria blackboard objetivo utilidad">
+        <div class="chapter-head">
+          <div class="chapter-number">13</div>
+          <div><h2>Agentes inteligentes y orquestación</h2></div>
+        </div>
+
+        <p><strong>Agente:</strong> programa que recibe información del entorno y ejecuta acciones para cumplir un objetivo dentro de permisos definidos.</p>
+        <p>La frase de cátedra es que <strong>los agentes por sí solos no saben nada</strong>: su valor aparece cuando una persona define capacidades acotadas y un orquestador decide qué agente usar, en qué orden, con qué contexto y ante qué condiciones. n8n fue el ejemplo principal de orquestador basado en workflows.</p>
+
+        <h3>Propiedades</h3>
+        <ul class="study-list">
+          <li><strong>Autonomía:</strong> opera con intervención limitada y decide dentro de permisos definidos.</li>
+          <li><strong>Reactividad:</strong> responde oportunamente a cambios del entorno.</li>
+          <li><strong>Proactividad:</strong> toma iniciativa y planifica hacia objetivos.</li>
+          <li><strong>Habilidad social:</strong> se comunica con personas, herramientas u otros agentes.</li>
+        </ul>
+
+        <h3>Tipos clásicos</h3>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Tipo</th><th>Decisión</th><th>Memoria</th></tr></thead>
+          <tbody>
+            <tr><td>Reflejo simple</td><td>Reglas condición y acción sobre percepción actual.</td><td>No.</td></tr>
+            <tr><td>Basado en modelo</td><td>Usa un estado interno del entorno.</td><td>Sí.</td></tr>
+            <tr><td>Basado en objetivos</td><td>Elige acciones que acercan a una meta.</td><td>Usualmente.</td></tr>
+            <tr><td>Basado en utilidad</td><td>Compara alternativas según valor esperado.</td><td>Sí.</td></tr>
+          </tbody>
+        </table></div>
+
+        <h3>Sistemas multiagente</h3>
+        <p>Dividen un problema en tareas acotadas y agentes especializados. Los contratos de entrada y salida permiten reemplazar una pieza sin rehacer todo. La modularidad ayuda, pero introduce coordinación, observabilidad, seguridad, estado compartido y fallas distribuidas.</p>
+
+        <h3>Orquestación y colaboración</h3>
+        <ul class="study-list">
+          <li><strong>Orquestación, flujo predefinido:</strong> una persona o flujo de trabajo define primero A, luego B, condiciones y errores. n8n y Zapier son ejemplos de automatización por eventos.</li>
+          <li><strong>Colaboración, plan dinámico:</strong> un agente de nivel superior interpreta el objetivo, selecciona capacidades y arma o revisa el plan durante la ejecución.</li>
+        </ul>
+
+        <p>La memoria compartida puede implementar un patrón Blackboard: agentes leen y escriben estado común. El orquestador coordina, pero debe evitar que datos viejos, permisos excesivos o una salida errónea contaminen todo el flujo.</p>
+
+        <h3>MCP</h3>
+        <p>MCP significa Model Context Protocol. Estandariza cómo aplicaciones de IA descubren y usan herramientas o recursos. No vuelve inteligentes a los agentes ni resuelve por sí solo planificación, identidad, autorización o seguridad.</p>
+
+        <h3>Asistente sobre orquestador</h3>
+        <p>Un asistente planificador recibe el problema, identifica agentes disponibles y construye el plan. El agente ejecuta una capacidad específica y el orquestador coordina el flujo.</p>
+
+        <div class="callout danger"><strong>Riesgo productivo.</strong> Más autonomía exige más límites: permisos mínimos, sandbox, aprobación humana para acciones sensibles, presupuestos, timeouts, validación de outputs, logs y capacidad de detener o revertir.</div>
+
+        <p class="exam-answer"><strong>Respuesta:</strong> un agente recibe información y ejecuta acciones con cierta autonomía. Un sistema multiagente reparte tareas entre agentes especializados. Un orquestador ejecuta un flujo definido, mientras un planificador puede seleccionar capacidades y modificar el plan durante la ejecución.</p>
+      </section>
+
+      <section class="chapter" id="cobots" data-title="cobots robots colaborativos mantenimiento predictivo prescriptivo gemelos digitales sensores kinetic teaching industria">
+        <div class="chapter-head">
+          <div class="chapter-number">14</div>
+          <div><h2>Cobots, mantenimiento y gemelos digitales</h2></div>
+        </div>
+
+        <h3>Robot industrial frente a cobot</h3>
+        <ul class="study-list">
+          <li><strong>Robot tradicional:</strong> opera en tarea y espacio controlados, frecuentemente fijo y separado por jaulas. La seguridad depende de aislamiento y secuencias previsibles.</li>
+          <li><strong>Cobot:</strong> está diseñado para compartir espacio con personas mediante percepción, limitación de fuerza, sensores y control adaptativo. Colaborativo no significa seguro por defecto.</li>
+        </ul>
+
+        <h3>Periodización usada en clase</h3>
+        <ol class="study-list">
+          <li><strong>1950 a fines de los 60:</strong> controles hidráulicos, sensores básicos y jaulas de seguridad.</li>
+          <li><strong>Década de 1970 hasta aproximadamente 1999:</strong> auge de PLC y robots programables, todavía fijos y con poco o ningún sentido del entorno. La línea debía llevar cada pieza a una posición exacta.</li>
+          <li><strong>Desde el año 2000, cuarta generación:</strong> comienza el concepto de cobot, con autopercepción, sensores de fuerza y detección de personas para colaborar en un espacio compartido.</li>
+          <li><strong>Últimos cinco años de la periodización, quinta generación:</strong> nube, mayor cómputo, movilidad, Deep Learning e IA generativa para una adaptación más rica.</li>
+        </ol>
+        <p>Estas fechas fueron indicadas explícitamente para estudiar, pero la denominación por generaciones corresponde a la exposición del profesor y no a una taxonomía universal de robótica.</p>
+
+        <h3>Capacidades destacadas</h3>
+        <ul>
+          <li>Sensores de fuerza, contacto y percepción del entorno.</li>
+          <li><strong>Visión artificial no invasiva:</strong> permite percibir personas, piezas, posiciones, fugas, temperatura y defectos sin llenar el entorno de sensores de contacto. En la formulación de clase, un robot necesita este alto grado de percepción para ser considerado cobot.</li>
+          <li>Movilidad y gestión de energía en equipos desconectados.</li>
+          <li>Kinetic teaching: una persona guía movimientos y el sistema ajusta la rutina.</li>
+          <li>Asistencia ergonómica, por ejemplo sostener el peso de una pieza mientras el operario la posiciona.</li>
+          <li>Conectividad y cómputo local o remoto para modelos más complejos.</li>
+        </ul>
+
+        <h3>Mantenimiento</h3>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Estrategia</th><th>Pregunta</th><th>Acción</th></tr></thead>
+          <tbody>
+            <tr><td>Reactivo</td><td>¿Qué se rompió?</td><td>Intervenir después de la falla.</td></tr>
+            <tr><td>Preventivo</td><td>¿Cuándo toca por calendario o uso?</td><td>Intervenir periódicamente.</td></tr>
+            <tr><td>Predictivo</td><td>¿Qué probablemente fallará y cuándo?</td><td>Anticipar con condición y datos.</td></tr>
+            <tr><td>Prescriptivo</td><td>¿Qué conviene hacer para evitar o mitigar?</td><td>Recomendar una intervención.</td></tr>
+          </tbody>
+        </table></div>
+
+        <p>La analogía para no confundirlos es directa: <strong>predictivo es la bola de cristal</strong>, anticipa que el equipo fallará y cuándo. <strong>Prescriptivo es la receta o RP del médico</strong>, agrega qué acción conviene realizar para evitar la falla o transitarla de forma controlada.</p>
+        <ul class="study-list">
+          <li><strong>MTBF, Mean Time Between Failures:</strong> tiempo medio entre fallas de un equipo. Ayuda a caracterizar su confiabilidad y planificar intervenciones.</li>
+          <li><strong>OEE, Overall Equipment Effectiveness:</strong> efectividad general del equipo, normalmente vinculada con disponibilidad, rendimiento y calidad. La cifra citada en clase fue 89% de efectividad, interpretada allí como operación sin paradas imprevistas, con detenciones predichas y planificadas.</li>
+        </ul>
+
+        <h3>Gemelo digital</h3>
+        <p>Es una representación digital conectada con un activo o proceso real que modela comportamiento, estado e interacción, no solo apariencia. Permite simular desgaste, consumo, fallas y configuraciones antes de intervenir el sistema físico. Con datos sintéticos puede acelerar entrenamiento y pruebas, pero necesita calibración contra realidad.</p>
+        <p>En clase se vinculó esta simulación con las <strong>PINN, Physics Informed Neural Networks</strong>, redes cuyo entrenamiento incorpora restricciones físicas conocidas, como gravedad, termodinámica o conservación. Esas leyes limitan comportamientos imposibles del gemelo digital y ayudan a que los datos sintéticos respeten el sistema real.</p>
+
+        <p class="exam-answer"><strong>Respuesta:</strong> un cobot comparte espacio con personas y limita riesgo mediante sensores, control de fuerza y percepción. ML puede estimar fallas o adaptar movimientos. Un gemelo digital simula el activo para probar configuraciones y modelos antes de aplicarlos al sistema físico.</p>
+      </section>
+
+      <section class="chapter" id="preguntas" data-title="preguntas examen final respuestas práctica simulacro">
+        <div class="chapter-head">
+          <div class="chapter-number">15</div>
+          <div><h2>Banco de preguntas para el final</h2></div>
+        </div>
+
+        <p><strong>Formato informado por la cátedra:</strong> final teórico, escrito y presencial. El trabajo práctico debe estar aprobado antes de rendir y, si se presenta en una fecha de examen, el final se rinde en una fecha posterior. Aproximadamente 40% puede salir de temas hablados durante la cursada.</p>
+
+        <h3>Simulacros basados en los enunciados reales</h3>
+
+        <details><summary>A. Describa las tres familias de algoritmos de ML</summary><div class="details-body">
+          <p><strong>Respuesta:</strong> las tres familias son clasificación, regresión y clustering. Clasificación es supervisada: aprende con un target categórico y devuelve una clase o probabilidad, por ejemplo falla o no falla. Regresión también es supervisada: el target es continuo y devuelve un valor, por ejemplo ventas o vida útil restante. Clustering es no supervisado: no recibe target y busca grupos o estructuras, por ejemplo segmentos de clientes o regímenes de operación. En una taxonomía por paradigma, clasificación y regresión quedan dentro de supervisado, clustering dentro de no supervisado, y aprendizaje por refuerzo es otro paradigma. Se habla de familias porque no se conoce de antemano la distribución interna de los patrones: dos datasets con el mismo objetivo y las mismas columnas pueden requerir algoritmos distintos de la misma familia. AutoML permite compararlos.</p>
+        </div></details>
+
+        <details><summary>B. Dado un dataset de ventas de e-commerce, ¿qué se puede hacer con ML?</summary><div class="details-body">
+          <p><strong>Primero no elegiría un algoritmo, elegiría una decisión.</strong> El mismo dataset habilita varios problemas:</p>
+          <ul>
+            <li><strong>Regresión o series temporales:</strong> predecir unidades o facturación por producto y día para stock.</li>
+            <li><strong>Clasificación:</strong> predecir churn, devolución, fraude o conversión.</li>
+            <li><strong>Clustering:</strong> segmentar clientes por frecuencia, recencia, monto y categorías.</li>
+            <li><strong>Recomendación:</strong> ordenar productos relevantes por usuario o sesión.</li>
+            <li><strong>Anomalías:</strong> detectar compras, descuentos o devoluciones fuera de norma.</li>
+          </ul>
+          <p>Como caso concreto, para pronosticar demanda definiría target unidades por SKU y día, horizonte y métrica, por ejemplo MAE o WAPE. Haría EDA de nulos, devoluciones, promociones, stockouts, Black Friday y cambios de catálogo. Crearía features de calendario, precio, descuento, rezagos y medias móviles. Separaría temporalmente train, validación y test para no usar futuro. Compararía un baseline estacional con modelos, explicaría resultados y monitorearía drift. Los días promocionales podrían requerir un modelo o régimen separado.</p>
+        </div></details>
+
+        <details><summary>C. Se quiere predecir una falla en un pozo petrolero a 2000 metros, ¿qué haría?</summary><div class="details-body">
+          <p><strong>Definición:</strong> acordaría qué significa falla, en qué componente y con cuánto anticipo debe alertarse. Sin horizonte no hay target útil. También definiría el costo de falso negativo, falso positivo y parada.</p>
+          <p><strong>Datos:</strong> series temporales de presión, temperatura, caudal, vibración, torque, RPM, energía, propiedades del fluido, profundidad, mantenimiento, configuración y eventos. Validaría sincronización, frecuencia, sensores, unidades, cortes de comunicación y etiquetas de fallas.</p>
+          <p><strong>Modelado:</strong> si existen suficientes fallas etiquetadas, plantearía clasificación para falla dentro de una ventana o regresión para vida útil restante. Si las fallas son muy escasas, complementaría con detección de anomalías no supervisada y conocimiento físico. Separaría por tiempo y, si hay varios pozos, también por pozo para medir generalización real.</p>
+          <p><strong>Operación:</strong> priorizaría recall sin dejar que las falsas alarmas vuelvan inútil el sistema. Validaría con especialistas, simularía con gemelo digital si existe, desplegaría con límites seguros y monitorearía drift de sensores y regímenes. El modelo asesora mantenimiento predictivo. La acción prescriptiva debe considerar seguridad y costo.</p>
+        </div></details>
+
+        <details><summary>D. Hay poca o desconocida distribución de datos, ¿qué familia usaría para conocerla?</summary><div class="details-body">
+          <p>Si el enunciado significa que <strong>no conozco cómo se organizan los datos y no tengo etiquetas</strong>, usaría aprendizaje no supervisado, en particular clustering, reducción de dimensionalidad y detección de anomalías, junto con EDA. Eso ayuda a descubrir grupos y regímenes, no a demostrar una distribución verdadera.</p>
+          <p>Si “poca distribución” significa <strong>pocos datos o baja representatividad</strong>, ninguna familia inventa la información faltante. Primero conseguiría más evidencia, usaría modelos simples y regularizados, validación cuidadosa, conocimiento de dominio y, si corresponde, datos sintéticos validados. Deep Learning suele ser una peor primera opción con pocos datos.</p>
+        </div></details>
+
+        <details><summary>E. Enumere paso a paso cómo construir un RAG</summary><div class="details-body">
+          <ol>
+            <li>Definir dominio, usuarios, fuentes autorizadas, frescura y criterio de éxito.</li>
+            <li>Ingestar, limpiar y versionar documentos con metadata y permisos.</li>
+            <li>Dividir en chunks que preserven contexto y relaciones.</li>
+            <li>Generar embeddings con un modelo consistente.</li>
+            <li>Guardar vectores, texto y metadata en un índice.</li>
+            <li>Al consultar, normalizar la pregunta y generar su embedding.</li>
+            <li>Recuperar top K con filtros de acceso y, si hace falta, búsqueda híbrida.</li>
+            <li>Reordenar, filtrar irrelevantes y construir el contexto.</li>
+            <li>Pedir al LLM que responda solo con evidencia, cite y se abstenga si no alcanza.</li>
+            <li>Evaluar retrieval, fidelidad, respuesta, latencia, seguridad y costo, luego monitorear.</li>
+          </ol>
+        </div></details>
+
+        <details><summary>F. Nombre las principales brechas de seguridad en LLM</summary><div class="details-body">
+          <p>Nombraría primero prompt injection directa e indirecta, divulgación de datos sensibles, envenenamiento de datos o embeddings, cadena de suministro comprometida, manejo inseguro de outputs y agencia excesiva. Completaría con fuga de system prompt, debilidades vectoriales y de permisos en RAG, desinformación y consumo sin límites. Cerraría diciendo que un prompt no es un control de seguridad: hacen falta mínimo privilegio, aislamiento, validación, cuotas, trazabilidad y aprobación humana para acciones críticas.</p>
+        </div></details>
+
+        <h3>Preguntas adicionales de práctica</h3>
+
+        <details><summary>1. ¿Por qué un proyecto de ML no empieza entrenando?</summary><div class="details-body"><p>Porque primero hay que validar pertinencia, criterio de éxito, evidencia previa, datos, acceso, recursos y riesgo. Sin eso se puede optimizar un algoritmo para un problema mal formulado. El EDA completa el estudio de viabilidad y habilita la decisión Go o No Go.</p></div></details>
+        <details><summary>2. ¿Cuál es la diferencia entre EDA, limpieza e ingeniería de características?</summary><div class="details-body"><p>EDA diagnostica sin modificar. Limpieza corrige o trata problemas para alcanzar calidad mínima. Feature engineering cambia la representación para favorecer aprendizaje, como descomponer fechas o crear ratios.</p></div></details>
+        <details><summary>3. ¿Qué es un outlier y siempre debe eliminarse?</summary><div class="details-body"><p>Es una observación fuera de norma, no necesariamente un error. Puede ser fraude, evento especial o caso válido. Se investiga su origen y se decide según objetivo y algoritmo: mantener, transformar, segmentar, eliminar o modelar aparte.</p></div></details>
+        <details><summary>4. ¿Por qué correlación no implica causalidad?</summary><div class="details-body"><p>Dos variables pueden moverse juntas por azar, por una tercera causa o solo durante el período observado. La correlación describe asociación, no mecanismo causal. Sirve para explorar y detectar redundancia, pero requiere contexto y validación.</p></div></details>
+        <details><summary>5. ¿Por qué accuracy puede ser una mala métrica?</summary><div class="details-body"><p>Con clases desbalanceadas puede ser alta prediciendo siempre la mayoría. Además trata FP y FN como si costaran igual. En medicina suele priorizarse recall para no omitir casos, y en otros dominios precision para reducir falsas alarmas.</p></div></details>
+        <details><summary>6. ¿Qué aporta K fold cross validation?</summary><div class="details-body"><p>Repite entrenamiento y validación rotando K particiones, por lo que cada registro cumple ambos roles. En la lectura de cátedra, la media indica cuán bien discrimina los patrones encontrados y la desviación estándar indica si se captaron todos los patrones distribuidos entre los folds. Técnicamente, permite estimar desempeño promedio y sensibilidad a la partición, pero no reemplaza un test independiente ni demuestra cobertura de patrones que no están en la muestra.</p></div></details>
+        <details><summary>7. ¿Qué indica una desviación alta entre folds?</summary><div class="details-body"><p>En la formulación de clase, indica que no se encontraron todos los patrones de manera estable. En términos técnicos, muestra sensibilidad a la partición y puede sugerir pocos datos, patrones heterogéneos, grupos, cambio temporal, outliers o un modelo de alta varianza. Exige investigar qué registros o períodos explican la diferencia.</p></div></details>
+        <details><summary>8. ¿Qué es hiperparametrización?</summary><div class="details-body"><p>Es buscar valores de configuración externos al aprendizaje para mejorar el sistema. Puede optimizar métrica, estabilidad, regularización, latencia o costo. Debe evaluarse con validación, no sobre el test final.</p></div></details>
+        <details><summary>9. ¿Qué es sobreajuste?</summary><div class="details-body"><p>Es aprender entrenamiento y ruido con demasiado detalle, logrando buen resultado allí y peor en datos nuevos. Se detecta comparando curvas y conjuntos, y se mitiga con regularización, simplificación, más datos representativos, early stopping, dropout o augmentation.</p></div></details>
+        <details><summary>10. ¿Cuál es el compromiso bias y variance?</summary><div class="details-body"><p>Modelos demasiado simples tienen bias alto y subajustan. Modelos demasiado flexibles tienen variance alta y sobreajustan. El objetivo es elegir complejidad y regularización que minimicen error en datos no vistos.</p></div></details>
+        <details><summary>11. ¿AutoML reemplaza al científico de datos?</summary><div class="details-body"><p>No. Automatiza comparación, pipelines y ajuste, pero no garantiza calidad, ausencia de leakage, métrica correcta, fairness ni viabilidad productiva. La definición del problema, los controles y la aprobación siguen a cargo del equipo.</p></div></details>
+        <details><summary>12. ¿Qué diferencia hay entre SHAP y una prueba de sesgo?</summary><div class="details-body"><p>SHAP atribuye contribuciones a features en predicciones. Una prueba de sesgo compara resultados y errores entre grupos o contrafácticos bajo un criterio de equidad. La explicación puede ayudar a diseñar la prueba, pero no demuestra fairness.</p></div></details>
+        <details><summary>13. ¿Por qué un modelo no puede entregarse como caja negra?</summary><div class="details-body"><p>Porque debe ser validado, auditado y comprendido por quienes asumen riesgo. La explicación detecta atajos, permite contraste con expertos, documenta reglas y ayuda a responder reclamos y mejorar el sistema.</p></div></details>
+        <details><summary>14. ¿Qué bloquea el pasaje a producción?</summary><div class="details-body"><p>Especialmente latencia, seguridad y capacidad de cómputo no planificadas. También integración, operación, calidad del servicio, datos online, observabilidad y responsabilidad. La cifra que el profesor pidió anotar fue que 40% de los proyectos validados no llegan a producción por errores u horrores de gestión. Estos riesgos deben considerarse desde viabilidad.</p></div></details>
+        <details><summary>15. ¿Qué es drift?</summary><div class="details-body"><p>Es el cambio entre el entorno actual y el representado durante entrenamiento. Puede cambiar P(X), P(Y|X), la distribución de predicciones o el pipeline. Se monitorea y diagnostica antes de decidir reentrenamiento.</p></div></details>
+        <details><summary>16. ¿Cuándo termina un proyecto de ML?</summary><div class="details-body"><p>No al desplegar. Termina cuando el modelo se retira de forma controlada, se cierran dependencias, se archivan evidencias, se documentan resultados y lecciones y se completa la post evaluación.</p></div></details>
+        <details><summary>17. ¿Qué diferencia hay entre RAG y fine tuning?</summary><div class="details-body"><p>RAG recupera conocimiento externo en cada consulta y es fácil de actualizar y citar. Fine tuning modifica el comportamiento del modelo mediante entrenamiento. Pueden combinarse y resuelven problemas distintos.</p></div></details>
+        <details><summary>18. ¿Por qué una base vectorial puede devolver algo irrelevante?</summary><div class="details-body"><p>Porque hace una búsqueda difusa y ordena vecinos por cercanía en el espacio del embedding, no por verdad. A diferencia de una consulta SQL exacta, siempre puede entregar el vector más cercano aunque sea malo. La cátedra remarca que no existe un umbral universal y verificado que separe una respuesta válida de una inválida. En producción pueden configurarse umbrales y filtros evaluados, pero no garantizan corrección.</p></div></details>
+        <details><summary>19. ¿Qué es una alucinación en un sistema RAG?</summary><div class="details-body"><p>En la formulación de clase, como la base vectorial siempre responde y no hay un punto de corte universal, si recupera algo que no es lo que se necesita se lo llama alucinación. Técnicamente conviene separar dos fallas: recuperación irrelevante del índice y generación sin respaldo del LLM. Se reducen con mejores datos, filtros, reordenamiento, citas, abstención y evaluación.</p></div></details>
+        <details><summary>20. ¿Qué diferencia hay entre agente y orquestador?</summary><div class="details-body"><p>El agente realiza una capacidad acotada percibiendo y actuando. El orquestador decide la secuencia, condiciones y el intercambio entre agentes o herramientas. La frase de cátedra es que los agentes por sí solos no saben nada y el valor lo aporta el orquestador. Un flujo rígido es orquestación. La planificación dinámica se acerca a colaboración.</p></div></details>
+        <details><summary>21. ¿Qué aporta un sistema multiagente?</summary><div class="details-body"><p>Especialización, modularidad y reemplazo de componentes con contratos claros. A cambio, aumenta la complejidad de coordinación, memoria, permisos, errores y observabilidad.</p></div></details>
+        <details><summary>22. ¿Qué es amnesia de código?</summary><div class="details-body"><p>Es perder comprensión del software al delegar generación y cambios sin lectura ni documentación. Se evita con arquitectura, módulos acotados, bitácoras, revisión, tests y trazabilidad.</p></div></details>
+        <details><summary>23. ¿Por qué los patrones son útiles en vibe coding?</summary><div class="details-body"><p>Expresan una estructura conocida con pocas palabras, delimitan responsabilidades y reducen el contexto que se debe enviar. También dan un marco para evaluar si el código generado es mantenible.</p></div></details>
+        <details><summary>24. ¿Qué diferencia hay entre mantenimiento predictivo y prescriptivo?</summary><div class="details-body"><p>El predictivo mira la bola de cristal: estima qué puede fallar y cuándo. El prescriptivo agrega la receta o RP: recomienda qué acción tomar para evitar o mitigar la falla, considerando restricciones y consecuencias.</p></div></details>
+        <details><summary>25. ¿Qué es un gemelo digital?</summary><div class="details-body"><p>Es una representación digital conectada a un activo o proceso que reproduce estado y comportamiento. Permite simular, anticipar fallas y probar decisiones. Puede combinarse con PINN para imponer restricciones físicas conocidas. Su valor depende de calibración y actualización con el mundo real.</p></div></details>
+        <details><summary>26. ¿Cuáles son los límites principales de la IA actual?</summary><div class="details-body"><p>Aprende regularidades del pasado y funciona mejor en tareas tipificadas, con procedimiento conocido y variabilidad acotada. No comprende como una persona ni extrapola conocimiento entre dominios con la misma flexibilidad. El ejemplo de la camisa muestra que una tarea humana simple puede ser difícil cuando cada caso presenta una configuración nueva. La combinación buscada es velocidad y repetición de la IA, más criterio y abstracción de la inteligencia natural.</p></div></details>
+        <details><summary>27. ¿Cuáles son las tres limitaciones del LLM y las tres ventajas de RAG?</summary><div class="details-body"><p>LLM: fine tuning costoso, obsolescencia del conocimiento y opacidad de la respuesta. RAG: menor cómputo para incorporarlo, actualización rápida mediante documentos e índice, y trazabilidad hasta las fuentes recuperadas.</p></div></details>
+        <details><summary>28. ¿Cómo se relaciona Dunning Kruger con los LLM?</summary><div class="details-body"><p>El efecto describe la sobreconfianza que puede acompañar al conocimiento superficial. Los LLM suelen responder con certeza aunque la salida sea incompleta o incorrecta. El profesor llama sesgo heredado al riesgo de adoptar esa seguridad como propia. Se evita con conocimiento de base para interpelar, repreguntar, comparar y revisar.</p></div></details>
+        <details><summary>29. ¿Por qué la métrica puede cambiar el algoritmo ganador?</summary><div class="details-body"><p>Porque cada métrica representa un costo de error diferente. En el ejemplo de clase, un algoritmo tuvo recall de 85% y accuracy de 40%, mientras Gradient Boosting tuvo accuracy de 81% y recall de 35% sobre el mismo dataset. Si importan los falsos negativos gana el primero. Elegir accuracy hace ganar al segundo. La métrica debe definirse desde el problema, antes de ver el ranking.</p></div></details>
+        <details><summary>30. ¿Por qué existen familias de algoritmos?</summary><div class="details-body"><p>Porque antes de entrenar no se conocen por completo los patrones ni su distribución. Dos empresas pueden tener el mismo objetivo y columnas con nombres iguales, pero distinto volumen y distribución interna. Por eso no existe un mejor algoritmo universal: se selecciona una familia por el tipo de problema y se comparan sus algoritmos, tarea que AutoML automatiza en parte.</p></div></details>
+
+      </section>
+
+      <section class="chapter" id="glosario" data-title="glosario conceptos definiciones algoritmo modelo entrenamiento inferencia EDA AutoML XAI LLM token RAG pipeline fine tuning feature target leakage baseline ground truth embedding MLOps drift">
+        <div class="chapter-head">
+          <div class="chapter-number">16</div>
+          <div><h2>Glosario</h2></div>
+        </div>
+        <div class="table-wrap"><table>
+          <tbody>
+            <tr><td><strong>Algoritmo</strong></td><td>Procedimiento que aprende una relación o estructura a partir de datos.</td></tr>
+            <tr><td><strong>Entrenamiento</strong></td><td>Proceso de ajustar un algoritmo usando datos históricos.</td></tr>
+            <tr><td><strong>Modelo</strong></td><td>Resultado entrenado que contiene los parámetros aprendidos.</td></tr>
+            <tr><td><strong>Inferencia</strong></td><td>Uso del modelo sobre datos nuevos para producir una salida.</td></tr>
+            <tr><td><strong>EDA</strong></td><td>Análisis exploratorio que describe estructura, calidad y comportamiento de los datos.</td></tr>
+            <tr><td><strong>Feature</strong></td><td>Variable de entrada usada por el modelo.</td></tr>
+            <tr><td><strong>Target</strong></td><td>Resultado que un aprendizaje supervisado intenta predecir.</td></tr>
+            <tr><td><strong>Leakage</strong></td><td>Información no disponible al predecir que se filtra al entrenamiento o validación.</td></tr>
+            <tr><td><strong>Baseline</strong></td><td>Referencia simple que el modelo debe superar.</td></tr>
+            <tr><td><strong>Ground truth</strong></td><td>Valor real usado para evaluar predicciones.</td></tr>
+            <tr><td><strong>Pipeline</strong></td><td>Secuencia ordenada de transformaciones y modelo.</td></tr>
+            <tr><td><strong>AutoML</strong></td><td>Herramientas que automatizan comparación, validación y ajuste de modelos.</td></tr>
+            <tr><td><strong>XAI</strong></td><td>Técnicas para explicar qué influyó en una salida del modelo.</td></tr>
+            <tr><td><strong>LLM</strong></td><td>Modelo de lenguaje de gran escala que genera texto prediciendo tokens.</td></tr>
+            <tr><td><strong>Token</strong></td><td>Fragmento de texto o código procesado por un modelo de lenguaje.</td></tr>
+            <tr><td><strong>Embedding</strong></td><td>Representación vectorial aprendida de un objeto.</td></tr>
+            <tr><td><strong>RAG</strong></td><td>Sistema que recupera documentos y los agrega al contexto de un modelo generativo.</td></tr>
+            <tr><td><strong>Fine tuning</strong></td><td>Entrenamiento adicional que especializa pesos o adaptadores de un modelo.</td></tr>
+            <tr><td><strong>Human in the loop</strong></td><td>Participación humana explícita en decisión, validación o aprobación.</td></tr>
+            <tr><td><strong>MLOps</strong></td><td>Prácticas para operar el ciclo de ML de forma reproducible y observable.</td></tr>
+            <tr><td><strong>Drift</strong></td><td>Cambio entre el entorno productivo y el representado durante el desarrollo.</td></tr>
+          </tbody>
+        </table></div>
+      </section>
+
+    </main>
+  </div>
+
+  <div class="highlight-toolbar" id="highlight-toolbar" role="toolbar" aria-label="Resaltador de estudio" hidden>
+    <span class="highlight-label" id="highlight-label" aria-live="polite">Resaltar selección</span>
+    <div class="highlight-colors" aria-label="Color del resaltado">
+      <button class="highlight-color" type="button" data-color="yellow" aria-label="Resaltar en amarillo"></button>
+      <button class="highlight-color" type="button" data-color="mint" aria-label="Resaltar en verde"></button>
+      <button class="highlight-color" type="button" data-color="pink" aria-label="Resaltar en rosa"></button>
+      <button class="highlight-color" type="button" data-color="blue" aria-label="Resaltar en azul"></button>
+    </div>
+    <button class="highlight-tool-button highlight-pin" id="highlight-pin" type="button" aria-label="Dejar resaltador fijo" aria-pressed="false" title="Dejar resaltador fijo">Fijar</button>
+    <button class="highlight-tool-button" id="highlight-remove" type="button" aria-label="Quitar resaltado" title="Quitar resaltado" hidden>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 6h18"></path><path d="M8 6V4h8v2"></path><path d="m19 6-1 15H6L5 6"></path><path d="M10 11v6M14 11v6"></path></svg>
+    </button>
+    <button class="highlight-tool-button" id="highlight-close" type="button" aria-label="Cerrar resaltador" title="Cerrar">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"></path></svg>
+    </button>
+  </div>
+
+  <script>
+    const root = document.documentElement;
+    const body = document.body;
+    const chapters = [...document.querySelectorAll('.chapter')];
+    const navLinks = [...document.querySelectorAll('.toc a')];
+    const search = document.getElementById('search');
+    const searchResults = document.getElementById('search-results');
+    const searchWrap = document.querySelector('.search-wrap');
+    const progress = document.getElementById('reading-progress');
+    const content = document.getElementById('content');
+    const highlightToolbar = document.getElementById('highlight-toolbar');
+    const highlightLabel = document.getElementById('highlight-label');
+    const highlightRemove = document.getElementById('highlight-remove');
+    const highlightPin = document.getElementById('highlight-pin');
+    const highlightHelp = document.getElementById('highlight-help');
+    const highlightColors = [...document.querySelectorAll('.highlight-color')];
+    const highlightStorageKey = 'aa-highlights-v1';
+    const highlightModeStorageKey = 'aa-highlight-fixed-v1';
+    const highlightColorStorageKey = 'aa-highlight-color-v1';
+    const preparedStorageKey = 'aa-prepared-topics-v1';
+
+    function loadPreparedTopics() {
+      try {
+        const stored = JSON.parse(localStorage.getItem(preparedStorageKey) || '[]');
+        return new Set(Array.isArray(stored) ? stored.filter(topic => typeof topic === 'string') : []);
+      } catch (error) {
+        return new Set();
+      }
+    }
+
+    const preparedTopics = loadPreparedTopics();
+
+    function savePreparedTopics() {
+      localStorage.setItem(preparedStorageKey, JSON.stringify([...preparedTopics]));
+    }
+
+    navLinks.forEach(link => {
+      const topicId = link.getAttribute('href').slice(1);
+      const topicName = link.textContent.replace(/\s+/g, ' ').trim().replace(/^\d+\s*/, '');
+      const item = document.createElement('div');
+      const button = document.createElement('button');
+      item.className = 'toc-item';
+      button.className = 'nav-check';
+      button.type = 'button';
+
+      link.before(item);
+      item.append(button, link);
+
+      function renderPreparedState() {
+        const prepared = preparedTopics.has(topicId);
+        item.classList.toggle('prepared', prepared);
+        button.textContent = prepared ? '✓' : '';
+        button.setAttribute('aria-pressed', String(prepared));
+        button.setAttribute('aria-label', `${prepared ? 'Volver a pendiente' : 'Marcar como preparado'}: ${topicName}`);
+        button.title = prepared ? 'Volver a pendiente' : 'Marcar como preparado';
+      }
+
+      button.addEventListener('click', () => {
+        if (preparedTopics.has(topicId)) preparedTopics.delete(topicId);
+        else preparedTopics.add(topicId);
+        savePreparedTopics();
+        renderPreparedState();
+      });
+
+      renderPreparedState();
+    });
+
+    function setTheme(theme) {
+      root.dataset.theme = theme;
+      localStorage.setItem('aa-theme', theme);
+    }
+
+    const savedTheme = localStorage.getItem('aa-theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    setTheme(savedTheme || (prefersDark ? 'dark' : 'light'));
+
+    function toggleTheme() {
+      setTheme(root.dataset.theme === 'dark' ? 'light' : 'dark');
+    }
+
+    document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
+    document.getElementById('mobile-theme').addEventListener('click', toggleTheme);
+    document.getElementById('print-button').addEventListener('click', () => window.print());
+    document.getElementById('menu-toggle').addEventListener('click', () => body.classList.toggle('nav-open'));
+
+    navLinks.forEach(link => link.addEventListener('click', () => body.classList.remove('nav-open')));
+
+    function updateProgress() {
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      const value = max > 0 ? (window.scrollY / max) * 100 : 0;
+      progress.style.width = `${Math.min(100, Math.max(0, value))}%`;
+    }
+
+    window.addEventListener('scroll', updateProgress, { passive: true });
+    updateProgress();
+
+    const observer = new IntersectionObserver(entries => {
+      const visible = entries
+        .filter(entry => entry.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+      if (!visible) return;
+      navLinks.forEach(link => {
+        const active = link.getAttribute('href') === `#${visible.target.id}`;
+        link.classList.toggle('active', active);
+        link.closest('.toc-item')?.classList.toggle('active', active);
+      });
+    }, { rootMargin: '-12% 0px -72% 0px', threshold: [0, .1, .5] });
+
+    chapters.forEach(chapter => observer.observe(chapter));
+
+    function normalize(value) {
+      return value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim();
+    }
+
+    const seenSearchEntries = new Set();
+    const searchIndex = chapters.flatMap(chapter => {
+      const chapterTitle = chapter.querySelector('h2')?.textContent.trim() || chapter.id;
+      return [...chapter.querySelectorAll('h2, h3, h4, p, li, td, summary')].map((node, index) => {
+        const text = node.textContent.replace(/\s+/g, ' ').trim();
+        const normalized = normalize(text);
+        const key = `${chapter.id}:${normalized}`;
+        if (text.length < 3 || seenSearchEntries.has(key)) return null;
+        seenSearchEntries.add(key);
+        if (!node.id) node.id = `search-${chapter.id}-${index}`;
+        return {
+          node,
+          text,
+          normalized,
+          chapterTitle,
+          priority: /^H[2-4]$/.test(node.tagName) ? 0 : node.tagName === 'SUMMARY' ? 1 : 2
+        };
+      }).filter(Boolean);
+    });
+
+    let activeResult = -1;
+    let currentMatches = [];
+
+    function foldWithMap(value) {
+      let folded = '';
+      const map = [];
+      [...value].forEach((character, rawIndex) => {
+        const part = character.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+        [...part].forEach(unit => {
+          folded += unit;
+          map.push(rawIndex);
+        });
+      });
+      return { folded, map };
+    }
+
+    function makeSnippet(text, query) {
+      const { folded, map } = foldWithMap(text);
+      const matchAt = folded.indexOf(query);
+      if (matchAt < 0) return text.slice(0, 180);
+      const rawStart = map[matchAt] ?? 0;
+      const rawEnd = (map[matchAt + query.length - 1] ?? rawStart) + 1;
+      const start = Math.max(0, rawStart - 62);
+      const end = Math.min(text.length, rawEnd + 105);
+      return `${start > 0 ? '...' : ''}${text.slice(start, end)}${end < text.length ? '...' : ''}`;
+    }
+
+    function addHighlightedText(container, text, query) {
+      const { folded, map } = foldWithMap(text);
+      const matchAt = folded.indexOf(query);
+      if (matchAt < 0) {
+        container.textContent = text;
+        return;
+      }
+      const start = map[matchAt];
+      const end = (map[matchAt + query.length - 1] ?? start) + 1;
+      container.append(document.createTextNode(text.slice(0, start)));
+      const mark = document.createElement('mark');
+      mark.textContent = text.slice(start, end);
+      container.append(mark, document.createTextNode(text.slice(end)));
+    }
+
+    function closeSearch() {
+      searchResults.hidden = true;
+      search.setAttribute('aria-expanded', 'false');
+      activeResult = -1;
+    }
+
+    function setActiveResult(index) {
+      const buttons = [...searchResults.querySelectorAll('.search-result')];
+      if (!buttons.length) return;
+      activeResult = (index + buttons.length) % buttons.length;
+      buttons.forEach((button, buttonIndex) => {
+        const active = buttonIndex === activeResult;
+        button.classList.toggle('active', active);
+        button.setAttribute('aria-selected', String(active));
+      });
+      buttons[activeResult].scrollIntoView({ block: 'nearest' });
+    }
+
+    function goToSearchResult(result) {
+      result.node.closest('details')?.setAttribute('open', '');
+      result.node.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      result.node.classList.remove('search-target');
+      void result.node.offsetWidth;
+      result.node.classList.add('search-target');
+      window.setTimeout(() => result.node.classList.remove('search-target'), 2300);
+      body.classList.remove('nav-open');
+      closeSearch();
+    }
+
+    function renderSearch(rawQuery) {
+      const query = normalize(rawQuery);
+      searchResults.replaceChildren();
+      activeResult = -1;
+      if (!query) {
+        closeSearch();
+        return;
+      }
+
+      currentMatches = searchIndex
+        .filter(item => item.normalized.includes(query))
+        .sort((a, b) => {
+          const startDifference = Number(!a.normalized.startsWith(query)) - Number(!b.normalized.startsWith(query));
+          return startDifference || a.priority - b.priority || a.text.length - b.text.length;
+        })
+        .slice(0, 10);
+
+      if (!currentMatches.length) {
+        const empty = document.createElement('div');
+        empty.className = 'search-empty';
+        empty.textContent = 'No encontré coincidencias. Probá con una palabra más general o una sigla.';
+        searchResults.append(empty);
+      } else {
+        const summary = document.createElement('div');
+        summary.className = 'search-summary';
+        summary.textContent = `${currentMatches.length}${currentMatches.length === 10 ? '+' : ''} coincidencias`;
+        searchResults.append(summary);
+
+        currentMatches.forEach((result, index) => {
+          const button = document.createElement('button');
+          button.type = 'button';
+          button.className = 'search-result';
+          button.setAttribute('role', 'option');
+          button.setAttribute('aria-selected', 'false');
+
+          const chapterLabel = document.createElement('small');
+          chapterLabel.textContent = result.chapterTitle;
+          const snippet = document.createElement('span');
+          addHighlightedText(snippet, makeSnippet(result.text, query), query);
+          button.append(chapterLabel, snippet);
+          button.addEventListener('click', () => goToSearchResult(result));
+          button.addEventListener('mouseenter', () => setActiveResult(index));
+          searchResults.append(button);
+        });
+      }
+
+      searchResults.hidden = false;
+      search.setAttribute('aria-expanded', 'true');
+    }
+
+    search.addEventListener('input', event => renderSearch(event.target.value));
+    search.addEventListener('focus', () => {
+      if (search.value) renderSearch(search.value);
+    });
+    search.addEventListener('keydown', event => {
+      if (event.key === 'Escape') {
+        closeSearch();
+        return;
+      }
+      if (!currentMatches.length || searchResults.hidden) return;
+      if (event.key === 'ArrowDown') {
+        event.preventDefault();
+        setActiveResult(activeResult + 1);
+      } else if (event.key === 'ArrowUp') {
+        event.preventDefault();
+        setActiveResult(activeResult - 1);
+      } else if (event.key === 'Enter' && activeResult >= 0) {
+        event.preventDefault();
+        goToSearchResult(currentMatches[activeResult]);
+      }
+    });
+    document.addEventListener('click', event => {
+      if (!searchWrap.contains(event.target)) closeSearch();
+    });
+
+    const initialQuery = new URLSearchParams(window.location.search).get('buscar');
+    if (initialQuery) {
+      search.value = initialQuery;
+      renderSearch(initialQuery);
+    }
+
+    function loadHighlights() {
+      try {
+        const stored = JSON.parse(localStorage.getItem(highlightStorageKey) || '[]');
+        return Array.isArray(stored) ? stored.filter(item =>
+          item &&
+          typeof item.id === 'string' &&
+          typeof item.chapterId === 'string' &&
+          Number.isInteger(item.start) &&
+          Number.isInteger(item.end) &&
+          item.start >= 0 &&
+          item.end > item.start
+        ) : [];
+      } catch (error) {
+        return [];
+      }
+    }
+
+    let highlights = loadHighlights();
+    let pendingHighlight = null;
+    let activeHighlightId = null;
+    let fixedHighlightMode = localStorage.getItem(highlightModeStorageKey) === 'true';
+    let activeHighlightColor = localStorage.getItem(highlightColorStorageKey) || 'yellow';
+    if (!highlightColors.some(button => button.dataset.color === activeHighlightColor)) activeHighlightColor = 'yellow';
+
+    function saveHighlights() {
+      localStorage.setItem(highlightStorageKey, JSON.stringify(highlights));
+    }
+
+    function unwrapHighlights() {
+      document.querySelectorAll('mark.user-highlight').forEach(mark => {
+        mark.replaceWith(document.createTextNode(mark.textContent));
+      });
+      chapters.forEach(chapter => chapter.normalize());
+    }
+
+    function wrapHighlight(item) {
+      const chapter = document.getElementById(item.chapterId);
+      if (!chapter) return;
+
+      const walker = document.createTreeWalker(chapter, NodeFilter.SHOW_TEXT);
+      const segments = [];
+      let position = 0;
+      let node;
+
+      while ((node = walker.nextNode())) {
+        const nextPosition = position + node.data.length;
+        if (item.start < nextPosition && item.end > position) {
+          segments.push({
+            node,
+            start: Math.max(0, item.start - position),
+            end: Math.min(node.data.length, item.end - position)
+          });
+        }
+        position = nextPosition;
+        if (position >= item.end) break;
+      }
+
+      segments.reverse().forEach(segment => {
+        if (segment.end <= segment.start) return;
+        const range = document.createRange();
+        range.setStart(segment.node, segment.start);
+        range.setEnd(segment.node, segment.end);
+        const mark = document.createElement('mark');
+        mark.className = 'user-highlight';
+        mark.dataset.highlightId = item.id;
+        mark.dataset.color = item.color || 'yellow';
+        range.surroundContents(mark);
+      });
+    }
+
+    function renderHighlights() {
+      unwrapHighlights();
+      let repaired = false;
+
+      highlights.forEach(item => {
+        const chapter = document.getElementById(item.chapterId);
+        if (!chapter || !item.quote) return;
+        const chapterText = chapter.textContent;
+        if (chapterText.slice(item.start, item.end) !== item.quote) {
+          const newStart = chapterText.indexOf(item.quote);
+          if (newStart >= 0) {
+            item.start = newStart;
+            item.end = newStart + item.quote.length;
+            repaired = true;
+          }
+        }
+      });
+
+      [...highlights]
+        .sort((a, b) => a.chapterId.localeCompare(b.chapterId) || b.start - a.start)
+        .forEach(wrapHighlight);
+
+      if (repaired) saveHighlights();
+    }
+
+    function clearSelectedHighlight() {
+      document.querySelectorAll('mark.user-highlight.selected').forEach(mark => mark.classList.remove('selected'));
+    }
+
+    function renderHighlightControls() {
+      body.classList.toggle('highlight-mode', fixedHighlightMode);
+      highlightPin.classList.toggle('active', fixedHighlightMode);
+      highlightPin.setAttribute('aria-pressed', String(fixedHighlightMode));
+      highlightPin.setAttribute('aria-label', fixedHighlightMode ? 'Desactivar resaltador fijo' : 'Dejar resaltador fijo');
+      highlightPin.title = fixedHighlightMode ? 'Desactivar resaltador fijo' : 'Dejar resaltador fijo';
+      highlightPin.textContent = fixedHighlightMode ? 'Fijo' : 'Fijar';
+      highlightHelp.classList.toggle('active', fixedHighlightMode);
+      highlightHelp.setAttribute('aria-pressed', String(fixedHighlightMode));
+      highlightHelp.title = fixedHighlightMode ? 'Desactivar resaltador fijo' : 'Activar resaltador fijo';
+      highlightColors.forEach(button => {
+        const active = button.dataset.color === activeHighlightColor;
+        button.classList.toggle('active', active);
+        button.setAttribute('aria-pressed', String(active));
+      });
+    }
+
+    function setActiveHighlightColor(color) {
+      activeHighlightColor = color;
+      localStorage.setItem(highlightColorStorageKey, color);
+      renderHighlightControls();
+    }
+
+    function closeHighlightToolbar(force = false) {
+      pendingHighlight = null;
+      activeHighlightId = null;
+      clearSelectedHighlight();
+      if (fixedHighlightMode && !force) {
+        showHighlightToolbar('fixed');
+        return;
+      }
+      highlightToolbar.hidden = true;
+    }
+
+    function showHighlightToolbar(mode) {
+      const editing = mode === 'edit';
+      const help = mode === 'help';
+      const fixed = mode === 'fixed';
+      highlightLabel.textContent = editing
+        ? 'Editar resaltado'
+        : help
+          ? 'Seleccioná texto para resaltarlo'
+          : fixed
+            ? 'Resaltador fijo'
+            : 'Resaltar selección';
+      highlightRemove.hidden = !editing;
+      highlightColors.forEach(button => { button.disabled = help; });
+      renderHighlightControls();
+      highlightToolbar.hidden = false;
+    }
+
+    function setFixedHighlightMode(enabled) {
+      fixedHighlightMode = enabled;
+      localStorage.setItem(highlightModeStorageKey, String(enabled));
+      pendingHighlight = null;
+      activeHighlightId = null;
+      clearSelectedHighlight();
+      renderHighlightControls();
+      if (enabled) showHighlightToolbar('fixed');
+      else closeHighlightToolbar(true);
+      body.classList.remove('nav-open');
+    }
+
+    function chapterOffset(chapter, node, offset) {
+      const range = document.createRange();
+      range.selectNodeContents(chapter);
+      range.setEnd(node, offset);
+      return range.toString().length;
+    }
+
+    function isWordCharacter(character) {
+      return Boolean(character) && /[\p{L}\p{N}\p{M}_]/u.test(character);
+    }
+
+    function snapToWholeWords(text, start, end) {
+      while (start > 0 && isWordCharacter(text[start - 1])) start -= 1;
+      while (end < text.length && isWordCharacter(text[end])) end += 1;
+      return { start, end };
+    }
+
+    function captureHighlightSelection() {
+      const selection = window.getSelection();
+      if (!selection || selection.rangeCount === 0 || selection.isCollapsed) return;
+
+      const range = selection.getRangeAt(0);
+      const startElement = range.startContainer.nodeType === Node.TEXT_NODE
+        ? range.startContainer.parentElement
+        : range.startContainer;
+      const endElement = range.endContainer.nodeType === Node.TEXT_NODE
+        ? range.endContainer.parentElement
+        : range.endContainer;
+      const startChapter = startElement?.closest?.('.chapter');
+      const endChapter = endElement?.closest?.('.chapter');
+      if (!startChapter || startChapter !== endChapter || !content.contains(startChapter)) return;
+
+      const rawText = range.toString();
+      const leadingSpace = rawText.length - rawText.trimStart().length;
+      const trailingSpace = rawText.length - rawText.trimEnd().length;
+      if (!rawText.trim()) return;
+
+      const chapterText = startChapter.textContent;
+      const selectionStart = chapterOffset(startChapter, range.startContainer, range.startOffset) + leadingSpace;
+      const selectionEnd = chapterOffset(startChapter, range.endContainer, range.endOffset) - trailingSpace;
+      const { start, end } = snapToWholeWords(chapterText, selectionStart, selectionEnd);
+      if (end <= start) return;
+
+      pendingHighlight = {
+        chapterId: startChapter.id,
+        start,
+        end,
+        quote: chapterText.slice(start, end)
+      };
+      activeHighlightId = null;
+      clearSelectedHighlight();
+      if (fixedHighlightMode) addHighlight(activeHighlightColor);
+      else showHighlightToolbar('selection');
+    }
+
+    function makeHighlightId() {
+      return `hl-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`;
+    }
+
+    function addHighlight(color) {
+      if (!pendingHighlight) return;
+      setActiveHighlightColor(color);
+      let start = pendingHighlight.start;
+      let end = pendingHighlight.end;
+
+      const overlaps = highlights.filter(item =>
+        item.chapterId === pendingHighlight.chapterId &&
+        item.start < end &&
+        item.end > start
+      );
+      overlaps.forEach(item => {
+        start = Math.min(start, item.start);
+        end = Math.max(end, item.end);
+      });
+
+      const chapter = document.getElementById(pendingHighlight.chapterId);
+      const overlapIds = new Set(overlaps.map(item => item.id));
+      highlights = highlights.filter(item => !overlapIds.has(item.id));
+      highlights.push({
+        id: makeHighlightId(),
+        chapterId: pendingHighlight.chapterId,
+        start,
+        end,
+        quote: chapter.textContent.slice(start, end),
+        color
+      });
+      saveHighlights();
+      renderHighlights();
+      window.getSelection()?.removeAllRanges();
+      closeHighlightToolbar();
+    }
+
+    function recolorHighlight(color) {
+      const item = highlights.find(highlight => highlight.id === activeHighlightId);
+      if (!item) return;
+      setActiveHighlightColor(color);
+      item.color = color;
+      saveHighlights();
+      renderHighlights();
+      closeHighlightToolbar();
+    }
+
+    highlightColors.forEach(button => button.addEventListener('click', () => {
+      const color = button.dataset.color;
+      if (activeHighlightId) recolorHighlight(color);
+      else if (pendingHighlight) addHighlight(color);
+      else {
+        setActiveHighlightColor(color);
+        if (fixedHighlightMode) showHighlightToolbar('fixed');
+      }
+    }));
+
+    highlightRemove.addEventListener('click', () => {
+      if (!activeHighlightId) return;
+      highlights = highlights.filter(item => item.id !== activeHighlightId);
+      saveHighlights();
+      renderHighlights();
+      closeHighlightToolbar();
+    });
+
+    highlightPin.addEventListener('click', () => setFixedHighlightMode(!fixedHighlightMode));
+    document.getElementById('highlight-close').addEventListener('click', () => {
+      if (fixedHighlightMode) setFixedHighlightMode(false);
+      else closeHighlightToolbar(true);
+    });
+    highlightHelp.addEventListener('click', () => setFixedHighlightMode(!fixedHighlightMode));
+
+    content.addEventListener('click', event => {
+      const mark = event.target.closest('mark.user-highlight');
+      if (!mark) return;
+      event.preventDefault();
+      window.getSelection()?.removeAllRanges();
+      pendingHighlight = null;
+      activeHighlightId = mark.dataset.highlightId;
+      clearSelectedHighlight();
+      document.querySelectorAll(`mark.user-highlight[data-highlight-id="${activeHighlightId}"]`)
+        .forEach(part => part.classList.add('selected'));
+      showHighlightToolbar('edit');
+    });
+
+    let pointerSelecting = false;
+    document.addEventListener('pointerdown', event => {
+      pointerSelecting = content.contains(event.target);
+      if (highlightToolbar.contains(event.target)) return;
+      if (!event.target.closest('mark.user-highlight')) closeHighlightToolbar();
+    });
+    document.addEventListener('pointerup', event => {
+      pointerSelecting = false;
+      if (highlightToolbar.contains(event.target) || event.target.closest('mark.user-highlight')) return;
+      window.setTimeout(captureHighlightSelection, 20);
+    });
+    document.addEventListener('pointercancel', () => { pointerSelecting = false; });
+    document.addEventListener('keyup', event => {
+      if (event.key.startsWith('Arrow') || event.key === 'Shift') captureHighlightSelection();
+    });
+    let selectionTimer;
+    document.addEventListener('selectionchange', () => {
+      window.clearTimeout(selectionTimer);
+      selectionTimer = window.setTimeout(() => {
+        if (pointerSelecting) return;
+        const selection = window.getSelection();
+        if (selection && !selection.isCollapsed) captureHighlightSelection();
+      }, 120);
+    });
+
+    renderHighlights();
+    renderHighlightControls();
+    if (fixedHighlightMode) showHighlightToolbar('fixed');
+  </script>
+</body>
+</html>
