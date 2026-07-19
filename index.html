@@ -592,21 +592,21 @@
 
     <div class="nav-title">Núcleo</div>
     <nav class="toc" aria-label="Tabla de contenidos">
-      <a href="#ciclo"><span>01</span>Fundamentos y ciclo de ML</a>
+      <a href="#ciclo"><span>01</span>Fundamentos y ciclo de aprendizaje</a>
       <a href="#problema"><span>02</span>Problema y viabilidad</a>
-      <a href="#datos"><span>03</span>Datos, acceso y EDA</a>
+      <a href="#datos"><span>03</span>Datos, acceso y análisis exploratorio</a>
       <a href="#features"><span>04</span>Ingeniería de características</a>
       <a href="#entrenamiento"><span>05</span>Entrenamiento y métricas</a>
-      <a href="#automl"><span>06</span>AutoML</a>
+      <a href="#automl"><span>06</span>Automatización del aprendizaje</a>
       <a href="#regularizacion"><span>07</span>Regularización</a>
       <a href="#xai"><span>08</span>Explicabilidad y sesgos</a>
-      <a href="#mlops"><span>09</span>MLOps y drift</a>
+      <a href="#mlops"><span>09</span>Producción y mantenimiento</a>
     </nav>
     <div class="nav-title">Extensiones</div>
     <nav class="toc" aria-label="Contenidos complementarios">
       <a href="#vibe"><span>10</span>Vibe coding</a>
-      <a href="#rag"><span>11</span>RAG y bases vectoriales</a>
-      <a href="#seguridad"><span>12</span>Seguridad en LLM</a>
+      <a href="#rag"><span>11</span>Recuperación aumentada y bases vectoriales</a>
+      <a href="#seguridad"><span>12</span>Seguridad en modelos de lenguaje</a>
       <a href="#agentes"><span>13</span>Agentes inteligentes</a>
       <a href="#cobots"><span>14</span>Cobots y gemelos digitales</a>
       <a href="#preguntas"><span>15</span>Banco de preguntas</a>
@@ -676,8 +676,8 @@
         <ol class="study-list" aria-label="Flujo del ciclo de Machine Learning">
           <li>Validar el problema y definir el criterio de éxito.</li>
           <li>Investigar viabilidad y acceso a los datos.</li>
-          <li>Realizar el análisis exploratorio de datos, EDA, y decidir Go o No Go.</li>
-          <li>Limpiar los datos y realizar ingeniería de características.</li>
+          <li>Realizar el análisis exploratorio de datos (EDA, del inglés <em>Exploratory Data Analysis</em>) y decidir <strong>Go</strong> (continuar) o <strong>No Go</strong> (detener el proyecto).</li>
+          <li>Limpiar los datos y hacer ingeniería de características (transformar o crear variables para que el modelo pueda representar mejor el problema).</li>
           <li>Entrenar, validar y ajustar el modelo.</li>
           <li>Explicar resultados y detectar sesgos.</li>
           <li>Diseñar la interfaz y planificar el uso productivo.</li>
@@ -763,6 +763,8 @@
         <p>Que una empresa afirme que los datos existen no significa que el equipo pueda usarlos. Pueden faltar permisos, anonimización, cumplimiento normativo, acuerdos entre áreas, claves de unión o infraestructura. Solo con acceso efectivo se conocen volumen, nivel de detalle o granularidad, formato y calidad.</p>
         <div class="callout blue"><strong>Estimación inicial de almacenamiento usada en clase.</strong> La regla general fue reservar aproximadamente 2,25 veces el tamaño del dataset original. Con una gestión más agresiva puede bajarse a 1,75, eliminando o archivando estados intermedios, pero se pierde la posibilidad de reprocesar inmediatamente desde cualquier paso. Es una heurística empírica, no una constante universal.</div>
 
+        <p>El <strong>análisis exploratorio de datos (EDA, del inglés <em>Exploratory Data Analysis</em>)</strong> es la inspección sistemática de los datos antes de entrenar: busca entender su estructura, calidad, distribución y anomalías sin modificar todavía el original.</p>
+
         <h3>Qué hace el EDA</h3>
         <ul class="study-list">
           <li><strong>Estructura:</strong> filas, columnas, target, claves, tipos, memoria, granularidad y períodos cubiertos.</li>
@@ -838,6 +840,8 @@
           <div class="chapter-number">04</div>
           <div><h2>Limpieza e ingeniería de características</h2></div>
         </div>
+
+        <p>La <strong>ingeniería de características</strong>, también llamada <em>feature engineering</em>, consiste en transformar las variables disponibles o crear nuevas para que los patrones relevantes queden representados de una forma que el algoritmo pueda usar.</p>
 
         <h3>Tres conceptos que no deben mezclarse</h3>
         <ul class="study-list">
@@ -998,7 +1002,7 @@
       <section class="chapter" id="automl" data-title="automl pycaret tpot h2o autofeat flaml lazypredict programación genética pipeline">
         <div class="chapter-head">
           <div class="chapter-number">06</div>
-          <div><h2>AutoML</h2></div>
+          <div><h2>Automatización del aprendizaje automático (AutoML)</h2></div>
         </div>
 
         <p><strong>AutoML, Automated Machine Learning,</strong> reúne herramientas que automatizan partes repetitivas del entrenamiento y la comparación de modelos. Suele recibir un dataset preparado, el target, el tipo de problema, la métrica, la estrategia de validación y un presupuesto de tiempo. Como salida produce resultados comparables y uno o más pipelines candidatos. Un pipeline es una secuencia ordenada de transformaciones y modelo.</p>
@@ -1102,7 +1106,7 @@
       <section class="chapter" id="xai" data-title="explicabilidad interpretabilidad XAI SHAP LIME integrated gradients sesgos fairness caja negra blanca gris">
         <div class="chapter-head">
           <div class="chapter-number">08</div>
-          <div><h2>Explicabilidad y detección de sesgos</h2></div>
+          <div><h2>Explicabilidad de modelos y detección de sesgos (XAI)</h2></div>
         </div>
 
         <h3>De caja negra a explicación</h3>
@@ -1164,10 +1168,10 @@
       <section class="chapter" id="mlops" data-title="MLOps producción latencia seguridad computo logs trazabilidad drift data concept prediction reentrenamiento decomiso MLflow">
         <div class="chapter-head">
           <div class="chapter-number">09</div>
-          <div><h2>Producción, MLOps y drift</h2></div>
+          <div><h2>Producción y mantenimiento de modelos (MLOps)</h2></div>
         </div>
 
-        <p><strong>MLOps</strong> es el conjunto de prácticas para versionar, desplegar, observar y mantener modelos de Machine Learning en producción. Conecta el trabajo de datos y modelado con ingeniería de software y operación. No es una herramienta específica ni empieza después de entrenar.</p>
+        <p><strong>MLOps</strong>, abreviatura de <em>Machine Learning Operations</em>, es el conjunto de prácticas para versionar, desplegar, observar y mantener modelos de aprendizaje automático en producción. Conecta el trabajo de datos y modelado con ingeniería de software y operación. No es una herramienta específica ni empieza después de entrenar.</p>
 
         <h3>Por qué un buen modelo no llega a producción</h3>
         <p><strong>Cifra citada en clase:</strong> alrededor del 40% de los proyectos que llegan validados nunca alcanzan producción por errores u horrores de gestión. No se presentó como una estadística universal, sino como advertencia para no separar el modelado de la planificación productiva.</p>
@@ -1192,8 +1196,8 @@
         <h3>MLflow y versionado</h3>
         <p>MLflow aparece como herramienta para registrar experimentos, parámetros, métricas y artefactos, comparar corridas y reconstruir modelos. Git versiona bien código, pero los datasets suelen necesitar estrategias específicas por su tamaño. La trazabilidad completa vincula código, datos, entorno y ejecución.</p>
 
-        <h3>Tipos de drift</h3>
-        <p>Drift significa que el entorno productivo dejó de parecerse al representado durante el desarrollo. El cambio puede estar en las entradas, en la relación con el target, en las predicciones o en el propio pipeline.</p>
+        <h3>Cambios en producción o drift</h3>
+        <p><strong>Drift</strong> significa que el entorno productivo dejó de parecerse al representado durante el desarrollo. El cambio puede estar en las entradas, en la relación con el target, en las predicciones o en el propio pipeline.</p>
         <div class="table-wrap"><table>
           <thead><tr><th>Tipo</th><th>Qué cambia</th><th>Ejemplo</th></tr></thead>
           <tbody>
@@ -1282,7 +1286,7 @@
       <section class="chapter" id="rag" data-title="RAG retrieval augmented generation bases vectoriales embeddings cosine euclidean atención alucinación chunking trazabilidad LLM">
         <div class="chapter-head">
           <div class="chapter-number">11</div>
-          <div><h2>RAG, LLM y bases vectoriales</h2></div>
+          <div><h2>RAG (generación aumentada mediante recuperación), modelos de lenguaje y bases vectoriales</h2></div>
         </div>
 
         <p>Un <strong>LLM, Large Language Model,</strong> es un modelo entrenado con grandes cantidades de texto para predecir tokens y generar una continuación. Recibe un prompt, la entrada con instrucciones y contexto, y produce una respuesta. No funciona como una base de datos ni garantiza que una afirmación sea verdadera.</p>
@@ -1355,13 +1359,13 @@
       <section class="chapter" id="seguridad" data-title="seguridad LLM brechas vulnerabilidades prompt injection datos sensibles poisoning supply chain output agency system prompt vector embeddings misinformation consumption OWASP">
         <div class="chapter-head">
           <div class="chapter-number">12</div>
-          <div><h2>Principales brechas de seguridad en LLM</h2></div>
+          <div><h2>Principales brechas de seguridad en modelos de lenguaje (LLM)</h2></div>
         </div>
 
         <h3>Las cinco que hay que nombrar primero</h3>
         <ol class="study-list">
           <li><strong>Prompt injection:</strong> una entrada directa o un contenido externo introduce instrucciones que cambian el comportamiento previsto. Puede revelar datos, alterar decisiones o disparar herramientas.</li>
-          <li><strong>Divulgación de información sensible:</strong> el sistema expone PII, información personal identificable, secretos, datos empresariales, fragmentos de entrenamiento, contexto de otros usuarios o credenciales.</li>
+          <li><strong>Divulgación de información sensible:</strong> el sistema expone PII (<em>Personally Identifiable Information</em>, información personal identificable), secretos, datos empresariales, fragmentos de entrenamiento, contexto de otros usuarios o credenciales.</li>
           <li><strong>Envenenamiento y cadena de suministro:</strong> datos, embeddings, modelos, adaptadores, dependencias o repositorios comprometidos insertan sesgos, puertas traseras o código malicioso.</li>
           <li><strong>Manejo inseguro de salidas:</strong> la aplicación confía en texto generado y lo ejecuta o renderiza sin validar, habilitando inyección de comandos, SQL, XSS o acciones no previstas.</li>
           <li><strong>Agencia excesiva:</strong> el modelo recibe más herramientas, permisos o autonomía que la necesaria. Una alucinación o inyección puede producir una acción real dañina.</li>
