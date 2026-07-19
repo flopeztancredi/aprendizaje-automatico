@@ -653,8 +653,8 @@
 
         <h3>Qué puede aprender y dónde se limita</h3>
         <p>La formulación que atraviesa la cursada es: <strong>Machine Learning mira el pasado, abstrae patrones y los aplica a casos nuevos</strong>. Es potente cuando la tarea está tipificada, es decir, cuando el procedimiento está bien conocido y la variabilidad posible es acotada. Si aparece una situación completamente nueva, fuera de los patrones observados, el modelo no tiene experiencia desde la cual extrapolar.</p>
-        <p>Una forma deliberadamente provocadora de resumirlo es que la IA actual no es inteligencia humana, sino un mecanismo estadístico o probabilístico que produce resultados convincentes. Puede extrapolar dentro de un dominio aprendido, pero no transfiere conocimiento entre dominios con la flexibilidad de una persona.</p>
-        <p>El ejemplo para fijar esta limitación es el robot que dobla una camisa. Para una persona es una tarea cotidiana, pero cada camisa cae de una forma distinta y genera muchísimas configuraciones posibles. La dificultad no es solo la motricidad fina, sino resolver una situación variable usando abstracción y conocimiento general. El mejor resultado surge al <strong>complementar IA con inteligencia natural</strong>: la máquina aporta velocidad y repetición, la persona aporta criterio, abstracción y conocimiento del problema.</p>
+        <p>La IA actual no es inteligencia humana, sino un mecanismo estadístico o probabilístico que produce resultados convincentes. Puede extrapolar dentro de un dominio aprendido, pero no transfiere conocimiento entre dominios con la flexibilidad de una persona.</p>
+        <p>El robot que dobla una camisa muestra esta limitación. Para una persona es una tarea cotidiana, pero cada camisa cae de una forma distinta y genera muchísimas configuraciones posibles. La dificultad no es solo la motricidad fina, sino resolver una situación variable usando abstracción y conocimiento general. El mejor resultado surge al <strong>complementar IA con inteligencia natural</strong>: la máquina aporta velocidad y repetición, la persona aporta criterio, abstracción y conocimiento del problema.</p>
 
         <h3>Las piezas mínimas</h3>
         <ul class="study-list">
@@ -690,7 +690,7 @@
 
         <h3>Por qué no es lineal</h3>
         <p>El proyecto avanza con información incompleta. El EDA puede revelar que los datos no alcanzan. La validación puede mostrar patrones heterogéneos. La explicabilidad puede revelar una variable irrelevante o sesgada. Producción puede mostrar que cambiaron los datos o su relación con el resultado. Cada hallazgo puede obligar a volver a una etapa anterior.</p>
-        <p>La ciencia de datos trabaja con un grado alto de incertidumbre. Por eso requiere más método, no menos: planificación, validaciones, puntos de Go o No Go, bitácora y posibilidad de reprocesar. Una regla útil es que <strong>un dataset termina de entenderse cuando el modelo ya está funcionando</strong>, porque recién entonces aparecen errores, patrones y comportamientos que no eran visibles al comienzo.</p>
+        <p>La ciencia de datos trabaja con un grado alto de incertidumbre. Por eso requiere más método, no menos: planificación, validaciones, puntos de Go o No Go, bitácora y posibilidad de reprocesar. <strong>Un dataset termina de entenderse cuando el modelo ya está funcionando</strong>, porque recién entonces aparecen errores, patrones y comportamientos que no eran visibles al comienzo.</p>
         <p>Cada etapa debe tener un entregable, una versión identificable y un criterio de <strong>Go o No Go</strong>.</p>
 
         <ul class="study-list">
@@ -761,7 +761,7 @@
 
         <h3>Existencia, acceso y capacidad</h3>
         <p>Que una empresa afirme que los datos existen no significa que el equipo pueda usarlos. Pueden faltar permisos, anonimización, cumplimiento normativo, acuerdos entre áreas, claves de unión o infraestructura. Solo con acceso efectivo se conocen volumen, nivel de detalle o granularidad, formato y calidad.</p>
-        <div class="callout blue"><strong>Estimación inicial de almacenamiento.</strong> Una regla práctica es reservar aproximadamente 2,25 veces el tamaño del dataset original. Con una gestión más agresiva puede bajarse a 1,75, eliminando o archivando estados intermedios, pero se pierde la posibilidad de reprocesar inmediatamente desde cualquier paso. Es una heurística empírica, no una constante universal.</div>
+        <div class="callout blue"><strong>Estimación inicial de almacenamiento.</strong> Reservar aproximadamente 2,25 veces el tamaño del dataset original permite conservar estados intermedios. Con una gestión más agresiva puede bajarse a 1,75, eliminando o archivando estados intermedios, pero se pierde la posibilidad de reprocesar inmediatamente desde cualquier paso. Es una heurística empírica, no una constante universal.</div>
 
         <p>El <strong>análisis exploratorio de datos (EDA, del inglés <em>Exploratory Data Analysis</em>)</strong> es la inspección sistemática de los datos antes de entrenar: busca entender su estructura, calidad, distribución y anomalías sin modificar todavía el original.</p>
 
@@ -814,9 +814,9 @@
           <li><strong>SUBE y serendipia:</strong> las tarjetas defectuosas se concentraban en una posición de cada caja. El patrón permitió descubrir que el apilado dañaba los chips antes de la grabación. Fue un objetivo secundario o hallazgo por serendipia: conocimiento útil que apareció mientras se investigaba otra cosa.</li>
         </ul>
 
-        <p>El caso de la aseguradora deja tres moralejas adicionales. El ingeniero de datos puede ser la única persona que revise los registros uno por uno. Ese análisis funciona también como ciberseguridad reactiva, porque descubre después de la grabación lo que los controles en tiempo real no vieron. Además, comunicar un fraude o un error estructural exige asertividad: hay que sostener el hallazgo con evidencia, reconstruir su historia y explicarlo a quienes deben decidir.</p>
+        <p>En una aseguradora, el ingeniero de datos puede ser la única persona que revise los registros uno por uno. Ese análisis funciona también como ciberseguridad reactiva, porque descubre después de la grabación lo que los controles en tiempo real no vieron. Además, comunicar un fraude o un error estructural exige asertividad: hay que sostener el hallazgo con evidencia, reconstruir su historia y explicarlo a quienes deben decidir.</p>
 
-        <p>La experiencia de EDA se acumula en tres niveles: problemas generales como nulos y tipos incorrectos, patrones propios de una industria y particularidades de los sistemas de cada empresa. OSDU fue citado como referencia del dominio de datos de Oil and Gas. La única forma de “afinar el ojo” es practicar con datasets distintos, por ejemplo los disponibles en Kaggle, y registrar qué hipótesis funcionaron.</p>
+        <p>La experiencia de EDA se acumula en tres niveles: problemas generales como nulos y tipos incorrectos, patrones propios de una industria y particularidades de los sistemas de cada empresa. OSDU es una referencia del dominio de datos de Oil and Gas. Para “afinar el ojo” hay que practicar con datasets distintos, por ejemplo los disponibles en Kaggle, y registrar qué hipótesis funcionaron.</p>
 
         <h3>Correlación</h3>
         <div class="table-wrap"><table>
@@ -988,7 +988,7 @@
           <li><strong>Desviación estándar, interpretación operativa:</strong> indica si encontró todos los patrones. Una dispersión alta señala que algún fold contiene un comportamiento distinto y obliga a investigar su distribución.</li>
         </ul>
 
-        <div class="callout warning"><strong>Matiz técnico.</strong> Una desviación baja demuestra estabilidad entre los folds observados, no que estén presentes todos los patrones posibles del mundo ni que el modelo los haya aprendido. La lectura de la desviación como señal de cobertura es una regla operativa para detectar heterogeneidad, no una demostración matemática de cobertura total.</div>
+        <div class="callout warning"><strong>Límite de interpretación.</strong> Una desviación baja demuestra estabilidad entre los folds observados, no que estén presentes todos los patrones posibles del mundo ni que el modelo los haya aprendido. La lectura de la desviación como señal de cobertura es una regla operativa para detectar heterogeneidad, no una demostración matemática de cobertura total.</div>
 
         <h3>Heterogeneidad de patrones</h3>
         <p>Los patrones pueden cambiar con el tiempo o concentrarse en segmentos. Pandemia, Black Friday o un cambio de sistema son cortes que pueden justificar modelos separados. Hay que usar splits temporales o por grupos cuando el muestreo aleatorio mezclaría futuro con pasado o registros relacionados.</p>
@@ -1073,8 +1073,8 @@
           </tbody>
         </table></div>
 
-        <p>Una intuición útil es que una red neuronal funciona como una <strong>base de datos sofisticada</strong>: no guarda filas, sino la abstracción de los patrones en sus pesos. Entrenar significa encontrar los pesos o umbrales de activación que permiten propagar la señal correcta y estabilizar la red. El ejemplo de las sillas muestra la idea de abstracción: una persona no memoriza todas las sillas vistas, conserva rasgos generales que le permiten reconocer una nueva.</p>
-        <p>La capacidad de patrones es finita para una arquitectura y un presupuesto dados. Agregar neuronas o capas amplía capacidad, pero el tiempo necesario para estabilizar la red puede crecer de forma muy fuerte y, según la complejidad del modelo, exponencial. Por eso puede usarse el encadenamiento de redes: una primera red reconoce metaconceptos, por ejemplo “P o Q”, y otra red especializada resuelve esa distinción con menos patrones simultáneos.</p>
+        <p>Una red neuronal funciona como una <strong>base de datos sofisticada</strong>: no guarda filas, sino la abstracción de los patrones en sus pesos. Entrenar significa encontrar los pesos o umbrales de activación que permiten propagar la señal correcta y estabilizar la red. El ejemplo de las sillas muestra la idea de abstracción: una persona no memoriza todas las sillas vistas, conserva rasgos generales que le permiten reconocer una nueva.</p>
+        <p>La capacidad de patrones es finita para una arquitectura y un presupuesto dados. Agregar neuronas o capas amplía capacidad, pero el tiempo necesario para estabilizar la red puede crecer de forma muy fuerte y, según la complejidad del modelo, exponencial. El encadenamiento de redes divide el problema: una primera red reconoce metaconceptos, por ejemplo “P o Q”, y otra red especializada resuelve esa distinción con menos patrones simultáneos.</p>
         <p><strong>Definición empírica:</strong> Deep Learning combina buenas prácticas de preprocesamiento con un encadenamiento particular de una o más redes neuronales para obtener resultados precisos. Técnicamente, la definición más general es el aprendizaje con redes neuronales de múltiples capas que construyen representaciones jerárquicas. La primera formulación describe una práctica de diseño, la segunda una definición estándar.</p>
 
         <p>Una métrica extremadamente alta no prueba sobreajuste, pero debe activar revisión. Comparar entrenamiento, validación, cross validation y producción permite distinguir un problema fácil de una falsa seguridad.</p>
@@ -1223,7 +1223,7 @@
         </div>
 
         <p><strong>Vibe coding</strong> es el desarrollo de software asistido por modelos generativos mediante instrucciones en lenguaje natural. Un modelo generativo produce texto o código continuando patrones aprendidos. Procesa el contenido en tokens, fragmentos de palabras, signos o código que también determinan el costo y el límite de contexto.</p>
-        <p>La analogía del <strong>ilusionista</strong> ayuda a entender el vibe coding: el resultado hace pensar que hay comprensión detrás de la pantalla, pero el mecanismo sigue siendo probabilístico. Que el código compile no demuestra que la jerarquía, los contratos, la seguridad o la mantenibilidad sean correctos.</p>
+        <p>La analogía del <strong>ilusionista</strong> describe el vibe coding: el resultado hace pensar que hay comprensión detrás de la pantalla, pero el mecanismo sigue siendo probabilístico. Que el código compile no demuestra que la jerarquía, los contratos, la seguridad o la mantenibilidad sean correctos.</p>
 
         <h3>Flujo de trabajo</h3>
         <ol>
@@ -1253,18 +1253,18 @@
           <li><strong>Amnesia de código:</strong> el equipo deja de entender estructura y decisiones, y solo puede modificar el sistema volviendo a pedirle todo al modelo.</li>
           <li><strong>Promedio funcional:</strong> el código generado suele reflejar patrones frecuentes. Puede compilar sin ser eficiente, seguro, mantenible o bien diseñado.</li>
           <li><strong>Colapso de diversidad:</strong> si futuros modelos se entrenan con código producido por modelos anteriores, se acentúa la media y disminuye la desviación. El resultado tiende a soluciones cada vez más parecidas, con menos alternativas de diseño y menor evolución.</li>
-          <li><strong>Costo de contexto:</strong> pasar repositorios enteros consume tokens, expone información y vuelve impreciso el alcance. El problema señalado no es principalmente el precio unitario del token, sino la cantidad necesaria para comunicar todo el código y sus relaciones.</li>
+          <li><strong>Costo de contexto:</strong> pasar repositorios enteros consume tokens, expone información y vuelve impreciso el alcance. El costo depende principalmente de la cantidad de tokens necesaria para comunicar todo el código y sus relaciones, no del precio unitario de cada token.</li>
           <li><strong>Falsa confianza:</strong> la analogía con Dunning Kruger advierte que una respuesta segura no demuestra comprensión ni corrección.</li>
         </ul>
 
         <p>El costo de combinar programadores senior con grandes consumos de tokens puede igualar o superar el esquema previo. La productividad aparece cuando se reduce el contexto necesario y se usa a las personas para diseñar y revisar, no cuando se entrega el repositorio completo al modelo.</p>
 
         <h3>Patrones como compresión de contexto</h3>
-        <p>Un patrón es una solución probada a un problema recurrente. Conviene trabajar como un <strong>embudo, de lo general a lo particular</strong>: primero arquitectura, luego patrones de diseño, módulos y contratos, y recién después código. Ese scaffolding o andamiaje permite pedir cambios acotados, reducir contexto y evaluar el resultado. Para código legado, primero puede ser necesario refactorizar y documentar límites.</p>
-        <p><strong>Regla práctica:</strong> la única forma de que el vibe coding funcione de manera consistente es pasarle al modelo los patrones con los que tiene que trabajar. No es una condición lógica absoluta, sino una regla de ingeniería para obtener software menos promedio, más modular y revisable.</p>
+        <p>Un patrón es una solución probada a un problema recurrente. El trabajo sigue un <strong>embudo, de lo general a lo particular</strong>: primero arquitectura, luego patrones de diseño, módulos y contratos, y recién después código. Ese scaffolding o andamiaje permite pedir cambios acotados, reducir contexto y evaluar el resultado. Para código legado, primero puede ser necesario refactorizar y documentar límites.</p>
+        <p><strong>Para que el vibe coding funcione de manera consistente hay que pasarle al modelo los patrones con los que tiene que trabajar.</strong> El resultado es software menos promedio, más modular y revisable.</p>
 
         <h3>Dunning Kruger y sesgo heredado</h3>
-        <p>El efecto Dunning Kruger describe la tendencia a sobreestimar el propio dominio cuando el conocimiento es superficial. El caso recordatorio es el ladrón que se puso jugo de limón en la cara porque creyó que eso lo volvería invisible para las cámaras. Su error no era falta de seguridad, sino una explicación falsa sostenida con certeza.</p>
+        <p>El efecto Dunning Kruger describe la tendencia a sobreestimar el propio dominio cuando el conocimiento es superficial. El ladrón que se puso jugo de limón en la cara porque creyó que eso lo volvería invisible para las cámaras ilustra el sesgo: el error no era falta de seguridad, sino una explicación falsa sostenida con certeza.</p>
         <p>Los LLM suelen responder con tono seguro aunque la respuesta sea incompleta o incorrecta. Ese riesgo de que la persona adopte la certeza del modelo como propia puede llamarse <strong>sesgo heredado</strong>. El antídoto es conocimiento de base suficiente para interpelar al modelo, repreguntar, comparar alternativas y revisar el resultado.</p>
 
         <div class="table-wrap"><table>
@@ -1315,14 +1315,13 @@
         <p>La similitud coseno compara la orientación de dos vectores, la distancia euclídea mide la distancia recta entre ellos y el producto interno combina orientación y magnitud. La medida correcta depende de cómo fue entrenado y normalizado el modelo de embeddings.</p>
 
         <h3>Por qué la base vectorial siempre responde</h3>
-        <p>La cadena argumental es la siguiente:</p>
         <ol class="study-list">
           <li>Una consulta SQL exacta puede no devolver filas. Una búsqueda vectorial es difusa: ordena los fragmentos por cercanía semántica.</li>
           <li>El índice siempre puede devolver el vector más cercano, aunque ese vecino siga siendo poco relevante.</li>
           <li>No existe un punto de corte universal y verificado que separe una respuesta correcta de una incorrecta. Un umbral elegido sin evaluación para ese sistema es arbitrario.</li>
-          <li>Por eso, en esta formulación, la base vectorial siempre responde y, si lo recuperado no es lo que se necesitaba, se lo llama alucinación.</li>
+          <li>La base vectorial siempre responde y, si lo recuperado no es lo que se necesitaba, se lo llama alucinación.</li>
         </ol>
-        <p><strong>Matiz técnico:</strong> en una implementación real sí pueden configurarse umbrales, abstención, filtros y un segundo ordenamiento. Eso reduce recuperaciones malas, pero ningún valor garantiza verdad para todas las consultas. Además, conviene distinguir recuperación irrelevante de alucinación generativa: la base recupera y el LLM redacta.</p>
+        <p><strong>En una implementación real:</strong> pueden configurarse umbrales, abstención, filtros y un segundo ordenamiento. Eso reduce recuperaciones malas, pero ningún valor garantiza verdad para todas las consultas. Hay que distinguir recuperación irrelevante de alucinación generativa: la base recupera y el LLM redacta.</p>
 
         <h3>Por qué usar RAG</h3>
         <ul>
@@ -1373,7 +1372,7 @@
 
         <div class="callout warning"><strong>El LLM no es un control de seguridad.</strong> Un prompt no reemplaza autorización, validación, aislamiento ni permisos mínimos. Los controles críticos deben ser determinísticos y externos al modelo.</div>
 
-        <p><strong>Caso OpenClaw:</strong> durante 15 a 20 días fue adoptado con entusiasmo como asistente capaz de planificar y orquestar tareas, hasta que se hicieron visibles sus agujeros de seguridad. La moraleja no es evitar agentes, sino desplegarlos dentro de asistentes y orquestadores controlados, con permisos acotados y acciones sensibles sujetas a aprobación.</p>
+        <p><strong>Caso OpenClaw:</strong> durante 15 a 20 días fue adoptado con entusiasmo como asistente capaz de planificar y orquestar tareas, hasta que se hicieron visibles sus agujeros de seguridad. Los agentes deben desplegarse dentro de asistentes y orquestadores controlados, con permisos acotados y acciones sensibles sujetas a aprobación.</p>
 
         <h3>OWASP Top 10 para aplicaciones de LLM, edición 2025</h3>
         <div class="table-wrap"><table>
@@ -1487,7 +1486,7 @@
         <h3>Capacidades destacadas</h3>
         <ul>
           <li>Sensores de fuerza, contacto y percepción del entorno.</li>
-          <li><strong>Visión artificial no invasiva:</strong> permite percibir personas, piezas, posiciones, fugas, temperatura y defectos sin llenar el entorno de sensores de contacto. En este enfoque, un robot necesita este alto grado de percepción para ser considerado cobot.</li>
+          <li><strong>Visión artificial no invasiva:</strong> permite percibir personas, piezas, posiciones, fugas, temperatura y defectos sin llenar el entorno de sensores de contacto. Un robot necesita este alto grado de percepción para ser considerado cobot.</li>
           <li>Movilidad y gestión de energía en equipos desconectados.</li>
           <li>Kinetic teaching: una persona guía movimientos y el sistema ajusta la rutina.</li>
           <li>Asistencia ergonómica, por ejemplo sostener el peso de una pieza mientras el operario la posiciona.</li>
@@ -1505,7 +1504,7 @@
           </tbody>
         </table></div>
 
-        <p>La analogía para no confundirlos es directa: <strong>predictivo es la bola de cristal</strong>, anticipa que el equipo fallará y cuándo. <strong>Prescriptivo es la receta o RP del médico</strong>, agrega qué acción conviene realizar para evitar la falla o transitarla de forma controlada.</p>
+        <p><strong>Predictivo es la bola de cristal:</strong> anticipa que el equipo fallará y cuándo. <strong>Prescriptivo es la receta o RP del médico:</strong> agrega qué acción realizar para evitar la falla o transitarla de forma controlada.</p>
         <ul class="study-list">
           <li><strong>MTBF, Mean Time Between Failures:</strong> tiempo medio entre fallas de un equipo. Ayuda a caracterizar su confiabilidad y planificar intervenciones.</li>
           <li><strong>OEE, Overall Equipment Effectiveness:</strong> efectividad general del equipo, normalmente vinculada con disponibilidad, rendimiento y calidad. La cifra de referencia es 89% de efectividad, interpretada como operación sin paradas imprevistas, con detenciones predichas y planificadas.</li>
