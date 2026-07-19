@@ -653,8 +653,8 @@
 
         <h3>Qué puede aprender y dónde se limita</h3>
         <p>La formulación que atraviesa la cursada es: <strong>Machine Learning mira el pasado, abstrae patrones y los aplica a casos nuevos</strong>. Es potente cuando la tarea está tipificada, es decir, cuando el procedimiento está bien conocido y la variabilidad posible es acotada. Si aparece una situación completamente nueva, fuera de los patrones observados, el modelo no tiene experiencia desde la cual extrapolar.</p>
-        <p>El profesor lo resume de forma deliberadamente provocadora: la IA actual no es inteligencia humana, sino un mecanismo estadístico o probabilístico que produce resultados convincentes. Puede extrapolar dentro de un dominio aprendido, pero no transfiere conocimiento entre dominios con la flexibilidad de una persona.</p>
-        <p>El ejemplo para fijar esta limitación es el robot que dobla una camisa. Para una persona es una tarea cotidiana, pero cada camisa cae de una forma distinta y genera muchísimas configuraciones posibles. La dificultad no era solo la motricidad fina, sino resolver una situación variable usando abstracción y conocimiento general. La conclusión de la clase fue que el mejor resultado surge al <strong>complementar IA con inteligencia natural</strong>: la máquina aporta velocidad y repetición, la persona aporta criterio, abstracción y conocimiento del problema.</p>
+        <p>Una forma deliberadamente provocadora de resumirlo es que la IA actual no es inteligencia humana, sino un mecanismo estadístico o probabilístico que produce resultados convincentes. Puede extrapolar dentro de un dominio aprendido, pero no transfiere conocimiento entre dominios con la flexibilidad de una persona.</p>
+        <p>El ejemplo para fijar esta limitación es el robot que dobla una camisa. Para una persona es una tarea cotidiana, pero cada camisa cae de una forma distinta y genera muchísimas configuraciones posibles. La dificultad no es solo la motricidad fina, sino resolver una situación variable usando abstracción y conocimiento general. El mejor resultado surge al <strong>complementar IA con inteligencia natural</strong>: la máquina aporta velocidad y repetición, la persona aporta criterio, abstracción y conocimiento del problema.</p>
 
         <h3>Las piezas mínimas</h3>
         <ul class="study-list">
@@ -670,7 +670,7 @@
         <p>En un e-commerce, una fila puede ser una compra, las features pueden incluir precio, fecha, producto y cliente, y el target puede indicar si habrá devolución. El entrenamiento usa compras pasadas y la inferencia estima qué ocurrirá con una compra nueva.</p>
 
         <h3>ML no se construye igual que el software tradicional</h3>
-        <p>La diferencia sustancial marcada en clase es el sentido del flujo de datos. Una aplicación tradicional suele ser <strong>productora de datos</strong>: su operación, transacciones y logs generan información. Un sistema de ML es primero un gran <strong>ingestor de datos</strong>: necesita historia para entrenarse y abstraer el modelo. En producción puede generar una salida muy pequeña, por ejemplo una clase o un número, en comparación con el volumen usado para desarrollarlo.</p>
+        <p>La diferencia sustancial frente al software tradicional es el sentido del flujo de datos. Una aplicación tradicional suele ser <strong>productora de datos</strong>: su operación, transacciones y registros de actividad generan información. Un sistema de ML es primero un gran <strong>ingestor de datos</strong>: necesita historia para entrenarse y abstraer el modelo. En producción puede generar una salida muy pequeña, por ejemplo una clase o un número, en comparación con el volumen usado para desarrollarlo.</p>
 
         <h3>El ciclo de vida</h3>
         <ol class="study-list" aria-label="Flujo del ciclo de Machine Learning">
@@ -690,7 +690,7 @@
 
         <h3>Por qué no es lineal</h3>
         <p>El proyecto avanza con información incompleta. El EDA puede revelar que los datos no alcanzan. La validación puede mostrar patrones heterogéneos. La explicabilidad puede revelar una variable irrelevante o sesgada. Producción puede mostrar que cambiaron los datos o su relación con el resultado. Cada hallazgo puede obligar a volver a una etapa anterior.</p>
-        <p>La ciencia de datos trabaja con un grado alto de incertidumbre. Por eso requiere más método, no menos: planificación, validaciones, puntos de Go o No Go, bitácora y posibilidad de reprocesar. En palabras de la clase, <strong>un dataset termina de entenderse cuando el modelo ya está funcionando</strong>, porque recién entonces aparecen errores, patrones y comportamientos que no eran visibles al comienzo.</p>
+        <p>La ciencia de datos trabaja con un grado alto de incertidumbre. Por eso requiere más método, no menos: planificación, validaciones, puntos de Go o No Go, bitácora y posibilidad de reprocesar. Una regla útil es que <strong>un dataset termina de entenderse cuando el modelo ya está funcionando</strong>, porque recién entonces aparecen errores, patrones y comportamientos que no eran visibles al comienzo.</p>
         <p>Cada etapa debe tener un entregable, una versión identificable y un criterio de <strong>Go o No Go</strong>.</p>
 
         <ul class="study-list">
@@ -761,7 +761,7 @@
 
         <h3>Existencia, acceso y capacidad</h3>
         <p>Que una empresa afirme que los datos existen no significa que el equipo pueda usarlos. Pueden faltar permisos, anonimización, cumplimiento normativo, acuerdos entre áreas, claves de unión o infraestructura. Solo con acceso efectivo se conocen volumen, nivel de detalle o granularidad, formato y calidad.</p>
-        <div class="callout blue"><strong>Estimación inicial de almacenamiento usada en clase.</strong> La regla general fue reservar aproximadamente 2,25 veces el tamaño del dataset original. Con una gestión más agresiva puede bajarse a 1,75, eliminando o archivando estados intermedios, pero se pierde la posibilidad de reprocesar inmediatamente desde cualquier paso. Es una heurística empírica, no una constante universal.</div>
+        <div class="callout blue"><strong>Estimación inicial de almacenamiento.</strong> Una regla práctica es reservar aproximadamente 2,25 veces el tamaño del dataset original. Con una gestión más agresiva puede bajarse a 1,75, eliminando o archivando estados intermedios, pero se pierde la posibilidad de reprocesar inmediatamente desde cualquier paso. Es una heurística empírica, no una constante universal.</div>
 
         <p>El <strong>análisis exploratorio de datos (EDA, del inglés <em>Exploratory Data Analysis</em>)</strong> es la inspección sistemática de los datos antes de entrenar: busca entender su estructura, calidad, distribución y anomalías sin modificar todavía el original.</p>
 
@@ -906,7 +906,7 @@
 
         <h3>Por qué se habla de familias y no de un mejor algoritmo</h3>
         <p>Los patrones y su distribución interna son invisibles antes de entrenar. Dos empresas pueden querer predecir las mismas ventas y tener columnas con los mismos nombres, pero distinto volumen, historia, concentración y distribución de casos. Por eso un algoritmo puede funcionar mejor en una y otro algoritmo de la misma familia en la otra.</p>
-        <p>La selección práctica consiste en identificar primero la familia adecuada al tipo de salida, luego entrenar y comparar varios algoritmos de esa familia con la métrica definida para el problema. AutoML automatiza buena parte de esa comparación. En el vocabulario usado en clase, las tres familias también aparecen como <strong>caracterización o clustering, clasificación y predicción o regresión</strong>.</p>
+        <p>La selección práctica consiste en identificar primero la familia adecuada al tipo de salida, luego entrenar y comparar varios algoritmos de esa familia con la métrica definida para el problema. AutoML automatiza buena parte de esa comparación. También pueden aparecer los nombres <strong>caracterización o clustering, clasificación y predicción o regresión</strong>.</p>
 
         <div class="table-wrap"><table>
           <thead><tr><th>Familia</th><th>Target</th><th>Salida</th><th>Ejemplos</th><th>Métricas típicas</th></tr></thead>
@@ -976,7 +976,7 @@
           <li>Traducir el resultado a costo o valor de negocio.</li>
         </ol>
 
-        <p><strong>Ejemplo visto en clase:</strong> sobre el mismo dataset, un algoritmo obtuvo recall de 85% y accuracy de 40%, mientras Gradient Boosting obtuvo accuracy de 81% y recall de 35%. Si el problema exige detectar la mayor cantidad de positivos reales, gana el primero. Si se hubiera elegido accuracy sin pensar el costo de error, se habría elegido Gradient Boosting. El algoritmo ganador cambia con la métrica.</p>
+        <p><strong>Ejemplo numérico:</strong> sobre el mismo dataset, un algoritmo obtuvo recall de 85% y accuracy de 40%, mientras Gradient Boosting obtuvo accuracy de 81% y recall de 35%. Si el problema exige detectar la mayor cantidad de positivos reales, gana el primero. Si se hubiera elegido accuracy sin pensar el costo de error, se habría elegido Gradient Boosting. El algoritmo ganador cambia con la métrica.</p>
         <p>AutoML redujo el conocimiento operativo necesario para entrenar y comparar muchos algoritmos. Ese conocimiento no desapareció, sino que <strong>se mudó del entrenamiento a la definición e interpretación de las métricas</strong>. El entrenamiento repetitivo está en gran medida resuelto por herramientas, pero entender qué significa éxito sigue dependiendo del problema.</p>
 
         <h3>Cross validation</h3>
@@ -984,11 +984,11 @@
         <p>Son habituales entre 3 y 10 folds. K mayor reduce el tamaño de cada validación y aumenta costo. La elección depende de volumen, varianza y restricciones.</p>
 
         <ul class="study-list">
-          <li><strong>Media, lectura usada en clase:</strong> indica cuán bien o cuán mal el modelo discrimina los patrones que encontró.</li>
-          <li><strong>Desviación estándar, lectura usada en clase:</strong> indica si encontró todos los patrones. Una dispersión alta señala que algún fold contiene un comportamiento distinto y obliga a investigar su distribución.</li>
+          <li><strong>Media, interpretación operativa:</strong> indica cuán bien o cuán mal el modelo discrimina los patrones que encontró.</li>
+          <li><strong>Desviación estándar, interpretación operativa:</strong> indica si encontró todos los patrones. Una dispersión alta señala que algún fold contiene un comportamiento distinto y obliga a investigar su distribución.</li>
         </ul>
 
-        <div class="callout warning"><strong>Matiz técnico.</strong> Una desviación baja demuestra estabilidad entre los folds observados, no que estén presentes todos los patrones posibles del mundo ni que el modelo los haya aprendido. La formulación anterior es la interpretación operativa enseñada en la cursada para detectar heterogeneidad, no una demostración matemática de cobertura total.</div>
+        <div class="callout warning"><strong>Matiz técnico.</strong> Una desviación baja demuestra estabilidad entre los folds observados, no que estén presentes todos los patrones posibles del mundo ni que el modelo los haya aprendido. La lectura de la desviación como señal de cobertura es una regla operativa para detectar heterogeneidad, no una demostración matemática de cobertura total.</div>
 
         <h3>Heterogeneidad de patrones</h3>
         <p>Los patrones pueden cambiar con el tiempo o concentrarse en segmentos. Pandemia, Black Friday o un cambio de sistema son cortes que pueden justificar modelos separados. Hay que usar splits temporales o por grupos cuando el muestreo aleatorio mezclaría futuro con pasado o registros relacionados.</p>
@@ -1036,7 +1036,7 @@
         <h3>Criterios para seleccionar herramienta</h3>
         <p>Actividad del proyecto, licencia, reproducibilidad, integración, seguridad, capacidad de exportar, soporte de tipos de problema, observabilidad, costo y dependencia en producción. Una herramienta open source abandonada puede ser adecuada para aprender, pero riesgosa como base corporativa.</p>
 
-        <p><strong>TPOT y el factor CISO:</strong> las empresas suelen tener listas distintas de librerías permitidas en desarrollo, testing, UAT y producción. TPOT puede utilizarse en un ambiente de desarrollo más flexible y exportar un pipeline basado en librerías estándar, sin necesitar TPOT en producción. Esto evita que el orquestador de AutoML tenga que ser aprobado para el entorno productivo y fue señalado en clase como una ventaja concreta de su exportación.</p>
+        <p><strong>TPOT y el factor CISO:</strong> las empresas suelen tener listas distintas de librerías permitidas en desarrollo, testing, UAT y producción. TPOT puede utilizarse en un ambiente de desarrollo más flexible y exportar un pipeline basado en librerías estándar, sin necesitar TPOT en producción. Esto evita que el orquestador de AutoML tenga que ser aprobado para el entorno productivo.</p>
 
         <p class="exam-answer"><strong>Respuesta:</strong> AutoML automatiza comparación de algoritmos, pipelines, validación y ajuste. No define el problema, no corrige datos deficientes y no decide métricas, sesgos aceptables ni restricciones productivas.</p>
       </section>
@@ -1068,14 +1068,14 @@
             <tr><td>Arquitectura</td><td>Capa de entrada, una o más capas ocultas y capa de salida. Las conexiones tienen pesos que determinan cuánto se propaga cada señal.</td></tr>
             <tr><td>Backpropagation</td><td>Calcula el error en la salida y lo propaga hacia atrás para ajustar los pesos. El proceso se repite sobre los ejemplos hasta alcanzar un criterio de parada.</td></tr>
             <tr><td>Capacidad</td><td>Más unidades o capas permiten representar más patrones, pero aumentan cómputo, tiempo de estabilización y riesgo de sobreajuste.</td></tr>
-            <tr><td>Interferencia</td><td>Al ajustar pesos para una clase puede empeorar otra ya aprendida. El ejemplo de clase usó letras manuscritas como B y D, P y Q, M y N.</td></tr>
+            <tr><td>Interferencia</td><td>Al ajustar pesos para una clase puede empeorar otra ya aprendida. Un ejemplo típico son letras manuscritas confundibles, como B y D, P y Q, M y N.</td></tr>
             <tr><td>Redes encadenadas</td><td>Una primera red reconoce grupos o metaconceptos y otra distingue las clases confundibles dentro del grupo. Reduce patrones por subred, pero no reemplaza validación ni regularización.</td></tr>
           </tbody>
         </table></div>
 
-        <p>La definición intuitiva usada por el profesor es que una red neuronal funciona como una <strong>base de datos sofisticada</strong>: no guarda filas, sino la abstracción de los patrones en sus pesos. Entrenar significa encontrar los pesos o umbrales de activación que permiten propagar la señal correcta y estabilizar la red. El ejemplo de las sillas muestra la idea de abstracción: una persona no memoriza todas las sillas vistas, conserva rasgos generales que le permiten reconocer una nueva.</p>
-        <p>La capacidad de patrones es finita para una arquitectura y un presupuesto dados. Agregar neuronas o capas amplía capacidad, pero el tiempo necesario para estabilizar la red puede crecer de forma muy fuerte y, en la explicación de clase, exponencial. Por eso se mostró el encadenamiento de redes: una primera red reconoce metaconceptos, por ejemplo “P o Q”, y otra red especializada resuelve esa distinción con menos patrones simultáneos.</p>
-        <p><strong>Definición empírica usada en clase:</strong> Deep Learning combina buenas prácticas de preprocesamiento con un encadenamiento particular de una o más redes neuronales para obtener resultados precisos. Técnicamente, la definición más general es el aprendizaje con redes neuronales de múltiples capas que construyen representaciones jerárquicas. La primera explica el recorrido histórico de la cursada, la segunda es la definición estándar.</p>
+        <p>Una intuición útil es que una red neuronal funciona como una <strong>base de datos sofisticada</strong>: no guarda filas, sino la abstracción de los patrones en sus pesos. Entrenar significa encontrar los pesos o umbrales de activación que permiten propagar la señal correcta y estabilizar la red. El ejemplo de las sillas muestra la idea de abstracción: una persona no memoriza todas las sillas vistas, conserva rasgos generales que le permiten reconocer una nueva.</p>
+        <p>La capacidad de patrones es finita para una arquitectura y un presupuesto dados. Agregar neuronas o capas amplía capacidad, pero el tiempo necesario para estabilizar la red puede crecer de forma muy fuerte y, según la complejidad del modelo, exponencial. Por eso puede usarse el encadenamiento de redes: una primera red reconoce metaconceptos, por ejemplo “P o Q”, y otra red especializada resuelve esa distinción con menos patrones simultáneos.</p>
+        <p><strong>Definición empírica:</strong> Deep Learning combina buenas prácticas de preprocesamiento con un encadenamiento particular de una o más redes neuronales para obtener resultados precisos. Técnicamente, la definición más general es el aprendizaje con redes neuronales de múltiples capas que construyen representaciones jerárquicas. La primera formulación describe una práctica de diseño, la segunda una definición estándar.</p>
 
         <p>Una métrica extremadamente alta no prueba sobreajuste, pero debe activar revisión. Comparar entrenamiento, validación, cross validation y producción permite distinguir un problema fácil de una falsa seguridad.</p>
 
@@ -1174,7 +1174,7 @@
         <p><strong>MLOps</strong>, abreviatura de <em>Machine Learning Operations</em>, es el conjunto de prácticas para versionar, desplegar, observar y mantener modelos de aprendizaje automático en producción. Conecta el trabajo de datos y modelado con ingeniería de software y operación. No es una herramienta específica ni empieza después de entrenar.</p>
 
         <h3>Por qué un buen modelo no llega a producción</h3>
-        <p><strong>Cifra citada en clase:</strong> alrededor del 40% de los proyectos que llegan validados nunca alcanzan producción por errores u horrores de gestión. No se presentó como una estadística universal, sino como advertencia para no separar el modelado de la planificación productiva.</p>
+        <p><strong>Cifra de referencia:</strong> alrededor del 40% de los proyectos que llegan validados nunca alcanzan producción por errores u horrores de gestión. No debe tomarse como una estadística universal, sino como advertencia para no separar el modelado de la planificación productiva.</p>
         <ul class="study-list">
           <li><strong>Latencia:</strong> la aplicación que lo integra ya tiene un contrato de respuesta. El modelo debe cumplirlo con carga real.</li>
           <li><strong>Seguridad:</strong> datos, dependencias, acceso, interfaz, respuestas y artefactos requieren controles.</li>
@@ -1223,7 +1223,7 @@
         </div>
 
         <p><strong>Vibe coding</strong> es el desarrollo de software asistido por modelos generativos mediante instrucciones en lenguaje natural. Un modelo generativo produce texto o código continuando patrones aprendidos. Procesa el contenido en tokens, fragmentos de palabras, signos o código que también determinan el costo y el límite de contexto.</p>
-        <p>La analogía usada en clase es la del <strong>ilusionista</strong>: el resultado hace pensar que hay comprensión detrás de la pantalla, pero el mecanismo sigue siendo probabilístico. Que el código compile no demuestra que la jerarquía, los contratos, la seguridad o la mantenibilidad sean correctos.</p>
+        <p>La analogía del <strong>ilusionista</strong> ayuda a entender el vibe coding: el resultado hace pensar que hay comprensión detrás de la pantalla, pero el mecanismo sigue siendo probabilístico. Que el código compile no demuestra que la jerarquía, los contratos, la seguridad o la mantenibilidad sean correctos.</p>
 
         <h3>Flujo de trabajo</h3>
         <ol>
@@ -1237,7 +1237,7 @@
           <li>Leer, probar y refinar el código con conocimiento de ingeniería.</li>
         </ol>
 
-        <h3>Ejemplo mostrado en clase</h3>
+        <h3>Ejemplo de costos</h3>
         <div class="table-wrap"><table>
           <thead><tr><th>Etapa</th><th>Aplicación</th></tr></thead>
           <tbody>
@@ -1257,15 +1257,15 @@
           <li><strong>Falsa confianza:</strong> la analogía con Dunning Kruger advierte que una respuesta segura no demuestra comprensión ni corrección.</li>
         </ul>
 
-        <p>En la experiencia relatada por el profesor, el costo de combinar programadores senior con grandes consumos de tokens igualaba o superaba el esquema previo. La productividad aparece cuando se reduce el contexto necesario y se usa a las personas para diseñar y revisar, no cuando se entrega el repositorio completo al modelo.</p>
+        <p>El costo de combinar programadores senior con grandes consumos de tokens puede igualar o superar el esquema previo. La productividad aparece cuando se reduce el contexto necesario y se usa a las personas para diseñar y revisar, no cuando se entrega el repositorio completo al modelo.</p>
 
         <h3>Patrones como compresión de contexto</h3>
-        <p>Un patrón es una solución probada a un problema recurrente. La propuesta de clase es trabajar como un <strong>embudo, de lo general a lo particular</strong>: primero arquitectura, luego patrones de diseño, módulos y contratos, y recién después código. Ese scaffolding o andamiaje permite pedir cambios acotados, reducir contexto y evaluar el resultado. Para código legado, primero puede ser necesario refactorizar y documentar límites.</p>
-        <p>La frase fuerte de la clase fue: <strong>la única forma de que el vibe coding funcione es pasarle los patrones con los que tiene que trabajar</strong>. No es una condición lógica absoluta, sino una regla de ingeniería para obtener software menos promedio, más modular y revisable.</p>
+        <p>Un patrón es una solución probada a un problema recurrente. Conviene trabajar como un <strong>embudo, de lo general a lo particular</strong>: primero arquitectura, luego patrones de diseño, módulos y contratos, y recién después código. Ese scaffolding o andamiaje permite pedir cambios acotados, reducir contexto y evaluar el resultado. Para código legado, primero puede ser necesario refactorizar y documentar límites.</p>
+        <p><strong>Regla práctica:</strong> la única forma de que el vibe coding funcione de manera consistente es pasarle al modelo los patrones con los que tiene que trabajar. No es una condición lógica absoluta, sino una regla de ingeniería para obtener software menos promedio, más modular y revisable.</p>
 
         <h3>Dunning Kruger y sesgo heredado</h3>
         <p>El efecto Dunning Kruger describe la tendencia a sobreestimar el propio dominio cuando el conocimiento es superficial. El caso recordatorio es el ladrón que se puso jugo de limón en la cara porque creyó que eso lo volvería invisible para las cámaras. Su error no era falta de seguridad, sino una explicación falsa sostenida con certeza.</p>
-        <p>La conexión con los LLM es que suelen responder con tono seguro aunque la respuesta sea incompleta o incorrecta. La clase llama <strong>sesgo heredado</strong> al riesgo de que la persona adopte esa certeza como propia. El antídoto es conocimiento de base suficiente para interpelar al modelo, repreguntar, comparar alternativas y revisar el resultado.</p>
+        <p>Los LLM suelen responder con tono seguro aunque la respuesta sea incompleta o incorrecta. Ese riesgo de que la persona adopte la certeza del modelo como propia puede llamarse <strong>sesgo heredado</strong>. El antídoto es conocimiento de base suficiente para interpelar al modelo, repreguntar, comparar alternativas y revisar el resultado.</p>
 
         <div class="table-wrap"><table>
           <thead><tr><th>Nivel</th><th>Decisión humana</th><th>Ayuda del modelo</th></tr></thead>
@@ -1315,12 +1315,12 @@
         <p>La similitud coseno compara la orientación de dos vectores, la distancia euclídea mide la distancia recta entre ellos y el producto interno combina orientación y magnitud. La medida correcta depende de cómo fue entrenado y normalizado el modelo de embeddings.</p>
 
         <h3>Por qué la base vectorial siempre responde</h3>
-        <p>La cadena argumental enseñada en clase es la siguiente:</p>
+        <p>La cadena argumental es la siguiente:</p>
         <ol class="study-list">
           <li>Una consulta SQL exacta puede no devolver filas. Una búsqueda vectorial es difusa: ordena los fragmentos por cercanía semántica.</li>
           <li>El índice siempre puede devolver el vector más cercano, aunque ese vecino siga siendo poco relevante.</li>
           <li>No existe un punto de corte universal y verificado que separe una respuesta correcta de una incorrecta. Un umbral elegido sin evaluación para ese sistema es arbitrario.</li>
-          <li>Por eso, en la formulación de la cátedra, la base vectorial siempre responde y, si lo recuperado no es lo que se necesitaba, se lo llama alucinación.</li>
+          <li>Por eso, en esta formulación, la base vectorial siempre responde y, si lo recuperado no es lo que se necesitaba, se lo llama alucinación.</li>
         </ol>
         <p><strong>Matiz técnico:</strong> en una implementación real sí pueden configurarse umbrales, abstención, filtros y un segundo ordenamiento. Eso reduce recuperaciones malas, pero ningún valor garantiza verdad para todas las consultas. Además, conviene distinguir recuperación irrelevante de alucinación generativa: la base recupera y el LLM redacta.</p>
 
@@ -1351,7 +1351,7 @@
           </tbody>
         </table></div>
 
-        <p><strong>Trilogía empresarial planteada en clase:</strong> Machine Learning o Deep Learning detecta y predice patrones, RAG aporta conocimiento documental actualizable y trazable, y los agentes ejecutan tareas coordinadas por un orquestador como n8n. La combinación fue presentada como el estado del arte para aplicaciones empresariales.</p>
+        <p><strong>Trilogía empresarial:</strong> Machine Learning o Deep Learning detecta y predice patrones, RAG aporta conocimiento documental actualizable y trazable, y los agentes ejecutan tareas coordinadas por un orquestador como n8n. La combinación integra modelado, conocimiento documental y ejecución controlada.</p>
 
         <p class="exam-answer"><strong>Respuesta:</strong> RAG recupera fragmentos mediante embeddings y los agrega al contexto del LLM. El corpus se actualiza reindexando, sin reentrenar el modelo. Deben evaluarse por separado recuperación, fidelidad a las fuentes, citas, latencia y seguridad.</p>
       </section>
@@ -1373,7 +1373,7 @@
 
         <div class="callout warning"><strong>El LLM no es un control de seguridad.</strong> Un prompt no reemplaza autorización, validación, aislamiento ni permisos mínimos. Los controles críticos deben ser determinísticos y externos al modelo.</div>
 
-        <p><strong>Caso OpenClaw citado en clase:</strong> durante 15 a 20 días fue adoptado con entusiasmo como asistente capaz de planificar y orquestar tareas, hasta que se hicieron visibles sus agujeros de seguridad. La moraleja no es evitar agentes, sino desplegarlos dentro de asistentes y orquestadores controlados, con permisos acotados y acciones sensibles sujetas a aprobación.</p>
+        <p><strong>Caso OpenClaw:</strong> durante 15 a 20 días fue adoptado con entusiasmo como asistente capaz de planificar y orquestar tareas, hasta que se hicieron visibles sus agujeros de seguridad. La moraleja no es evitar agentes, sino desplegarlos dentro de asistentes y orquestadores controlados, con permisos acotados y acciones sensibles sujetas a aprobación.</p>
 
         <h3>OWASP Top 10 para aplicaciones de LLM, edición 2025</h3>
         <div class="table-wrap"><table>
@@ -1475,19 +1475,19 @@
           <li><strong>Cobot:</strong> está diseñado para compartir espacio con personas mediante percepción, limitación de fuerza, sensores y control adaptativo. Colaborativo no significa seguro por defecto.</li>
         </ul>
 
-        <h3>Periodización usada en clase</h3>
+        <h3>Periodización de generaciones</h3>
         <ol class="study-list">
           <li><strong>1950 a fines de los 60:</strong> controles hidráulicos, sensores básicos y jaulas de seguridad.</li>
           <li><strong>Década de 1970 hasta aproximadamente 1999:</strong> auge de PLC y robots programables, todavía fijos y con poco o ningún sentido del entorno. La línea debía llevar cada pieza a una posición exacta.</li>
           <li><strong>Desde el año 2000, cuarta generación:</strong> comienza el concepto de cobot, con autopercepción, sensores de fuerza y detección de personas para colaborar en un espacio compartido.</li>
           <li><strong>Últimos cinco años de la periodización, quinta generación:</strong> nube, mayor cómputo, movilidad, Deep Learning e IA generativa para una adaptación más rica.</li>
         </ol>
-        <p>Estas fechas fueron indicadas explícitamente para estudiar, pero la denominación por generaciones corresponde a la exposición del profesor y no a una taxonomía universal de robótica.</p>
+        <p>Estas fechas sirven como periodización de la materia, pero la denominación por generaciones no constituye una taxonomía universal de robótica.</p>
 
         <h3>Capacidades destacadas</h3>
         <ul>
           <li>Sensores de fuerza, contacto y percepción del entorno.</li>
-          <li><strong>Visión artificial no invasiva:</strong> permite percibir personas, piezas, posiciones, fugas, temperatura y defectos sin llenar el entorno de sensores de contacto. En la formulación de clase, un robot necesita este alto grado de percepción para ser considerado cobot.</li>
+          <li><strong>Visión artificial no invasiva:</strong> permite percibir personas, piezas, posiciones, fugas, temperatura y defectos sin llenar el entorno de sensores de contacto. En este enfoque, un robot necesita este alto grado de percepción para ser considerado cobot.</li>
           <li>Movilidad y gestión de energía en equipos desconectados.</li>
           <li>Kinetic teaching: una persona guía movimientos y el sistema ajusta la rutina.</li>
           <li>Asistencia ergonómica, por ejemplo sostener el peso de una pieza mientras el operario la posiciona.</li>
@@ -1508,12 +1508,12 @@
         <p>La analogía para no confundirlos es directa: <strong>predictivo es la bola de cristal</strong>, anticipa que el equipo fallará y cuándo. <strong>Prescriptivo es la receta o RP del médico</strong>, agrega qué acción conviene realizar para evitar la falla o transitarla de forma controlada.</p>
         <ul class="study-list">
           <li><strong>MTBF, Mean Time Between Failures:</strong> tiempo medio entre fallas de un equipo. Ayuda a caracterizar su confiabilidad y planificar intervenciones.</li>
-          <li><strong>OEE, Overall Equipment Effectiveness:</strong> efectividad general del equipo, normalmente vinculada con disponibilidad, rendimiento y calidad. La cifra citada en clase fue 89% de efectividad, interpretada allí como operación sin paradas imprevistas, con detenciones predichas y planificadas.</li>
+          <li><strong>OEE, Overall Equipment Effectiveness:</strong> efectividad general del equipo, normalmente vinculada con disponibilidad, rendimiento y calidad. La cifra de referencia es 89% de efectividad, interpretada como operación sin paradas imprevistas, con detenciones predichas y planificadas.</li>
         </ul>
 
         <h3>Gemelo digital</h3>
         <p>Es una representación digital conectada con un activo o proceso real que modela comportamiento, estado e interacción, no solo apariencia. Permite simular desgaste, consumo, fallas y configuraciones antes de intervenir el sistema físico. Con datos sintéticos puede acelerar entrenamiento y pruebas, pero necesita calibración contra realidad.</p>
-        <p>En clase se vinculó esta simulación con las <strong>PINN, Physics Informed Neural Networks</strong>, redes cuyo entrenamiento incorpora restricciones físicas conocidas, como gravedad, termodinámica o conservación. Esas leyes limitan comportamientos imposibles del gemelo digital y ayudan a que los datos sintéticos respeten el sistema real.</p>
+        <p>Esta simulación puede vincularse con las <strong>PINN, Physics Informed Neural Networks</strong>, redes cuyo entrenamiento incorpora restricciones físicas conocidas, como gravedad, termodinámica o conservación. Esas leyes limitan comportamientos imposibles del gemelo digital y ayudan a que los datos sintéticos respeten el sistema real.</p>
 
         <p class="exam-answer"><strong>Respuesta:</strong> un cobot comparte espacio con personas y limita riesgo mediante sensores, control de fuerza y percepción. ML puede estimar fallas o adaptar movimientos. Un gemelo digital simula el activo para probar configuraciones y modelos antes de aplicarlos al sistema físico.</p>
       </section>
@@ -1524,7 +1524,7 @@
           <div><h2>Banco de preguntas para el final</h2></div>
         </div>
 
-        <p><strong>Formato informado por la cátedra:</strong> final teórico, escrito y presencial. El trabajo práctico debe estar aprobado antes de rendir y, si se presenta en una fecha de examen, el final se rinde en una fecha posterior. Aproximadamente 40% puede salir de temas hablados durante la cursada.</p>
+        <p><strong>Formato del final:</strong> examen teórico, escrito y presencial. El trabajo práctico debe estar aprobado antes de rendir y, si se presenta en una fecha de examen, el final se rinde en una fecha posterior. Aproximadamente 40% puede salir de temas trabajados durante la cursada.</p>
 
         <h3>Simulacros basados en los enunciados reales</h3>
 
@@ -1583,19 +1583,19 @@
         <details><summary>4. ¿Por qué correlación no implica causalidad?</summary><div class="details-body"><p>Dos variables pueden moverse juntas por azar, por una tercera causa o solo durante el período observado. La correlación describe asociación, no mecanismo causal. Sirve para explorar y detectar redundancia, pero requiere contexto y validación.</p></div></details>
         <details><summary>5. ¿Por qué accuracy puede ser una mala métrica?</summary><div class="details-body"><p>Con clases desbalanceadas puede ser alta prediciendo siempre la mayoría. Además trata FP y FN como si costaran igual. En medicina suele priorizarse recall para no omitir casos, y en otros dominios precision para reducir falsas alarmas.</p></div></details>
         <details><summary>6. ¿Qué aporta K fold cross validation?</summary><div class="details-body"><p>Repite entrenamiento y validación rotando K particiones, por lo que cada registro cumple ambos roles. En la lectura de cátedra, la media indica cuán bien discrimina los patrones encontrados y la desviación estándar indica si se captaron todos los patrones distribuidos entre los folds. Técnicamente, permite estimar desempeño promedio y sensibilidad a la partición, pero no reemplaza un test independiente ni demuestra cobertura de patrones que no están en la muestra.</p></div></details>
-        <details><summary>7. ¿Qué indica una desviación alta entre folds?</summary><div class="details-body"><p>En la formulación de clase, indica que no se encontraron todos los patrones de manera estable. En términos técnicos, muestra sensibilidad a la partición y puede sugerir pocos datos, patrones heterogéneos, grupos, cambio temporal, outliers o un modelo de alta varianza. Exige investigar qué registros o períodos explican la diferencia.</p></div></details>
+        <details><summary>7. ¿Qué indica una desviación alta entre folds?</summary><div class="details-body"><p>Indica que no se encontraron todos los patrones de manera estable. En términos técnicos, muestra sensibilidad a la partición y puede sugerir pocos datos, patrones heterogéneos, grupos, cambio temporal, outliers o un modelo de alta varianza. Exige investigar qué registros o períodos explican la diferencia.</p></div></details>
         <details><summary>8. ¿Qué es hiperparametrización?</summary><div class="details-body"><p>Es buscar valores de configuración externos al aprendizaje para mejorar el sistema. Puede optimizar métrica, estabilidad, regularización, latencia o costo. Debe evaluarse con validación, no sobre el test final.</p></div></details>
         <details><summary>9. ¿Qué es sobreajuste?</summary><div class="details-body"><p>Es aprender entrenamiento y ruido con demasiado detalle, logrando buen resultado allí y peor en datos nuevos. Se detecta comparando curvas y conjuntos, y se mitiga con regularización, simplificación, más datos representativos, early stopping, dropout o augmentation.</p></div></details>
         <details><summary>10. ¿Cuál es el compromiso bias y variance?</summary><div class="details-body"><p>Modelos demasiado simples tienen bias alto y subajustan. Modelos demasiado flexibles tienen variance alta y sobreajustan. El objetivo es elegir complejidad y regularización que minimicen error en datos no vistos.</p></div></details>
         <details><summary>11. ¿AutoML reemplaza al científico de datos?</summary><div class="details-body"><p>No. Automatiza comparación, pipelines y ajuste, pero no garantiza calidad, ausencia de leakage, métrica correcta, fairness ni viabilidad productiva. La definición del problema, los controles y la aprobación siguen a cargo del equipo.</p></div></details>
         <details><summary>12. ¿Qué diferencia hay entre SHAP y una prueba de sesgo?</summary><div class="details-body"><p>SHAP atribuye contribuciones a features en predicciones. Una prueba de sesgo compara resultados y errores entre grupos o contrafácticos bajo un criterio de equidad. La explicación puede ayudar a diseñar la prueba, pero no demuestra fairness.</p></div></details>
         <details><summary>13. ¿Por qué un modelo no puede entregarse como caja negra?</summary><div class="details-body"><p>Porque debe ser validado, auditado y comprendido por quienes asumen riesgo. La explicación detecta atajos, permite contraste con expertos, documenta reglas y ayuda a responder reclamos y mejorar el sistema.</p></div></details>
-        <details><summary>14. ¿Qué bloquea el pasaje a producción?</summary><div class="details-body"><p>Especialmente latencia, seguridad y capacidad de cómputo no planificadas. También integración, operación, calidad del servicio, datos online, observabilidad y responsabilidad. La cifra que el profesor pidió anotar fue que 40% de los proyectos validados no llegan a producción por errores u horrores de gestión. Estos riesgos deben considerarse desde viabilidad.</p></div></details>
+        <details><summary>14. ¿Qué bloquea el pasaje a producción?</summary><div class="details-body"><p>Especialmente latencia, seguridad y capacidad de cómputo no planificadas. También integración, operación, calidad del servicio, datos online, observabilidad y responsabilidad. Una cifra de referencia es que 40% de los proyectos validados no llegan a producción por errores u horrores de gestión. Estos riesgos deben considerarse desde viabilidad.</p></div></details>
         <details><summary>15. ¿Qué es drift?</summary><div class="details-body"><p>Es el cambio entre el entorno actual y el representado durante entrenamiento. Puede cambiar P(X), P(Y|X), la distribución de predicciones o el pipeline. Se monitorea y diagnostica antes de decidir reentrenamiento.</p></div></details>
         <details><summary>16. ¿Cuándo termina un proyecto de ML?</summary><div class="details-body"><p>No al desplegar. Termina cuando el modelo se retira de forma controlada, se cierran dependencias, se archivan evidencias, se documentan resultados y lecciones y se completa la post evaluación.</p></div></details>
         <details><summary>17. ¿Qué diferencia hay entre RAG y fine tuning?</summary><div class="details-body"><p>RAG recupera conocimiento externo en cada consulta y es fácil de actualizar y citar. Fine tuning modifica el comportamiento del modelo mediante entrenamiento. Pueden combinarse y resuelven problemas distintos.</p></div></details>
-        <details><summary>18. ¿Por qué una base vectorial puede devolver algo irrelevante?</summary><div class="details-body"><p>Porque hace una búsqueda difusa y ordena vecinos por cercanía en el espacio del embedding, no por verdad. A diferencia de una consulta SQL exacta, siempre puede entregar el vector más cercano aunque sea malo. La cátedra remarca que no existe un umbral universal y verificado que separe una respuesta válida de una inválida. En producción pueden configurarse umbrales y filtros evaluados, pero no garantizan corrección.</p></div></details>
-        <details><summary>19. ¿Qué es una alucinación en un sistema RAG?</summary><div class="details-body"><p>En la formulación de clase, como la base vectorial siempre responde y no hay un punto de corte universal, si recupera algo que no es lo que se necesita se lo llama alucinación. Técnicamente conviene separar dos fallas: recuperación irrelevante del índice y generación sin respaldo del LLM. Se reducen con mejores datos, filtros, reordenamiento, citas, abstención y evaluación.</p></div></details>
+        <details><summary>18. ¿Por qué una base vectorial puede devolver algo irrelevante?</summary><div class="details-body"><p>Porque hace una búsqueda difusa y ordena vecinos por cercanía en el espacio del embedding, no por verdad. A diferencia de una consulta SQL exacta, siempre puede entregar el vector más cercano aunque sea malo. No existe un umbral universal y verificado que separe una respuesta válida de una inválida. En producción pueden configurarse umbrales y filtros evaluados, pero no garantizan corrección.</p></div></details>
+        <details><summary>19. ¿Qué es una alucinación en un sistema RAG?</summary><div class="details-body"><p>Como la base vectorial siempre responde y no hay un punto de corte universal, si recupera algo que no es lo que se necesita se lo llama alucinación. Técnicamente conviene separar dos fallas: recuperación irrelevante del índice y generación sin respaldo del LLM. Se reducen con mejores datos, filtros, reordenamiento, citas, abstención y evaluación.</p></div></details>
         <details><summary>20. ¿Qué diferencia hay entre agente y orquestador?</summary><div class="details-body"><p>El agente realiza una capacidad acotada percibiendo y actuando. El orquestador decide la secuencia, condiciones y el intercambio entre agentes o herramientas. La frase de cátedra es que los agentes por sí solos no saben nada y el valor lo aporta el orquestador. Un flujo rígido es orquestación. La planificación dinámica se acerca a colaboración.</p></div></details>
         <details><summary>21. ¿Qué aporta un sistema multiagente?</summary><div class="details-body"><p>Especialización, modularidad y reemplazo de componentes con contratos claros. A cambio, aumenta la complejidad de coordinación, memoria, permisos, errores y observabilidad.</p></div></details>
         <details><summary>22. ¿Qué es amnesia de código?</summary><div class="details-body"><p>Es perder comprensión del software al delegar generación y cambios sin lectura ni documentación. Se evita con arquitectura, módulos acotados, bitácoras, revisión, tests y trazabilidad.</p></div></details>
@@ -1604,8 +1604,8 @@
         <details><summary>25. ¿Qué es un gemelo digital?</summary><div class="details-body"><p>Es una representación digital conectada a un activo o proceso que reproduce estado y comportamiento. Permite simular, anticipar fallas y probar decisiones. Puede combinarse con PINN para imponer restricciones físicas conocidas. Su valor depende de calibración y actualización con el mundo real.</p></div></details>
         <details><summary>26. ¿Cuáles son los límites principales de la IA actual?</summary><div class="details-body"><p>Aprende regularidades del pasado y funciona mejor en tareas tipificadas, con procedimiento conocido y variabilidad acotada. No comprende como una persona ni extrapola conocimiento entre dominios con la misma flexibilidad. El ejemplo de la camisa muestra que una tarea humana simple puede ser difícil cuando cada caso presenta una configuración nueva. La combinación buscada es velocidad y repetición de la IA, más criterio y abstracción de la inteligencia natural.</p></div></details>
         <details><summary>27. ¿Cuáles son las tres limitaciones del LLM y las tres ventajas de RAG?</summary><div class="details-body"><p>LLM: fine tuning costoso, obsolescencia del conocimiento y opacidad de la respuesta. RAG: menor cómputo para incorporarlo, actualización rápida mediante documentos e índice, y trazabilidad hasta las fuentes recuperadas.</p></div></details>
-        <details><summary>28. ¿Cómo se relaciona Dunning Kruger con los LLM?</summary><div class="details-body"><p>El efecto describe la sobreconfianza que puede acompañar al conocimiento superficial. Los LLM suelen responder con certeza aunque la salida sea incompleta o incorrecta. El profesor llama sesgo heredado al riesgo de adoptar esa seguridad como propia. Se evita con conocimiento de base para interpelar, repreguntar, comparar y revisar.</p></div></details>
-        <details><summary>29. ¿Por qué la métrica puede cambiar el algoritmo ganador?</summary><div class="details-body"><p>Porque cada métrica representa un costo de error diferente. En el ejemplo de clase, un algoritmo tuvo recall de 85% y accuracy de 40%, mientras Gradient Boosting tuvo accuracy de 81% y recall de 35% sobre el mismo dataset. Si importan los falsos negativos gana el primero. Elegir accuracy hace ganar al segundo. La métrica debe definirse desde el problema, antes de ver el ranking.</p></div></details>
+        <details><summary>28. ¿Cómo se relaciona Dunning Kruger con los LLM?</summary><div class="details-body"><p>El efecto describe la sobreconfianza que puede acompañar al conocimiento superficial. Los LLM suelen responder con certeza aunque la salida sea incompleta o incorrecta. El riesgo de adoptar esa seguridad como propia puede llamarse sesgo heredado. Se evita con conocimiento de base para interpelar, repreguntar, comparar y revisar.</p></div></details>
+        <details><summary>29. ¿Por qué la métrica puede cambiar el algoritmo ganador?</summary><div class="details-body"><p>Porque cada métrica representa un costo de error diferente. En el ejemplo numérico, un algoritmo tuvo recall de 85% y accuracy de 40%, mientras Gradient Boosting tuvo accuracy de 81% y recall de 35% sobre el mismo dataset. Si importan los falsos negativos gana el primero. Elegir accuracy hace ganar al segundo. La métrica debe definirse desde el problema, antes de ver el ranking.</p></div></details>
         <details><summary>30. ¿Por qué existen familias de algoritmos?</summary><div class="details-body"><p>Porque antes de entrenar no se conocen por completo los patrones ni su distribución. Dos empresas pueden tener el mismo objetivo y columnas con nombres iguales, pero distinto volumen y distribución interna. Por eso no existe un mejor algoritmo universal: se selecciona una familia por el tipo de problema y se comparan sus algoritmos, tarea que AutoML automatiza en parte.</p></div></details>
 
       </section>
