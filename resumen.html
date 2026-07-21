@@ -818,11 +818,11 @@
 
         <h3>Alcance y límites</h3>
         <ul>
-          <li>ML mira datos pasados, abstrae regularidades y las aplica a casos nuevos para clasificar, predecir, agrupar, recomendar o detectar anomalías.</li>
-          <li>Funciona mejor en tareas tipificadas, con procedimiento conocido y variabilidad representada en los datos.</li>
-          <li>Extrapola dentro del dominio aprendido. No transfiere conocimiento entre dominios con la flexibilidad de una persona.</li>
-          <li>El mecanismo es estadístico o probabilístico. La fluidez de una salida no permite inferir comprensión, consciencia ni veracidad.</li>
-          <li>La combinación útil es IA más inteligencia natural: velocidad y repetición de la máquina, criterio y conocimiento del dominio de la persona.</li>
+          <li><strong>Función:</strong> ML mira datos pasados, abstrae regularidades y las aplica a casos nuevos para clasificar, predecir, agrupar, recomendar o detectar anomalías.</li>
+          <li><strong>Condición:</strong> funciona mejor en tareas tipificadas, con procedimiento conocido y variabilidad representada en los datos.</li>
+          <li><strong>Dominio:</strong> extrapola dentro de lo aprendido. No transfiere conocimiento entre dominios con la flexibilidad de una persona.</li>
+          <li><strong>Mecanismo:</strong> es estadístico o probabilístico. La fluidez de una salida no permite inferir comprensión, consciencia ni veracidad.</li>
+          <li><strong>Uso:</strong> la combinación útil es IA más inteligencia natural, velocidad y repetición de la máquina, criterio y conocimiento del dominio de la persona.</li>
         </ul>
         <p>El software tradicional suele producir datos durante su operación. ML es primero un gran ingestor: consume historia para entrenar y luego genera una salida comparativamente pequeña, como una clase, una probabilidad o un número.</p>
       </section>
@@ -831,19 +831,18 @@
         <div class="chapter-head"><div class="chapter-number">02</div><div><h2>Ciclo de vida, roles y trazabilidad</h2></div></div>
 
         <h3>Secuencia completa</h3>
+        <p><strong>Hilo para memorizar:</strong> definir el problema, conseguir los datos, entenderlos, decidir si continuar, prepararlos, entrenar, evaluar, llevar a producción, vigilar y retirar.</p>
         <ol class="study-list">
-          <li>Validar el problema y fijar el criterio de éxito.</li>
-          <li>Investigar antecedentes, viabilidad, fuentes y acceso.</li>
-          <li>Preparar y diagnosticar los datos mediante <a href="#datos">Data Wrangling y análisis exploratorio de datos (EDA, <em>Exploratory Data Analysis</em>)</a>.</li>
-          <li>Tomar una decisión Go, continuar, o No Go, detener o reformular.</li>
-          <li>Realizar <a href="#features">limpieza e ingeniería de características</a>.</li>
-          <li>Seleccionar una <a href="#familias">familia</a>, entrenar, validar y ajustar.</li>
-          <li>Evaluar con las <a href="#metricas">métricas</a> definidas.</li>
-          <li>Explicar resultados y probar sesgos.</li>
-          <li>Diseñar la interfaz y las restricciones productivas.</li>
-          <li>Desplegar, versionar y observar mediante <a href="#mlops">Machine Learning Operations (MLOps)</a>.</li>
-          <li>Diagnosticar cambios, corregir, reentrenar o revertir.</li>
-          <li>Retirar el sistema y documentar el cierre.</li>
+          <li><strong>1. Problema, definir:</strong> precisar la decisión, el target, el horizonte y el criterio de éxito. Esto determina qué datos y qué salida necesita el proyecto.</li>
+          <li><strong>2. Datos, conseguir:</strong> localizar fuentes, revisar antecedentes y obtener acceso efectivo. Sin datos disponibles no puede comprobarse la viabilidad.</li>
+          <li><strong>3. Diagnóstico, entender:</strong> integrar copias de las fuentes y usar <a href="#datos">Data Wrangling y análisis exploratorio de datos (EDA, <em>Exploratory Data Analysis</em>)</a> para conocer estructura, calidad, distribución y anomalías.</li>
+          <li><strong>4. Viabilidad, decidir:</strong> con el diagnóstico, tomar una decisión Go, continuar, o No Go, detener o reformular.</li>
+          <li><strong>5. Preparación, transformar:</strong> realizar <a href="#features">limpieza e ingeniería de características</a> hasta obtener el dataset que recibirá el modelo.</li>
+          <li><strong>6. Entrenamiento, aprender:</strong> separar los datos, fijar una referencia simple, seleccionar una <a href="#familias">familia</a>, entrenar, validar y ajustar.</li>
+          <li><strong>7. Evaluación, comprobar:</strong> aplicar las <a href="#metricas">métricas</a> definidas, explicar resultados, probar sesgos y validar con especialistas.</li>
+          <li><strong>8. Producción, integrar:</strong> resolver interfaz, seguridad, costo y tiempo de respuesta, luego desplegar y versionar mediante <a href="#mlops">Machine Learning Operations (MLOps)</a>.</li>
+          <li><strong>9. Operación, vigilar:</strong> monitorear servicio, datos, predicciones y desempeño; ante un cambio, diagnosticar antes de corregir, reentrenar o revertir.</li>
+          <li><strong>10. Retiro, cerrar:</strong> desactivar el sistema y sus dependencias de forma controlada y documentar lo aprendido.</li>
         </ol>
         <p><strong>Go:</strong> el problema merece ML, los datos son accesibles y representativos, existen recursos, hay una métrica acordada y los riesgos son manejables. <strong>No Go:</strong> convienen reglas, faltan datos críticos, la calidad o el acceso son insuficientes, el costo es inviable o el riesgo supera el valor.</p>
 
@@ -880,12 +879,12 @@
 
         <h3>Definición mínima</h3>
         <ol>
-          <li>Describir proceso, decisión que se quiere mejorar y usuario de la salida.</li>
-          <li>Definir unidad de análisis, target y horizonte temporal.</li>
-          <li>Revisar antecedentes, algoritmos, datasets y resultados de problemas equivalentes.</li>
-          <li>Fijar criterio de éxito, métrica, valor mínimo aceptable y costo de error antes de entrenar.</li>
-          <li>Confirmar existencia y acceso efectivo a los datos.</li>
-          <li>Estimar cómputo, almacenamiento, latencia, seguridad, presupuesto y conocimiento del dominio.</li>
+          <li><strong>Decisión:</strong> describir el proceso, qué se quiere mejorar y quién usará la salida.</li>
+          <li><strong>Predicción:</strong> definir unidad de análisis, target y horizonte temporal.</li>
+          <li><strong>Antecedentes:</strong> revisar algoritmos, datasets y resultados de problemas equivalentes para saber qué ya se intentó.</li>
+          <li><strong>Éxito:</strong> fijar métrica, valor mínimo aceptable y costo de error antes de entrenar.</li>
+          <li><strong>Datos:</strong> confirmar su existencia y acceso efectivo.</li>
+          <li><strong>Recursos:</strong> estimar cómputo, almacenamiento, latencia, seguridad, presupuesto y conocimiento del dominio.</li>
         </ol>
         <p><strong>Criterio de éxito:</strong> condición de negocio que vuelve útil al proyecto. <strong>Métrica:</strong> indicador numérico que permite medir esa condición. El criterio completo incluye valor mínimo, costo de errores, tiempo de respuesta, costo operativo y utilidad para quien decide. La métrica se fija antes de ver resultados para no favorecer al algoritmo que mejor luce en lugar del que resuelve el problema.</p>
 
@@ -894,14 +893,14 @@
 
         <h3>Plantilla para resolver un caso de final</h3>
         <ol>
-          <li>Objetivo, target, horizonte y costo de error.</li>
-          <li>Fuentes, acceso, granularidad, historial, etiquetas y restricciones.</li>
-          <li>Diagnóstico de calidad y decisión Go o No Go.</li>
-          <li>Preparación de datos y familia de aprendizaje.</li>
-          <li>Separación temporal o por grupos, referencia simple o baseline, entrenamiento y ajuste.</li>
-          <li>Métrica principal y complementarias.</li>
-          <li>Explicabilidad, sesgos y validación con especialistas.</li>
-          <li>Despliegue, latencia, monitoreo, reentrenamiento y retiro.</li>
+          <li><strong>Problema:</strong> objetivo, target, horizonte y costo de error.</li>
+          <li><strong>Datos:</strong> fuentes, acceso, granularidad, historial, etiquetas y restricciones.</li>
+          <li><strong>Diagnóstico:</strong> calidad de los datos y decisión Go o No Go.</li>
+          <li><strong>Preparación:</strong> limpieza, features y familia de aprendizaje.</li>
+          <li><strong>Entrenamiento:</strong> separación temporal o por grupos, referencia simple o baseline, entrenamiento y ajuste.</li>
+          <li><strong>Evaluación:</strong> métrica principal y métricas complementarias.</li>
+          <li><strong>Validación:</strong> explicabilidad, sesgos y contraste con especialistas.</li>
+          <li><strong>Producción:</strong> despliegue, latencia, monitoreo, reentrenamiento y retiro.</li>
         </ol>
       </section>
 
@@ -918,13 +917,13 @@
         <h3>EDA</h3>
         <p>EDA significa <em>Exploratory Data Analysis</em>, análisis exploratorio de datos. Diagnostica estructura, calidad, distribución y anomalías antes de modificar el original.</p>
         <ol>
-          <li>Preservar una copia inmutable.</li>
-          <li>Revisar filas, columnas, esquema, tipos, claves, target, granularidad, períodos, memoria y valores únicos.</li>
-          <li>Cuantificar nulos, duplicados, inconsistencias, rangos imposibles y desbalance, también por segmentos.</li>
-          <li>Analizar distribuciones, percentiles, correlaciones, estacionalidad, cambios y valores fuera de norma.</li>
-          <li>Investigar hallazgos con consultas dirigidas y especialistas.</li>
-          <li>Documentar hipótesis, evidencia y preguntas abiertas.</li>
-          <li>Emitir informe de calidad y recomendación Go o No Go.</li>
+          <li><strong>Preservar:</strong> crear una copia inmutable para poder volver al dato original.</li>
+          <li><strong>Inventariar:</strong> revisar filas, columnas, esquema, tipos, claves, target, granularidad, períodos, memoria y valores únicos.</li>
+          <li><strong>Medir calidad:</strong> cuantificar nulos, duplicados, inconsistencias, rangos imposibles y desbalance, también por segmentos.</li>
+          <li><strong>Describir comportamiento:</strong> analizar distribuciones, percentiles, correlaciones, estacionalidad, cambios y valores fuera de norma.</li>
+          <li><strong>Investigar:</strong> contrastar los hallazgos con consultas dirigidas y especialistas.</li>
+          <li><strong>Documentar:</strong> registrar hipótesis, evidencia y preguntas abiertas.</li>
+          <li><strong>Decidir:</strong> emitir el informe de calidad y la recomendación Go o No Go que habilita o detiene la preparación.</li>
         </ol>
 
         <h3>Lecturas y criterios</h3>
@@ -952,13 +951,13 @@
 
         <h3>Práctica y herramientas</h3>
         <ul>
-          <li>La arqueología de datos reconstruye el proceso que produjo cada hallazgo. La intuición sirve para formular hipótesis, que luego se contrastan con evidencia.</li>
-          <li>El análisis puede actuar como ciberseguridad reactiva al revelar fallas o manipulaciones que los controles en línea no detectaron.</li>
-          <li>Comunicar problemas estructurales requiere evidencia, historia reconstruida y asertividad.</li>
-          <li>La experiencia se acumula en patrones generales, patrones de industria y particularidades de cada empresa. Se desarrolla practicando con datasets distintos.</li>
-          <li><em>Open Subsurface Data Universe</em> (OSDU) es una referencia para organizar datos de petróleo y gas.</li>
-          <li>Pandas permite inspección detallada. DataPrep y AutoViz automatizan perfiles y gráficos; la interpretación sigue a cargo del equipo.</li>
-          <li>El formato de valores separados por comas (CSV, <em>Comma-Separated Values</em>) guarda tablas como texto. Joblib guarda objetos binarios de Python y exige un entorno compatible.</li>
+          <li><strong>Arqueología:</strong> reconstruye el proceso que produjo cada hallazgo. La intuición formula hipótesis que luego se contrastan con evidencia.</li>
+          <li><strong>Seguridad:</strong> el análisis puede revelar fallas o manipulaciones que los controles en línea no detectaron.</li>
+          <li><strong>Comunicación:</strong> explicar problemas estructurales requiere evidencia, historia reconstruida y asertividad.</li>
+          <li><strong>Experiencia:</strong> se acumula en patrones generales, patrones de industria y particularidades de cada empresa, y se desarrolla practicando con datasets distintos.</li>
+          <li><strong>Estándar:</strong> <em>Open Subsurface Data Universe</em> (OSDU) es una referencia para organizar datos de petróleo y gas.</li>
+          <li><strong>Inspección:</strong> Pandas permite análisis detallado. DataPrep y AutoViz automatizan perfiles y gráficos, pero la interpretación sigue a cargo del equipo.</li>
+          <li><strong>Persistencia:</strong> el formato de valores separados por comas (CSV, <em>Comma-Separated Values</em>) guarda tablas como texto. Joblib guarda objetos binarios de Python y exige un entorno compatible.</li>
         </ul>
       </section>
 
@@ -980,12 +979,12 @@
         <h3>Ingeniería de características</h3>
         <p>Transforma variables disponibles o crea nuevas para representar patrones en una forma que el algoritmo pueda utilizar.</p>
         <ul>
-          <li>Descomponer fechas en año, mes, día, hora, día de semana, estación o trimestre.</li>
-          <li>Codificar categorías según el modelo y evitar introducir orden inexistente.</li>
+          <li><strong>Fechas:</strong> descomponerlas en año, mes, día, hora, día de semana, estación o trimestre.</li>
+          <li><strong>Categorías:</strong> codificarlas según el modelo sin introducir un orden inexistente.</li>
           <li><strong>Normalización MinMax:</strong> lleva valores a un rango, usualmente entre 0 y 1. Es sensible a extremos.</li>
           <li><strong>Reescalado:</strong> lleva magnitudes a escalas comparables para evitar que una variable domine por su unidad.</li>
-          <li>Aplicar logaritmos a distribuciones muy asimétricas cuando el dominio lo permite.</li>
-          <li>Crear ratios, acumulados, interacciones, ventanas temporales y variables de dominio.</li>
+          <li><strong>Asimetría:</strong> aplicar logaritmos a distribuciones muy sesgadas cuando el dominio lo permite.</li>
+          <li><strong>Combinaciones:</strong> crear ratios, acumulados, interacciones, ventanas temporales y variables de dominio.</li>
           <li><strong>Análisis de componentes principales (PCA, <em>Principal Component Analysis</em>):</strong> combina variables correlacionadas en menos componentes. Reduce dimensión y costo, pero pierde interpretación directa.</li>
         </ul>
 
@@ -1095,11 +1094,11 @@
 
         <h3>Selección</h3>
         <ol>
-          <li>Definir clase positiva y usuario de la decisión.</li>
-          <li>Asignar consecuencias a FP y FN.</li>
-          <li>Revisar desbalance.</li>
-          <li>Elegir métrica principal, complementarias y umbral.</li>
-          <li>Traducir resultados a costo o valor de negocio.</li>
+          <li><strong>Evento:</strong> definir la clase positiva y quién usará la decisión.</li>
+          <li><strong>Errores:</strong> asignar consecuencias a los falsos positivos y falsos negativos.</li>
+          <li><strong>Distribución:</strong> revisar si una clase domina ampliamente a la otra.</li>
+          <li><strong>Medición:</strong> elegir métrica principal, métricas complementarias y umbral de decisión.</li>
+          <li><strong>Negocio:</strong> traducir el resultado a costo o valor. Esa traducción determina si el modelo sirve.</li>
         </ol>
         <p>La métrica puede cambiar el algoritmo ganador. En la comparación de referencia, un modelo tuvo recall 85% y accuracy 40%, mientras Gradient Boosting, que combina árboles de forma secuencial, tuvo accuracy 81% y recall 35%. Si se priorizan falsos negativos gana el primero; si se mira solo accuracy gana el segundo.</p>
       </section>
@@ -1207,24 +1206,24 @@
 
         <h3>Utilidad</h3>
         <ul>
-          <li>Detectar señales plausibles, atajos y features innecesarias.</li>
-          <li>Validar con especialistas.</li>
-          <li>Auditar, responder reclamos y cumplir requisitos.</li>
-          <li>Descubrir reglas de negocio y orientar nuevas features.</li>
+          <li><strong>Diagnóstico:</strong> detectar señales plausibles, atajos y features innecesarias.</li>
+          <li><strong>Validación:</strong> contrastar el comportamiento con especialistas.</li>
+          <li><strong>Control:</strong> auditar, responder reclamos y cumplir requisitos.</li>
+          <li><strong>Conocimiento:</strong> descubrir reglas de negocio y orientar nuevas features.</li>
         </ul>
         <p>Las explicaciones validadas pueden destilarse en reglas IF condición THEN acción y alimentar conocimiento organizacional. No demuestran causalidad. La dinámica de sistemas de Forrester y Senge modela relaciones y retroalimentaciones que una predicción de ML puede no representar.</p>
 
         <h3>Sesgos perjudiciales</h3>
         <p>Los datos históricos pueden reproducir o amplificar desigualdades. Eliminar una variable sensible no elimina necesariamente sus proxies, variables que la revelan indirectamente.</p>
         <ol>
-          <li>Identificar grupos, variables sensibles y daños.</li>
-          <li>Revisar representación, etiquetas, calidad y proxies.</li>
-          <li>Construir pruebas por grupos y pares contrafácticos.</li>
-          <li>Comparar predicciones, tasas de error y resultados.</li>
-          <li>Analizar explicaciones globales y locales.</li>
-          <li>Mitigar en datos, features, objetivo, umbral o algoritmo.</li>
-          <li>Documentar límites y riesgo residual.</li>
-          <li>Monitorear en producción.</li>
+          <li><strong>Daño:</strong> identificar grupos, variables sensibles y consecuencias posibles.</li>
+          <li><strong>Origen:</strong> revisar representación, etiquetas, calidad y proxies en los datos.</li>
+          <li><strong>Pruebas:</strong> construir conjuntos por grupos y pares contrafácticos.</li>
+          <li><strong>Medición:</strong> comparar predicciones, tasas de error y resultados.</li>
+          <li><strong>Explicación:</strong> analizar el comportamiento global y decisiones individuales.</li>
+          <li><strong>Mitigación:</strong> intervenir en datos, features, objetivo, umbral o algoritmo.</li>
+          <li><strong>Registro:</strong> documentar límites y riesgo residual.</li>
+          <li><strong>Seguimiento:</strong> monitorear en producción porque el comportamiento puede cambiar.</li>
         </ol>
         <p>Explicabilidad y fairness, equidad, evalúan aspectos distintos. Un modelo puede ser explicable y discriminatorio, o menos interpretable y mostrar mejores resultados entre grupos. La responsabilidad permanece en el equipo y la organización.</p>
       </section>
@@ -1237,12 +1236,12 @@
 
         <h3>Artefacto y registro</h3>
         <ul>
-          <li>Empaquetar exactamente el preprocesamiento, transformaciones, modelo y configuración validados.</li>
-          <li>Versionar código, datos, features, modelo, entorno, parámetros, hiperparámetros y métricas.</li>
-          <li>Git versiona bien código, pero los datasets suelen requerir estrategias propias por su tamaño.</li>
-          <li>Registrar fecha, archivos, decisiones, entradas y salidas con controles de privacidad.</li>
-          <li>Observar latencia, errores, disponibilidad, memoria, unidad central de procesamiento (CPU, <em>Central Processing Unit</em>), GPU, distribuciones y desempeño contra <strong>ground truth</strong>, valor real confirmado que llega después de la predicción.</li>
-          <li>MLflow registra experimentos y permite recuperar una ejecución anterior, que puede ser mejor que la última.</li>
+          <li><strong>Empaquetado:</strong> incluir exactamente el preprocesamiento, transformaciones, modelo y configuración validados.</li>
+          <li><strong>Versionado:</strong> vincular código, datos, features, modelo, entorno, parámetros, hiperparámetros y métricas.</li>
+          <li><strong>Datos:</strong> Git versiona bien código, pero los datasets suelen requerir estrategias propias por su tamaño.</li>
+          <li><strong>Trazabilidad:</strong> registrar fecha, archivos, decisiones, entradas y salidas con controles de privacidad.</li>
+          <li><strong>Observación:</strong> medir latencia, errores, disponibilidad, memoria, unidad central de procesamiento (CPU, <em>Central Processing Unit</em>), GPU, distribuciones y desempeño contra <strong>ground truth</strong>, valor real confirmado que llega después de la predicción.</li>
+          <li><strong>Experimentos:</strong> MLflow los registra y permite recuperar una ejecución anterior, que puede ser mejor que la última.</li>
         </ul>
 
         <h3>Drift</h3>
@@ -1276,10 +1275,10 @@
         <h3>Prompting</h3>
         <p>Un prompt contiene instrucciones y contexto. La ingeniería de prompts redacta y refina esa entrada. El esquema ROC organiza <strong>rol, objetivo y contexto</strong>, sin relación con la curva ROC de clasificación.</p>
         <ul>
-          <li>Explicitar tarea, entradas, restricciones, formato y criterios de aceptación.</li>
-          <li>Para un pipeline de ML, detallar features y target, variables de entrada, transformaciones o ecuaciones, algoritmo e hiperparámetros, y pasos de implementación y prueba.</li>
-          <li>Dividir tareas complejas y revisar resultados intermedios.</li>
-          <li>Refinar la instrucción con conocimiento del problema.</li>
+          <li><strong>Pedido:</strong> explicitar tarea, entradas, restricciones, formato y criterios de aceptación.</li>
+          <li><strong>Contenido técnico:</strong> para un pipeline de ML, detallar features y target, variables de entrada, transformaciones o ecuaciones, algoritmo e hiperparámetros, y pasos de implementación y prueba.</li>
+          <li><strong>Descomposición:</strong> dividir tareas complejas y revisar resultados intermedios.</li>
+          <li><strong>Refinamiento:</strong> corregir la instrucción con conocimiento del problema.</li>
         </ul>
       </section>
 
@@ -1301,20 +1300,20 @@
 
         <h3>Pipeline</h3>
         <ol>
-          <li>Ingestar documentos confiables.</li>
-          <li>Limpiar, dividir en chunks y agregar metadata.</li>
-          <li>Crear embeddings e indexarlos.</li>
-          <li>Convertir la consulta con el mismo modelo.</li>
-          <li>Recuperar vecinos relevantes.</li>
-          <li>Generar la respuesta con contexto y fuentes.</li>
+          <li><strong>Ingesta:</strong> reunir documentos confiables, autorizados y actualizables.</li>
+          <li><strong>Fragmentación:</strong> limpiar, dividir en chunks que conserven contexto y agregar metadata.</li>
+          <li><strong>Indexación:</strong> crear embeddings y guardar vectores, texto y metadata.</li>
+          <li><strong>Consulta:</strong> convertir la pregunta con el mismo modelo de embeddings.</li>
+          <li><strong>Recuperación:</strong> buscar y filtrar los fragmentos más relevantes y permitidos.</li>
+          <li><strong>Generación:</strong> entregar esos fragmentos al modelo para responder con contexto y fuentes.</li>
         </ol>
 
         <h3>Recuperación</h3>
         <ul>
-          <li>Similitud coseno compara orientación; distancia euclídea, distancia recta; producto interno, orientación y magnitud.</li>
-          <li>La medida depende del entrenamiento y normalización del embedding.</li>
-          <li>Facebook Artificial Intelligence Similarity Search (FAISS) construye índices y busca vecinos. La relevancia y los permisos se validan fuera de la biblioteca.</li>
-          <li>PCA es una técnica opcional para visualizar vectores en pocas dimensiones y no participa de la recuperación.</li>
+          <li><strong>Medidas:</strong> similitud coseno compara orientación; distancia euclídea, distancia recta; producto interno, orientación y magnitud.</li>
+          <li><strong>Elección:</strong> la medida depende del entrenamiento y normalización del embedding.</li>
+          <li><strong>Índice:</strong> Facebook Artificial Intelligence Similarity Search (FAISS) construye índices y busca vecinos. La relevancia y los permisos se validan fuera de la biblioteca.</li>
+          <li><strong>Visualización:</strong> PCA puede representar vectores en pocas dimensiones, pero no participa de la recuperación.</li>
         </ul>
 
         <h3>Respuesta, alucinación y evaluación</h3>
@@ -1330,13 +1329,13 @@
 
         <h3>Método</h3>
         <ol>
-          <li>Construir una colección documental o corpus y una síntesis con contexto y referencias.</li>
-          <li>Buscar estado del arte y comparar evidencia a favor y en contra.</li>
-          <li>Analizar en profundidad los trabajos seleccionados.</li>
-          <li>Extraer dataset, features, target, ecuaciones, arquitectura, hiperparámetros y pipeline.</li>
-          <li>Escribir una especificación técnica en Markdown.</li>
-          <li>Generar una primera versión con reglas, datos sintéticos y criterios de prueba.</li>
-          <li>Registrar decisiones, leer, probar y refinar.</li>
+          <li><strong>Fuentes:</strong> construir una colección documental o corpus y una síntesis con contexto y referencias.</li>
+          <li><strong>Comparación:</strong> buscar el estado del arte y contrastar evidencia a favor y en contra.</li>
+          <li><strong>Análisis:</strong> estudiar en profundidad los trabajos seleccionados.</li>
+          <li><strong>Extracción:</strong> identificar dataset, features, target, ecuaciones, arquitectura, hiperparámetros y pipeline.</li>
+          <li><strong>Especificación:</strong> escribir en Markdown qué debe construirse y cómo se comprobará.</li>
+          <li><strong>Prototipo:</strong> generar una primera versión con reglas, datos sintéticos y criterios de prueba.</li>
+          <li><strong>Verificación:</strong> registrar decisiones, leer el código, probarlo y refinarlo.</li>
         </ol>
         <p>NotebookLM consulta la colección documental, Gemini investiga, Consensus compara evidencia, Elicit y Paperguide analizan papers y Antigravity genera una implementación inicial.</p>
 
@@ -1374,8 +1373,8 @@
 
         <h3>Sistemas multiagente</h3>
         <ul>
-          <li>Dividen el problema en agentes especializados con contratos de entrada y salida.</li>
-          <li>Mejoran modularidad y reemplazo, pero agregan coordinación, observabilidad, seguridad, memoria y fallas distribuidas.</li>
+          <li><strong>División:</strong> separan el problema en agentes especializados con contratos de entrada y salida.</li>
+          <li><strong>Intercambio:</strong> mejoran modularidad y reemplazo, pero agregan coordinación, observabilidad, seguridad, memoria y fallas distribuidas.</li>
           <li><strong>Orquestación:</strong> flujo predefinido. n8n y Zapier automatizan pasos y eventos.</li>
           <li><strong>Colaboración:</strong> un planificador arma o revisa el plan dinámicamente.</li>
           <li><strong>Blackboard:</strong> memoria común donde los agentes leen y escriben estado.</li>
