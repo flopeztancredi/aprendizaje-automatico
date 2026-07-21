@@ -597,20 +597,21 @@
       <a href="#datos"><span>03</span>Datos, acceso y análisis exploratorio</a>
       <a href="#features"><span>04</span>Ingeniería de características</a>
       <a href="#entrenamiento"><span>05</span>Entrenamiento y métricas</a>
-      <a href="#automl"><span>06</span>Automatización del aprendizaje</a>
-      <a href="#regularizacion"><span>07</span>Regularización</a>
-      <a href="#xai"><span>08</span>Explicabilidad y sesgos</a>
-      <a href="#mlops"><span>09</span>Producción y mantenimiento</a>
+      <a href="#regularizacion"><span>06</span>Regularización</a>
+      <a href="#xai"><span>07</span>Explicabilidad y sesgos</a>
+      <a href="#mlops"><span>08</span>Producción y mantenimiento</a>
+      <a href="#automl"><span>09</span>Automatización del aprendizaje</a>
     </nav>
     <div class="nav-title">Extensiones</div>
     <nav class="toc" aria-label="Contenidos complementarios">
-      <a href="#vibe"><span>10</span>Vibe coding</a>
-      <a href="#rag"><span>11</span>Recuperación aumentada y bases vectoriales</a>
-      <a href="#seguridad"><span>12</span>Seguridad en modelos de lenguaje</a>
-      <a href="#agentes"><span>13</span>Agentes inteligentes</a>
-      <a href="#cobots"><span>14</span>Cobots y gemelos digitales</a>
-      <a href="#preguntas"><span>15</span>Banco de preguntas</a>
-      <a href="#glosario"><span>16</span>Glosario</a>
+      <a href="#llm"><span>10</span>Modelos de lenguaje y prompting</a>
+      <a href="#vibe"><span>11</span>Vibe coding</a>
+      <a href="#rag"><span>12</span>Recuperación aumentada y bases vectoriales</a>
+      <a href="#seguridad"><span>13</span>Seguridad en modelos de lenguaje</a>
+      <a href="#agentes"><span>14</span>Agentes inteligentes</a>
+      <a href="#cobots"><span>15</span>Cobots y gemelos digitales</a>
+      <a href="#preguntas"><span>16</span>Banco de preguntas</a>
+      <a href="#glosario"><span>17</span>Glosario</a>
     </nav>
 
     <div class="side-actions">
@@ -1029,50 +1030,9 @@
         <p class="exam-answer"><strong>Respuesta:</strong> se separan entrenamiento, validación y test. La validación cruzada permite comparar modelos y configuraciones con varias particiones del entrenamiento. La métrica depende del costo de error: recall si importa evitar falsos negativos, precision si importan los falsos positivos y F1 si se necesita equilibrar ambos.</p>
       </section>
 
-      <section class="chapter" id="automl" data-title="automl pycaret tpot h2o autofeat flaml lazypredict programación genética pipeline">
-        <div class="chapter-head">
-          <div class="chapter-number">06</div>
-          <div><h2>Automatización del aprendizaje automático (AutoML)</h2></div>
-        </div>
-
-        <p><strong>AutoML, Automated Machine Learning,</strong> reúne herramientas que automatizan partes repetitivas del entrenamiento y la comparación de modelos. Suele recibir un dataset preparado, el target, el tipo de problema, la métrica, la estrategia de validación y un presupuesto de tiempo. Como salida produce resultados comparables y uno o más pipelines candidatos. Un pipeline es una secuencia ordenada de transformaciones y modelo.</p>
-        <p>No significa que el proyecto de ML sea automático. Su primer valor suele ser generar un <strong>baseline</strong>, una referencia inicial contra la cual medir mejoras posteriores.</p>
-        <p>AutoML reduce el trabajo operativo necesario para entrenar y comparar muchos algoritmos. El conocimiento no desaparece: <strong>se desplaza hacia la definición del problema y la interpretación de las métricas</strong>.</p>
-
-        <h3>Tres bloques que puede automatizar</h3>
-        <ul class="study-list">
-          <li><strong>Preparación y features:</strong> aplica preprocesamientos estandarizados y, según la herramienta, selecciona o genera características.</li>
-          <li><strong>Modelo e hiperparámetros:</strong> compara algoritmos, prueba configuraciones y los evalúa con validación cruzada usando la métrica indicada.</li>
-          <li><strong>Combinación de modelos:</strong> puede crear ensambles, es decir, usar varios modelos y combinar sus predicciones. Bagging los entrena en paralelo y vota o promedia, boosting los entrena en secuencia para corregir errores, y stacking aprende a mezclar modelos distintos.</li>
-        </ul>
-        <p>Además puede registrar métricas, generar gráficos y exportar modelos, pipelines o código. La recolección, integración y limpieza de los datos crudos ocurren antes: AutoML recibe un dataset cuya calidad ya debe haber sido investigada.</p>
-
-        <h3>Qué no delega</h3>
-        <p>Definición del problema, acceso y calidad, prevención de leakage, métrica adecuada, separación de los datos, validación con expertos, análisis de sesgos, restricciones de producción, monitoreo y responsabilidad.</p>
-
-        <div class="table-wrap"><table>
-          <thead><tr><th>Herramienta</th><th>Qué hace</th><th>Uso pragmático</th></tr></thead>
-          <tbody>
-            <tr><td>PyCaret</td><td>Orquesta algoritmos de librerías existentes y permite comparar modelos con pocas líneas.</td><td>Baseline rápido y experimentación guiada.</td></tr>
-            <tr><td>TPOT</td><td>Usa programación genética: genera variantes de pipelines, conserva las que obtienen mejores resultados y las combina para crear nuevas variantes. Permite fijar un presupuesto de tiempo.</td><td>Exporta código basado en librerías estándar y no necesita TPOT durante la inferencia.</td></tr>
-            <tr><td>H2O AutoML</td><td>Compara modelos, combina varios de ellos y muestra una tabla ordenada de resultados junto con métricas, matriz de confusión y gráficos.</td><td>Experimentación más completa, con ecosistema empresarial.</td></tr>
-            <tr><td>AutoFeat</td><td>Generación y selección automática de características para datos tabulares.</td><td>Proponer transformaciones, siempre revisando sentido y leakage.</td></tr>
-            <tr><td>FLAML</td><td>AutoML liviano con presupuesto de tiempo o recursos para clasificación, regresión y series temporales.</td><td>Obtener una primera solución con costo controlado.</td></tr>
-            <tr><td>LazyPredict</td><td>Compara rápidamente modelos básicos de clasificación o regresión.</td><td>Baseline preliminar, no producto final.</td></tr>
-          </tbody>
-        </table></div>
-
-        <h3>Criterios para seleccionar herramienta</h3>
-        <p>Actividad del proyecto, licencia, reproducibilidad, integración, seguridad, capacidad de exportar, soporte de tipos de problema, observabilidad, costo y dependencia en producción. Una herramienta open source abandonada puede ser adecuada para aprender, pero riesgosa como base corporativa.</p>
-
-        <p><strong>TPOT y seguridad:</strong> el CISO, responsable de seguridad de la información, puede autorizar librerías distintas para desarrollo, pruebas internas, validación de usuarios y producción. TPOT puede utilizarse en un entorno de desarrollo más flexible y exportar un pipeline basado en librerías estándar, sin necesitar TPOT en producción.</p>
-
-        <p class="exam-answer"><strong>Respuesta:</strong> AutoML automatiza comparación de algoritmos, pipelines, validación y ajuste. No define el problema, no corrige datos deficientes y no decide métricas, sesgos aceptables ni restricciones productivas.</p>
-      </section>
-
       <section class="chapter" id="regularizacion" data-title="overfitting underfitting regularización generalización bias variance ridge lasso early stopping dropout augmentation">
         <div class="chapter-head">
-          <div class="chapter-number">07</div>
+          <div class="chapter-number">06</div>
           <div><h2>Generalización, sobreajuste y regularización</h2></div>
         </div>
 
@@ -1134,7 +1094,7 @@
 
       <section class="chapter" id="xai" data-title="explicabilidad interpretabilidad XAI SHAP LIME integrated gradients sesgos fairness caja negra blanca gris">
         <div class="chapter-head">
-          <div class="chapter-number">08</div>
+          <div class="chapter-number">07</div>
           <div><h2>Explicabilidad de modelos y detección de sesgos (XAI)</h2></div>
         </div>
 
@@ -1196,7 +1156,7 @@
 
       <section class="chapter" id="mlops" data-title="MLOps producción latencia seguridad computo logs trazabilidad drift data concept prediction reentrenamiento decomiso MLflow">
         <div class="chapter-head">
-          <div class="chapter-number">09</div>
+          <div class="chapter-number">08</div>
           <div><h2>Producción y mantenimiento de modelos (MLOps)</h2></div>
         </div>
 
@@ -1245,18 +1205,80 @@
         <p class="exam-answer"><strong>Respuesta:</strong> MLOps versiona código, datos, modelos y configuración, automatiza despliegues y registra operación. El monitoreo mide drift de entradas, relación con el target, predicciones y desempeño para decidir si corresponde corregir el pipeline, reentrenar, revertir o retirar el modelo.</p>
       </section>
 
-      <section class="chapter" id="vibe" data-title="vibe coding generación código LLM patrones amnesia tokens Antigravity MCP Dunning Kruger">
+      <section class="chapter" id="automl" data-title="automl pycaret tpot h2o autofeat flaml lazypredict programación genética pipeline">
         <div class="chapter-head">
-          <div class="chapter-number">10</div>
-          <div><h2>Vibe coding y supervisión humana</h2></div>
+          <div class="chapter-number">09</div>
+          <div><h2>Automatización del aprendizaje automático (AutoML)</h2></div>
         </div>
 
-        <p><strong>Vibe coding</strong> es el desarrollo de software asistido por modelos de lenguaje de gran escala, o LLM, mediante instrucciones en lenguaje natural. Un LLM genera texto o código continuando patrones aprendidos. Procesa el contenido en tokens, fragmentos de palabras, signos o código que también determinan el costo y el límite de contexto.</p>
-        <p>La analogía del <strong>ilusionista</strong> describe el vibe coding: el resultado hace pensar que hay comprensión detrás de la pantalla, pero el mecanismo sigue siendo probabilístico. Que el código compile no demuestra que la jerarquía, los contratos, la seguridad o la mantenibilidad sean correctos.</p>
+        <p><strong>AutoML, Automated Machine Learning,</strong> reúne herramientas que automatizan partes repetitivas del entrenamiento y la comparación de modelos. Suele recibir un dataset preparado, el target, el tipo de problema, la métrica, la estrategia de validación y un presupuesto de tiempo. Como salida produce resultados comparables y uno o más pipelines candidatos. Un pipeline es una secuencia ordenada de transformaciones y modelo.</p>
+        <p>No significa que el proyecto de ML sea automático. Su primer valor suele ser generar un <strong>baseline</strong>, una referencia inicial contra la cual medir mejoras posteriores.</p>
+        <p>AutoML reduce el trabajo operativo necesario para entrenar y comparar muchos algoritmos. El conocimiento no desaparece: <strong>se desplaza hacia la definición del problema y la interpretación de las métricas</strong>.</p>
+
+        <h3>Tres bloques que puede automatizar</h3>
+        <ul class="study-list">
+          <li><strong>Preparación y features:</strong> aplica preprocesamientos estandarizados y, según la herramienta, selecciona o genera características.</li>
+          <li><strong>Modelo e hiperparámetros:</strong> compara algoritmos, prueba configuraciones y los evalúa con validación cruzada usando la métrica indicada.</li>
+          <li><strong>Combinación de modelos:</strong> puede crear ensambles, es decir, usar varios modelos y combinar sus predicciones. Bagging los entrena en paralelo y vota o promedia, boosting los entrena en secuencia para corregir errores, y stacking aprende a mezclar modelos distintos.</li>
+        </ul>
+        <p>Además puede registrar métricas, generar gráficos y exportar modelos, pipelines o código. La recolección, integración y limpieza de los datos crudos ocurren antes: AutoML recibe un dataset cuya calidad ya debe haber sido investigada.</p>
+
+        <h3>Qué no delega</h3>
+        <p>Definición del problema, acceso y calidad, prevención de leakage, métrica adecuada, separación de los datos, validación con expertos, análisis de sesgos, restricciones de producción, monitoreo y responsabilidad.</p>
+
+        <div class="table-wrap"><table>
+          <thead><tr><th>Herramienta</th><th>Qué hace</th><th>Uso pragmático</th></tr></thead>
+          <tbody>
+            <tr><td>PyCaret</td><td>Orquesta algoritmos de librerías existentes y permite comparar modelos con pocas líneas.</td><td>Baseline rápido y experimentación guiada.</td></tr>
+            <tr><td>TPOT</td><td>Usa programación genética: genera variantes de pipelines, conserva las que obtienen mejores resultados y las combina para crear nuevas variantes. Permite fijar un presupuesto de tiempo.</td><td>Exporta código basado en librerías estándar y no necesita TPOT durante la inferencia.</td></tr>
+            <tr><td>H2O AutoML</td><td>Compara modelos, combina varios de ellos y muestra una tabla ordenada de resultados junto con métricas, matriz de confusión y gráficos.</td><td>Experimentación más completa, con ecosistema empresarial.</td></tr>
+            <tr><td>AutoFeat</td><td>Generación y selección automática de características para datos tabulares.</td><td>Proponer transformaciones, siempre revisando sentido y leakage.</td></tr>
+            <tr><td>FLAML</td><td>AutoML liviano con presupuesto de tiempo o recursos para clasificación, regresión y series temporales.</td><td>Obtener una primera solución con costo controlado.</td></tr>
+            <tr><td>LazyPredict</td><td>Compara rápidamente modelos básicos de clasificación o regresión.</td><td>Baseline preliminar, no producto final.</td></tr>
+          </tbody>
+        </table></div>
+
+        <h3>Criterios para seleccionar herramienta</h3>
+        <p>Actividad del proyecto, licencia, reproducibilidad, integración, seguridad, capacidad de exportar, soporte de tipos de problema, observabilidad, costo y dependencia en producción. Una herramienta open source abandonada puede ser adecuada para aprender, pero riesgosa como base corporativa.</p>
+
+        <p><strong>TPOT y seguridad:</strong> el CISO, responsable de seguridad de la información, puede autorizar librerías distintas para desarrollo, pruebas internas, validación de usuarios y producción. TPOT puede utilizarse en un entorno de desarrollo más flexible y exportar un pipeline basado en librerías estándar, sin necesitar TPOT en producción.</p>
+
+        <p class="exam-answer"><strong>Respuesta:</strong> AutoML automatiza comparación de algoritmos, pipelines, validación y ajuste. No define el problema, no corrige datos deficientes y no decide métricas, sesgos aceptables ni restricciones productivas.</p>
+      </section>
+
+      <section class="chapter" id="llm" data-title="LLM modelo lenguaje Transformer tokenización embeddings atención prompt ingeniería prompting ROC fine tuning inferencia">
+        <div class="chapter-head">
+          <div class="chapter-number">10</div>
+          <div><h2>Modelos de lenguaje, Transformer y prompting</h2></div>
+        </div>
+
+        <p>Un <strong>LLM, Large Language Model,</strong> es una red neuronal de Deep Learning entrenada con grandes cantidades de texto para predecir tokens y generar una continuación. Recibe un prompt, que contiene instrucciones y contexto, y produce una respuesta. No funciona como una base de datos ni garantiza que una afirmación sea verdadera.</p>
+
+        <h3>Cómo procesa texto un LLM</h3>
+        <ol class="study-list">
+          <li><strong>Tokenización:</strong> divide el texto en tokens, que pueden ser palabras, partes de palabras o signos.</li>
+          <li><strong>Embeddings:</strong> convierte cada token en un vector numérico que el modelo puede procesar.</li>
+          <li><strong>Posición:</strong> agrega información sobre el orden, porque cambiar el orden puede cambiar el significado.</li>
+          <li><strong>Atención:</strong> asigna más peso a las partes del contexto relevantes para cada token y procesa muchas relaciones en paralelo. Así distingue sentidos diferentes de una palabra, como cabo geográfico, militar o náutico, según las palabras que la rodean.</li>
+          <li><strong>Predicción:</strong> después de atravesar varias capas Transformer, calcula probabilidades para el token siguiente. Repite el proceso token por token hasta completar la respuesta.</li>
+        </ol>
+        <p>El <strong>Transformer</strong> es la arquitectura de red neuronal que organiza ese mecanismo de atención. Durante el preentrenamiento ajusta sus pesos con grandes corpus de texto. En inferencia usa esos pesos para responder. Un fine tuning posterior puede especializar su conducta, pero no convierte al modelo en una base de datos verificable.</p>
 
         <h3>Cómo escribir una instrucción útil</h3>
         <p>Un <strong>prompt</strong> es el texto con el que se le indica una tarea al modelo. La ingeniería de prompts consiste en redactar y refinar esas instrucciones para obtener una salida útil. Un prompt necesita claridad, detalle suficiente y contexto. El esquema <strong>ROC</strong> ayuda a ordenarlo: rol que debe asumir el modelo, objetivo concreto y contexto necesario para resolverlo.</p>
         <p>Para generar un pipeline de ML, por ejemplo, conviene pedir por separado las features y el target, variables de entrada, transformaciones o ecuaciones, algoritmo e hiperparámetros, y pasos de implementación y prueba. El primer resultado se revisa y el prompt se ajusta. Sin conocimiento del problema no hay forma de especificar ni controlar la salida.</p>
+
+        <p class="exam-answer"><strong>Respuesta:</strong> un LLM tokeniza la entrada, la representa con vectores y usa atención dentro de una arquitectura Transformer para ponderar el contexto y predecir el token siguiente. Un prompt útil explicita rol, objetivo, contexto, formato y criterios de aceptación, y luego se refina según el resultado.</p>
+      </section>
+
+      <section class="chapter" id="vibe" data-title="vibe coding generación código LLM patrones amnesia tokens Antigravity MCP Dunning Kruger">
+        <div class="chapter-head">
+          <div class="chapter-number">11</div>
+          <div><h2>Vibe coding y supervisión humana</h2></div>
+        </div>
+
+        <p><strong>Vibe coding</strong> es el desarrollo de software asistido por modelos de lenguaje mediante instrucciones en lenguaje natural. Los tokens procesados determinan tanto el límite de contexto como una parte importante del costo.</p>
+        <p>La analogía del <strong>ilusionista</strong> describe el vibe coding: el resultado hace pensar que hay comprensión detrás de la pantalla, pero el mecanismo sigue siendo probabilístico. Que el código compile no demuestra que la jerarquía, los contratos, la seguridad o la mantenibilidad sean correctos.</p>
 
         <h3>Flujo de trabajo</h3>
         <ol>
@@ -1318,21 +1340,9 @@
 
       <section class="chapter" id="rag" data-title="RAG retrieval augmented generation bases vectoriales embeddings cosine euclidean atención alucinación chunking trazabilidad LLM">
         <div class="chapter-head">
-          <div class="chapter-number">11</div>
-          <div><h2>RAG (generación aumentada mediante recuperación), modelos de lenguaje y bases vectoriales</h2></div>
+          <div class="chapter-number">12</div>
+          <div><h2>RAG (generación aumentada mediante recuperación) y bases vectoriales</h2></div>
         </div>
-
-        <p>Un <strong>LLM, Large Language Model,</strong> es un modelo entrenado con grandes cantidades de texto para predecir tokens y generar una continuación. Recibe un prompt, la entrada con instrucciones y contexto, y produce una respuesta. No funciona como una base de datos ni garantiza que una afirmación sea verdadera.</p>
-
-        <h3>Cómo procesa texto un LLM</h3>
-        <ol class="study-list">
-          <li><strong>Tokenización:</strong> divide el texto en tokens, que pueden ser palabras, partes de palabras o signos.</li>
-          <li><strong>Embeddings:</strong> convierte cada token en un vector numérico que el modelo puede procesar.</li>
-          <li><strong>Posición:</strong> agrega información sobre el orden, porque cambiar el orden puede cambiar el significado.</li>
-          <li><strong>Atención:</strong> asigna más peso a las partes del contexto relevantes para cada token y procesa muchas relaciones en paralelo. Así distingue sentidos diferentes de una palabra, como cabo geográfico, militar o náutico, según las palabras que la rodean.</li>
-          <li><strong>Predicción:</strong> después de atravesar varias capas Transformer, calcula probabilidades para el token siguiente. Repite el proceso token por token hasta completar la respuesta.</li>
-        </ol>
-        <p>El <strong>Transformer</strong> es la arquitectura de red neuronal que organiza ese mecanismo de atención. Durante el preentrenamiento ajusta sus pesos con grandes corpus de texto. En inferencia usa esos pesos para responder. Un fine tuning posterior puede especializar su conducta, pero no convierte al modelo en una base de datos verificable.</p>
 
         <p><strong>RAG, Retrieval Augmented Generation,</strong> combina recuperación y generación. Busca fragmentos en un corpus, colección de documentos, y los agrega al prompt del LLM para que responda con esa evidencia.</p>
         <p>Cada fragmento o chunk puede guardarse junto con metadata, como fuente, fecha y permisos. Un embedding lo representa como un vector numérico para buscar contenido semánticamente cercano.</p>
@@ -1395,7 +1405,7 @@
 
       <section class="chapter" id="seguridad" data-title="seguridad LLM brechas vulnerabilidades prompt injection datos sensibles poisoning supply chain output agency system prompt vector embeddings misinformation consumption OWASP">
         <div class="chapter-head">
-          <div class="chapter-number">12</div>
+          <div class="chapter-number">13</div>
           <div><h2>Principales brechas de seguridad en modelos de lenguaje (LLM)</h2></div>
         </div>
 
@@ -1453,7 +1463,7 @@
 
       <section class="chapter" id="agentes" data-title="agentes inteligentes autonomía reactividad proactividad multiagente orquestador colaboración n8n MCP memoria blackboard objetivo utilidad">
         <div class="chapter-head">
-          <div class="chapter-number">13</div>
+          <div class="chapter-number">14</div>
           <div><h2>Agentes inteligentes y orquestación</h2></div>
         </div>
 
@@ -1506,7 +1516,7 @@
 
       <section class="chapter" id="cobots" data-title="cobots robots colaborativos mantenimiento predictivo prescriptivo gemelos digitales sensores kinetic teaching industria">
         <div class="chapter-head">
-          <div class="chapter-number">14</div>
+          <div class="chapter-number">15</div>
           <div><h2>Cobots, mantenimiento y gemelos digitales</h2></div>
         </div>
 
@@ -1561,7 +1571,7 @@
 
       <section class="chapter" id="preguntas" data-title="preguntas examen final respuestas práctica simulacro">
         <div class="chapter-head">
-          <div class="chapter-number">15</div>
+          <div class="chapter-number">16</div>
           <div><h2>Banco de preguntas para el final</h2></div>
         </div>
 
@@ -1655,7 +1665,7 @@
 
       <section class="chapter" id="glosario" data-title="glosario conceptos definiciones algoritmo modelo entrenamiento inferencia EDA AutoML XAI LLM token RAG pipeline fine tuning feature target leakage baseline ground truth embedding MLOps drift">
         <div class="chapter-head">
-          <div class="chapter-number">16</div>
+          <div class="chapter-number">17</div>
           <div><h2>Glosario</h2></div>
         </div>
         <div class="table-wrap"><table>
