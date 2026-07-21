@@ -783,7 +783,7 @@
         <p class="exam-answer"><strong>Respuesta:</strong> la viabilidad tiene dos niveles: pertinencia de ML para el problema y capacidad de la organización para implementarlo. La decisión Go o No Go se toma después del EDA, con acceso, calidad, recursos, riesgos y criterio de éxito ya evaluados.</p>
       </section>
 
-      <section class="chapter" id="datos" data-title="datos acceso EDA análisis exploratorio nulos duplicados outliers correlación pandas calidad">
+      <section class="chapter" id="datos" data-title="datos acceso data wrangling preparación EDA análisis exploratorio nulos duplicados outliers correlación pandas calidad">
         <div class="chapter-head">
           <div class="chapter-number">04</div>
           <div><h2>Acceso, calidad y análisis exploratorio de datos</h2></div>
@@ -792,6 +792,10 @@
         <h3>Existencia, acceso y capacidad</h3>
         <p>Que una empresa afirme que los datos existen no significa que el equipo pueda usarlos. Pueden faltar permisos, anonimización, cumplimiento normativo, acuerdos entre áreas, claves de unión o infraestructura. Solo con acceso efectivo se conocen volumen, nivel de detalle o granularidad, formato y calidad.</p>
         <div class="callout blue"><strong>Estimación inicial de almacenamiento.</strong> Reservar aproximadamente 2,25 veces el tamaño del dataset original permite trabajar sobre una copia, sin consultar ni modificar continuamente el sistema transaccional, y conservar estados intermedios. Con una gestión más agresiva puede bajarse a 1,75, eliminando o archivando esos estados, pero se pierde la posibilidad de reprocesar inmediatamente desde cualquier paso. Es una heurística empírica, no una constante universal.</div>
+
+        <h3>Data Wrangling</h3>
+        <p><strong>Data Wrangling</strong>, también llamado preparación o acondicionamiento de datos, es el conjunto de tareas que convierte datos crudos y dispersos en un dataset que pueda analizarse y utilizarse. Incluye localizar y combinar fuentes, revisar formatos y calidad, limpiar errores y faltantes y realizar las transformaciones necesarias. No es un algoritmo ni una única operación.</p>
+        <p>Sus límites cambian según la metodología. A veces se usa como término general que abarca EDA, limpieza e ingeniería de características. Acá esas tareas se separan porque cumplen objetivos diferentes: primero se diagnostican los datos mediante EDA, después se corrigen mediante limpieza y finalmente se representa mejor la información mediante ingeniería de características. Es una parte costosa del proyecto: puede consumir entre 45% y 80% del tiempo dedicado a los datos.</p>
 
         <p>El <strong>análisis exploratorio de datos (EDA, del inglés <em>Exploratory Data Analysis</em>)</strong> es la inspección sistemática de los datos antes de entrenar: busca entender su estructura, calidad, distribución y anomalías sin modificar todavía el original.</p>
 
@@ -1711,7 +1715,7 @@
         <h3>Preguntas adicionales de práctica</h3>
 
         <details><summary>1. ¿Por qué un proyecto de ML no empieza entrenando?</summary><div class="details-body"><p>Porque primero hay que validar pertinencia, criterio de éxito, evidencia previa, datos, acceso, recursos y riesgo. Sin eso se puede optimizar un algoritmo para un problema mal formulado. El EDA completa el estudio de viabilidad y habilita la decisión Go o No Go.</p></div></details>
-        <details><summary>2. ¿Cuál es la diferencia entre EDA, limpieza e ingeniería de características?</summary><div class="details-body"><p>EDA diagnostica sin modificar. Limpieza corrige o trata problemas para alcanzar calidad mínima. Feature engineering cambia la representación para favorecer aprendizaje, como descomponer fechas o crear ratios.</p></div></details>
+        <details><summary>2. ¿Cómo se relacionan Data Wrangling, EDA, limpieza e ingeniería de características?</summary><div class="details-body"><p>Data Wrangling es el término general para convertir datos crudos en datos utilizables. EDA diagnostica sin modificar el original. La limpieza corrige o trata problemas para alcanzar calidad mínima. La ingeniería de características cambia la representación para facilitar el aprendizaje, por ejemplo descomponiendo fechas o creando ratios.</p></div></details>
         <details><summary>3. ¿Qué es un outlier y siempre debe eliminarse?</summary><div class="details-body"><p>Es una observación fuera de norma, no necesariamente un error. Puede ser fraude, evento especial o caso válido. Se investiga su origen y se decide según objetivo y algoritmo: mantener, transformar, segmentar, eliminar o modelar aparte.</p></div></details>
         <details><summary>4. ¿Por qué correlación no implica causalidad?</summary><div class="details-body"><p>Dos variables pueden moverse juntas por azar, por una tercera causa o solo durante el período observado. La correlación describe asociación, no mecanismo causal. Sirve para explorar y detectar redundancia, pero requiere contexto y validación.</p></div></details>
         <details><summary>5. ¿Por qué accuracy puede ser una mala métrica?</summary><div class="details-body"><p>Con clases desbalanceadas puede ser alta prediciendo siempre la mayoría. Además trata FP y FN como si costaran igual. En medicina suele priorizarse recall para no omitir casos, y en otros dominios precision para reducir falsas alarmas.</p></div></details>
@@ -1745,7 +1749,7 @@
 
       </section>
 
-      <section class="chapter" id="glosario" data-title="glosario conceptos definiciones algoritmo modelo entrenamiento inferencia EDA AutoML XAI LLM token RAG pipeline fine tuning feature target leakage baseline ground truth embedding MLOps drift">
+      <section class="chapter" id="glosario" data-title="glosario conceptos definiciones algoritmo modelo entrenamiento inferencia data wrangling EDA AutoML XAI LLM token RAG pipeline fine tuning feature target leakage baseline ground truth embedding MLOps drift">
         <div class="chapter-head">
           <div class="chapter-number">B</div>
           <div><h2>Glosario</h2></div>
@@ -1756,6 +1760,7 @@
             <tr><td><strong>Entrenamiento</strong></td><td>Proceso de ajustar un algoritmo usando datos históricos.</td></tr>
             <tr><td><strong>Modelo</strong></td><td>Resultado entrenado que contiene los parámetros aprendidos.</td></tr>
             <tr><td><strong>Inferencia</strong></td><td>Uso del modelo sobre datos nuevos para producir una salida.</td></tr>
+            <tr><td><strong>Data Wrangling</strong></td><td>Preparación que convierte datos crudos y dispersos en un dataset utilizable.</td></tr>
             <tr><td><strong>EDA</strong></td><td>Análisis exploratorio que describe estructura, calidad y comportamiento de los datos.</td></tr>
             <tr><td><strong>Feature</strong></td><td>Variable de entrada usada por el modelo.</td></tr>
             <tr><td><strong>Target</strong></td><td>Resultado que un aprendizaje supervisado intenta predecir.</td></tr>
