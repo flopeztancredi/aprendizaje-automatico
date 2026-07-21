@@ -748,12 +748,13 @@
         <p>El criterio de éxito debe incluir una métrica técnica, un valor mínimo aceptable, el costo de cada error, tiempo de respuesta, costo operativo y utilidad para quien usa la predicción. En un modelo médico que clasifica pacientes como enfermos o sanos, un falso negativo es un paciente enfermo clasificado como sano. Cuando ese error es grave, el recall, proporción de enfermos detectados, puede ser más importante que la accuracy, proporción total de aciertos.</p>
 
         <ul class="study-list">
-          <li><strong>Detección de cáncer:</strong> el objetivo no es acertar la mayoría total si la clase sana domina. Se prioriza capturar la mayor proporción de enfermos, aun aceptando más falsos positivos, pacientes sanos marcados como enfermos. Por eso importa el recall.</li>
+          <li><strong>Detección de cáncer:</strong> si 95% de los pacientes están sanos, responder siempre “sano” produce 95% de accuracy y 0% de recall sobre los enfermos. El objetivo no es acertar la mayoría total, sino detectar la mayor proporción de enfermos, aun aceptando más falsos positivos. Por eso importa el recall.</li>
           <li><strong>ML innecesario:</strong> si una regla o consulta alcanza el criterio de éxito con menor costo y riesgo, la decisión correcta es No Go para ML.</li>
         </ul>
 
         <h3>Estimación en dos tramos</h3>
         <p>No conviene prometer todo el proyecto cuando todavía se desconoce la calidad real. Primero se estima hasta el EDA. Con el informe de datos se reestiman limpieza, features, entrenamiento, infraestructura y producción. Este es el llamado <strong>doble proyecto</strong>.</p>
+        <p>En un proyecto petrolero, después de diez días la primera presentación alcanzó aproximadamente la mitad de lo esperado inicialmente. No fue una anomalía del proyecto: mostró cuánto cambia la estimación cuando se empieza a conocer el problema y los datos reales. La planificación debe admitir esa incertidumbre y revisar alcance, tiempos y viabilidad con evidencia.</p>
 
         <p class="exam-answer"><strong>Respuesta:</strong> la viabilidad tiene dos niveles: pertinencia de ML para el problema y capacidad de la organización para implementarlo. La decisión Go o No Go se toma después del EDA, con acceso, calidad, recursos, riesgos y criterio de éxito ya evaluados.</p>
       </section>
@@ -812,9 +813,9 @@
         <p>Un outlier es una <strong>observación fuera de norma</strong>. Puede ser un error, un fraude, un evento extraordinario o una transacción válida pero rara. Detectarlo corresponde al EDA. Decidir si se elimina, transforma, segmenta o modela aparte corresponde a la preparación y depende del objetivo y del algoritmo.</p>
 
         <ul class="study-list">
-          <li><strong>Moldavsky y las camperas:</strong> una compra excepcional de decenas de camperas en un local de Once fue válida y beneficiosa, pero no representaba la venta cotidiana. Es una anomalía, no un error. Si se deja sin análisis, puede forzar al modelo de ventas a explicar como habitual un caso que quizá ocurrió una sola vez en diez años.</li>
+          <li><strong>Moldavsky y las camperas:</strong> un comerciante de Tierra del Fuego compró aproximadamente 35 camperas en un local de Once para revenderlas. La operación fue válida y beneficiosa, pero no representaba la venta cotidiana. Es una anomalía, no un error. Si se deja sin análisis, puede forzar al modelo a explicar como habitual un caso ocurrido una sola vez en diez años.</li>
           <li><strong>Black Friday:</strong> las ventas masivas son correctas, pero no representan el funcionamiento habitual, llamado Business as Usual. Pueden separarse y alimentar otro modelo con features de promociones, descuentos y eventos.</li>
-          <li><strong>Aseguradora:</strong> pagos de siniestros negativos llevaron a descubrir una aplicación sin validación de rango y ajustes manuales para forzar balances. El proyecto se frenó, se trazó el origen y se comunicó a dirección.</li>
+          <li><strong>Aseguradora:</strong> la prueba “ingresar menos uno y guardar” confirmó que una aplicación aceptaba pagos negativos. Una preimpresión semanal permitía calcular contramovimientos para forzar balances. El análisis reconstruyó en 20 días una práctica que llevaba entre cuatro y cinco años y había contaminado información enviada al organismo regulador.</li>
           <li><strong>E-commerce:</strong> las notas de crédito deben vincularse con la venta original. En el caso visto, compras al inicio del mes y devoluciones al precio actualizado producían una ganancia por inflación y contaminaban las estadísticas de ventas.</li>
           <li><strong>SUBE y serendipia:</strong> las tarjetas defectuosas se concentraban en una posición de cada caja. El patrón permitió descubrir que el apilado dañaba los chips antes de la grabación. Fue un objetivo secundario o hallazgo por serendipia: conocimiento útil que apareció mientras se investigaba otra cosa.</li>
         </ul>
@@ -846,7 +847,7 @@
           <div><h2>Limpieza e ingeniería de características</h2></div>
         </div>
 
-        <p>La <strong>ingeniería de características</strong>, también llamada <em>feature engineering</em>, consiste en transformar las variables disponibles o crear nuevas para que los patrones relevantes queden representados de una forma que el algoritmo pueda usar.</p>
+        <p>La <strong>ingeniería de características</strong>, también llamada <em>feature engineering</em>, consiste en transformar las variables disponibles o crear nuevas para que los patrones relevantes queden representados de una forma que el algoritmo pueda usar. Transformar no significa alterar el significado del dato: significa cambiar su representación para hacer visibles regularidades útiles.</p>
 
         <h3>Tres conceptos que no deben mezclarse</h3>
         <ul class="study-list">
@@ -857,7 +858,7 @@
 
         <h3>Ejemplos de ingeniería de características</h3>
         <ul>
-          <li>Descomponer fecha y hora en año, mes, día, hora, día de semana, fin de semana, estación y trimestre.</li>
+          <li>Descomponer fecha y hora en año, mes, día, hora, día de semana, fin de semana, estación y trimestre. El timestamp original normalmente se excluye del entrenamiento si ya no aporta un patrón útil.</li>
           <li>Codificar categorías de forma compatible con la familia de modelos.</li>
           <li>Reescalar magnitudes para evitar que diferencias de escala dominen el aprendizaje.</li>
           <li>Aplicar transformaciones logarítmicas a distribuciones muy asimétricas cuando tenga sentido.</li>
@@ -883,6 +884,7 @@
 
         <h3>Selección y reducción</h3>
         <p>Antes de entrenar puede estimarse relevancia revisando cuánto varía una columna, cuántos valores distintos contiene, cómo se relaciona con otras variables y qué aporta según el conocimiento del problema. La importancia real se contrasta luego del entrenamiento. Si varias features tienen peso casi nulo y al retirarlas la métrica pasa, por ejemplo, de 0,82 a 0,81, la simplificación puede ser conveniente.</p>
+        <p><strong>Ejemplo de costo:</strong> si cinco features ya alcanzan 85%, un modelo con decenas de variables que tarda tres horas para sostener ese 85% puede ser peor decisión que otro con alrededor de diez variables, 81% y diez minutos de entrenamiento. La diferencia se multiplica en cada validación y reentrenamiento. También puede ser útil retirar correlaciones obvias para que el análisis revele relaciones menos evidentes, siempre verificando que no se elimine información necesaria.</p>
         <p>Si las métricas quedan persistentemente muy por debajo de lo esperado, una hipótesis es que faltan features que describan el patrón. No es una demostración automática: también puede fallar el target, la calidad, el algoritmo, la separación de datos o la propia posibilidad predictiva.</p>
 
         <h3>Responsabilidades superpuestas</h3>
@@ -967,6 +969,7 @@
         <h3>Hiperparámetros</h3>
         <p>Los parámetros son valores que el modelo aprende de los datos. Los <strong>hiperparámetros</strong> son configuraciones elegidas antes de entrenar, como la profundidad de un árbol, la cantidad de árboles o el tamaño de cada ajuste en una red. Cambiarlos puede modificar desempeño, tiempo de entrenamiento, costo y tendencia a memorizar ruido.</p>
         <p>Grid search prueba una lista fija de combinaciones, random search toma combinaciones al azar y la optimización bayesiana usa los resultados anteriores para decidir qué probar después.</p>
+        <p>El ajuste suele producir mejoras modestas, por ejemplo pasar de 78 a 78,5 o 79, no necesariamente saltos grandes. Su valor también puede estar en lograr mayor estabilidad, menor costo o menos sobreajuste, no sólo en elevar una métrica.</p>
 
         <h3>Validación cruzada o K-fold cross validation</h3>
         <p>Una única partición de validación puede favorecer o perjudicar al modelo por azar. La validación cruzada divide el conjunto de entrenamiento en K partes, llamadas <em>folds</em>. Se entrena K veces: en cada repetición se usa un fold para validar y los restantes para entrenar. Así se obtiene una distribución de resultados en lugar de una sola cifra.</p>
@@ -1066,7 +1069,7 @@
         <p>La capacidad de patrones es finita para una arquitectura y un presupuesto dados. Agregar neuronas o capas amplía capacidad, pero el tiempo necesario para estabilizar la red puede crecer de forma muy fuerte y, según la complejidad del modelo, exponencial. El encadenamiento de redes divide el problema: una primera red reconoce metaconceptos, por ejemplo “P o Q”, y otra red especializada resuelve esa distinción con menos patrones simultáneos.</p>
         <p><strong>Definición empírica:</strong> Deep Learning combina buenas prácticas de preprocesamiento con un encadenamiento particular de una o más redes neuronales para obtener resultados precisos. Técnicamente, la definición más general es el aprendizaje con redes neuronales de múltiples capas que construyen representaciones jerárquicas. La primera formulación describe una práctica de diseño, la segunda una definición estándar.</p>
 
-        <p>Una métrica extremadamente alta no prueba sobreajuste, pero debe activar revisión. Comparar entrenamiento, validación, cross validation y producción permite distinguir un problema fácil de una falsa seguridad.</p>
+        <p>Una métrica extremadamente alta no prueba sobreajuste, pero debe activar revisión. Comparar entrenamiento, validación, cross validation y producción permite distinguir un problema fácil de una falsa seguridad. En Iris, un dataset pequeño, estándar y muy curado, una accuracy cercana a 97% es esperable. Obtener el mismo resultado en un dataset real, ruidoso y recién construido exige una revisión mucho más cuidadosa.</p>
 
         <h3>Compromiso bias y variance</h3>
         <p>Un modelo muy simple hace supuestos fuertes y tiene bias alto. Uno muy flexible responde demasiado a cambios de muestra y tiene variance alta. Regularizar significa introducir restricciones o mecanismos que favorecen soluciones que generalizan, aceptando a veces una pequeña pérdida en entrenamiento.</p>
@@ -1119,6 +1122,8 @@
           </tbody>
         </table></div>
 
+        <p><strong>Lectura de SHAP:</strong> en una predicción de 0,70 sobre el mejor jugador de un partido, una variable como goles puede empujar el resultado hacia arriba y otra como pocos pases hacia abajo. En los gráficos habituales, la posición horizontal muestra la dirección y magnitud del impacto, mientras el color representa si el valor de la variable es alto o bajo. Siempre debe leerse la leyenda concreta del gráfico.</p>
+
         <h3>Por qué XAI importa</h3>
         <ul>
           <li>Permite revisar si el modelo usa señales plausibles o atajos.</li>
@@ -1146,7 +1151,7 @@
           <li>Monitorear en producción, porque la equidad también deriva.</li>
         </ol>
 
-        <div class="callout danger"><strong>Caso de crédito.</strong> Un modelo asignaba peso a sexo y raza y terminaba discriminando. El algoritmo no posee intención, pero el equipo sigue siendo responsable por dataset, objetivo, pruebas, despliegue y consecuencias.</div>
+        <div class="callout danger"><strong>Caso de crédito.</strong> Una mujer reunía el mismo perfil que solicitantes aprobados, pero el modelo la rechazaba porque había aprendido sexo y raza como atajos históricos. El algoritmo no posee intención, pero el equipo sigue siendo responsable por dataset, objetivo, variables admitidas, pruebas, despliegue y consecuencias.</div>
 
         <h3>Explicabilidad no es equidad</h3>
         <p>Una explicación muestra cómo decidió el modelo. La equidad, también llamada <em>fairness</em>, evalúa si el comportamiento satisface un criterio aceptable entre grupos. Se relacionan, pero no son equivalentes. Un modelo puede ser explicable y discriminatorio, o menos interpretable y mostrar mejores métricas de equidad.</p>
@@ -1183,7 +1188,7 @@
         </ul>
 
         <h3>MLflow y versionado</h3>
-        <p>MLflow es una herramienta para registrar experimentos, parámetros, métricas y archivos resultantes, comparar ejecuciones y reconstruir modelos. Git versiona bien código, pero los datasets suelen necesitar estrategias específicas por su tamaño. La trazabilidad completa vincula código, datos, entorno y ejecución.</p>
+        <p>MLflow es una herramienta para registrar experimentos, parámetros, métricas y archivos resultantes, comparar ejecuciones y reconstruir modelos. El mejor modelo no necesariamente es el último: después de muchas iteraciones, la ejecución óptima puede haber quedado en el medio y debe poder recuperarse. Git versiona bien código, pero los datasets suelen necesitar estrategias específicas por su tamaño. La trazabilidad completa vincula código, datos, entorno y ejecución.</p>
 
         <h3>Cambios en producción o drift</h3>
         <p><strong>Drift</strong> significa que el entorno productivo dejó de parecerse al representado durante el desarrollo. El cambio puede estar en las entradas, en la relación con el target, en las predicciones o en el propio pipeline.</p>
@@ -1237,6 +1242,8 @@
             <tr><td>LazyPredict</td><td>Compara rápidamente modelos básicos de clasificación o regresión.</td><td>Baseline preliminar, no producto final.</td></tr>
           </tbody>
         </table></div>
+
+        <p>Para conocer una herramienta de AutoML conviene empezar con un dataset estándar y curado, no con el problema real todavía desconocido. Un ciclo corto, por ejemplo unas pocas líneas y un presupuesto de veinte minutos, permite entender sus salidas antes de aplicarla sobre datos propios.</p>
 
         <h3>Criterios para seleccionar herramienta</h3>
         <p>Actividad del proyecto, licencia, reproducibilidad, integración, seguridad, capacidad de exportar, soporte de tipos de problema, observabilidad, costo y dependencia en producción. Una herramienta open source abandonada puede ser adecuada para aprender, pero riesgosa como base corporativa.</p>
@@ -1525,6 +1532,7 @@
           <li><strong>Robot tradicional:</strong> opera en tarea y espacio controlados, frecuentemente fijo y separado por jaulas. La seguridad depende de aislamiento y secuencias previsibles.</li>
           <li><strong>Cobot:</strong> está diseñado para compartir espacio con personas mediante percepción, limitación de fuerza, sensores y control adaptativo. Colaborativo no significa seguro por defecto.</li>
         </ul>
+        <p>Un brazo tradicional que no percibe contacto puede continuar su movimiento y aplastar una mano. La colaboración exige detectar personas, contacto y fuerza, además de limitar el movimiento. En tareas como colocar un tablero de automóvil, el cobot puede sostener el peso mientras la persona realiza el ajuste fino.</p>
 
         <h3>Periodización de generaciones</h3>
         <ol class="study-list">
@@ -1565,6 +1573,10 @@
         <h3>Gemelo digital</h3>
         <p>Es una representación digital conectada con un activo o proceso real que modela comportamiento, estado e interacción, no solo apariencia. Permite simular desgaste, consumo, fallas y configuraciones antes de intervenir el sistema físico. Con datos sintéticos puede acelerar entrenamiento y pruebas, pero necesita calibración contra realidad.</p>
         <p>Esta simulación puede vincularse con las <strong>PINN, Physics Informed Neural Networks</strong>, redes cuyo entrenamiento incorpora restricciones físicas conocidas, como gravedad, termodinámica o conservación. Esas leyes limitan comportamientos imposibles del gemelo digital y ayudan a que los datos sintéticos respeten el sistema real.</p>
+
+        <h3>Infraestructura y límites</h3>
+        <p>La inteligencia del modelo no reemplaza la infraestructura. Una fábrica con integración vertical, como el ejemplo de Tesla, puede coordinar datos y automatización de forma distinta de una cadena fragmentada. Llevar cómputo al espacio ofrece energía solar y cobertura, pero introduce radiación, disipación de calor y comunicaciones como restricciones. Starlink aplicado a drones durante la guerra entre Ucrania y Rusia muestra que conectividad, cifrado y velocidad pueden ser tan determinantes como el modelo.</p>
+        <p>La figura del gato japonés <em>maneki-neko</em> se usó para mostrar la abstracción humana: una persona puede relacionar un objeto nuevo con cultura, intención y experiencias de otros dominios. Un modelo extrapola desde patrones aprendidos y no realiza esa transferencia abierta con la misma flexibilidad.</p>
 
         <p class="exam-answer"><strong>Respuesta:</strong> un cobot comparte espacio con personas y limita riesgo mediante sensores, control de fuerza y percepción. ML puede estimar fallas o adaptar movimientos. Un gemelo digital simula el activo para probar configuraciones y modelos antes de aplicarlos al sistema físico.</p>
       </section>
