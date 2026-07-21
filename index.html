@@ -692,7 +692,7 @@
         <p class="exam-answer"><strong>Respuesta:</strong> Machine Learning construye modelos que aprenden patrones a partir de datos para aplicarlos a casos nuevos. El algoritmo es el procedimiento de aprendizaje, el entrenamiento ajusta sus parámetros y el modelo entrenado realiza inferencias. Solo puede generalizar desde los patrones representados en los datos.</p>
       </section>
 
-      <section class="chapter" id="ciclo" data-title="ciclo vida proyecto machine learning proceso metodología go no go producción gestión conocimiento bitácora trazabilidad roles entregables">
+      <section class="chapter" id="ciclo" data-title="ciclo vida proyecto machine learning proceso metodología data wrangling preparación go no go producción gestión conocimiento bitácora trazabilidad roles entregables">
         <div class="chapter-head">
           <div class="chapter-number">02</div>
           <div><h2>Ciclo de vida, roles y trazabilidad de un proyecto de ML</h2></div>
@@ -702,8 +702,8 @@
         <ol class="study-list" aria-label="Flujo del ciclo de Machine Learning">
           <li>Validar el problema y definir el criterio de éxito.</li>
           <li>Investigar viabilidad y acceso a los datos.</li>
-          <li>Realizar el análisis exploratorio de datos (EDA, del inglés <em>Exploratory Data Analysis</em>) y decidir <strong>Go</strong> (continuar) o <strong>No Go</strong> (detener el proyecto).</li>
-          <li>Limpiar los datos y hacer ingeniería de características (transformar o crear variables para que el modelo pueda representar mejor el problema).</li>
+          <li>Comenzar el <strong>Data Wrangling</strong>, la preparación que convierte datos crudos en datos utilizables: integrar las fuentes, realizar el análisis exploratorio de datos (EDA, del inglés <em>Exploratory Data Analysis</em>) y decidir <strong>Go</strong> (continuar) o <strong>No Go</strong> (detener el proyecto).</li>
+          <li>Continuar el Data Wrangling: limpiar los datos y hacer ingeniería de características (transformar o crear variables para que el modelo pueda representar mejor el problema).</li>
           <li>Entrenar, validar y ajustar el modelo.</li>
           <li>Explicar resultados y detectar sesgos.</li>
           <li>Diseñar la interfaz y planificar el uso productivo.</li>
@@ -734,7 +734,7 @@
           <thead><tr><th>Rol</th><th>Responsabilidad dominante</th><th>Entregable clave</th></tr></thead>
           <tbody>
             <tr><td>Owner o experto de negocio</td><td>Define el problema, valida criterios y contrasta las explicaciones.</td><td>Criterio de éxito y validación empírica.</td></tr>
-            <tr><td>Ingeniero de datos</td><td>Acceso, calidad, EDA, limpieza y primera ingeniería de características.</td><td>Dataset trazable y reporte de calidad.</td></tr>
+            <tr><td>Ingeniero de datos</td><td>Acceso, Data Wrangling, EDA, limpieza y primera ingeniería de características.</td><td>Dataset trazable y reporte de calidad.</td></tr>
             <tr><td>Científico de datos</td><td>Selección de familias, configuración, validación, explicación y sesgos.</td><td>Modelo evaluado más documento de interpretación.</td></tr>
             <tr><td>Ingeniería de producción</td><td>Integración, seguridad, tiempo de respuesta, despliegue, monitoreo y reentrenamiento.</td><td>Servicio productivo cuyo funcionamiento puede observarse y reproducirse.</td></tr>
           </tbody>
@@ -742,7 +742,7 @@
 
         <p>El conocimiento de negocio ya no puede tratarse como un agregado ocasional. La figura del científico de datos itinerante, que salta de industria en industria aplicando la misma receta, pierde valor a medida que los problemas se vuelven más específicos. Para plantear features, interpretar anomalías y validar explicaciones hace falta especializarse en una industria o dominio.</p>
 
-        <p class="exam-answer"><strong>Respuesta:</strong> un proyecto de ML es un ciclo iterativo que empieza validando si el problema y los datos justifican ML, continúa con preparación, entrenamiento y controles éticos, y termina con monitoreo, retiro controlado y documentación. El modelo es solo uno de sus componentes.</p>
+        <p class="exam-answer"><strong>Respuesta:</strong> un proyecto de ML es un ciclo iterativo que empieza validando si el problema y los datos justifican ML, continúa con Data Wrangling, entrenamiento y controles éticos, y termina con monitoreo, retiro controlado y documentación. El modelo es solo uno de sus componentes.</p>
       </section>
 
       <section class="chapter" id="problema" data-title="definición problema viabilidad criterio éxito acceso datos métrica negocio">
