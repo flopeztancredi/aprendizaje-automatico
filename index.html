@@ -805,7 +805,7 @@
 
         <h3>Qué puede aprender y dónde se limita</h3>
         <p><strong>Machine Learning mira el pasado, abstrae patrones y los aplica a casos nuevos.</strong> Es potente cuando la tarea está tipificada, es decir, cuando el procedimiento está bien conocido y la variabilidad posible es acotada. Si aparece una situación completamente nueva, fuera de los patrones observados, el modelo no tiene experiencia desde la cual extrapolar.</p>
-        <p>La IA actual no es inteligencia humana, sino un mecanismo estadístico o probabilístico que produce resultados convincentes. Puede extrapolar dentro de un dominio aprendido, pero no transfiere conocimiento entre dominios con la flexibilidad de una persona.</p>
+        <p>La IA actual produce resultados mediante mecanismos estadísticos o probabilísticos. Puede extrapolar dentro de un dominio aprendido, mientras que la transferencia flexible de conocimiento entre dominios sigue siendo una capacidad humana.</p>
         <p>El robot que dobla una camisa muestra esta limitación. Para una persona es una tarea cotidiana, pero cada camisa cae de una forma distinta y genera muchísimas configuraciones posibles. La dificultad no es solo la motricidad fina, sino resolver una situación variable usando abstracción y conocimiento general. El mejor resultado surge al <strong>complementar IA con inteligencia natural</strong>: la máquina aporta velocidad y repetición, la persona aporta criterio, abstracción y conocimiento del problema.</p>
         <p>La figura del gato japonés <em>maneki-neko</em> muestra la misma diferencia. Una persona puede relacionar un objeto nuevo con cultura, intención y experiencias de otros dominios. Un modelo extrapola desde patrones aprendidos y no realiza esa transferencia abierta con la misma flexibilidad.</p>
 
@@ -854,7 +854,7 @@
 
         <h3>Por qué no es lineal</h3>
         <p>El proyecto avanza con información incompleta. El EDA puede revelar que los datos no alcanzan. La validación puede mostrar patrones heterogéneos. La explicabilidad puede revelar una variable irrelevante o sesgada. Producción puede mostrar que cambiaron los datos o su relación con el resultado. Cada hallazgo puede obligar a volver a una etapa anterior.</p>
-        <p>La ciencia de datos trabaja con un grado alto de incertidumbre. Por eso requiere más método, no menos: planificación, validaciones, puntos de Go o No Go, bitácora y posibilidad de reprocesar. <strong>Un dataset termina de entenderse cuando el modelo ya está funcionando</strong>, porque recién entonces aparecen errores, patrones y comportamientos que no eran visibles al comienzo.</p>
+        <p>La incertidumbre de un proyecto de ciencia de datos exige planificación, validaciones, puntos de Go o No Go, bitácora y posibilidad de reprocesar. <strong>Un dataset termina de entenderse cuando el modelo ya está funcionando</strong>, porque recién entonces aparecen errores, patrones y comportamientos que no eran visibles al comienzo.</p>
         <p>Cada etapa debe tener un entregable, una versión identificable y un criterio de <strong>Go o No Go</strong>.</p>
 
         <ul class="study-list">
@@ -865,7 +865,7 @@
         <div class="callout warning"><strong>El estudio de viabilidad termina después del EDA.</strong> Puede consumir entre 25% y 33% del esfuerzo total. Con sus resultados se reestiman preparación, entrenamiento y producción.</div>
 
         <h3>Gestión del conocimiento</h3>
-        <p>Cada extracción, error, transformación, métrica, decisión y resultado debe quedar en una bitácora y alimentar una base de conocimiento de proyectos. La experiencia externa ayuda, pero no reemplaza la experiencia propia de la empresa: sus sistemas, personas, permisos, tiempos y formas de gestión tienen una idiosincrasia que no se transfiere de manera directa desde otra organización.</p>
+        <p>Cada extracción, error, transformación, métrica, decisión y resultado debe quedar en una bitácora y alimentar una base de conocimiento de proyectos. La experiencia externa debe adaptarse a los sistemas, personas, permisos, tiempos y formas de gestión propios de la empresa.</p>
 
         <h3>Roles y entregables</h3>
         <div class="table-wrap"><table>
@@ -889,7 +889,7 @@
           <div><h2>Definición del problema y análisis de viabilidad</h2></div>
         </div>
 
-        <p>Definir el problema no es ponerle un título. Es describir el proceso, la decisión que se quiere mejorar y el resultado esperado hasta que negocio y equipo técnico estén hablando de lo mismo. Esa descripción permite contestar dos preguntas distintas: <strong>¿se puede resolver?</strong> y <strong>¿podemos resolverlo nosotros con los datos, el tiempo y los recursos disponibles?</strong></p>
+        <p>La definición del problema describe el proceso, la decisión que se quiere mejorar y el resultado esperado hasta que negocio y equipo técnico estén hablando de lo mismo. Esa descripción permite contestar dos preguntas distintas: <strong>¿se puede resolver?</strong> y <strong>¿podemos resolverlo nosotros con los datos, el tiempo y los recursos disponibles?</strong></p>
 
         <h3>Preguntas para decidir Go o No Go</h3>
         <ol>
@@ -902,7 +902,7 @@
         </ol>
 
         <div class="callout danger">
-          <strong>Sesgo que se evita.</strong> Si se elige la métrica después de ver los resultados, se puede favorecer al algoritmo que mejor luce, no al que resuelve el problema. El criterio de éxito se fija primero.
+          <strong>Sesgo que se evita.</strong> Elegir la métrica después de ver los resultados favorece al algoritmo con la cifra más conveniente, aunque esa cifra no represente el objetivo del problema. El criterio de éxito se fija primero.
         </div>
 
         <h3>Éxito técnico y éxito de negocio</h3>
@@ -928,11 +928,11 @@
         </div>
 
         <h3>Existencia, acceso y capacidad</h3>
-        <p>Que una empresa afirme que los datos existen no significa que el equipo pueda usarlos. Pueden faltar permisos, anonimización, cumplimiento normativo, acuerdos entre áreas, claves de unión o infraestructura. Solo con acceso efectivo se conocen volumen, nivel de detalle o granularidad, formato y calidad.</p>
-        <div class="callout blue"><strong>Estimación inicial de almacenamiento.</strong> Reservar aproximadamente 2,25 veces el tamaño del dataset original permite trabajar sobre una copia, sin consultar ni modificar continuamente el sistema transaccional, y conservar estados intermedios. Con una gestión más agresiva puede bajarse a 1,75, eliminando o archivando esos estados, pero se pierde la posibilidad de reprocesar inmediatamente desde cualquier paso. Es una heurística empírica, no una constante universal.</div>
+        <p>La existencia de datos y su acceso efectivo son condiciones distintas. Pueden faltar permisos, anonimización, cumplimiento normativo, acuerdos entre áreas, claves de unión o infraestructura. Solo con acceso efectivo se conocen volumen, nivel de detalle o granularidad, formato y calidad.</p>
+        <div class="callout blue"><strong>Estimación inicial de almacenamiento.</strong> Reservar aproximadamente 2,25 veces el tamaño del dataset original permite trabajar sobre una copia, sin consultar ni modificar continuamente el sistema transaccional, y conservar estados intermedios. Con una gestión más agresiva puede bajarse a 1,75, eliminando o archivando esos estados, pero se pierde la posibilidad de reprocesar inmediatamente desde cualquier paso. Ambas cifras son heurísticas empíricas y deben ajustarse al pipeline real.</div>
 
         <h3>Data Wrangling</h3>
-        <p><strong>Data Wrangling</strong>, también llamado preparación o acondicionamiento de datos, es el conjunto de tareas que convierte datos crudos y dispersos en un dataset que pueda analizarse y utilizarse. Incluye localizar y combinar fuentes, revisar formatos y calidad, limpiar errores y faltantes y realizar las transformaciones necesarias. No es un algoritmo ni una única operación.</p>
+        <p><strong>Data Wrangling</strong>, también llamado preparación o acondicionamiento de datos, es el conjunto de tareas que convierte datos crudos y dispersos en un dataset que pueda analizarse y utilizarse. Incluye localizar y combinar fuentes, revisar formatos y calidad, limpiar errores y faltantes y realizar las transformaciones necesarias.</p>
         <p>Sus límites cambian según la metodología. A veces se usa como término general que abarca EDA, limpieza e ingeniería de características. Acá esas tareas se separan porque cumplen objetivos diferentes: primero se diagnostican los datos mediante EDA, después se corrigen mediante limpieza y finalmente se representa mejor la información mediante ingeniería de características. Es una parte costosa del proyecto: puede consumir entre 45% y 80% del tiempo dedicado a los datos.</p>
 
         <p>El <strong>análisis exploratorio de datos (EDA, del inglés <em>Exploratory Data Analysis</em>)</strong> es la inspección sistemática de los datos antes de entrenar: busca entender su estructura, calidad, distribución y anomalías sin modificar todavía el original.</p>
@@ -961,11 +961,11 @@
         <p><strong>Lectura de <code>describe()</code>:</strong> count muestra cuántos valores existen; mean y std resumen media y dispersión; min, max y los percentiles muestran rango y concentración. Un mínimo igual al máximo revela una columna constante. Percentiles muy concentrados frente a un máximo enorme pueden señalar asimetría, un valor extremo o un régimen distinto que conviene investigar.</p>
 
         <div class="callout">
-          <strong>Arqueología de datos.</strong> El EDA es un movimiento de ida y vuelta: observar una letra extraña en un código, filtrar registros, comparar facturas, preguntar al área y reconstruir el proceso que produjo el dato. La intuición genera hipótesis, no conclusiones.
+          <strong>Arqueología de datos.</strong> El EDA es un movimiento de ida y vuelta: observar una letra extraña en un código, filtrar registros, comparar facturas, preguntar al área y reconstruir el proceso que produjo el dato. La intuición sirve para formular hipótesis, que luego se contrastan con evidencia.
         </div>
 
         <h3>Nulos y duplicados</h3>
-        <p>No existe un porcentaje mágico aplicable a todos los proyectos. Un 1% de nulos en millones de filas puede tolerarse, mientras 5% a 7% en pocos miles puede ser grave. La decisión correcta depende de cantidad absoluta, patrón de ausencia, variable afectada, sesgo introducido y posibilidad de imputación.</p>
+        <p>El porcentaje tolerable de nulos depende de cada proyecto. Un 1% en millones de filas puede tolerarse, mientras 5% a 7% en pocos miles puede ser grave. La decisión considera cantidad absoluta, patrón de ausencia, variable afectada, sesgo introducido y posibilidad de imputación.</p>
         <div class="table-wrap"><table>
           <thead><tr><th>Situación</th><th>Pregunta correcta</th><th>Posibles acciones</th></tr></thead>
           <tbody>
@@ -976,11 +976,11 @@
           </tbody>
         </table></div>
 
-        <h3>Outlier no significa error</h3>
+        <h3>Cómo interpretar outliers y anomalías</h3>
         <p>Un outlier es una <strong>observación fuera de norma</strong>. Puede ser un error, un fraude, un evento extraordinario o una transacción válida pero rara. Detectarlo corresponde al EDA. Decidir si se elimina, transforma, segmenta o modela aparte corresponde a la preparación y depende del objetivo y del algoritmo.</p>
 
         <ul class="study-list">
-          <li><strong>Moldavsky y las camperas:</strong> un comerciante de Tierra del Fuego compró aproximadamente 35 camperas en un local de Once para revenderlas. La operación fue válida y beneficiosa, pero no representaba la venta cotidiana. Es una anomalía, no un error. Si se deja sin análisis, puede forzar al modelo a explicar como habitual un caso ocurrido una sola vez en diez años.</li>
+          <li><strong>Moldavsky y las camperas:</strong> un comerciante de Tierra del Fuego compró aproximadamente 35 camperas en un local de Once para revenderlas. La operación fue válida y beneficiosa, pero no representaba la venta cotidiana. La observación es anómala por su frecuencia, aunque el dato sea correcto. Si se deja sin análisis, puede forzar al modelo a explicar como habitual un caso ocurrido una sola vez en diez años.</li>
           <li><strong>Black Friday:</strong> las ventas masivas son correctas, pero no representan el funcionamiento habitual, llamado Business as Usual. Pueden separarse y alimentar otro modelo con features de promociones, descuentos y eventos.</li>
           <li><strong>Aseguradora:</strong> la prueba “ingresar menos uno y guardar” confirmó que una aplicación aceptaba pagos negativos. Una preimpresión semanal permitía calcular contramovimientos para forzar balances. El análisis reconstruyó en 20 días una práctica que llevaba entre cuatro y cinco años y había contaminado información enviada al organismo regulador.</li>
           <li><strong>E-commerce:</strong> las notas de crédito deben vincularse con la venta original. En el caso visto, compras al inicio del mes y devoluciones al precio actualizado producían una ganancia por inflación y contaminaban las estadísticas de ventas.</li>
@@ -1000,10 +1000,10 @@
             <tr><td>Kendall Tau</td><td>Concordancia entre pares ordenados.</td><td>Muestras menores, muchos empates o análisis robusto de orden.</td></tr>
           </tbody>
         </table></div>
-        <p>Correlación no implica causalidad. Puede ser espuria y vale solo dentro del período y población observados. También puede mostrar redundancia entre features, pero eliminar una variable exige entender negocio y algoritmo.</p>
+        <p>La correlación describe asociación dentro del período y la población observados. La relación puede ser espuria o depender de una tercera variable; inferir causalidad o eliminar una feature exige entender el negocio y el algoritmo.</p>
 
         <h3>Herramientas y formatos</h3>
-        <p>Pandas, una biblioteca de Python para trabajar con tablas, permite la inspección fina. Herramientas de EDA automático como DataPrep o AutoViz generan perfiles, mapas de calor y gráficos de distribución con poco código. Automatizan cálculos, no la interpretación. Para guardar resultados intermedios, el formato de valores separados por comas (CSV, <em>Comma-Separated Values</em>) conserva una tabla como texto legible. Joblib puede guardar objetos de Python en formato binario, pero requiere un entorno compatible para volver a abrirlos.</p>
+        <p>Pandas, una biblioteca de Python para trabajar con tablas, permite la inspección fina. Herramientas de EDA automático como DataPrep o AutoViz generan perfiles, mapas de calor y gráficos de distribución con poco código. Automatizan los cálculos; la interpretación sigue a cargo del equipo. Para guardar resultados intermedios, el formato de valores separados por comas (CSV, <em>Comma-Separated Values</em>) conserva una tabla como texto legible. Joblib puede guardar objetos de Python en formato binario, pero requiere un entorno compatible para volver a abrirlos.</p>
 
         <p class="exam-answer"><strong>Respuesta:</strong> el EDA describe estructura, calidad y comportamiento sin modificar el dato original. Revisa nulos, duplicados, inconsistencias, distribuciones, correlaciones y outliers. El informe resultante define la limpieza y aporta evidencia para el Go o No Go.</p>
       </section>
@@ -1014,11 +1014,11 @@
           <div><h2>Limpieza de datos e ingeniería de características</h2></div>
         </div>
 
-        <p>La <strong>ingeniería de características</strong>, también llamada <em>feature engineering</em>, consiste en transformar las variables disponibles o crear nuevas para que los patrones relevantes queden representados de una forma que el algoritmo pueda usar. Transformar no significa alterar el significado del dato: significa cambiar su representación para hacer visibles regularidades útiles, como “darle esteroides al dataset”.</p>
+        <p>La <strong>ingeniería de características</strong>, también llamada <em>feature engineering</em>, consiste en transformar las variables disponibles o crear nuevas para que los patrones relevantes queden representados de una forma que el algoritmo pueda usar. La transformación conserva el significado del dato y modifica su representación para hacer visibles regularidades útiles, como “darle esteroides al dataset”.</p>
 
         <h3>EDA, limpieza e ingeniería de características</h3>
         <ul class="study-list">
-          <li><strong>EDA, diagnosticar:</strong> observar, cuantificar, formular hipótesis y documentar. No corregir todavía.</li>
+          <li><strong>EDA, diagnosticar:</strong> observar, cuantificar, formular hipótesis y documentar antes de aplicar correcciones.</li>
           <li><strong>Data cleaning, sanear:</strong> corregir o tratar nulos, duplicados, formatos, categorías y errores para obtener calidad mínima.</li>
           <li><strong>Feature engineering, representar:</strong> crear variables que expongan patrones relevantes para el algoritmo.</li>
         </ul>
@@ -1046,7 +1046,7 @@
         </table></div>
 
         <div class="callout warning">
-          <strong>No saturar al algoritmo.</strong> Más columnas no significa más conocimiento. Features irrelevantes agregan almacenamiento, tiempo, riesgo de ruido y complejidad. La selección debe comparar desempeño, estabilidad, costo e interpretabilidad.
+          <strong>Costo de agregar features.</strong> Cada feature debe justificar el almacenamiento, tiempo, ruido y complejidad que incorpora. La selección compara desempeño, estabilidad, costo e interpretabilidad.
         </div>
 
         <h3>Selección y reducción</h3>
@@ -1083,7 +1083,7 @@
         <h3>Por qué se habla de familias y no de un mejor algoritmo</h3>
         <p>Los patrones y su distribución interna son invisibles antes de entrenar. Dos empresas pueden querer predecir las mismas ventas y tener columnas con los mismos nombres, pero distinto volumen, historia, concentración y distribución de casos. Por eso un algoritmo puede funcionar mejor en una y otro algoritmo de la misma familia en la otra.</p>
         <p>La selección práctica consiste en identificar primero la familia adecuada al tipo de salida y luego comparar varios algoritmos de esa familia con la métrica definida para el problema. También pueden aparecer los nombres <strong>clusterización o clustering, clasificación y predicción o regresión</strong>.</p>
-        <p>La experiencia permite reducir la búsqueda: una persona senior puede preseleccionar unos pocos algoritmos plausibles, mientras una búsqueda sin criterio puede probar combinaciones caóticamente y quedarse en un <strong>mínimo local</strong>, una solución mejor que las alternativas cercanas pero no la mejor disponible. Las herramientas de automatización amplían la comparación, pero no reemplazan el criterio sobre familia, métrica y restricciones.</p>
+        <p>La experiencia permite reducir la búsqueda: una persona senior puede preseleccionar unos pocos algoritmos plausibles, mientras una búsqueda sin criterio puede probar combinaciones caóticamente y quedarse en un <strong>mínimo local</strong>, una solución que supera sus alternativas cercanas aunque existan otras mejores. Las herramientas de automatización amplían la comparación; la familia, la métrica y las restricciones siguen siendo decisiones del equipo.</p>
 
         <div class="table-wrap"><table>
           <thead><tr><th>Familia</th><th>Target</th><th>Salida</th><th>Ejemplos</th></tr></thead>
@@ -1126,16 +1126,16 @@
         </ul>
         <p>Si el test se consulta repetidamente y se toman decisiones a partir de él, deja de medir el comportamiento sobre datos realmente no vistos.</p>
 
-        <div class="callout blue"><strong>80/20 no es una ley.</strong> Es una proporción habitual. La división depende del volumen, la temporalidad, el desbalance, los grupos y el costo de reservar datos. En series temporales no debe romperse el orden causal.</div>
+        <div class="callout blue"><strong>Separación de referencia.</strong> Una división frecuente reserva 80% de los datos para entrenamiento y 20% para evaluación. La proporción se modifica según volumen, temporalidad, desbalance, grupos y costo de reservar datos. En series temporales debe preservarse el orden causal.</div>
 
         <h3>Hiperparámetros</h3>
         <p>Los parámetros son valores que el modelo aprende de los datos. Los <strong>hiperparámetros</strong> son configuraciones elegidas antes de entrenar, como la profundidad de un árbol, la cantidad de árboles o el tamaño de cada ajuste en una red. Cambiarlos puede modificar desempeño, tiempo de entrenamiento, costo y tendencia a memorizar ruido.</p>
         <p>Grid search prueba una lista fija de combinaciones, random search toma combinaciones al azar y la optimización bayesiana usa los resultados anteriores para decidir qué probar después.</p>
-        <p>El ajuste suele producir mejoras modestas, por ejemplo pasar de 78 a 78,5 o 79, no necesariamente saltos grandes. Su valor también puede estar en lograr mayor estabilidad, menor costo o menos sobreajuste, no solo en elevar una métrica.</p>
-        <p>El costo se multiplica por la validación: probar diez configuraciones con diez folds implica cien entrenamientos. Por eso la búsqueda necesita presupuesto de tiempo y una estrategia, no combinaciones ilimitadas.</p>
+        <p>El ajuste suele producir mejoras modestas, por ejemplo pasar de 78 a 78,5 o 79. También puede aportar mayor estabilidad, menor costo o menos sobreajuste aunque la métrica cambie poco.</p>
+        <p>El costo se multiplica por la validación: probar diez configuraciones con diez folds implica cien entrenamientos. El presupuesto de tiempo y la estrategia determinan cuántas combinaciones pueden evaluarse.</p>
 
         <h3>Validación cruzada o K-fold cross validation</h3>
-        <p>Si se conocieran de antemano todos los patrones encerrados en los datos, no haría falta usar Machine Learning para descubrirlos. La validación cruzada ayuda justamente a revelar que los patrones no están distribuidos de manera uniforme.</p>
+        <p>La validación cruzada permite detectar patrones desconocidos que quedaron concentrados en determinadas particiones, en lugar de asumir que todos se distribuyen uniformemente.</p>
         <p>Una única partición de validación puede favorecer o perjudicar al modelo por azar. La validación cruzada divide el conjunto de entrenamiento en K partes, llamadas <em>folds</em>. Se entrena K veces: en cada repetición se usa un fold para validar y los restantes para entrenar. Así se obtiene una distribución de resultados en lugar de una sola cifra.</p>
         <p>Son habituales entre 3 y 10 folds. Un K mayor deja menos datos en cada validación y aumenta el costo de cómputo. La elección depende del volumen y de la heterogeneidad de los datos.</p>
 
@@ -1146,7 +1146,7 @@
           <li><strong>Desviación estándar, interpretación operativa:</strong> indica si encontró todos los patrones. Una dispersión alta señala que algún fold contiene un comportamiento distinto y obliga a investigar su distribución.</li>
         </ul>
 
-        <div class="callout warning"><strong>Límite de interpretación.</strong> Una desviación baja demuestra estabilidad entre los folds observados, no que estén presentes todos los patrones posibles del mundo ni que el modelo los haya aprendido. La lectura de la desviación como señal de cobertura es una regla operativa para detectar heterogeneidad, no una demostración matemática de cobertura total.</div>
+        <div class="callout warning"><strong>Alcance de la interpretación.</strong> Una desviación baja demuestra estabilidad entre los folds observados. No permite afirmar que la muestra contiene todos los patrones posibles ni que el modelo los aprendió. La desviación sirve como señal operativa de heterogeneidad dentro de los datos disponibles.</div>
 
         <h3>Heterogeneidad de patrones</h3>
         <p>Los patrones pueden cambiar con el tiempo o concentrarse en segmentos. Pandemia, Black Friday o un cambio de sistema son cortes que pueden justificar modelos separados. En series temporales se valida respetando el orden temporal. Si existen clientes, pacientes o equipos relacionados, esos grupos no deben quedar repartidos entre entrenamiento y validación.</p>
@@ -1222,7 +1222,7 @@
             <tr><td>Backpropagation</td><td>Calcula el error en la salida y lo propaga hacia atrás para ajustar los pesos. El proceso se repite sobre los ejemplos hasta alcanzar un criterio de parada.</td></tr>
             <tr><td>Capacidad</td><td>Más unidades o capas permiten representar más patrones, pero aumentan cómputo, tiempo de estabilización y riesgo de sobreajuste.</td></tr>
             <tr><td>Interferencia</td><td>Al ajustar pesos para una clase puede empeorar otra ya aprendida. Un ejemplo típico son letras manuscritas confundibles, como B y D, P y Q, M y N.</td></tr>
-            <tr><td>Redes encadenadas</td><td>Una primera red reconoce grupos o metaconceptos y otra distingue las clases confundibles dentro del grupo. Reduce patrones por subred, pero no reemplaza validación ni regularización.</td></tr>
+            <tr><td>Redes encadenadas</td><td>Una primera red reconoce grupos o metaconceptos y otra distingue las clases confundibles dentro del grupo. Reduce patrones por subred y todavía requiere validación y regularización.</td></tr>
           </tbody>
         </table></div>
 
@@ -1267,7 +1267,7 @@
           <li><strong>Capacidad o entrenamiento mal calibrados:</strong> el modelo se adapta al detalle y ruido, o intenta representar demasiados patrones con una arquitectura y presupuesto inadecuados.</li>
         </ol>
 
-        <p>Una métrica extremadamente alta no prueba sobreajuste, pero debe activar revisión. Comparar entrenamiento, validación, cross validation y producción permite distinguir un problema fácil de una falsa seguridad. En Iris, un dataset pequeño, estándar y muy curado, una accuracy cercana a 97% es esperable. Obtener el mismo resultado en un dataset real, ruidoso y recién construido exige una revisión mucho más cuidadosa.</p>
+        <p>Una métrica extremadamente alta debe revisarse antes de atribuirla a sobreajuste. Comparar entrenamiento, validación, cross validation y producción permite distinguir un problema fácil de una evaluación engañosa. En Iris, un dataset pequeño, estándar y muy curado, una accuracy cercana a 97% es esperable. Obtener el mismo resultado en un dataset real, ruidoso y recién construido exige una revisión mucho más cuidadosa.</p>
 
         <h3>Compromiso bias y variance</h3>
         <p>Un modelo muy simple hace supuestos fuertes y tiene bias alto. Uno muy flexible responde demasiado a cambios de muestra y tiene variance alta. Regularizar significa introducir restricciones o mecanismos que favorecen soluciones que generalizan, aceptando a veces una pequeña pérdida en entrenamiento.</p>
@@ -1286,10 +1286,10 @@
           </tbody>
         </table></div>
 
-        <div class="callout warning"><strong>Data augmentation no es magia.</strong> Datos sintéticos pobres pueden amplificar sesgos, duplicar ruido o crear situaciones imposibles. Deben validarse contra reglas físicas, estadísticas y de negocio.</div>
+        <div class="callout warning"><strong>Riesgo de los datos aumentados.</strong> Datos sintéticos pobres pueden amplificar sesgos, duplicar ruido o crear situaciones imposibles. Deben validarse contra reglas físicas, estadísticas y de negocio.</div>
 
         <h3>Señal de producción</h3>
-        <p>Si un modelo obtiene 96% en entrenamiento, 95% en test y cae a 75% al desplegar, el test puede no representar el entorno, puede haber leakage, puede haber cambiado la distribución o puede existir sobreajuste. Es una señal para investigar, no un diagnóstico único.</p>
+        <p>Si un modelo obtiene 96% en entrenamiento, 95% en test y cae a 75% al desplegar, deben investigarse representatividad del test, leakage, cambios de distribución y sobreajuste antes de decidir una corrección.</p>
 
         <p class="exam-answer"><strong>Respuesta:</strong> sobreajuste es obtener buen rendimiento en entrenamiento y peor rendimiento en datos nuevos por haber aprendido ruido o detalles específicos de la muestra. Se reduce con L1, L2, early stopping, dropout, augmentation, menor complejidad o más datos representativos.</p>
       </section>
@@ -1301,8 +1301,8 @@
         </div>
 
         <p><strong>AutoML</strong> reúne herramientas que automatizan partes repetitivas del entrenamiento y la comparación de modelos. Suele recibir un dataset preparado, el target, el tipo de problema, la métrica, la estrategia de validación y un presupuesto de tiempo. Como salida produce resultados comparables y uno o más pipelines candidatos. Un pipeline es una secuencia ordenada de transformaciones y modelo.</p>
-        <p>No significa que el proyecto de ML sea automático. Su primer valor suele ser generar un <strong>baseline</strong>, una referencia inicial contra la cual medir mejoras posteriores.</p>
-        <p>AutoML reduce el trabajo operativo necesario para entrenar y comparar muchos algoritmos. El conocimiento no desaparece: <strong>se desplaza hacia la definición del problema y la interpretación de las métricas</strong>.</p>
+        <p>La automatización alcanza ciertas tareas de modelado. Su primer valor suele ser generar un <strong>baseline</strong>, una referencia inicial contra la cual medir mejoras posteriores.</p>
+        <p>AutoML reduce el trabajo operativo necesario para entrenar y comparar muchos algoritmos. El equipo concentra su trabajo en la definición del problema y la interpretación de las métricas.</p>
 
         <h3>Tres bloques que puede automatizar</h3>
         <ul class="study-list">
@@ -1334,7 +1334,7 @@
 
         <p><strong>TPOT y seguridad:</strong> el responsable principal de seguridad de la información (CISO, <em>Chief Information Security Officer</em>) puede autorizar librerías distintas para desarrollo, pruebas internas, validación de usuarios y producción. TPOT puede utilizarse en un entorno de desarrollo más flexible y exportar un pipeline basado en librerías estándar, sin necesitar TPOT en producción.</p>
 
-        <p class="exam-answer"><strong>Respuesta:</strong> AutoML automatiza comparación de algoritmos, pipelines, validación y ajuste. No define el problema, no corrige datos deficientes y no decide métricas, sesgos aceptables ni restricciones productivas.</p>
+        <p class="exam-answer"><strong>Respuesta:</strong> AutoML automatiza comparación de algoritmos, pipelines, validación y ajuste. El equipo sigue a cargo del problema, la calidad de los datos, las métricas, los sesgos aceptables y las restricciones productivas.</p>
       </section>
 
       <section class="chapter" id="xai" data-title="explicabilidad interpretabilidad XAI conocimiento reglas producción SHAP LIME integrated gradients sesgos fairness caja negra blanca gris">
@@ -1345,7 +1345,7 @@
 
         <h3>De caja negra a explicación</h3>
         <p><strong>Inteligencia Artificial Explicable (XAI, <em>Explainable Artificial Intelligence</em>)</strong> reúne técnicas para entender qué variables influyeron en un modelo y por qué produjo una salida. Un modelo es interpretable de forma inherente cuando su funcionamiento puede inspeccionarse directamente, como un árbol pequeño. En una caja negra, la explicación se construye después de predecir. SHapley Additive exPlanations (SHAP), por ejemplo, reparte la diferencia entre una predicción y un valor de referencia entre las variables de entrada.</p>
-        <p>Explicar no convierte automáticamente al modelo en correcto, causal o justo. Solo aporta evidencia sobre su comportamiento.</p>
+        <p>La explicación aporta evidencia sobre el comportamiento del modelo. La corrección, la causalidad y la equidad requieren evaluaciones adicionales.</p>
 
         <ul class="study-list">
           <li><strong>Explicación global:</strong> muestra qué variables y relaciones dominan el comportamiento promedio del modelo.</li>
@@ -1397,8 +1397,8 @@
 
         <div class="callout danger"><strong>Caso de crédito.</strong> Una mujer reunía el mismo perfil que solicitantes aprobados, pero el modelo la rechazaba porque había aprendido sexo y raza como atajos históricos. El algoritmo no posee intención, pero el equipo sigue siendo responsable por dataset, objetivo, variables admitidas, pruebas, despliegue y consecuencias.</div>
 
-        <h3>Explicabilidad no es equidad</h3>
-        <p>Una explicación muestra cómo decidió el modelo. La equidad, también llamada <em>fairness</em>, evalúa si el comportamiento satisface un criterio aceptable entre grupos. Se relacionan, pero no son equivalentes. Un modelo puede ser explicable y discriminatorio, o menos interpretable y mostrar mejores métricas de equidad.</p>
+        <h3>Explicabilidad y equidad</h3>
+        <p>Una explicación muestra cómo decidió el modelo. La equidad, también llamada <em>fairness</em>, evalúa si el comportamiento satisface un criterio aceptable entre grupos. Un modelo puede ser explicable y discriminatorio, o menos interpretable y mostrar mejores métricas de equidad.</p>
 
         <p class="exam-answer"><strong>Respuesta:</strong> XAI atribuye influencia a las variables de forma global o local. Las pruebas de sesgo comparan predicciones, errores y resultados entre grupos o contrafácticos. Una explicación puede ayudar a detectar una variable indirecta o proxy, pero no demuestra equidad.</p>
       </section>
@@ -1409,14 +1409,14 @@
           <div><h2>Machine Learning Operations (MLOps): despliegue, monitoreo y retiro</h2></div>
         </div>
 
-        <p><strong>MLOps</strong> es el conjunto de prácticas para versionar, desplegar, observar y mantener modelos de aprendizaje automático en producción. Conecta el trabajo de datos y modelado con ingeniería de software y operación. No es una herramienta específica ni empieza después de entrenar.</p>
+        <p><strong>MLOps</strong> es el conjunto de prácticas para versionar, desplegar, observar y mantener modelos de aprendizaje automático en producción. Conecta el trabajo de datos y modelado con ingeniería de software y operación, abarca varias herramientas y comienza durante la viabilidad.</p>
 
         <h3>Por qué un buen modelo no llega a producción</h3>
         <p><strong>Cifra de referencia:</strong> alrededor del 40% de los proyectos que llegan validados nunca alcanzan producción por errores u horrores de gestión. No debe tomarse como una estadística universal, sino como advertencia para no separar el modelado de la planificación productiva.</p>
         <ul class="study-list">
           <li><strong>Latencia:</strong> la aplicación que lo integra ya tiene un contrato de respuesta. El modelo debe cumplirlo con carga real.</li>
           <li><strong>Seguridad:</strong> datos, dependencias, acceso, interfaz, respuestas y archivos producidos por el entrenamiento requieren controles.</li>
-          <li><strong>Cómputo:</strong> el entrenamiento viable no garantiza inferencia viable por costo, memoria, aceleradores o concurrencia.</li>
+          <li><strong>Cómputo:</strong> la inferencia debe evaluarse por separado porque su costo, memoria, aceleradores y concurrencia difieren del entrenamiento.</li>
         </ul>
 
         <p>Latencia, seguridad, costo, integración y capacidad de cómputo deben evaluarse durante la viabilidad, no después del entrenamiento.</p>
@@ -1448,7 +1448,7 @@
           </tbody>
         </table></div>
 
-        <p>Prediction drift es una alarma, no un diagnóstico. Puede indicar cambio real, data drift, concept drift o un error de pipeline. Reentrenar automáticamente ante cualquier cambio puede empeorar el sistema. Primero se diagnostica.</p>
+        <p>Prediction drift indica que cambió la distribución de las salidas. La causa puede ser un cambio real, data drift, concept drift o un error de pipeline, por lo que debe diagnosticarse antes de reentrenar.</p>
 
         <h3>Cierre responsable</h3>
         <p>El retiro incluye desactivar servicios de predicción y tareas automáticas, archivar versiones y evidencia, resolver dependencias, comunicar a usuarios, revisar obligaciones de retención y registrar lecciones. Solo entonces el proyecto queda cerrado.</p>
@@ -1462,7 +1462,7 @@
           <div><h2>Modelos de lenguaje: Transformer y prompting</h2></div>
         </div>
 
-        <p>Un <strong>modelo de lenguaje grande (LLM, <em>Large Language Model</em>)</strong> es una red neuronal de Deep Learning entrenada con grandes cantidades de texto para predecir tokens y generar una continuación. Recibe un prompt, que contiene instrucciones y contexto, y produce una respuesta. No funciona como una base de datos ni garantiza que una afirmación sea verdadera.</p>
+        <p>Un <strong>modelo de lenguaje grande (LLM, <em>Large Language Model</em>)</strong> es una red neuronal de Deep Learning entrenada con grandes cantidades de texto para predecir tokens y generar una continuación. Recibe un prompt, que contiene instrucciones y contexto, y produce una respuesta probabilística. Las afirmaciones deben verificarse porque el modelo no consulta una base de datos de hechos.</p>
 
         <h3>Cómo procesa texto un LLM</h3>
         <p>El <strong>Transformer</strong> es una arquitectura de red neuronal que usa atención para ponderar qué partes del contexto son relevantes. El recorrido conceptual fue: comprender que el contexto modifica el significado de una palabra; usar modelos como Bidirectional Encoder Representations from Transformers (BERT) para representar ese contexto; procesar bloques amplios en paralelo mediante atención; y usar arquitecturas generativas como Generative Pre-trained Transformer (GPT) para producir continuaciones.</p>
@@ -1474,7 +1474,7 @@
           <li><strong>Predicción:</strong> después de atravesar varias capas Transformer, calcula probabilidades para el token siguiente. Repite el proceso token por token hasta completar la respuesta.</li>
         </ol>
         <p>Durante el preentrenamiento, el Transformer ajusta sus pesos con grandes colecciones de texto, llamadas corpus. En inferencia usa esos pesos para responder. Un <strong>fine tuning</strong>, entrenamiento adicional sobre ejemplos específicos, puede especializar su conducta, pero no convierte al modelo en una base de datos verificable.</p>
-        <p>Visto desde afuera, simula un proceso cognitivo: lee el contexto, conserva relaciones, pondera lo relevante y construye una respuesta. La similitud está en el resultado funcional, no en una comprensión humana interna.</p>
+        <p>Visto desde afuera, simula un proceso cognitivo: lee el contexto, conserva relaciones, pondera lo relevante y construye una respuesta. La similitud se limita al resultado funcional; el mecanismo interno sigue siendo estadístico.</p>
 
         <h3>Cómo escribir una instrucción útil</h3>
         <p>Un <strong>prompt</strong> es el texto con el que se le indica una tarea al modelo. La ingeniería de prompts consiste en redactar y refinar esas instrucciones para obtener una salida útil. Un prompt necesita claridad, detalle suficiente y contexto. El esquema <strong>ROC</strong> ayuda a ordenarlo: rol que debe asumir el modelo, objetivo concreto y contexto necesario para resolverlo. Este ROC no tiene relación con la curva ROC usada en métricas de clasificación.</p>
@@ -1512,7 +1512,7 @@
         <h3>Embeddings y similitud</h3>
         <p>Un embedding representa contenido en un vector donde cercanía pretende capturar similitud semántica. La consulta se embebe con el mismo modelo y se buscan vecinos mediante similitud coseno, producto interno o distancia euclídea. PCA puede visualizar en pocas dimensiones, pero no forma parte necesaria de la búsqueda.</p>
         <p>La similitud coseno compara la orientación de dos vectores, la distancia euclídea mide la distancia recta entre ellos y el producto interno combina orientación y magnitud. La medida correcta depende de cómo fue entrenado y normalizado el modelo de embeddings.</p>
-        <p><strong>Facebook Artificial Intelligence Similarity Search (FAISS)</strong> es una biblioteca para construir índices y buscar vecinos entre vectores. Da control sobre indexación, distancia y rendimiento, pero no reemplaza la evaluación de relevancia ni los permisos sobre los documentos recuperados.</p>
+        <p><strong>Facebook Artificial Intelligence Similarity Search (FAISS)</strong> es una biblioteca para construir índices y buscar vecinos entre vectores. Da control sobre indexación, distancia y rendimiento. La relevancia y los permisos sobre los documentos recuperados se evalúan fuera de la biblioteca.</p>
 
         <h3>Por qué la base vectorial siempre responde</h3>
         <ol class="study-list">
@@ -1532,7 +1532,7 @@
         </ul>
 
         <h3>Limitaciones</h3>
-        <p>RAG no garantiza corrección. Puede fallar por documentos malos, fragmentación inadecuada, embeddings poco aptos, consulta ambigua, metadata ausente, una cantidad incorrecta de resultados recuperados, llamada <em>top K</em>, pérdida de contexto, prompt deficiente o generación que ignora la evidencia. Deben evaluarse tanto la recuperación como la respuesta final.</p>
+        <p>La corrección de un sistema RAG depende de documentos, fragmentación, embeddings, consulta, metadata, cantidad de resultados recuperados, llamada <em>top K</em>, contexto, prompt y fidelidad de la generación. Deben evaluarse tanto la recuperación como la respuesta final.</p>
 
         <h3>RAG frente a fine tuning</h3>
         <p>En síntesis, fine tuning modifica pesos o adaptadores para especializar el comportamiento; RAG mantiene el modelo y cambia el contexto de cada consulta.</p>
@@ -1556,7 +1556,7 @@
         </div>
 
         <p><strong>Vibe coding</strong> es el desarrollo de software asistido por modelos de lenguaje mediante instrucciones en lenguaje natural. Los tokens procesados determinan tanto el límite de contexto como una parte importante del costo.</p>
-        <p>La analogía del <strong>ilusionista</strong> describe el vibe coding: el resultado hace pensar que hay comprensión detrás de la pantalla, pero el mecanismo sigue siendo probabilístico. Que el código compile no demuestra que la jerarquía, los contratos, la seguridad o la mantenibilidad sean correctos.</p>
+        <p>La analogía del <strong>ilusionista</strong> describe el vibe coding: el resultado hace pensar que hay comprensión detrás de la pantalla, aunque el mecanismo sea probabilístico. La compilación solo comprueba ciertos aspectos sintácticos y de tipos; la jerarquía, los contratos, la seguridad y la mantenibilidad requieren revisiones específicas.</p>
 
         <h3>Flujo de trabajo</h3>
         <ol>
@@ -1578,7 +1578,7 @@
             <tr><td>Investigación</td><td>Artículos sobre generación de registros sónicos sintéticos para petróleo y gas.</td></tr>
             <tr><td>Especificación</td><td>Documento Markdown con 13 variables de entrada, 2 targets, ecuaciones, transformaciones e hiperparámetros.</td></tr>
             <tr><td>Implementación</td><td>Reescalado entre valores mínimos y máximos, y una red con dos capas ocultas de 13 neuronas, activación sigmoide y ajuste de pesos por backpropagation.</td></tr>
-            <tr><td>Control</td><td>Generación de datos sintéticos, validaciones y registro de decisiones en <code>memory.md</code>. Las primeras evaluaciones dieron R² de 0,72 y 0,76: resultados intermedios útiles para comenzar a iterar, no una solución terminada.</td></tr>
+            <tr><td>Control</td><td>Generación de datos sintéticos, validaciones y registro de decisiones en <code>memory.md</code>. Las primeras evaluaciones dieron R² de 0,72 y 0,76, valores suficientes para comenzar a iterar pero todavía insuficientes para cerrar la solución.</td></tr>
           </tbody>
         </table></div>
 
@@ -1588,7 +1588,7 @@
           <li><strong>Promedio funcional:</strong> el código generado suele reflejar patrones frecuentes. Puede compilar sin ser eficiente, seguro, mantenible o bien diseñado.</li>
           <li><strong>Colapso de diversidad:</strong> si futuros modelos se entrenan con código producido por modelos anteriores, se acentúa la media y disminuye la desviación. El resultado tiende a soluciones cada vez más parecidas, con menos alternativas de diseño y menor evolución.</li>
           <li><strong>Costo de contexto:</strong> pasar repositorios enteros consume tokens, expone información y vuelve impreciso el alcance. El costo depende principalmente de la cantidad de tokens necesaria para comunicar todo el código y sus relaciones, no del precio unitario de cada token.</li>
-          <li><strong>Falsa confianza:</strong> la analogía con Dunning Kruger advierte que una respuesta segura no demuestra comprensión ni corrección.</li>
+          <li><strong>Falsa confianza:</strong> la analogía con Dunning Kruger advierte que el tono seguro de una respuesta puede ocultar errores o falta de comprensión.</li>
         </ul>
 
         <p>El costo de combinar programadores senior con grandes consumos de tokens puede igualar o superar el esquema previo. La productividad aparece cuando se reduce el contexto necesario y se usa a las personas para diseñar y revisar, no cuando se entrega el repositorio completo al modelo.</p>
@@ -1625,7 +1625,7 @@
 
         <p><strong>Agente:</strong> programa que recibe información del entorno y ejecuta acciones para cumplir un objetivo dentro de permisos definidos.</p>
         <p><strong>Ejemplo del tornillo:</strong> un programa tradicional puede exigir que cada tornillo llegue siempre en la misma posición. Una persona toma el tornillo como venga, reconoce su orientación y coloca la tuerca. Un agente se acerca a este segundo comportamiento: percibe el estado, se adapta dentro de sus capacidades y elige una acción para avanzar hacia el objetivo.</p>
-        <p><strong>Orquestador:</strong> componente que decide qué agente o herramienta usar, en qué orden, con qué contexto y ante qué condiciones. <strong>Los agentes por sí solos no saben nada</strong>: su valor depende de capacidades bien definidas y de la coordinación.</p>
+        <p><strong>Orquestador:</strong> componente que decide qué agente o herramienta usar, en qué orden, con qué contexto y ante qué condiciones. El valor del sistema depende de las capacidades asignadas a los agentes y de cómo se coordinan.</p>
         <p>n8n es un ejemplo de orquestador visual: permite dibujar una secuencia de pasos, condiciones y conexiones entre herramientas.</p>
 
         <p><strong>Integración empresarial:</strong> Machine Learning o Deep Learning detecta y predice patrones, RAG aporta conocimiento documental actualizable y trazable, y los agentes ejecutan tareas coordinadas por un orquestador. La combinación integra modelado, conocimiento documental y ejecución controlada.</p>
@@ -1661,11 +1661,11 @@
         <p>La memoria compartida puede implementar un patrón Blackboard: agentes leen y escriben estado común. El orquestador coordina, pero debe evitar que datos viejos, permisos excesivos o una salida errónea contaminen todo el flujo.</p>
 
         <h3>Model Context Protocol (MCP)</h3>
-        <p>MCP estandariza cómo aplicaciones de IA descubren y usan herramientas o recursos. No vuelve inteligentes a los agentes ni resuelve por sí solo planificación, identidad, autorización o seguridad.</p>
+        <p>MCP estandariza cómo aplicaciones de IA descubren y usan herramientas o recursos. La planificación, identidad, autorización y seguridad se implementan mediante componentes adicionales.</p>
 
         <h3>Asistente sobre orquestador</h3>
         <p>Un asistente planificador recibe el problema, identifica agentes disponibles y construye el plan. El agente ejecuta una capacidad específica y el orquestador coordina el flujo.</p>
-        <p>Hermes es un ejemplo de asistente sobre un orquestador. Puede apoyarse en una <strong>base de casos</strong>: conserva problemas testigo ya resueltos, recupera los más parecidos y los usa como referencia para construir un plan nuevo. Los casos no reemplazan la validación, pero aportan contexto operativo probado.</p>
+        <p>Hermes es un ejemplo de asistente sobre un orquestador. Puede apoyarse en una <strong>base de casos</strong>: conserva problemas testigo ya resueltos, recupera los más parecidos y los usa como referencia para construir un plan nuevo. Ese contexto operativo mejora el plan, que igualmente debe validarse antes de ejecutarse.</p>
 
         <div class="callout danger"><strong>Riesgo productivo.</strong> Más autonomía exige más límites: permisos mínimos, ejecución aislada, aprobación humana para acciones sensibles, presupuestos, tiempos máximos, validación de resultados, registro de actividad y capacidad de detener o revertir.</div>
 
@@ -1687,7 +1687,7 @@
           <li><strong>Agencia excesiva:</strong> agencia es la capacidad del sistema de ejecutar acciones mediante herramientas. Si recibe más permisos o autonomía que la necesaria, una alucinación o inyección puede producir una acción real dañina.</li>
         </ol>
 
-        <div class="callout warning"><strong>El LLM no es un control de seguridad.</strong> Un prompt no reemplaza autorización, validación, aislamiento ni permisos mínimos. Los controles críticos deben ser determinísticos y externos al modelo.</div>
+        <div class="callout warning"><strong>Controles externos al modelo.</strong> La salida probabilística de un LLM no puede decidir autorizaciones ni sustituir validación, aislamiento o permisos mínimos. Los controles críticos deben ser determinísticos.</div>
 
         <p><strong>Caso OpenClaw:</strong> durante 15 a 20 días fue adoptado con entusiasmo como asistente capaz de planificar y ejecutar tareas, hasta que se hicieron visibles sus agujeros de seguridad. Estos sistemas necesitan permisos acotados y aprobación humana para las acciones sensibles.</p>
 
@@ -1725,7 +1725,7 @@
           <li><strong>Fuentes falsas:</strong> una respuesta parece respaldada, pero cita contenido adulterado o irrelevante.</li>
         </ul>
 
-        <div class="callout blue"><strong>National Institute of Standards and Technology Artificial Intelligence Risk Management Framework (NIST AI RMF).</strong> Es un marco voluntario para gestionar riesgos de IA mediante cuatro funciones: gobernar, mapear el contexto, medir y gestionar. Considera siete propiedades: validez y confiabilidad; seguridad operativa; protección y resiliencia; responsabilidad y transparencia; explicabilidad e interpretabilidad; privacidad; y equidad con sesgos dañinos gestionados. Sirve para organizar responsabilidades y controles, no sustituye las defensas técnicas.</div>
+        <div class="callout blue"><strong>National Institute of Standards and Technology Artificial Intelligence Risk Management Framework (NIST AI RMF).</strong> Es un marco voluntario para gestionar riesgos de IA mediante cuatro funciones: gobernar, mapear el contexto, medir y gestionar. Considera siete propiedades: validez y confiabilidad; seguridad operativa; protección y resiliencia; responsabilidad y transparencia; explicabilidad e interpretabilidad; privacidad; y equidad con sesgos dañinos gestionados. Su aplicación se complementa con las defensas técnicas correspondientes.</div>
 
         <p class="exam-answer"><strong>Respuesta:</strong> las brechas principales son prompt injection, fuga de información sensible, envenenamiento de datos o embeddings, cadena de suministro, manejo inseguro de la salida y agencia excesiva. En RAG se agregan fallas de permisos y documentos maliciosos. Las defensas son permisos mínimos, aislamiento, validación de entradas y salidas, trazabilidad, cuotas y aprobación humana para acciones sensibles.</p>
 
@@ -1738,12 +1738,12 @@
           <div><h2>Aplicaciones industriales: cobots, mantenimiento y gemelos digitales</h2></div>
         </div>
 
-        <p>Cobots, mantenimiento predictivo y gemelos digitales son casos de aplicación. Combinan percepción, predicción, simulación y decisión sobre procesos físicos; no constituyen nuevas familias de aprendizaje automático.</p>
+        <p>Cobots, mantenimiento predictivo y gemelos digitales son casos de aplicación que combinan percepción, predicción, simulación y decisión sobre procesos físicos. Se estudian como usos de las familias de aprendizaje automático ya definidas.</p>
 
         <h3>Robot industrial frente a cobot</h3>
         <ul class="study-list">
           <li><strong>Robot tradicional:</strong> opera en tarea y espacio controlados, frecuentemente fijo y separado por jaulas. La seguridad depende de aislamiento y secuencias previsibles.</li>
-          <li><strong>Cobot:</strong> está diseñado para compartir espacio con personas mediante percepción, limitación de fuerza, sensores y control adaptativo. Colaborativo no significa seguro por defecto.</li>
+          <li><strong>Cobot:</strong> está diseñado para compartir espacio con personas mediante percepción, limitación de fuerza, sensores y control adaptativo. La seguridad se evalúa para cada tarea compartida.</li>
         </ul>
         <p>Un brazo tradicional que no percibe contacto puede continuar su movimiento y aplastar una mano. La colaboración exige detectar personas, contacto y fuerza, además de limitar el movimiento. En tareas como colocar un tablero de automóvil, el cobot puede sostener el peso mientras la persona realiza el ajuste fino.</p>
 
@@ -1754,7 +1754,7 @@
           <li><strong>Desde el año 2000, cuarta generación:</strong> comienza el concepto de cobot, con autopercepción, sensores de fuerza y detección de personas para colaborar en un espacio compartido.</li>
           <li><strong>Últimos cinco años de la periodización, quinta generación:</strong> nube, mayor cómputo, movilidad, Deep Learning e IA generativa para una adaptación más rica.</li>
         </ol>
-        <p>Estas fechas sirven como periodización usada en este apunte, pero la denominación por generaciones no constituye una taxonomía universal de robótica.</p>
+        <p>Estas fechas ordenan la evolución tecnológica usada en el apunte y pueden diferir de otras clasificaciones de robótica.</p>
 
         <h3>Percepción e interacción con personas</h3>
         <ul>
@@ -1788,7 +1788,7 @@
         <p>Esta simulación puede vincularse con las <strong>redes neuronales informadas por física (PINN, <em>Physics Informed Neural Networks</em>)</strong>, cuyo entrenamiento incorpora restricciones físicas conocidas, como gravedad, termodinámica o conservación. Esas leyes limitan comportamientos imposibles del gemelo digital y ayudan a que los datos sintéticos respeten el sistema real.</p>
 
         <h3>Infraestructura industrial y conectividad</h3>
-        <p>La inteligencia del modelo no reemplaza la infraestructura. Una fábrica con integración vertical, como el ejemplo de Tesla, puede coordinar datos y automatización de forma distinta de una cadena fragmentada. Llevar cómputo al espacio ofrece energía solar y cobertura, pero introduce radiación, disipación de calor y comunicaciones como restricciones. Starlink aplicado a drones durante la guerra entre Ucrania y Rusia muestra que conectividad, cifrado y velocidad pueden ser tan determinantes como el modelo.</p>
+        <p>La infraestructura condiciona lo que el modelo puede hacer. Una fábrica con integración vertical, como el ejemplo de Tesla, puede coordinar datos y automatización de forma distinta de una cadena fragmentada. Llevar cómputo al espacio ofrece energía solar y cobertura, pero introduce radiación, disipación de calor y comunicaciones como restricciones. Starlink aplicado a drones durante la guerra entre Ucrania y Rusia muestra que conectividad, cifrado y velocidad pueden ser tan determinantes como el modelo.</p>
 
         <p class="exam-answer"><strong>Respuesta:</strong> un cobot comparte espacio con personas y limita riesgo mediante sensores, control de fuerza y percepción. ML puede estimar fallas o adaptar movimientos. Un gemelo digital simula el activo para probar configuraciones y modelos antes de aplicarlos al sistema físico.</p>
       </section>
@@ -1808,7 +1808,7 @@
         </div></details>
 
         <details><summary>B. Dado un dataset de ventas de e-commerce, ¿qué se puede hacer con ML?</summary><div class="details-body">
-          <p><strong>Primero no elegiría un algoritmo, elegiría una decisión.</strong> El mismo dataset habilita varios problemas:</p>
+          <p><strong>Primero definiría la decisión que se quiere mejorar.</strong> El mismo dataset habilita varios problemas:</p>
           <ul>
             <li><strong>Regresión o series temporales:</strong> predecir unidades o facturación por producto y día para stock.</li>
             <li><strong>Clasificación:</strong> predecir abandono de clientes, devolución, fraude o conversión.</li>
@@ -1820,7 +1820,7 @@
         </div></details>
 
         <details><summary>C. Se quiere predecir una falla en un pozo petrolero a 2000 metros, ¿qué haría?</summary><div class="details-body">
-          <p><strong>Definición:</strong> acordaría qué significa falla, en qué componente y con cuánto anticipo debe alertarse. Sin horizonte no hay target útil. También definiría el costo de falso negativo, falso positivo y parada.</p>
+          <p><strong>Definición:</strong> acordaría qué significa falla, en qué componente y con cuánto anticipo debe alertarse. Ese horizonte determina cómo se construye el target. También definiría el costo de falso negativo, falso positivo y parada.</p>
           <p><strong>Datos:</strong> primero separaría existencia de acceso. Que la petrolera posea series históricas no implica que puedan obtenerse de inmediato: compliance, anonimización y permisos pueden demorar más de un mes. Luego revisaría presión, temperatura, caudal, vibración, torque, revoluciones por minuto (RPM), energía, propiedades del fluido, profundidad, mantenimiento, configuración y eventos, validando sincronización, frecuencia, sensores, unidades, cortes de comunicación y etiquetas de fallas.</p>
           <p><strong>Modelado:</strong> si existen suficientes fallas etiquetadas, plantearía clasificación para falla dentro de una ventana o regresión para vida útil restante. Si las fallas son muy escasas, complementaría con detección de anomalías no supervisada y conocimiento físico. Separaría por tiempo y, si hay varios pozos, también por pozo para medir generalización real.</p>
           <p><strong>Operación:</strong> priorizaría recall sin dejar que las falsas alarmas vuelvan inútil el sistema. Validaría con especialistas, simularía con gemelo digital si existe, desplegaría con límites seguros y monitorearía drift de sensores y regímenes. El modelo asesora mantenimiento predictivo. La acción prescriptiva debe considerar seguridad y costo.</p>
@@ -1847,7 +1847,7 @@
         </div></details>
 
         <details><summary>F. Nombre las principales brechas de seguridad en LLM</summary><div class="details-body">
-          <p>Nombraría primero prompt injection directa e indirecta, divulgación de datos sensibles, envenenamiento de datos o embeddings, cadena de suministro comprometida, manejo inseguro de salidas y agencia excesiva. Completaría con fuga del prompt de sistema, debilidades vectoriales y de permisos en RAG, desinformación y consumo sin límites. Un prompt no es un control de seguridad: hacen falta mínimo privilegio, aislamiento, validación, cuotas, trazabilidad y aprobación humana para acciones críticas.</p>
+          <p>Nombraría primero prompt injection directa e indirecta, divulgación de datos sensibles, envenenamiento de datos o embeddings, cadena de suministro comprometida, manejo inseguro de salidas y agencia excesiva. Completaría con fuga del prompt de sistema, debilidades vectoriales y de permisos en RAG, desinformación y consumo sin límites. La protección depende de mínimo privilegio, aislamiento, validación, cuotas, trazabilidad y aprobación humana para acciones críticas; las instrucciones escritas en el prompt no implementan esos controles.</p>
         </div></details>
 
         <h3>Preguntas adicionales de práctica</h3>
@@ -1855,14 +1855,14 @@
         <details><summary>1. ¿Por qué un proyecto de ML no empieza entrenando?</summary><div class="details-body"><p>Porque primero hay que validar pertinencia, criterio de éxito, evidencia previa, datos, acceso, recursos y riesgo. Sin eso se puede optimizar un algoritmo para un problema mal formulado. El EDA completa el estudio de viabilidad y habilita la decisión Go o No Go.</p></div></details>
         <details><summary>2. ¿Cómo se relacionan Data Wrangling, EDA, limpieza e ingeniería de características?</summary><div class="details-body"><p>Data Wrangling es el término general para convertir datos crudos en datos utilizables. EDA diagnostica sin modificar el original. La limpieza corrige o trata problemas para alcanzar calidad mínima. La ingeniería de características cambia la representación para facilitar el aprendizaje, por ejemplo descomponiendo fechas o creando ratios.</p></div></details>
         <details><summary>3. ¿Qué es un outlier y siempre debe eliminarse?</summary><div class="details-body"><p>Es una observación fuera de norma, no necesariamente un error. Puede ser fraude, evento especial o caso válido. Se investiga su origen y se decide según objetivo y algoritmo: mantener, transformar, segmentar, eliminar o modelar aparte.</p></div></details>
-        <details><summary>4. ¿Por qué correlación no implica causalidad?</summary><div class="details-body"><p>Dos variables pueden moverse juntas por azar, por una tercera causa o solo durante el período observado. La correlación describe asociación, no mecanismo causal. Sirve para explorar y detectar redundancia, pero requiere contexto y validación.</p></div></details>
+        <details><summary>4. ¿Qué relación hay entre correlación y causalidad?</summary><div class="details-body"><p>Dos variables pueden moverse juntas por azar, por una tercera causa o solo durante el período observado. La correlación describe esa asociación. Establecer un mecanismo causal exige contexto, diseño y validación adicionales.</p></div></details>
         <details><summary>5. ¿Por qué accuracy puede ser una mala métrica?</summary><div class="details-body"><p>Con clases desbalanceadas puede ser alta prediciendo siempre la mayoría. Además trata FP y FN como si costaran igual. En medicina suele priorizarse recall para no omitir casos, y en otros dominios precision para reducir falsas alarmas.</p></div></details>
         <details><summary>6. ¿Qué aporta K fold cross validation?</summary><div class="details-body"><p>Repite entrenamiento y validación rotando K particiones, por lo que cada registro cumple ambos roles. La media indica cuán bien discrimina los patrones encontrados y la desviación estándar indica si se captaron todos los patrones distribuidos entre los folds. Técnicamente, permite estimar desempeño promedio y sensibilidad a la partición, pero no reemplaza un test independiente ni demuestra cobertura de patrones que no están en la muestra.</p></div></details>
         <details><summary>7. ¿Qué indica una desviación alta entre folds?</summary><div class="details-body"><p>Indica que no se encontraron todos los patrones de manera estable. En términos técnicos, muestra sensibilidad a la partición y puede sugerir pocos datos, patrones heterogéneos, grupos, cambio temporal, outliers o un modelo de alta varianza. Exige investigar qué registros o períodos explican la diferencia.</p></div></details>
         <details><summary>8. ¿Qué es hiperparametrización?</summary><div class="details-body"><p>Es buscar valores de configuración externos al aprendizaje para mejorar el sistema. Puede optimizar métrica, estabilidad, regularización, latencia o costo. Debe evaluarse con validación, no sobre el test final.</p></div></details>
         <details><summary>9. ¿Qué es sobreajuste?</summary><div class="details-body"><p>Es aprender entrenamiento y ruido con demasiado detalle, logrando buen resultado allí y peor en datos nuevos. Se detecta comparando curvas y conjuntos, y se mitiga con regularización, simplificación, más datos representativos, early stopping, dropout o augmentation.</p></div></details>
         <details><summary>10. ¿Cuál es el compromiso bias y variance?</summary><div class="details-body"><p>Modelos demasiado simples tienen bias alto y subajustan. Modelos demasiado flexibles tienen variance alta y sobreajustan. El objetivo es elegir complejidad y regularización que minimicen error en datos no vistos.</p></div></details>
-        <details><summary>11. ¿AutoML reemplaza al científico de datos?</summary><div class="details-body"><p>No. Automatiza comparación, pipelines y ajuste, pero no garantiza calidad, ausencia de leakage, métrica correcta, equidad ni viabilidad productiva. La definición del problema, los controles y la aprobación siguen a cargo del equipo.</p></div></details>
+        <details><summary>11. ¿AutoML reemplaza al científico de datos?</summary><div class="details-body"><p>AutoML automatiza comparación, pipelines y ajuste. La definición del problema, la calidad, el leakage, la métrica, la equidad, la viabilidad productiva y la aprobación siguen a cargo del equipo.</p></div></details>
         <details><summary>12. ¿Qué diferencia hay entre SHAP y una prueba de sesgo?</summary><div class="details-body"><p>SHAP atribuye contribuciones a features en predicciones. Una prueba de sesgo compara resultados y errores entre grupos o contrafácticos bajo un criterio de equidad. La explicación puede ayudar a diseñar la prueba, pero no demuestra equidad.</p></div></details>
         <details><summary>13. ¿Por qué un modelo no puede entregarse como caja negra?</summary><div class="details-body"><p>Porque debe ser validado, auditado y comprendido por quienes asumen riesgo. La explicación detecta atajos, permite contraste con expertos, documenta reglas y ayuda a responder reclamos y mejorar el sistema.</p></div></details>
         <details><summary>14. ¿Qué bloquea el pasaje a producción?</summary><div class="details-body"><p>Especialmente latencia, seguridad y capacidad de cómputo no planificadas. También integración, operación, calidad del servicio, datos online, observabilidad y responsabilidad. Una cifra de referencia es que 40% de los proyectos validados no llegan a producción por errores u horrores de gestión. Estos riesgos deben considerarse desde viabilidad.</p></div></details>
@@ -1871,7 +1871,7 @@
         <details><summary>17. ¿Qué diferencia hay entre RAG y fine tuning?</summary><div class="details-body"><p>RAG recupera conocimiento externo en cada consulta y es fácil de actualizar y citar. Fine tuning modifica el comportamiento del modelo mediante entrenamiento. Pueden combinarse y resuelven problemas distintos.</p></div></details>
         <details><summary>18. ¿Por qué una base vectorial puede devolver algo irrelevante?</summary><div class="details-body"><p>Porque hace una búsqueda difusa y ordena vecinos por cercanía en el espacio del embedding, no por verdad. A diferencia de una consulta SQL exacta, siempre puede entregar el vector más cercano aunque sea malo. No existe un umbral universal y verificado que separe una respuesta válida de una inválida. En producción pueden configurarse umbrales y filtros evaluados, pero no garantizan corrección.</p></div></details>
         <details><summary>19. ¿Qué es una alucinación en un sistema RAG?</summary><div class="details-body"><p>Como la base vectorial siempre responde y no hay un punto de corte universal, si recupera algo que no es lo que se necesita se lo llama alucinación. Técnicamente conviene separar dos fallas: recuperación irrelevante del índice y generación sin respaldo del LLM. Se reducen con mejores datos, filtros, reordenamiento, citas, abstención y evaluación.</p></div></details>
-        <details><summary>20. ¿Qué diferencia hay entre agente y orquestador?</summary><div class="details-body"><p>El agente realiza una capacidad acotada percibiendo y actuando. El orquestador decide la secuencia, condiciones y el intercambio entre agentes o herramientas. Los agentes por sí solos no saben nada: el valor depende de sus capacidades y de la coordinación. Un flujo rígido es orquestación. La planificación dinámica se acerca a colaboración.</p></div></details>
+        <details><summary>20. ¿Qué diferencia hay entre agente y orquestador?</summary><div class="details-body"><p>El agente realiza una capacidad acotada percibiendo y actuando. El orquestador decide la secuencia, condiciones y el intercambio entre agentes o herramientas. El valor depende de las capacidades asignadas y de la coordinación. Un flujo rígido es orquestación. La planificación dinámica se acerca a colaboración.</p></div></details>
         <details><summary>21. ¿Qué aporta un sistema multiagente?</summary><div class="details-body"><p>Especialización, modularidad y reemplazo de componentes con contratos claros. A cambio, aumenta la complejidad de coordinación, memoria, permisos, errores y observabilidad.</p></div></details>
         <details><summary>22. ¿Qué es amnesia de código?</summary><div class="details-body"><p>Es perder comprensión del software al delegar generación y cambios sin lectura ni documentación. Se evita con arquitectura, módulos acotados, bitácoras, revisión, tests y trazabilidad.</p></div></details>
         <details><summary>23. ¿Por qué los patrones son útiles en vibe coding?</summary><div class="details-body"><p>Expresan una estructura conocida con pocas palabras, delimitan responsabilidades y reducen el contexto que se debe enviar. También dan un marco para evaluar si el código generado es mantenible.</p></div></details>
@@ -1882,7 +1882,7 @@
         <details><summary>28. ¿Cómo se relaciona Dunning Kruger con los LLM?</summary><div class="details-body"><p>El efecto describe la sobreconfianza que puede acompañar al conocimiento superficial. Los LLM suelen responder con certeza aunque la salida sea incompleta o incorrecta. El riesgo de adoptar esa seguridad como propia puede llamarse sesgo heredado. Se evita con conocimiento de base para interpelar, repreguntar, comparar y revisar.</p></div></details>
         <details><summary>29. ¿Por qué la métrica puede cambiar el algoritmo ganador?</summary><div class="details-body"><p>Porque cada métrica representa un costo de error diferente. En el ejemplo numérico, un algoritmo tuvo recall de 85% y accuracy de 40%, mientras Gradient Boosting tuvo accuracy de 81% y recall de 35% sobre el mismo dataset. Si importan los falsos negativos gana el primero. Elegir accuracy hace ganar al segundo. La métrica debe definirse desde el problema, antes de ver el ranking.</p></div></details>
         <details><summary>30. ¿Por qué existen familias de algoritmos?</summary><div class="details-body"><p>Porque antes de entrenar no se conocen por completo los patrones ni su distribución. Dos empresas pueden tener el mismo objetivo y columnas con nombres iguales, pero distinto volumen y distribución interna. Por eso no existe un mejor algoritmo universal: se selecciona una familia por el tipo de problema y se comparan sus algoritmos, tarea que AutoML automatiza en parte.</p></div></details>
-        <details><summary>31. ¿Qué aporta el mecanismo de atención?</summary><div class="details-body"><p>Permite ponderar qué tokens del contexto son relevantes para cada token procesado y calcular muchas relaciones en paralelo. Es la pieza central del Transformer y ayuda a mantener contexto amplio, pero no implica comprensión humana ni garantiza verdad.</p></div></details>
+        <details><summary>31. ¿Qué aporta el mecanismo de atención?</summary><div class="details-body"><p>Permite ponderar qué tokens del contexto son relevantes para cada token procesado y calcular muchas relaciones en paralelo. Es la pieza central del Transformer y ayuda a mantener contexto amplio. La comprensión y la veracidad deben evaluarse por otros medios.</p></div></details>
         <details><summary>32. ¿Qué necesita un prompt útil?</summary><div class="details-body"><p>Claridad, detalle suficiente y contexto. El esquema ROC ordena rol, objetivo y contexto. En tareas complejas conviene dividir el trabajo, indicar formato y criterios de aceptación, revisar la salida y refinar la instrucción.</p></div></details>
 
       </section>

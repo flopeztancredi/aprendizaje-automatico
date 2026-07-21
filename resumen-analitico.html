@@ -818,7 +818,7 @@
           <li>ML mira datos pasados, abstrae regularidades y las aplica a casos nuevos para clasificar, predecir, agrupar, recomendar o detectar anomalías.</li>
           <li>Funciona mejor en tareas tipificadas, con procedimiento conocido y variabilidad representada en los datos.</li>
           <li>Extrapola dentro del dominio aprendido. No transfiere conocimiento entre dominios con la flexibilidad de una persona.</li>
-          <li>Una salida convincente no implica comprensión, consciencia ni verdad. El mecanismo es estadístico o probabilístico.</li>
+          <li>El mecanismo es estadístico o probabilístico. La fluidez de una salida no permite inferir comprensión, consciencia ni veracidad.</li>
           <li>La combinación útil es IA más inteligencia natural: velocidad y repetición de la máquina, criterio y conocimiento del dominio de la persona.</li>
         </ul>
         <p>El software tradicional suele producir datos durante su operación. ML es primero un gran ingestor: consume historia para entrenar y luego genera una salida comparativamente pequeña, como una clase, una probabilidad o un número.</p>
@@ -850,7 +850,7 @@
           <li><strong>Incierto:</strong> el dataset termina de entenderse cuando el modelo ya funciona y aparecen comportamientos no visibles al comienzo.</li>
           <li><strong>Controlado:</strong> cada etapa necesita entregable, versión, criterio de aceptación y posibilidad de Go o No Go.</li>
           <li><strong>Trazable:</strong> extracción, transformación, experimento, métrica, decisión y resultado deben quedar en una bitácora.</li>
-          <li><strong>Acumulativo:</strong> la bitácora alimenta una base de conocimiento. La experiencia de otra organización ayuda, pero no reemplaza la idiosincrasia propia.</li>
+          <li><strong>Acumulativo:</strong> la bitácora alimenta una base de conocimiento. La experiencia externa debe adaptarse a los sistemas, procesos y criterios propios de cada organización.</li>
         </ul>
 
         <h3>Roles</h3>
@@ -928,10 +928,10 @@
         <ul>
           <li><strong>Tipos:</strong> deben ajustarse al significado y rango real. Reducir un tipo sobredimensionado ahorra memoria, pero exige revisar precisión, nulos y valores futuros.</li>
           <li><strong>Estadística descriptiva:</strong> count mide presencia, mean y std resumen centro y dispersión, min y max muestran rango, y percentiles muestran concentración. Mínimo igual a máximo indica columna constante.</li>
-          <li><strong>Nulos:</strong> no existe un porcentaje universal. Importan cantidad absoluta, patrón de ausencia, variable afectada, sesgo posible y recuperabilidad. Un 1% de millones puede ser tolerable y un 5% a 7% de pocos miles puede ser crítico.</li>
+          <li><strong>Nulos:</strong> el porcentaje aceptable depende de la cantidad absoluta, el patrón de ausencia, la variable afectada, el sesgo posible y la recuperabilidad. Un 1% de millones puede ser tolerable y un 5% a 7% de pocos miles puede ser crítico.</li>
           <li><strong>Duplicados:</strong> se decide con una clave y el proceso de negocio. Dos registros iguales pueden ser una repetición inválida o eventos legítimos.</li>
           <li><strong>Reversiones:</strong> anulaciones, devoluciones y notas de crédito deben vincularse con la transacción original para no distorsionar estadísticas.</li>
-          <li><strong>Outlier o anomalía:</strong> observación fuera de norma, no sinónimo de error. Puede ser válida, fraude, evento excepcional o cambio de régimen. Debe investigarse antes de mantener, separar, transformar o excluir.</li>
+          <li><strong>Outlier o anomalía:</strong> observación fuera de norma cuyo origen debe investigarse. Puede corresponder a un dato válido, fraude, un evento excepcional, un cambio de régimen o un error.</li>
           <li><strong>Régimen especial:</strong> un comportamiento correcto pero no representativo del funcionamiento habitual, Business as Usual, puede requerir segmento, features o modelo propios.</li>
           <li><strong>Serendipia:</strong> un objetivo secundario descubierto durante el análisis debe registrarse como conocimiento, aunque no sea la pregunta inicial.</li>
         </ul>
@@ -945,16 +945,16 @@
             <tr><td>Kendall Tau</td><td>Concordancia entre pares.</td><td>Muestras menores, empates o análisis robusto del orden.</td></tr>
           </tbody>
         </table></div>
-        <p>Correlación no implica causalidad. Puede ser espuria, temporal o producida por una tercera variable. También detecta redundancia, pero no autoriza a eliminar features sin contexto.</p>
+        <p>La correlación describe asociación dentro de un período y una población. La relación puede ser espuria, temporal o producida por una tercera variable; para inferir causalidad o eliminar features se necesita contexto adicional.</p>
 
         <h3>Práctica y herramientas</h3>
         <ul>
-          <li>La arqueología de datos reconstruye el proceso que produjo cada hallazgo. La intuición genera hipótesis, no conclusiones.</li>
+          <li>La arqueología de datos reconstruye el proceso que produjo cada hallazgo. La intuición sirve para formular hipótesis, que luego se contrastan con evidencia.</li>
           <li>El análisis puede actuar como ciberseguridad reactiva al revelar fallas o manipulaciones que los controles en línea no detectaron.</li>
           <li>Comunicar problemas estructurales requiere evidencia, historia reconstruida y asertividad.</li>
           <li>La experiencia se acumula en patrones generales, patrones de industria y particularidades de cada empresa. Se desarrolla practicando con datasets distintos.</li>
           <li><em>Open Subsurface Data Universe</em> (OSDU) es una referencia para organizar datos de petróleo y gas.</li>
-          <li>Pandas permite inspección detallada. DataPrep y AutoViz automatizan perfiles y gráficos, no la interpretación.</li>
+          <li>Pandas permite inspección detallada. DataPrep y AutoViz automatizan perfiles y gráficos; la interpretación sigue a cargo del equipo.</li>
           <li>El formato de valores separados por comas (CSV, <em>Comma-Separated Values</em>) guarda tablas como texto. Joblib guarda objetos binarios de Python y exige un entorno compatible.</li>
         </ul>
       </section>
@@ -992,8 +992,8 @@
           <li><strong>Capa de industria:</strong> representaciones propias del sector y sus procesos.</li>
           <li><strong>Capa de empresa y experiencia:</strong> sistemas, cultura de carga, reglas e hipótesis particulares.</li>
         </ul>
-        <p>La selección revisa variación, valores distintos, correlaciones, redundancias, interacciones, conocimiento del dominio e importancia obtenida con modelos, incluidos árboles de decisión. Más columnas no equivalen a más información. Una referencia operativa es que tres features pueden explicar 70% del resultado, dos adicionales llevarlo a 85% y el resto aportar 15%. Si eliminar variables cambia una métrica de 0,82 a 0,81, puede convenir el modelo menor por costo, latencia y mantenimiento.</p>
-        <p>Una accuracy, proporción total de aciertos, persistentemente entre 0,40 y 0,55 sugiere que pueden faltar features que describan el patrón. No lo demuestra: también pueden fallar el target, la calidad, el algoritmo, la separación o la posibilidad predictiva.</p>
+        <p>La selección revisa variación, valores distintos, correlaciones, redundancias, interacciones, conocimiento del dominio e importancia obtenida con modelos, incluidos árboles de decisión. El valor de una feature depende de la información que aporta, no de aumentar la cantidad de columnas. Una referencia operativa es que tres features pueden explicar 70% del resultado, dos adicionales llevarlo a 85% y el resto aportar 15%. Si eliminar variables cambia una métrica de 0,82 a 0,81, puede convenir el modelo menor por costo, latencia y mantenimiento.</p>
+        <p>Una accuracy, proporción total de aciertos, persistentemente entre 0,40 y 0,55 sugiere que pueden faltar features que describan el patrón. También deben revisarse el target, la calidad, el algoritmo, la separación y la posibilidad predictiva.</p>
         <p>Una feature se conserva si mejora desempeño, estabilidad o interpretabilidad sin producir <strong>leakage</strong>, filtración de información no disponible al momento real de inferencia. La preparación genérica corresponde principalmente al ingeniero de datos; el científico revisa transformaciones dependientes de la familia de modelos.</p>
       </section>
 
@@ -1041,7 +1041,7 @@
             <tr><td>Test o holdout</td><td>Evaluación final e independiente. Si guía decisiones repetidas, deja de ser test.</td></tr>
           </tbody>
         </table></div>
-        <p>La proporción 80/20 es habitual, no una ley. Debe respetar tiempo, grupos, desbalance y dependencia entre observaciones. En series temporales no se usa información futura para predecir el pasado.</p>
+        <p>Una división frecuente reserva 80% de los datos para entrenamiento y 20% para evaluación. Esa proporción se modifica cuando la temporalidad, los grupos, el desbalance, el volumen o la dependencia entre observaciones exigen otra separación. En series temporales se preserva el orden para evitar que el futuro intervenga en la predicción del pasado.</p>
 
         <h3>Hiperparámetros</h3>
         <p>Son configuraciones fijadas antes de entrenar, como profundidad, cantidad de árboles o tasa de aprendizaje. Afectan desempeño, costo y generalización.</p>
@@ -1053,12 +1053,12 @@
         <p>El ajuste suele mejorar poco una métrica, pero también puede reducir costo o inestabilidad. Diez configuraciones por diez folds producen cien entrenamientos, por lo que necesita presupuesto y criterio.</p>
 
         <h3>Validación cruzada</h3>
-        <p>Si todos los patrones se conocieran de antemano, no haría falta ML para descubrirlos. La validación cruzada ayuda a revelar que no están distribuidos uniformemente.</p>
+        <p>La validación cruzada permite detectar patrones desconocidos que quedaron concentrados en determinadas particiones, en lugar de asumir que todos se distribuyen uniformemente.</p>
         <p>K-fold divide el train en K partes. Entrena K veces, usando una parte diferente para validar y las restantes para ajustar. Produce una distribución de resultados y reduce la dependencia de una única partición. Son habituales entre 3 y 10 folds.</p>
         <ul>
           <li><strong>Media, lectura operativa:</strong> cuán bien discrimina los patrones encontrados.</li>
           <li><strong>Desviación estándar, lectura operativa:</strong> si algún fold contiene patrones distintos. Dispersión alta exige investigar segmentos, períodos, anomalías o cambios de régimen.</li>
-          <li><strong>Matiz técnico:</strong> dispersión baja demuestra estabilidad entre folds observados, no cobertura de todos los patrones posibles.</li>
+          <li><strong>Alcance:</strong> una dispersión baja demuestra estabilidad entre los folds observados. No permite afirmar que la muestra contiene todos los patrones posibles.</li>
         </ul>
         <p>Los patrones pueden concentrarse por tiempo, región, cliente, paciente o equipo. Las particiones deben evitar que observaciones relacionadas aparezcan a ambos lados y deben representar el uso real.</p>
       </section>
@@ -1135,14 +1135,14 @@
         <div class="chapter-head"><div class="chapter-number">10</div><div><h2>Generalización y regularización</h2></div></div>
 
         <p><strong>Generalización:</strong> capacidad de mantener desempeño sobre datos nuevos. <strong>Underfitting:</strong> modelo demasiado rígido, con error alto en train y validación. <strong>Overfitting:</strong> adaptación al detalle o ruido del train, con deterioro fuera de muestra.</p>
-        <p><strong>Bias:</strong> error sistemático asociado con rigidez. <strong>Variance:</strong> sensibilidad a cambios de muestra. El objetivo es equilibrar ambos, no maximizar una métrica de entrenamiento.</p>
+        <p><strong>Bias:</strong> error sistemático asociado con rigidez. <strong>Variance:</strong> sensibilidad a cambios de muestra. El equilibrio se evalúa por desempeño fuera del entrenamiento y estabilidad entre muestras.</p>
 
         <h3>Fuentes de sobreajuste</h3>
         <ol>
           <li><strong>Dataset sesgado o poco representativo:</strong> faltan patrones que sí existen en producción.</li>
           <li><strong>Capacidad o entrenamiento mal calibrados:</strong> el modelo se adapta al detalle o ruido del train.</li>
         </ol>
-        <p>Leakage y particiones que no representan producción pueden producir una evaluación engañosa y deben auditarse por separado. Una métrica muy alta es una señal para revisar, no una prueba. En Iris, dataset estándar y curado, 97% puede ser esperable. Una caída de 96% en train y 95% en test a aproximadamente 75% en producción exige investigar representatividad, <a href="#mlops">drift</a> o cambio de los datos productivos, leakage y sobreajuste.</p>
+        <p>Leakage y particiones que no representan producción pueden producir una evaluación engañosa y deben auditarse por separado. Una métrica muy alta exige revisar cómo se obtuvo antes de atribuirla a sobreajuste. En Iris, dataset estándar y curado, 97% puede ser esperable. Una caída de 96% en train y 95% en test a aproximadamente 75% en producción exige investigar representatividad, <a href="#mlops">drift</a> o cambio de los datos productivos, leakage y sobreajuste.</p>
 
         <h3>Técnicas</h3>
         <div class="table-wrap"><table>
@@ -1171,7 +1171,7 @@
           <li><strong>Ensambles:</strong> bagging entrena en paralelo y combina; boosting corrige errores secuencialmente; stacking aprende a mezclar modelos.</li>
           <li><strong>Salida:</strong> baseline, referencia simple que las alternativas deben superar, métricas, gráficos, modelo, pipeline o código exportable.</li>
         </ul>
-        <p>No delega problema, calidad, leakage, métrica, particiones, sesgos, restricciones productivas, monitoreo ni responsabilidad. El conocimiento se desplaza desde la operación de entrenamiento hacia el problema y la interpretación.</p>
+        <p>El equipo sigue a cargo del problema, la calidad, el leakage, la métrica, las particiones, los sesgos, las restricciones productivas, el monitoreo y la aprobación. La automatización concentra el trabajo humano en el problema y la interpretación.</p>
 
         <div class="table-wrap"><table>
           <thead><tr><th>Herramienta</th><th>Uso</th></tr></thead>
@@ -1223,7 +1223,7 @@
           <li>Documentar límites y riesgo residual.</li>
           <li>Monitorear en producción.</li>
         </ol>
-        <p>Explicabilidad y fairness, equidad, no son equivalentes. Un modelo puede ser explicable y discriminatorio, o menos interpretable y mostrar mejores resultados entre grupos. La responsabilidad permanece en el equipo y la organización.</p>
+        <p>Explicabilidad y fairness, equidad, evalúan aspectos distintos. Un modelo puede ser explicable y discriminatorio, o menos interpretable y mostrar mejores resultados entre grupos. La responsabilidad permanece en el equipo y la organización.</p>
       </section>
 
       <section class="chapter" id="mlops" data-title="mlops producción despliegue latencia seguridad cómputo versionado mlflow drift data concept prediction monitoreo retiro">
@@ -1252,14 +1252,14 @@
             <tr><td>Cambio de fuente</td><td>Pipeline, unidad, codificación o significado.</td></tr>
           </tbody>
         </table></div>
-        <p>Prediction drift es una alarma, no un diagnóstico. Reentrenar automáticamente puede empeorar el sistema. Primero se determina si cambió el mundo, la relación con el target o el pipeline, y luego se corrige, reentrena, revierte o retira.</p>
+        <p>Prediction drift indica que cambió la distribución de las salidas, pero su causa puede estar en los datos, la relación con el target o el pipeline. El diagnóstico precede a cualquier decisión de corregir, reentrenar, revertir o retirar.</p>
         <p>El cierre desactiva servicios y automatizaciones, archiva evidencia, resuelve dependencias, comunica a usuarios, cumple retención y documenta lecciones.</p>
       </section>
 
       <section class="chapter" id="llm" data-title="llm large language model transformer token embedding posición atención bert gpt prompt prompting ROC fine tuning">
         <div class="chapter-head"><div class="chapter-number">14</div><div><h2>Large Language Model (LLM), Transformer y prompting</h2></div></div>
 
-        <p>Un LLM es una red profunda entrenada con grandes corpus, colecciones de texto, para predecir tokens y generar continuaciones. No es una base de datos ni garantiza verdad.</p>
+        <p>Un LLM es una red profunda entrenada con grandes corpus, colecciones de texto, para predecir tokens y generar continuaciones. Sus afirmaciones deben verificarse porque produce salidas probabilísticas y no consulta una base de datos de hechos.</p>
         <ol class="study-list">
           <li><strong>Tokenización:</strong> divide texto en palabras, partes o signos.</li>
           <li><strong>Embeddings:</strong> transforma tokens en vectores.</li>
@@ -1310,20 +1310,20 @@
         <ul>
           <li>Similitud coseno compara orientación; distancia euclídea, distancia recta; producto interno, orientación y magnitud.</li>
           <li>La medida depende del entrenamiento y normalización del embedding.</li>
-          <li>Facebook Artificial Intelligence Similarity Search (FAISS) construye índices y busca vecinos, pero no valida relevancia ni permisos.</li>
-          <li>PCA puede visualizar vectores, no es requisito de recuperación.</li>
+          <li>Facebook Artificial Intelligence Similarity Search (FAISS) construye índices y busca vecinos. La relevancia y los permisos se validan fuera de la biblioteca.</li>
+          <li>PCA es una técnica opcional para visualizar vectores en pocas dimensiones y no participa de la recuperación.</li>
         </ul>
 
         <h3>Respuesta, alucinación y evaluación</h3>
         <p>Una consulta en lenguaje estructurado (SQL, <em>Structured Query Language</em>) exacta puede devolver cero filas. La búsqueda vectorial es difusa y siempre puede ordenar un vecino como el más cercano, aunque sea irrelevante. No existe un umbral universal verificado. Si lo recuperado no responde a la necesidad, se lo denomina alucinación en la lectura operativa. Técnicamente deben separarse recuperación irrelevante y generación sin respaldo.</p>
-        <p>Umbrales evaluados, filtros, reordenamiento, abstención y top K, cantidad de resultados recuperados, reducen errores, pero no garantizan verdad. Se evalúan por separado relevancia de recuperación, fidelidad, citas, latencia y respuesta final.</p>
+        <p>Umbrales evaluados, filtros, reordenamiento, abstención y top K, cantidad de resultados recuperados, reducen errores. La corrección todavía debe comprobarse evaluando por separado relevancia de recuperación, fidelidad, citas, latencia y respuesta final.</p>
         <p>RAG puede fallar por corpus, chunking, embeddings, consulta, metadata, top K, contexto o prompt. <strong>Fine tuning</strong> es entrenamiento adicional que modifica pesos o adaptadores para especializar una conducta estable; RAG no modifica el modelo y cambia el contexto por consulta. Pueden combinarse.</p>
       </section>
 
       <section class="chapter" id="vibe" data-title="vibe coding código llm patrones scaffolding andamiaje contexto tokens amnesia diversidad dunning kruger sesgo heredado">
         <div class="chapter-head"><div class="chapter-number">16</div><div><h2>Vibe coding</h2></div></div>
 
-        <p>Vibe coding desarrolla software con LLM mediante lenguaje natural. El resultado es probabilístico: que compile no garantiza arquitectura, contratos, seguridad ni mantenibilidad.</p>
+        <p>Vibe coding desarrolla software con LLM mediante lenguaje natural. La compilación solo comprueba ciertos aspectos sintácticos y de tipos; arquitectura, contratos, seguridad y mantenibilidad requieren revisiones específicas.</p>
 
         <h3>Método</h3>
         <ol>
@@ -1356,7 +1356,7 @@
         <div class="chapter-head"><div class="chapter-number">17</div><div><h2>Agentes y orquestación</h2></div></div>
 
         <p><strong>Agente:</strong> programa que percibe información y ejecuta acciones para cumplir un objetivo dentro de permisos definidos. A diferencia de un programa que exige entradas en una posición o formato rígidos, percibe el estado y adapta su acción. Sus propiedades son autonomía limitada, reactividad, proactividad y comunicación.</p>
-        <p><strong>Orquestador:</strong> decide qué agente o herramienta usar, en qué orden, con qué contexto y condiciones. Los agentes por sí solos no aportan conocimiento: el valor surge de sus capacidades y coordinación.</p>
+        <p><strong>Orquestador:</strong> decide qué agente o herramienta usar, en qué orden, con qué contexto y condiciones. El valor del sistema surge de las capacidades asignadas a los agentes y de su coordinación.</p>
         <p>La integración empresarial combina ML o Deep Learning para detectar patrones, RAG para aportar conocimiento documental actualizable y agentes para ejecutar tareas bajo un orquestador.</p>
 
         <div class="table-wrap"><table>
@@ -1377,8 +1377,8 @@
           <li><strong>Colaboración:</strong> un planificador arma o revisa el plan dinámicamente.</li>
           <li><strong>Blackboard:</strong> memoria común donde los agentes leen y escriben estado.</li>
         </ul>
-        <p>Model Context Protocol (MCP) estandariza descubrimiento y uso de herramientas o recursos. No resuelve inteligencia, planificación, identidad, autorización ni seguridad.</p>
-        <p>Hermes representa un asistente planificador sobre un orquestador. Puede usar una base de casos: recupera problemas resueltos, adapta un plan y conserva referencias operativas. Los casos no reemplazan validación.</p>
+        <p>Model Context Protocol (MCP) estandariza descubrimiento y uso de herramientas o recursos. La planificación, identidad, autorización y seguridad se implementan mediante componentes adicionales.</p>
+        <p>Hermes representa un asistente planificador sobre un orquestador. Puede usar una base de casos: recupera problemas resueltos, adapta un plan y conserva referencias operativas. El plan adaptado debe validarse antes de ejecutarse.</p>
         <p><strong>Human in the loop</strong> significa que una persona participa explícitamente en una decisión, validación o aprobación del sistema.</p>
         <p>Más autonomía exige permisos mínimos, aislamiento, presupuestos, tiempos máximos, validación, registro, aprobación humana y capacidad de detener o revertir.</p>
       </section>
@@ -1386,7 +1386,7 @@
       <section class="chapter" id="seguridad" data-title="seguridad llm owasp prompt injection fuga información sensible supply chain poisoning output agencia system prompt embeddings misinformation consumo NIST">
         <div class="chapter-head"><div class="chapter-number">18</div><div><h2>Seguridad en aplicaciones con LLM</h2></div></div>
 
-        <p>El LLM no es un control de seguridad. Autorización, validación, aislamiento y permisos deben ser determinísticos y externos. La tabla reúne riesgos del Open Worldwide Application Security Project (OWASP) Top 10 para aplicaciones de LLM, edición 2025, y riesgos complementarios.</p>
+        <p>La salida probabilística de un LLM no puede decidir autorizaciones ni sustituir validación, aislamiento o permisos. Esos controles deben ser determinísticos y externos. La tabla reúne riesgos del Open Worldwide Application Security Project (OWASP) Top 10 para aplicaciones de LLM, edición 2025, y riesgos complementarios.</p>
         <div class="table-wrap"><table>
           <thead><tr><th>Riesgo</th><th>Falla</th><th>Control</th></tr></thead>
           <tbody>
@@ -1410,18 +1410,18 @@
           <li><strong>Jailbreak:</strong> intento de evadir restricciones de conducta.</li>
           <li><strong>RAG:</strong> agrega poisoning de la colección de documentos o corpus, fuga por permisos, inyección indirecta, abuso de metadata y fuentes adulteradas.</li>
         </ul>
-        <p>El National Institute of Standards and Technology Artificial Intelligence Risk Management Framework (NIST AI RMF) organiza el riesgo mediante gobernar, mapear, medir y gestionar. Evalúa validez y confiabilidad, seguridad operativa, protección y resiliencia, responsabilidad y transparencia, explicabilidad, privacidad y equidad. Organiza responsabilidades, no reemplaza controles técnicos.</p>
+        <p>El National Institute of Standards and Technology Artificial Intelligence Risk Management Framework (NIST AI RMF) organiza el riesgo mediante gobernar, mapear, medir y gestionar. Evalúa validez y confiabilidad, seguridad operativa, protección y resiliencia, responsabilidad y transparencia, explicabilidad, privacidad y equidad. Su aplicación se complementa con los controles técnicos correspondientes.</p>
       </section>
 
       <section class="chapter" id="cobots" data-title="aplicaciones industriales robot cobot visión artificial kinesthetic teaching mantenimiento predictivo prescriptivo MTBF OEE gemelo digital PINN">
         <div class="chapter-head"><div class="chapter-number">19</div><div><h2>Aplicaciones industriales</h2></div></div>
 
-        <p>Cobots, mantenimiento y gemelos digitales aplican percepción, predicción, simulación y decisión. No son familias nuevas de ML.</p>
+        <p>Cobots, mantenimiento y gemelos digitales son aplicaciones de las familias de ML ya definidas y combinan percepción, predicción, simulación y decisión.</p>
 
         <h3>Robots y cobots</h3>
         <div class="table-wrap"><table>
           <thead><tr><th>Robot tradicional</th><th>Cobot</th></tr></thead>
-          <tbody><tr><td>Tarea y espacio controlados, normalmente fijo, aislado y con secuencia previsible.</td><td>Comparte espacio mediante percepción, limitación de fuerza, sensores y control adaptativo. Colaborativo no significa seguro por defecto.</td></tr></tbody>
+          <tbody><tr><td>Tarea y espacio controlados, normalmente fijo, aislado y con secuencia previsible.</td><td>Comparte espacio mediante percepción, limitación de fuerza, sensores y control adaptativo. La seguridad debe evaluarse para cada tarea compartida.</td></tr></tbody>
         </table></div>
         <ol>
           <li><strong>1950 a fines de los 60:</strong> hidráulica, sensores básicos y jaulas.</li>
@@ -1429,7 +1429,7 @@
           <li><strong>Desde 2000, cuarta generación:</strong> cobots, autopercepción, fuerza y detección de personas.</li>
           <li><strong>Últimos cinco años de la periodización, quinta generación:</strong> nube, movilidad, Deep Learning e IA generativa.</li>
         </ol>
-        <p>La periodización no es una taxonomía universal. Un cobot requiere sensores de fuerza y contacto, movilidad o gestión de energía cuando corresponde, y visión artificial no invasiva para percibir entorno, personas, piezas y defectos. Kinesthetic teaching, guiado cinestésico, permite enseñar trayectorias moviendo físicamente el brazo.</p>
+        <p>La periodización ordena la evolución tecnológica usada en el apunte y puede diferir de otras clasificaciones de robótica. Un cobot requiere sensores de fuerza y contacto, movilidad o gestión de energía cuando corresponde, y visión artificial no invasiva para percibir entorno, personas, piezas y defectos. Kinesthetic teaching, guiado cinestésico, permite enseñar trayectorias moviendo físicamente el brazo.</p>
 
         <h3>Mantenimiento</h3>
         <div class="table-wrap"><table>
