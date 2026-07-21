@@ -590,31 +590,41 @@
       <div class="search-results" id="search-results" role="listbox" aria-label="Resultados de búsqueda" hidden></div>
     </div>
 
-    <div class="nav-title">Núcleo</div>
+    <div class="nav-title">Fundamentos y proyecto</div>
     <nav class="toc" aria-label="Tabla de contenidos">
-      <a href="#ciclo"><span>01</span>Fundamentos y ciclo de aprendizaje</a>
-      <a href="#problema"><span>02</span>Problema y viabilidad</a>
-      <a href="#datos"><span>03</span>Datos, acceso y análisis exploratorio</a>
-      <a href="#features"><span>04</span>Ingeniería de características</a>
-      <a href="#entrenamiento"><span>05</span>Entrenamiento y métricas</a>
-      <a href="#regularizacion"><span>06</span>Regularización</a>
-      <a href="#automl"><span>07</span>Automatización del aprendizaje</a>
-      <a href="#xai"><span>08</span>Explicabilidad y sesgos</a>
-      <a href="#mlops"><span>09</span>Producción y mantenimiento</a>
+      <a href="#fundamentos"><span>01</span>Qué es Machine Learning</a>
+      <a href="#ciclo"><span>02</span>Ciclo de vida, roles y trazabilidad</a>
+      <a href="#problema"><span>03</span>Problema y viabilidad</a>
+    </nav>
+    <div class="nav-title">Datos y modelos</div>
+    <nav class="toc" aria-label="Datos, entrenamiento y operación">
+      <a href="#datos"><span>04</span>Acceso, calidad y EDA</a>
+      <a href="#features"><span>05</span>Limpieza y features</a>
+      <a href="#familias"><span>06</span>Familias y algoritmos</a>
+      <a href="#entrenamiento"><span>07</span>Entrenamiento y validación</a>
+      <a href="#metricas"><span>08</span>Métricas y errores</a>
+      <a href="#redes"><span>09</span>Redes neuronales y Deep Learning</a>
+      <a href="#regularizacion"><span>10</span>Sobreajuste y regularización</a>
+      <a href="#automl"><span>11</span>AutoML</a>
+      <a href="#xai"><span>12</span>Explicabilidad, conocimiento y sesgos</a>
+      <a href="#mlops"><span>13</span>Despliegue, monitoreo y retiro</a>
     </nav>
     <div class="nav-title">IA generativa</div>
     <nav class="toc" aria-label="Modelos generativos y agentes">
-      <a href="#llm"><span>10</span>Modelos de lenguaje y prompting</a>
-      <a href="#rag"><span>11</span>Recuperación aumentada y bases vectoriales</a>
-      <a href="#vibe"><span>12</span>Vibe coding</a>
-      <a href="#agentes"><span>13</span>Agentes inteligentes</a>
-      <a href="#seguridad"><span>14</span>Seguridad en modelos de lenguaje</a>
+      <a href="#llm"><span>14</span>LLM, Transformer y prompting</a>
+      <a href="#rag"><span>15</span>RAG y bases vectoriales</a>
+      <a href="#vibe"><span>16</span>Vibe coding</a>
+      <a href="#agentes"><span>17</span>Agentes y orquestación</a>
+      <a href="#seguridad"><span>18</span>Seguridad en aplicaciones con LLM</a>
     </nav>
-    <div class="nav-title">Aplicaciones y repaso</div>
+    <div class="nav-title">Aplicación</div>
     <nav class="toc" aria-label="Aplicaciones y material de repaso">
-      <a href="#cobots"><span>15</span>Aplicaciones industriales</a>
-      <a href="#preguntas"><span>16</span>Banco de preguntas</a>
-      <a href="#glosario"><span>17</span>Glosario</a>
+      <a href="#cobots"><span>19</span>Aplicaciones industriales</a>
+    </nav>
+    <div class="nav-title">Anexos</div>
+    <nav class="toc" aria-label="Material de repaso">
+      <a href="#preguntas"><span>A</span>Preguntas de final</a>
+      <a href="#glosario"><span>B</span>Glosario</a>
     </nav>
 
     <div class="side-actions">
@@ -645,10 +655,10 @@
         <h1>Aprendizaje Automático</h1>
       </header>
 
-      <section class="chapter" id="ciclo" data-title="qué es aprendizaje automático machine learning algoritmo modelo entrenamiento inferencia dataset feature target ciclo vida proceso metodología go no go producción">
+      <section class="chapter" id="fundamentos" data-title="qué es aprendizaje automático machine learning inteligencia artificial deep learning algoritmo modelo entrenamiento inferencia dataset feature target alcance límites software tradicional">
         <div class="chapter-head">
           <div class="chapter-number">01</div>
-          <div><h2>Fundamentos y ciclo de Machine Learning</h2></div>
+          <div><h2>Aprendizaje automático: qué es, qué aprende y qué no</h2></div>
         </div>
 
         <h3>Qué es el aprendizaje automático</h3>
@@ -659,8 +669,9 @@
         <p><strong>Machine Learning mira el pasado, abstrae patrones y los aplica a casos nuevos.</strong> Es potente cuando la tarea está tipificada, es decir, cuando el procedimiento está bien conocido y la variabilidad posible es acotada. Si aparece una situación completamente nueva, fuera de los patrones observados, el modelo no tiene experiencia desde la cual extrapolar.</p>
         <p>La IA actual no es inteligencia humana, sino un mecanismo estadístico o probabilístico que produce resultados convincentes. Puede extrapolar dentro de un dominio aprendido, pero no transfiere conocimiento entre dominios con la flexibilidad de una persona.</p>
         <p>El robot que dobla una camisa muestra esta limitación. Para una persona es una tarea cotidiana, pero cada camisa cae de una forma distinta y genera muchísimas configuraciones posibles. La dificultad no es solo la motricidad fina, sino resolver una situación variable usando abstracción y conocimiento general. El mejor resultado surge al <strong>complementar IA con inteligencia natural</strong>: la máquina aporta velocidad y repetición, la persona aporta criterio, abstracción y conocimiento del problema.</p>
+        <p>La figura del gato japonés <em>maneki-neko</em> muestra la misma diferencia. Una persona puede relacionar un objeto nuevo con cultura, intención y experiencias de otros dominios. Un modelo extrapola desde patrones aprendidos y no realiza esa transferencia abierta con la misma flexibilidad.</p>
 
-        <h3>Las piezas mínimas</h3>
+        <h3>Dataset, features, target, algoritmo y modelo</h3>
         <ul class="study-list">
           <li><strong>Dataset:</strong> conjunto de datos usado para desarrollar el sistema. Cada fila suele representar una observación, como una venta, un cliente o una medición.</li>
           <li><strong>Feature o característica:</strong> variable de entrada que el modelo utiliza, como precio, temperatura, fecha o cantidad comprada.</li>
@@ -677,6 +688,15 @@
 
         <h3>ML no se construye igual que el software tradicional</h3>
         <p>La diferencia sustancial frente al software tradicional es el sentido del flujo de datos. Una aplicación tradicional suele ser <strong>productora de datos</strong>: su operación, transacciones y registros de actividad generan información. Un sistema de ML es primero un gran <strong>ingestor de datos</strong>: necesita historia para entrenarse y abstraer el modelo. En producción puede generar una salida muy pequeña, por ejemplo una clase o un número, en comparación con el volumen usado para desarrollarlo.</p>
+
+        <p class="exam-answer"><strong>Respuesta:</strong> Machine Learning construye modelos que aprenden patrones a partir de datos para aplicarlos a casos nuevos. El algoritmo es el procedimiento de aprendizaje, el entrenamiento ajusta sus parámetros y el modelo entrenado realiza inferencias. Solo puede generalizar desde los patrones representados en los datos.</p>
+      </section>
+
+      <section class="chapter" id="ciclo" data-title="ciclo vida proyecto machine learning proceso metodología go no go producción gestión conocimiento bitácora trazabilidad roles entregables">
+        <div class="chapter-head">
+          <div class="chapter-number">02</div>
+          <div><h2>Ciclo de vida, roles y trazabilidad de un proyecto de ML</h2></div>
+        </div>
 
         <h3>El ciclo de vida</h3>
         <ol class="study-list" aria-label="Flujo del ciclo de Machine Learning">
@@ -727,13 +747,13 @@
 
       <section class="chapter" id="problema" data-title="definición problema viabilidad criterio éxito acceso datos métrica negocio">
         <div class="chapter-head">
-          <div class="chapter-number">02</div>
-          <div><h2>Definición del problema y viabilidad</h2></div>
+          <div class="chapter-number">03</div>
+          <div><h2>Definición del problema y análisis de viabilidad</h2></div>
         </div>
 
         <p>Definir el problema no es ponerle un título. Es describir el proceso, la decisión que se quiere mejorar y el resultado esperado hasta que negocio y equipo técnico estén hablando de lo mismo. Esa descripción permite contestar dos preguntas distintas: <strong>¿se puede resolver?</strong> y <strong>¿podemos resolverlo nosotros con los datos, el tiempo y los recursos disponibles?</strong></p>
 
-        <h3>Las preguntas iniciales</h3>
+        <h3>Preguntas para decidir Go o No Go</h3>
         <ol>
           <li><strong>¿El problema amerita Machine Learning?</strong> Si una regla fija, una consulta o una automatización convencional lo resuelve, ML agrega costo y riesgo sin aportar valor.</li>
           <li><strong>¿Ya fue resuelto?</strong> Revisar artículos, estudios, casos, algoritmos, datasets y métricas usadas evita repetir trabajo y permite estimar viabilidad.</li>
@@ -764,8 +784,8 @@
 
       <section class="chapter" id="datos" data-title="datos acceso EDA análisis exploratorio nulos duplicados outliers correlación pandas calidad">
         <div class="chapter-head">
-          <div class="chapter-number">03</div>
-          <div><h2>Datos, acceso y análisis exploratorio</h2></div>
+          <div class="chapter-number">04</div>
+          <div><h2>Acceso, calidad y análisis exploratorio de datos</h2></div>
         </div>
 
         <h3>Existencia, acceso y capacidad</h3>
@@ -781,7 +801,7 @@
           <li><strong>Comportamiento:</strong> distribuciones, valores únicos, desbalance, correlaciones, estacionalidad, cambios y outliers.</li>
         </ul>
 
-        <h3>Secuencia de trabajo</h3>
+        <h3>Cómo realizar un EDA</h3>
         <ol>
           <li>Preservar una copia inmutable de los datos originales.</li>
           <li>Entender cantidad de filas y columnas, esquema, tipos y uso de memoria.</li>
@@ -847,13 +867,13 @@
 
       <section class="chapter" id="features" data-title="limpieza data cleaning feature engineering características transformación escalado fechas PCA roles">
         <div class="chapter-head">
-          <div class="chapter-number">04</div>
-          <div><h2>Limpieza e ingeniería de características</h2></div>
+          <div class="chapter-number">05</div>
+          <div><h2>Limpieza de datos e ingeniería de características</h2></div>
         </div>
 
         <p>La <strong>ingeniería de características</strong>, también llamada <em>feature engineering</em>, consiste en transformar las variables disponibles o crear nuevas para que los patrones relevantes queden representados de una forma que el algoritmo pueda usar. Transformar no significa alterar el significado del dato: significa cambiar su representación para hacer visibles regularidades útiles, como “darle esteroides al dataset”.</p>
 
-        <h3>Tres conceptos que no deben mezclarse</h3>
+        <h3>EDA, limpieza e ingeniería de características</h3>
         <ul class="study-list">
           <li><strong>EDA, diagnosticar:</strong> observar, cuantificar, formular hipótesis y documentar. No corregir todavía.</li>
           <li><strong>Data cleaning, sanear:</strong> corregir o tratar nulos, duplicados, formatos, categorías y errores para obtener calidad mínima.</li>
@@ -890,9 +910,9 @@
         <p>Antes de entrenar puede estimarse relevancia revisando cuánto varía una columna, cuántos valores distintos contiene, cómo se relaciona con otras variables y qué aporta según el conocimiento del problema. La importancia real se contrasta luego del entrenamiento. Si varias features tienen peso casi nulo y al retirarlas la métrica pasa, por ejemplo, de 0,82 a 0,81, la simplificación puede ser conveniente.</p>
         <p>En un ejemplo, tres features concentraban alrededor de 70% del peso, cinco llegaban a 85% y las cinco restantes aportaban el 15% final. No es una proporción universal: muestra que unas pocas variables pueden explicar gran parte del resultado y que el costo de conservar el resto debe justificarse.</p>
         <p><strong>Ejemplo de costo:</strong> si cinco features ya alcanzan 85%, un modelo con decenas de variables que tarda tres horas para sostener ese 85% puede ser peor decisión que otro con alrededor de diez variables, 81% y diez minutos de entrenamiento. La diferencia se multiplica en cada validación y reentrenamiento. También puede ser útil retirar correlaciones obvias para que el análisis revele relaciones menos evidentes, siempre verificando que no se elimine información necesaria.</p>
-        <p>Si la accuracy queda persistentemente en una zona baja, por ejemplo entre 0,40 y 0,55, una hipótesis es que faltan features que describan el patrón. No es una demostración automática: también puede fallar el target, la calidad, el algoritmo, la separación de datos o la propia posibilidad predictiva.</p>
+        <p>Si la accuracy, proporción total de aciertos, queda persistentemente en una zona baja, por ejemplo entre 0,40 y 0,55, una hipótesis es que faltan features que describan el patrón. No es una demostración automática: también puede fallar el target, la calidad, el algoritmo, la separación de datos o la propia posibilidad predictiva.</p>
 
-        <h3>Responsabilidades superpuestas</h3>
+        <h3>Ingeniero de datos y científico de datos</h3>
         <p>El ingeniero de datos realiza la preparación genérica. El científico de datos puede revisarla al elegir la familia de algoritmos, explicada en el capítulo siguiente, porque el tratamiento de outliers, el escalado y la reducción dependen del modelo.</p>
 
         <p><strong>Leakage o fuga de información:</strong> ocurre cuando el entrenamiento recibe un dato que no estaría disponible al momento de predecir, o cuando información del conjunto de prueba, reservado para la evaluación final, se filtra hacia el entrenamiento. La métrica parece mejorar, pero no representa el uso real.</p>
@@ -900,13 +920,13 @@
         <p class="exam-answer"><strong>Respuesta:</strong> la ingeniería de características cambia la representación del dataset, por ejemplo descomponiendo fechas o creando ratios. Usa técnicas estadísticas, conocimiento del dominio y experiencia. Una feature se conserva si mejora desempeño, estabilidad o interpretabilidad sin introducir leakage.</p>
       </section>
 
-      <section class="chapter" id="entrenamiento" data-title="supervisado no supervisado clasificación regresión clustering train test cross validation métricas accuracy precision recall f1 confusion">
+      <section class="chapter" id="familias" data-title="supervisado no supervisado refuerzo clasificación regresión clustering clusterización familias algoritmos">
         <div class="chapter-head">
-          <div class="chapter-number">05</div>
-          <div><h2>Entrenamiento, validación y métricas</h2></div>
+          <div class="chapter-number">06</div>
+          <div><h2>Familias de aprendizaje y algoritmos</h2></div>
         </div>
 
-        <h3>Las tres familias de problemas</h3>
+        <h3>Clasificación, regresión y clustering</h3>
         <p>En el <strong>aprendizaje supervisado</strong>, cada ejemplo incluye el target correcto que el modelo debe aprender a predecir. En el <strong>aprendizaje no supervisado</strong>, no existe ese resultado conocido y se buscan estructuras dentro de los datos.</p>
         <p><strong>Clasificación, regresión y clustering.</strong> Las dos primeras son familias de problemas supervisados y la tercera es no supervisada.</p>
         <ul class="study-list">
@@ -920,7 +940,7 @@
         <h3>Por qué se habla de familias y no de un mejor algoritmo</h3>
         <p>Los patrones y su distribución interna son invisibles antes de entrenar. Dos empresas pueden querer predecir las mismas ventas y tener columnas con los mismos nombres, pero distinto volumen, historia, concentración y distribución de casos. Por eso un algoritmo puede funcionar mejor en una y otro algoritmo de la misma familia en la otra.</p>
         <p>La selección práctica consiste en identificar primero la familia adecuada al tipo de salida y luego comparar varios algoritmos de esa familia con la métrica definida para el problema. También pueden aparecer los nombres <strong>clusterización o clustering, clasificación y predicción o regresión</strong>.</p>
-        <p>La experiencia permite reducir la búsqueda: una persona senior puede preseleccionar unos pocos algoritmos plausibles, mientras una búsqueda sin criterio puede probar combinaciones caóticamente y quedarse en un mínimo local que no sea la mejor solución disponible. AutoML amplía la comparación, pero no reemplaza el criterio sobre familia, métrica y restricciones.</p>
+        <p>La experiencia permite reducir la búsqueda: una persona senior puede preseleccionar unos pocos algoritmos plausibles, mientras una búsqueda sin criterio puede probar combinaciones caóticamente y quedarse en un <strong>mínimo local</strong>, una solución mejor que las alternativas cercanas pero no la mejor disponible. Las herramientas de automatización amplían la comparación, pero no reemplazan el criterio sobre familia, métrica y restricciones.</p>
 
         <div class="table-wrap"><table>
           <thead><tr><th>Familia</th><th>Target</th><th>Salida</th><th>Ejemplos</th></tr></thead>
@@ -945,21 +965,14 @@
         </ul>
         <p>Ejemplos de candidatos: para spam pueden probarse regresión logística, Naive Bayes o SVM; para precio, regresión lineal, árboles o Random Forest; para segmentar clientes, K Means o DBSCAN. La elección final se hace con validación y con la métrica definida para el problema.</p>
 
-        <h3>Datos de entrada en ML tradicional y Deep Learning</h3>
-        <p>Deep Learning es una rama de Machine Learning basada en redes neuronales con varias capas. Puede aprender representaciones internas a partir de datos menos estructurados. Un tensor es simplemente un arreglo numérico de una o más dimensiones, usado para representar lotes, imágenes, audio o texto codificado.</p>
-        <div class="table-wrap"><table>
-          <thead><tr><th>Dimensión</th><th>ML tradicional</th><th>Deep Learning</th></tr></thead>
-          <tbody>
-            <tr><td>Representación usual</td><td>Matriz tabular de features ya diseñadas.</td><td>Tensores de alta dimensión.</td></tr>
-            <tr><td>Datos frecuentes</td><td>Numéricos y categóricos estructurados, luego de codificación.</td><td>Imagen, audio, texto, video, señales y también datos tabulares.</td></tr>
-            <tr><td>Features</td><td>Mayor ingeniería manual y conocimiento de dominio.</td><td>Aprende representaciones internas, aunque sigue necesitando preparación.</td></tr>
-            <tr><td>Volumen</td><td>Suele funcionar con menos datos.</td><td>Suele requerir mucho más volumen para generalizar.</td></tr>
-            <tr><td>Cómputo</td><td>Frecuentemente menor y entrenamientos más rápidos.</td><td>Frecuentemente mayor, con GPU, procesadores especializados en operaciones numéricas paralelas, u otros aceleradores.</td></tr>
-            <tr><td>Interpretabilidad</td><td>Muchos modelos tabulares son más fáciles de explicar.</td><td>Redes profundas suelen quedar como caja gris.</td></tr>
-          </tbody>
-        </table></div>
+        <p class="exam-answer"><strong>Respuesta:</strong> clasificación y regresión son familias supervisadas porque aprenden desde ejemplos con un target conocido. Clustering es no supervisado porque busca grupos sin target. Primero se identifica la familia por el tipo de salida y después se comparan varios algoritmos, porque su rendimiento depende de la distribución concreta de los datos.</p>
+      </section>
 
-        <p class="exam-answer"><strong>Respuesta:</strong> ML tradicional suele recibir datos estructurados ya convertidos en features, mientras Deep Learning puede aprender representaciones desde imágenes, audio y texto. Deep Learning no usa un tipo de dato exclusivo, pero normalmente necesita más volumen y cómputo. La diferencia principal es cuánto de la representación define una persona y cuánto aprende la red.</p>
+      <section class="chapter" id="entrenamiento" data-title="entrenamiento train validación test holdout hiperparámetros grid search random search bayesiana cross validation k fold folds heterogeneidad patrones">
+        <div class="chapter-head">
+          <div class="chapter-number">07</div>
+          <div><h2>Entrenamiento, hiperparámetros y validación</h2></div>
+        </div>
 
         <h3>Separación de datos</h3>
         <p>Evaluar con los mismos ejemplos usados para aprender daría un resultado engañoso. Por eso el dataset se divide antes de entrenar:</p>
@@ -994,6 +1007,15 @@
 
         <h3>Heterogeneidad de patrones</h3>
         <p>Los patrones pueden cambiar con el tiempo o concentrarse en segmentos. Pandemia, Black Friday o un cambio de sistema son cortes que pueden justificar modelos separados. En series temporales se valida respetando el orden temporal. Si existen clientes, pacientes o equipos relacionados, esos grupos no deben quedar repartidos entre entrenamiento y validación.</p>
+
+        <p class="exam-answer"><strong>Respuesta:</strong> el conjunto de entrenamiento ajusta el modelo, validación permite comparar alternativas durante el desarrollo y test queda reservado para la evaluación final. La validación cruzada repite el entrenamiento sobre distintos folds para medir rendimiento y estabilidad. Los hiperparámetros se eligen con esa evidencia sin usar el test para tomar decisiones.</p>
+      </section>
+
+      <section class="chapter" id="metricas" data-title="métricas clasificación regresión matriz confusión accuracy precision recall sensibilidad f1 roc auc pr auc mae rmse r cuadrado mape falso positivo falso negativo">
+        <div class="chapter-head">
+          <div class="chapter-number">08</div>
+          <div><h2>Métricas y costos de error</h2></div>
+        </div>
 
         <h3>Métricas de clasificación</h3>
         <p>Una clasificación puede cometer dos tipos de error: marcar como positivo algo que no lo era, falso positivo, u omitir un positivo real, falso negativo. La matriz de confusión cuenta los cuatro resultados posibles.</p>
@@ -1038,12 +1060,53 @@
 
         <p><strong>Ejemplo numérico:</strong> sobre el mismo dataset, un algoritmo obtuvo recall de 85% y accuracy de 40%, mientras un modelo de Gradient Boosting, que combina árboles de decisión de forma secuencial, obtuvo accuracy de 81% y recall de 35%. Si el problema exige detectar la mayor cantidad de positivos reales, gana el primero. Si se hubiera elegido accuracy sin pensar el costo de error, se habría elegido Gradient Boosting. El algoritmo ganador cambia con la métrica.</p>
 
-        <p class="exam-answer"><strong>Respuesta:</strong> se separan entrenamiento, validación y test. La validación cruzada permite comparar modelos y configuraciones con varias particiones del entrenamiento. La métrica depende del costo de error: recall si importa evitar falsos negativos, precision si importan los falsos positivos y F1 si se necesita equilibrar ambos.</p>
+        <p class="exam-answer"><strong>Respuesta:</strong> la métrica se elige según el costo de cada error. Recall prioriza no perder positivos reales, precision evita falsos positivos y F1 equilibra ambas. Accuracy puede engañar con clases desbalanceadas. En regresión, MAE expresa el error medio en la unidad del target y RMSE penaliza con más fuerza los errores grandes.</p>
       </section>
 
-      <section class="chapter" id="regularizacion" data-title="overfitting underfitting regularización generalización bias variance ridge lasso early stopping dropout augmentation">
+      <section class="chapter" id="redes" data-title="redes neuronales deep learning arquitectura capas pesos umbrales activación backpropagation capacidad patrones metaconceptos datos entrada tensores">
         <div class="chapter-head">
-          <div class="chapter-number">06</div>
+          <div class="chapter-number">09</div>
+          <div><h2>Redes neuronales y Deep Learning</h2></div>
+        </div>
+
+        <p>Una <strong>red neuronal</strong> es un modelo compuesto por capas de unidades conectadas. Cada conexión tiene un peso, un valor numérico que determina cuánto influye una señal. La red combina las entradas, aplica funciones de activación y produce una salida. Durante el entrenamiento ajusta esos pesos para reducir el error.</p>
+
+        <h3>Arquitectura y backpropagation</h3>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Concepto</th><th>Descripción</th></tr></thead>
+          <tbody>
+            <tr><td>Arquitectura</td><td>Capa de entrada, una o más capas ocultas y capa de salida. Las conexiones tienen pesos que determinan cuánto se propaga cada señal.</td></tr>
+            <tr><td>Backpropagation</td><td>Calcula el error en la salida y lo propaga hacia atrás para ajustar los pesos. El proceso se repite sobre los ejemplos hasta alcanzar un criterio de parada.</td></tr>
+            <tr><td>Capacidad</td><td>Más unidades o capas permiten representar más patrones, pero aumentan cómputo, tiempo de estabilización y riesgo de sobreajuste.</td></tr>
+            <tr><td>Interferencia</td><td>Al ajustar pesos para una clase puede empeorar otra ya aprendida. Un ejemplo típico son letras manuscritas confundibles, como B y D, P y Q, M y N.</td></tr>
+            <tr><td>Redes encadenadas</td><td>Una primera red reconoce grupos o metaconceptos y otra distingue las clases confundibles dentro del grupo. Reduce patrones por subred, pero no reemplaza validación ni regularización.</td></tr>
+          </tbody>
+        </table></div>
+
+        <p>Una red neuronal funciona como una <strong>base de datos sofisticada</strong>: no guarda filas, sino la abstracción de los patrones en sus pesos. Entrenar significa encontrar los pesos o umbrales de activación que permiten propagar la señal correcta y estabilizar la red. El ejemplo de las sillas muestra la idea de abstracción: una persona no memoriza todas las sillas vistas, conserva rasgos generales que le permiten reconocer una nueva.</p>
+        <p>La capacidad de patrones es finita para una arquitectura y un presupuesto dados. Agregar neuronas o capas amplía capacidad, pero el tiempo necesario para estabilizar la red puede crecer de forma muy fuerte y, según la complejidad del modelo, exponencial. El encadenamiento de redes divide el problema: una primera red reconoce metaconceptos, por ejemplo “P o Q”, y otra red especializada resuelve esa distinción con menos patrones simultáneos.</p>
+        <p><strong>Definición empírica:</strong> Deep Learning combina buenas prácticas de preprocesamiento con un encadenamiento particular de una o más redes neuronales para obtener resultados precisos. Técnicamente, la definición más general es el aprendizaje con redes neuronales de múltiples capas que construyen representaciones jerárquicas. La primera formulación describe una práctica de diseño, la segunda una definición estándar.</p>
+
+        <h3>Datos de entrada en ML tradicional y Deep Learning</h3>
+        <p>Deep Learning puede aprender representaciones internas a partir de datos menos estructurados. Un tensor es un arreglo numérico de una o más dimensiones, usado para representar lotes, imágenes, audio o texto codificado.</p>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Dimensión</th><th>ML tradicional</th><th>Deep Learning</th></tr></thead>
+          <tbody>
+            <tr><td>Representación usual</td><td>Matriz tabular de features ya diseñadas.</td><td>Tensores de alta dimensión.</td></tr>
+            <tr><td>Datos frecuentes</td><td>Numéricos y categóricos estructurados, luego de codificación.</td><td>Imagen, audio, texto, video, señales y también datos tabulares.</td></tr>
+            <tr><td>Features</td><td>Mayor ingeniería manual y conocimiento de dominio.</td><td>Aprende representaciones internas, aunque sigue necesitando preparación.</td></tr>
+            <tr><td>Volumen</td><td>Suele funcionar con menos datos.</td><td>Suele requerir mucho más volumen para generalizar.</td></tr>
+            <tr><td>Cómputo</td><td>Frecuentemente menor y entrenamientos más rápidos.</td><td>Frecuentemente mayor, con GPU, procesadores especializados en operaciones numéricas paralelas, u otros aceleradores.</td></tr>
+            <tr><td>Interpretabilidad</td><td>Muchos modelos tabulares son más fáciles de explicar.</td><td>Redes profundas suelen quedar como caja gris.</td></tr>
+          </tbody>
+        </table></div>
+
+        <p class="exam-answer"><strong>Respuesta:</strong> una red neuronal aprende ajustando los pesos de conexiones entre capas mediante backpropagation. Deep Learning usa redes de múltiples capas para aprender representaciones jerárquicas. ML tradicional suele recibir features tabulares ya diseñadas, mientras Deep Learning puede aprender representaciones desde imágenes, audio o texto, normalmente con más datos y cómputo.</p>
+      </section>
+
+      <section class="chapter" id="regularizacion" data-title="generalización overfitting underfitting sobreajuste regularización bias variance sesgo varianza ridge lasso elastic net early stopping dropout augmentation">
+        <div class="chapter-head">
+          <div class="chapter-number">10</div>
           <div><h2>Generalización, sobreajuste y regularización</h2></div>
         </div>
 
@@ -1060,22 +1123,6 @@
           <li><strong>Dataset sesgado o poco representativo:</strong> el modelo aprende bien los pocos patrones disponibles, pero el mundo real contiene otros.</li>
           <li><strong>Capacidad o entrenamiento mal calibrados:</strong> el modelo se adapta al detalle y ruido, o intenta representar demasiados patrones con una arquitectura y presupuesto inadecuados.</li>
         </ol>
-
-        <h3>Redes neuronales y backpropagation</h3>
-        <div class="table-wrap"><table>
-          <thead><tr><th>Concepto</th><th>Descripción</th></tr></thead>
-          <tbody>
-            <tr><td>Arquitectura</td><td>Capa de entrada, una o más capas ocultas y capa de salida. Las conexiones tienen pesos que determinan cuánto se propaga cada señal.</td></tr>
-            <tr><td>Backpropagation</td><td>Calcula el error en la salida y lo propaga hacia atrás para ajustar los pesos. El proceso se repite sobre los ejemplos hasta alcanzar un criterio de parada.</td></tr>
-            <tr><td>Capacidad</td><td>Más unidades o capas permiten representar más patrones, pero aumentan cómputo, tiempo de estabilización y riesgo de sobreajuste.</td></tr>
-            <tr><td>Interferencia</td><td>Al ajustar pesos para una clase puede empeorar otra ya aprendida. Un ejemplo típico son letras manuscritas confundibles, como B y D, P y Q, M y N.</td></tr>
-            <tr><td>Redes encadenadas</td><td>Una primera red reconoce grupos o metaconceptos y otra distingue las clases confundibles dentro del grupo. Reduce patrones por subred, pero no reemplaza validación ni regularización.</td></tr>
-          </tbody>
-        </table></div>
-
-        <p>Una red neuronal funciona como una <strong>base de datos sofisticada</strong>: no guarda filas, sino la abstracción de los patrones en sus pesos. Entrenar significa encontrar los pesos o umbrales de activación que permiten propagar la señal correcta y estabilizar la red. El ejemplo de las sillas muestra la idea de abstracción: una persona no memoriza todas las sillas vistas, conserva rasgos generales que le permiten reconocer una nueva.</p>
-        <p>La capacidad de patrones es finita para una arquitectura y un presupuesto dados. Agregar neuronas o capas amplía capacidad, pero el tiempo necesario para estabilizar la red puede crecer de forma muy fuerte y, según la complejidad del modelo, exponencial. El encadenamiento de redes divide el problema: una primera red reconoce metaconceptos, por ejemplo “P o Q”, y otra red especializada resuelve esa distinción con menos patrones simultáneos.</p>
-        <p><strong>Definición empírica:</strong> Deep Learning combina buenas prácticas de preprocesamiento con un encadenamiento particular de una o más redes neuronales para obtener resultados precisos. Técnicamente, la definición más general es el aprendizaje con redes neuronales de múltiples capas que construyen representaciones jerárquicas. La primera formulación describe una práctica de diseño, la segunda una definición estándar.</p>
 
         <p>Una métrica extremadamente alta no prueba sobreajuste, pero debe activar revisión. Comparar entrenamiento, validación, cross validation y producción permite distinguir un problema fácil de una falsa seguridad. En Iris, un dataset pequeño, estándar y muy curado, una accuracy cercana a 97% es esperable. Obtener el mismo resultado en un dataset real, ruidoso y recién construido exige una revisión mucho más cuidadosa.</p>
 
@@ -1106,8 +1153,8 @@
 
       <section class="chapter" id="automl" data-title="automl pycaret tpot h2o autofeat flaml lazypredict programación genética pipeline">
         <div class="chapter-head">
-          <div class="chapter-number">07</div>
-          <div><h2>Automatización del aprendizaje automático (AutoML)</h2></div>
+          <div class="chapter-number">11</div>
+          <div><h2>AutoML: comparación y automatización de modelos</h2></div>
         </div>
 
         <p><strong>AutoML, Automated Machine Learning,</strong> reúne herramientas que automatizan partes repetitivas del entrenamiento y la comparación de modelos. Suele recibir un dataset preparado, el target, el tipo de problema, la métrica, la estrategia de validación y un presupuesto de tiempo. Como salida produce resultados comparables y uno o más pipelines candidatos. Un pipeline es una secuencia ordenada de transformaciones y modelo.</p>
@@ -1147,10 +1194,10 @@
         <p class="exam-answer"><strong>Respuesta:</strong> AutoML automatiza comparación de algoritmos, pipelines, validación y ajuste. No define el problema, no corrige datos deficientes y no decide métricas, sesgos aceptables ni restricciones productivas.</p>
       </section>
 
-      <section class="chapter" id="xai" data-title="explicabilidad interpretabilidad XAI SHAP LIME integrated gradients sesgos fairness caja negra blanca gris">
+      <section class="chapter" id="xai" data-title="explicabilidad interpretabilidad XAI conocimiento reglas producción SHAP LIME integrated gradients sesgos fairness caja negra blanca gris">
         <div class="chapter-head">
-          <div class="chapter-number">08</div>
-          <div><h2>Explicabilidad de modelos y detección de sesgos (XAI)</h2></div>
+          <div class="chapter-number">12</div>
+          <div><h2>Explicabilidad, extracción de conocimiento y sesgos</h2></div>
         </div>
 
         <h3>De caja negra a explicación</h3>
@@ -1193,7 +1240,7 @@
         <h3>Sesgo en datos y modelo</h3>
         <p>Los datos históricos reflejan decisiones y desigualdades anteriores. Un algoritmo puede reproducirlas o amplificarlas. También puede usar un proxy, una variable que revela indirectamente otra, como el código postal respecto del nivel socioeconómico, aunque se elimine una variable sensible. Por eso no alcanza con mirar importancia sobre entrenamiento.</p>
 
-        <h3>Proceso de prueba</h3>
+        <h3>Cómo probar sesgos</h3>
         <ol>
           <li>Identificar grupos, variables sensibles y daños posibles.</li>
           <li>Revisar representación, etiquetas, calidad y proxies.</li>
@@ -1215,8 +1262,8 @@
 
       <section class="chapter" id="mlops" data-title="MLOps producción latencia seguridad computo logs trazabilidad drift data concept prediction reentrenamiento decomiso MLflow">
         <div class="chapter-head">
-          <div class="chapter-number">09</div>
-          <div><h2>Producción y mantenimiento de modelos (MLOps)</h2></div>
+          <div class="chapter-number">13</div>
+          <div><h2>MLOps: despliegue, monitoreo y retiro de modelos</h2></div>
         </div>
 
         <p><strong>MLOps</strong>, abreviatura de <em>Machine Learning Operations</em>, es el conjunto de prácticas para versionar, desplegar, observar y mantener modelos de aprendizaje automático en producción. Conecta el trabajo de datos y modelado con ingeniería de software y operación. No es una herramienta específica ni empieza después de entrenar.</p>
@@ -1268,14 +1315,14 @@
 
       <section class="chapter" id="llm" data-title="LLM modelo lenguaje Transformer tokenización embeddings atención prompt ingeniería prompting ROC fine tuning inferencia">
         <div class="chapter-head">
-          <div class="chapter-number">10</div>
-          <div><h2>Modelos de lenguaje, Transformer y prompting</h2></div>
+          <div class="chapter-number">14</div>
+          <div><h2>Modelos de lenguaje: Transformer y prompting</h2></div>
         </div>
 
         <p>Un <strong>LLM, Large Language Model,</strong> es una red neuronal de Deep Learning entrenada con grandes cantidades de texto para predecir tokens y generar una continuación. Recibe un prompt, que contiene instrucciones y contexto, y produce una respuesta. No funciona como una base de datos ni garantiza que una afirmación sea verdadera.</p>
 
         <h3>Cómo procesa texto un LLM</h3>
-        <p>El recorrido conceptual fue: primero comprender que el contexto modifica el significado de una palabra; luego BERT mostró el valor de representar ese contexto; el mecanismo de atención permitió procesar bloques amplios en paralelo y ponderar sus partes; finalmente, arquitecturas generativas como GPT usaron ese mecanismo para producir continuaciones.</p>
+        <p>El <strong>Transformer</strong> es una arquitectura de red neuronal que usa atención para ponderar qué partes del contexto son relevantes. El recorrido conceptual fue: comprender que el contexto modifica el significado de una palabra; usar modelos como BERT, <em>Bidirectional Encoder Representations from Transformers</em>, para representar ese contexto; procesar bloques amplios en paralelo mediante atención; y usar arquitecturas generativas como GPT, <em>Generative Pre-trained Transformer</em>, para producir continuaciones.</p>
         <ol class="study-list">
           <li><strong>Tokenización:</strong> divide el texto en tokens, que pueden ser palabras, partes de palabras o signos.</li>
           <li><strong>Embeddings:</strong> convierte cada token en un vector numérico que el modelo puede procesar.</li>
@@ -1283,7 +1330,7 @@
           <li><strong>Atención:</strong> asigna más peso a las partes del contexto relevantes para cada token y procesa muchas relaciones en paralelo. Así distingue sentidos diferentes de una palabra, como cabo geográfico, militar o náutico, según las palabras que la rodean.</li>
           <li><strong>Predicción:</strong> después de atravesar varias capas Transformer, calcula probabilidades para el token siguiente. Repite el proceso token por token hasta completar la respuesta.</li>
         </ol>
-        <p>El <strong>Transformer</strong> es la arquitectura de red neuronal que organiza ese mecanismo de atención. Durante el preentrenamiento ajusta sus pesos con grandes corpus de texto. En inferencia usa esos pesos para responder. Un fine tuning posterior puede especializar su conducta, pero no convierte al modelo en una base de datos verificable.</p>
+        <p>Durante el preentrenamiento, el Transformer ajusta sus pesos con grandes colecciones de texto, llamadas corpus. En inferencia usa esos pesos para responder. Un <strong>fine tuning</strong>, entrenamiento adicional sobre ejemplos específicos, puede especializar su conducta, pero no convierte al modelo en una base de datos verificable.</p>
         <p>Visto desde afuera, simula un proceso cognitivo: lee el contexto, conserva relaciones, pondera lo relevante y construye una respuesta. La similitud está en el resultado funcional, no en una comprensión humana interna.</p>
 
         <h3>Cómo escribir una instrucción útil</h3>
@@ -1295,8 +1342,8 @@
 
       <section class="chapter" id="rag" data-title="RAG retrieval augmented generation bases vectoriales embeddings cosine euclidean atención alucinación chunking trazabilidad LLM">
         <div class="chapter-head">
-          <div class="chapter-number">11</div>
-          <div><h2>RAG (generación aumentada mediante recuperación) y bases vectoriales</h2></div>
+          <div class="chapter-number">15</div>
+          <div><h2>RAG: recuperación, bases vectoriales y generación</h2></div>
         </div>
 
         <p><strong>RAG, Retrieval Augmented Generation,</strong> combina recuperación y generación. Busca fragmentos en un corpus, colección de documentos, y los agrega al prompt del LLM para que responda con esa evidencia.</p>
@@ -1361,8 +1408,8 @@
 
       <section class="chapter" id="vibe" data-title="vibe coding generación código LLM patrones amnesia tokens Antigravity Dunning Kruger">
         <div class="chapter-head">
-          <div class="chapter-number">12</div>
-          <div><h2>Vibe coding y supervisión humana</h2></div>
+          <div class="chapter-number">16</div>
+          <div><h2>Vibe coding: método, riesgos y supervisión</h2></div>
         </div>
 
         <p><strong>Vibe coding</strong> es el desarrollo de software asistido por modelos de lenguaje mediante instrucciones en lenguaje natural. Los tokens procesados determinan tanto el límite de contexto como una parte importante del costo.</p>
@@ -1429,8 +1476,8 @@
 
       <section class="chapter" id="agentes" data-title="agentes inteligentes autonomía reactividad proactividad multiagente orquestador colaboración n8n MCP memoria blackboard objetivo utilidad">
         <div class="chapter-head">
-          <div class="chapter-number">13</div>
-          <div><h2>Agentes inteligentes y orquestación</h2></div>
+          <div class="chapter-number">17</div>
+          <div><h2>Agentes, orquestación y sistemas multiagente</h2></div>
         </div>
 
         <p><strong>Agente:</strong> programa que recibe información del entorno y ejecuta acciones para cumplir un objetivo dentro de permisos definidos.</p>
@@ -1484,8 +1531,8 @@
 
       <section class="chapter" id="seguridad" data-title="seguridad LLM brechas vulnerabilidades prompt injection datos sensibles poisoning supply chain output agency system prompt vector embeddings misinformation consumption OWASP">
         <div class="chapter-head">
-          <div class="chapter-number">14</div>
-          <div><h2>Principales brechas de seguridad en modelos de lenguaje (LLM)</h2></div>
+          <div class="chapter-number">18</div>
+          <div><h2>Seguridad en aplicaciones con modelos de lenguaje</h2></div>
         </div>
 
         <h3>Las cinco que hay que nombrar primero</h3>
@@ -1544,8 +1591,8 @@
 
       <section class="chapter" id="cobots" data-title="aplicaciones industriales casos cobots robots colaborativos mantenimiento predictivo prescriptivo gemelos digitales sensores kinesthetic teaching guiado cinestésico industria">
         <div class="chapter-head">
-          <div class="chapter-number">15</div>
-          <div><h2>Aplicaciones industriales de Machine Learning</h2></div>
+          <div class="chapter-number">19</div>
+          <div><h2>Aplicaciones industriales: cobots, mantenimiento y gemelos digitales</h2></div>
         </div>
 
         <p>Cobots, mantenimiento predictivo y gemelos digitales son casos de aplicación. Combinan percepción, predicción, simulación y decisión sobre procesos físicos; no constituyen nuevas familias de aprendizaje automático.</p>
@@ -1566,7 +1613,7 @@
         </ol>
         <p>Estas fechas sirven como periodización usada en este apunte, pero la denominación por generaciones no constituye una taxonomía universal de robótica.</p>
 
-        <h3>Capacidades destacadas</h3>
+        <h3>Percepción e interacción con personas</h3>
         <ul>
           <li>Sensores de fuerza, contacto y percepción del entorno.</li>
           <li><strong>Visión artificial no invasiva:</strong> permite percibir personas, piezas, posiciones, fugas, temperatura y defectos sin llenar el entorno de sensores de contacto. Un robot necesita este alto grado de percepción para ser considerado cobot.</li>
@@ -1597,17 +1644,16 @@
         <p>Es una representación digital conectada con un activo o proceso real que modela comportamiento, estado e interacción, no solo apariencia. Permite simular desgaste, consumo, fallas y configuraciones antes de intervenir el sistema físico. Con datos sintéticos puede acelerar entrenamiento y pruebas, pero necesita calibración contra realidad.</p>
         <p>Esta simulación puede vincularse con las <strong>PINN, Physics Informed Neural Networks</strong>, redes cuyo entrenamiento incorpora restricciones físicas conocidas, como gravedad, termodinámica o conservación. Esas leyes limitan comportamientos imposibles del gemelo digital y ayudan a que los datos sintéticos respeten el sistema real.</p>
 
-        <h3>Infraestructura y límites</h3>
+        <h3>Infraestructura industrial y conectividad</h3>
         <p>La inteligencia del modelo no reemplaza la infraestructura. Una fábrica con integración vertical, como el ejemplo de Tesla, puede coordinar datos y automatización de forma distinta de una cadena fragmentada. Llevar cómputo al espacio ofrece energía solar y cobertura, pero introduce radiación, disipación de calor y comunicaciones como restricciones. Starlink aplicado a drones durante la guerra entre Ucrania y Rusia muestra que conectividad, cifrado y velocidad pueden ser tan determinantes como el modelo.</p>
-        <p>La figura del gato japonés <em>maneki-neko</em> se usó para mostrar la abstracción humana: una persona puede relacionar un objeto nuevo con cultura, intención y experiencias de otros dominios. Un modelo extrapola desde patrones aprendidos y no realiza esa transferencia abierta con la misma flexibilidad.</p>
 
         <p class="exam-answer"><strong>Respuesta:</strong> un cobot comparte espacio con personas y limita riesgo mediante sensores, control de fuerza y percepción. ML puede estimar fallas o adaptar movimientos. Un gemelo digital simula el activo para probar configuraciones y modelos antes de aplicarlos al sistema físico.</p>
       </section>
 
       <section class="chapter" id="preguntas" data-title="preguntas examen final respuestas práctica simulacro">
         <div class="chapter-head">
-          <div class="chapter-number">16</div>
-          <div><h2>Banco de preguntas para el final</h2></div>
+          <div class="chapter-number">A</div>
+          <div><h2>Preguntas de final y respuestas modelo</h2></div>
         </div>
 
         <p><strong>Formato del final:</strong> examen teórico, escrito y presencial. El trabajo práctico debe estar aprobado antes de rendir y, si se presenta en una fecha de examen, el final se rinde en una fecha posterior. Aproximadamente 40% del examen evalúa lo hablado durante la cursada y sale de las notas y apuntes, no solamente de las diapositivas.</p>
@@ -1700,7 +1746,7 @@
 
       <section class="chapter" id="glosario" data-title="glosario conceptos definiciones algoritmo modelo entrenamiento inferencia EDA AutoML XAI LLM token RAG pipeline fine tuning feature target leakage baseline ground truth embedding MLOps drift">
         <div class="chapter-head">
-          <div class="chapter-number">17</div>
+          <div class="chapter-number">B</div>
           <div><h2>Glosario</h2></div>
         </div>
         <div class="table-wrap"><table>
@@ -1791,7 +1837,7 @@
 
     navLinks.forEach(link => {
       const topicId = link.getAttribute('href').slice(1);
-      const topicName = link.textContent.replace(/\s+/g, ' ').trim().replace(/^\d+\s*/, '');
+      const topicName = link.textContent.replace(/\s+/g, ' ').trim().replace(/^(?:\d+|[A-Z])\s*/, '');
       const item = document.createElement('div');
       const button = document.createElement('button');
       item.className = 'toc-item';
@@ -2147,6 +2193,18 @@
             item.start = newStart;
             item.end = newStart + item.quote.length;
             repaired = true;
+          } else {
+            const matches = chapters.map(candidate => ({
+              chapter: candidate,
+              start: candidate.textContent.indexOf(item.quote)
+            })).filter(match => match.start >= 0);
+
+            if (matches.length === 1) {
+              item.chapterId = matches[0].chapter.id;
+              item.start = matches[0].start;
+              item.end = matches[0].start + item.quote.length;
+              repaired = true;
+            }
           }
         }
       });
