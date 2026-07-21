@@ -727,6 +727,8 @@
           <div><h2>Definición del problema y viabilidad</h2></div>
         </div>
 
+        <p>Definir el problema no es ponerle un título. Es describir el proceso, la decisión que se quiere mejorar y el resultado esperado hasta que negocio y equipo técnico estén hablando de lo mismo. Esa descripción permite contestar dos preguntas distintas: <strong>¿se puede resolver?</strong> y <strong>¿podemos resolverlo nosotros con los datos, el tiempo y los recursos disponibles?</strong></p>
+
         <h3>Las preguntas iniciales</h3>
         <ol>
           <li><strong>¿El problema amerita Machine Learning?</strong> Si una regla fija, una consulta o una automatización convencional lo resuelve, ML agrega costo y riesgo sin aportar valor.</li>
@@ -763,7 +765,7 @@
 
         <h3>Existencia, acceso y capacidad</h3>
         <p>Que una empresa afirme que los datos existen no significa que el equipo pueda usarlos. Pueden faltar permisos, anonimización, cumplimiento normativo, acuerdos entre áreas, claves de unión o infraestructura. Solo con acceso efectivo se conocen volumen, nivel de detalle o granularidad, formato y calidad.</p>
-        <div class="callout blue"><strong>Estimación inicial de almacenamiento.</strong> Reservar aproximadamente 2,25 veces el tamaño del dataset original permite conservar estados intermedios. Con una gestión más agresiva puede bajarse a 1,75, eliminando o archivando estados intermedios, pero se pierde la posibilidad de reprocesar inmediatamente desde cualquier paso. Es una heurística empírica, no una constante universal.</div>
+        <div class="callout blue"><strong>Estimación inicial de almacenamiento.</strong> Reservar aproximadamente 2,25 veces el tamaño del dataset original permite trabajar sobre una copia, sin consultar ni modificar continuamente el sistema transaccional, y conservar estados intermedios. Con una gestión más agresiva puede bajarse a 1,75, eliminando o archivando esos estados, pero se pierde la posibilidad de reprocesar inmediatamente desde cualquier paso. Es una heurística empírica, no una constante universal.</div>
 
         <p>El <strong>análisis exploratorio de datos (EDA, del inglés <em>Exploratory Data Analysis</em>)</strong> es la inspección sistemática de los datos antes de entrenar: busca entender su estructura, calidad, distribución y anomalías sin modificar todavía el original.</p>
 
@@ -920,6 +922,20 @@
           </tbody>
         </table></div>
 
+        <h3>Mapa mínimo de algoritmos</h3>
+        <p>La familia define qué tipo de salida se necesita. El algoritmo es el procedimiento concreto que se prueba dentro de esa familia. No hace falta memorizar su implementación, pero sí reconocer qué problema resuelve y qué exige de los datos.</p>
+        <ul class="study-list">
+          <li><strong>Regresión lineal:</strong> predice un número mediante una relación lineal. Es rápida y sus coeficientes son fáciles de interpretar.</li>
+          <li><strong>Regresión logística:</strong> pese al nombre, clasifica. Estima la probabilidad de una clase, por ejemplo spam o no spam.</li>
+          <li><strong>Árbol de decisión:</strong> aprende reglas del tipo si ocurre esto, entonces aquella salida. Es explicable, pero un árbol muy profundo puede sobreajustarse.</li>
+          <li><strong>Random Forest:</strong> combina muchos árboles y decide por voto o promedio. Suele ser más estable que un árbol individual, a costa de perder explicación directa.</li>
+          <li><strong>K vecinos más cercanos, KNN:</strong> decide a partir de los casos más parecidos. Como usa distancias, las variables deben estar en escalas comparables.</li>
+          <li><strong>Naive Bayes y máquinas de vectores de soporte, SVM:</strong> son alternativas frecuentes de clasificación, especialmente en texto o cuando hay muchas variables.</li>
+          <li><strong>K Means y DBSCAN:</strong> agrupan observaciones sin target. K Means busca una cantidad fijada de grupos; DBSCAN detecta zonas densas y puede dejar casos aislados como ruido.</li>
+          <li><strong>Redes neuronales:</strong> modelan relaciones complejas y son la base de Deep Learning. Suelen necesitar más datos y cómputo, y son menos transparentes.</li>
+        </ul>
+        <p>Ejemplos de candidatos: para spam pueden probarse regresión logística, Naive Bayes o SVM; para precio, regresión lineal, árboles o Random Forest; para segmentar clientes, K Means o DBSCAN. La elección final se hace con validación y con la métrica definida para el problema.</p>
+
         <h3>Datos de entrada en ML tradicional y Deep Learning</h3>
         <p>Deep Learning es una rama de Machine Learning basada en redes neuronales con varias capas. Puede aprender representaciones internas a partir de datos menos estructurados. Un tensor es simplemente un arreglo numérico de una o más dimensiones, usado para representar lotes, imágenes, audio o texto codificado.</p>
         <div class="table-wrap"><table>
@@ -954,6 +970,8 @@
         <h3>Validación cruzada o K-fold cross validation</h3>
         <p>Una única partición de validación puede favorecer o perjudicar al modelo por azar. La validación cruzada divide el conjunto de entrenamiento en K partes, llamadas <em>folds</em>. Se entrena K veces: en cada repetición se usa un fold para validar y los restantes para entrenar. Así se obtiene una distribución de resultados en lugar de una sola cifra.</p>
         <p>Son habituales entre 3 y 10 folds. Un K mayor deja menos datos en cada validación y aumenta el costo de cómputo. La elección depende del volumen y de la heterogeneidad de los datos.</p>
+
+        <p><strong>Ejemplo:</strong> en un dataset de 24.000 ventas dividido en 10 folds, nueve resultados entre 0,70 y 0,74 y uno de 0,41 indican que ese fold contiene un patrón distinto. Podría concentrar Black Friday, una región o un período excepcional. La acción correcta es investigar qué casos lo componen antes de promediar y seguir.</p>
 
         <ul class="study-list">
           <li><strong>Media, interpretación operativa:</strong> indica cuán bien o cuán mal el modelo discrimina los patrones que encontró.</li>
@@ -1021,15 +1039,13 @@
         <p>No significa que el proyecto de ML sea automático. Su primer valor suele ser generar un <strong>baseline</strong>, una referencia inicial contra la cual medir mejoras posteriores.</p>
         <p>AutoML reduce el trabajo operativo necesario para entrenar y comparar muchos algoritmos. El conocimiento no desaparece: <strong>se desplaza hacia la definición del problema y la interpretación de las métricas</strong>.</p>
 
-        <h3>Qué puede automatizar</h3>
-        <ul>
-          <li>Preprocesamientos y pipelines estandarizados.</li>
-          <li>Comparación de múltiples algoritmos.</li>
-          <li>Validación cruzada y registro de métricas.</li>
-          <li>Búsqueda de hiperparámetros.</li>
-          <li>Selección o generación de features en algunas herramientas.</li>
-          <li>Reportes, gráficos y exportación de modelos, código y resultados.</li>
+        <h3>Tres bloques que puede automatizar</h3>
+        <ul class="study-list">
+          <li><strong>Preparación y features:</strong> aplica preprocesamientos estandarizados y, según la herramienta, selecciona o genera características.</li>
+          <li><strong>Modelo e hiperparámetros:</strong> compara algoritmos, prueba configuraciones y los evalúa con validación cruzada usando la métrica indicada.</li>
+          <li><strong>Combinación de modelos:</strong> puede crear ensambles, es decir, usar varios modelos y combinar sus predicciones. Bagging los entrena en paralelo y vota o promedia, boosting los entrena en secuencia para corregir errores, y stacking aprende a mezclar modelos distintos.</li>
         </ul>
+        <p>Además puede registrar métricas, generar gráficos y exportar modelos, pipelines o código. La recolección, integración y limpieza de los datos crudos ocurren antes: AutoML recibe un dataset cuya calidad ya debe haber sido investigada.</p>
 
         <h3>Qué no delega</h3>
         <p>Definición del problema, acceso y calidad, prevención de leakage, métrica adecuada, separación de los datos, validación con expertos, análisis de sesgos, restricciones de producción, monitoreo y responsabilidad.</p>
@@ -1238,6 +1254,10 @@
         <p><strong>Vibe coding</strong> es el desarrollo de software asistido por modelos de lenguaje de gran escala, o LLM, mediante instrucciones en lenguaje natural. Un LLM genera texto o código continuando patrones aprendidos. Procesa el contenido en tokens, fragmentos de palabras, signos o código que también determinan el costo y el límite de contexto.</p>
         <p>La analogía del <strong>ilusionista</strong> describe el vibe coding: el resultado hace pensar que hay comprensión detrás de la pantalla, pero el mecanismo sigue siendo probabilístico. Que el código compile no demuestra que la jerarquía, los contratos, la seguridad o la mantenibilidad sean correctos.</p>
 
+        <h3>Cómo escribir una instrucción útil</h3>
+        <p>Un <strong>prompt</strong> es el texto con el que se le indica una tarea al modelo. La ingeniería de prompts consiste en redactar y refinar esas instrucciones para obtener una salida útil. Un prompt necesita claridad, detalle suficiente y contexto. El esquema <strong>ROC</strong> ayuda a ordenarlo: rol que debe asumir el modelo, objetivo concreto y contexto necesario para resolverlo.</p>
+        <p>Para generar un pipeline de ML, por ejemplo, conviene pedir por separado las features y el target, variables de entrada, transformaciones o ecuaciones, algoritmo e hiperparámetros, y pasos de implementación y prueba. El primer resultado se revisa y el prompt se ajusta. Sin conocimiento del problema no hay forma de especificar ni controlar la salida.</p>
+
         <h3>Flujo de trabajo</h3>
         <ol>
           <li>Cargar el documento base o corpus, conjunto de documentos de trabajo, en NotebookLM y extraer conceptos, preguntas y referencias.</li>
@@ -1303,6 +1323,17 @@
         </div>
 
         <p>Un <strong>LLM, Large Language Model,</strong> es un modelo entrenado con grandes cantidades de texto para predecir tokens y generar una continuación. Recibe un prompt, la entrada con instrucciones y contexto, y produce una respuesta. No funciona como una base de datos ni garantiza que una afirmación sea verdadera.</p>
+
+        <h3>Cómo procesa texto un LLM</h3>
+        <ol class="study-list">
+          <li><strong>Tokenización:</strong> divide el texto en tokens, que pueden ser palabras, partes de palabras o signos.</li>
+          <li><strong>Embeddings:</strong> convierte cada token en un vector numérico que el modelo puede procesar.</li>
+          <li><strong>Posición:</strong> agrega información sobre el orden, porque cambiar el orden puede cambiar el significado.</li>
+          <li><strong>Atención:</strong> asigna más peso a las partes del contexto relevantes para cada token y procesa muchas relaciones en paralelo. Así distingue sentidos diferentes de una palabra, como cabo geográfico, militar o náutico, según las palabras que la rodean.</li>
+          <li><strong>Predicción:</strong> después de atravesar varias capas Transformer, calcula probabilidades para el token siguiente. Repite el proceso token por token hasta completar la respuesta.</li>
+        </ol>
+        <p>El <strong>Transformer</strong> es la arquitectura de red neuronal que organiza ese mecanismo de atención. Durante el preentrenamiento ajusta sus pesos con grandes corpus de texto. En inferencia usa esos pesos para responder. Un fine tuning posterior puede especializar su conducta, pero no convierte al modelo en una base de datos verificable.</p>
+
         <p><strong>RAG, Retrieval Augmented Generation,</strong> combina recuperación y generación. Busca fragmentos en un corpus, colección de documentos, y los agrega al prompt del LLM para que responda con esa evidencia.</p>
         <p>Cada fragmento o chunk puede guardarse junto con metadata, como fuente, fecha y permisos. Un embedding lo representa como un vector numérico para buscar contenido semánticamente cercano.</p>
 
@@ -1346,9 +1377,6 @@
 
         <h3>Limitaciones</h3>
         <p>RAG no garantiza corrección. Puede fallar por documentos malos, fragmentación inadecuada, embeddings poco aptos, consulta ambigua, metadata ausente, una cantidad incorrecta de resultados recuperados, llamada <em>top K</em>, pérdida de contexto, prompt deficiente o generación que ignora la evidencia. Deben evaluarse tanto la recuperación como la respuesta final.</p>
-
-        <h3>Atención</h3>
-        <p>El mecanismo de atención pondera qué tokens del contexto son relevantes para cada token procesado y permitió modelar dependencias largas de forma paralelizable. No equivale a comprensión humana, aunque produzca texto coherente.</p>
 
         <h3>RAG frente a fine tuning</h3>
         <p>Fine tuning es un entrenamiento adicional que modifica pesos o adaptadores de un modelo para especializar su comportamiento. RAG no modifica el modelo: cambia el contexto que recibe en cada consulta.</p>
@@ -1620,6 +1648,8 @@
         <details><summary>28. ¿Cómo se relaciona Dunning Kruger con los LLM?</summary><div class="details-body"><p>El efecto describe la sobreconfianza que puede acompañar al conocimiento superficial. Los LLM suelen responder con certeza aunque la salida sea incompleta o incorrecta. El riesgo de adoptar esa seguridad como propia puede llamarse sesgo heredado. Se evita con conocimiento de base para interpelar, repreguntar, comparar y revisar.</p></div></details>
         <details><summary>29. ¿Por qué la métrica puede cambiar el algoritmo ganador?</summary><div class="details-body"><p>Porque cada métrica representa un costo de error diferente. En el ejemplo numérico, un algoritmo tuvo recall de 85% y accuracy de 40%, mientras Gradient Boosting tuvo accuracy de 81% y recall de 35% sobre el mismo dataset. Si importan los falsos negativos gana el primero. Elegir accuracy hace ganar al segundo. La métrica debe definirse desde el problema, antes de ver el ranking.</p></div></details>
         <details><summary>30. ¿Por qué existen familias de algoritmos?</summary><div class="details-body"><p>Porque antes de entrenar no se conocen por completo los patrones ni su distribución. Dos empresas pueden tener el mismo objetivo y columnas con nombres iguales, pero distinto volumen y distribución interna. Por eso no existe un mejor algoritmo universal: se selecciona una familia por el tipo de problema y se comparan sus algoritmos, tarea que AutoML automatiza en parte.</p></div></details>
+        <details><summary>31. ¿Qué aporta el mecanismo de atención?</summary><div class="details-body"><p>Permite ponderar qué tokens del contexto son relevantes para cada token procesado y calcular muchas relaciones en paralelo. Es la pieza central del Transformer y ayuda a mantener contexto amplio, pero no implica comprensión humana ni garantiza verdad.</p></div></details>
+        <details><summary>32. ¿Qué necesita un prompt útil?</summary><div class="details-body"><p>Claridad, detalle suficiente y contexto. El esquema ROC ordena rol, objetivo y contexto. En tareas complejas conviene dividir el trabajo, indicar formato y criterios de aceptación, revisar la salida y refinar la instrucción.</p></div></details>
 
       </section>
 
@@ -1645,6 +1675,9 @@
             <tr><td><strong>XAI</strong></td><td>Técnicas para explicar qué influyó en una salida del modelo.</td></tr>
             <tr><td><strong>LLM</strong></td><td>Modelo de lenguaje de gran escala que genera texto prediciendo tokens.</td></tr>
             <tr><td><strong>Token</strong></td><td>Fragmento de texto o código procesado por un modelo de lenguaje.</td></tr>
+            <tr><td><strong>Transformer</strong></td><td>Arquitectura de red neuronal basada en atención y procesamiento paralelo del contexto.</td></tr>
+            <tr><td><strong>Atención</strong></td><td>Mecanismo que pondera qué partes del contexto son relevantes para procesar cada token.</td></tr>
+            <tr><td><strong>Prompt</strong></td><td>Instrucción y contexto que una persona o sistema envía a un modelo generativo.</td></tr>
             <tr><td><strong>Embedding</strong></td><td>Representación vectorial aprendida de un objeto.</td></tr>
             <tr><td><strong>RAG</strong></td><td>Sistema que recupera documentos y los agrega al contexto de un modelo generativo.</td></tr>
             <tr><td><strong>Fine tuning</strong></td><td>Entrenamiento adicional que especializa pesos o adaptadores de un modelo.</td></tr>
