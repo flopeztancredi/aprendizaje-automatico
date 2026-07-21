@@ -768,7 +768,8 @@
         </div>
 
         <h3>Éxito técnico y éxito de negocio</h3>
-        <p>El criterio de éxito debe incluir una métrica técnica, un valor mínimo aceptable, el costo de cada error, tiempo de respuesta, costo operativo y utilidad para quien usa la predicción. En un modelo médico que clasifica pacientes como enfermos o sanos, un falso negativo es un paciente enfermo clasificado como sano. Cuando ese error es grave, el recall, proporción de enfermos detectados, puede ser más importante que la accuracy, proporción total de aciertos.</p>
+        <p>El <strong>criterio de éxito</strong> describe en términos del negocio qué resultado vuelve útil al proyecto. La <strong>métrica</strong> es el indicador numérico elegido para medirlo. Ambos se definen antes de entrenar: una buena métrica técnica no alcanza si el resultado no mejora la decisión para la que se construyó el sistema.</p>
+        <p>El criterio completo debe incluir una métrica técnica, un valor mínimo aceptable, el costo de cada error, tiempo de respuesta, costo operativo y utilidad para quien usa la predicción. En un modelo médico que clasifica pacientes como enfermos o sanos, un falso negativo es un paciente enfermo clasificado como sano. Cuando ese error es grave, el recall, proporción de enfermos detectados, puede ser más importante que la accuracy, proporción total de aciertos.</p>
 
         <ul class="study-list">
           <li><strong>Detección de cáncer:</strong> si 95% de los pacientes están sanos, responder siempre “sano” produce 95% de accuracy y 0% de recall sobre los enfermos. El objetivo no es acertar la mayoría total, sino detectar la mayor proporción de enfermos, aun aceptando más falsos positivos. Por eso importa el recall.</li>
