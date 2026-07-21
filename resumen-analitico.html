@@ -793,9 +793,9 @@
 
         <h3>Jerarquía</h3>
         <ul class="study-list">
-          <li><strong>Inteligencia Artificial, IA:</strong> campo que construye sistemas capaces de realizar tareas asociadas con inteligencia. Incluye aprendizaje, reglas, búsqueda y planificación.</li>
-          <li><strong>Machine Learning, ML, o aprendizaje automático:</strong> subcampo de la IA que ajusta modelos a partir de datos para aplicar patrones aprendidos sobre casos nuevos.</li>
-          <li><strong>Deep Learning, DL:</strong> área de ML desarrollada en <a href="#redes">Redes neuronales y Deep Learning</a>.</li>
+          <li><strong>Inteligencia Artificial (IA):</strong> campo que construye sistemas capaces de realizar tareas asociadas con inteligencia. Incluye aprendizaje, reglas, búsqueda y planificación.</li>
+          <li><strong>Machine Learning (ML), o aprendizaje automático:</strong> subcampo de la IA que ajusta modelos a partir de datos para aplicar patrones aprendidos sobre casos nuevos.</li>
+          <li><strong>Deep Learning (DL):</strong> área de ML desarrollada en <a href="#redes">Redes neuronales y Deep Learning</a>.</li>
         </ul>
 
         <h3>Objetos básicos</h3>
@@ -831,17 +831,18 @@
         <ol class="study-list">
           <li>Validar el problema y fijar el criterio de éxito.</li>
           <li>Investigar antecedentes, viabilidad, fuentes y acceso.</li>
-          <li>Preparar y diagnosticar los datos mediante <a href="#datos">Data Wrangling y EDA</a>.</li>
+          <li>Preparar y diagnosticar los datos mediante <a href="#datos">Data Wrangling y análisis exploratorio de datos (EDA, <em>Exploratory Data Analysis</em>)</a>.</li>
           <li>Tomar una decisión Go, continuar, o No Go, detener o reformular.</li>
           <li>Realizar <a href="#features">limpieza e ingeniería de características</a>.</li>
           <li>Seleccionar una <a href="#familias">familia</a>, entrenar, validar y ajustar.</li>
           <li>Evaluar con las <a href="#metricas">métricas</a> definidas.</li>
           <li>Explicar resultados y probar sesgos.</li>
           <li>Diseñar la interfaz y las restricciones productivas.</li>
-          <li>Desplegar, versionar y observar mediante <a href="#mlops">MLOps</a>.</li>
+          <li>Desplegar, versionar y observar mediante <a href="#mlops">Machine Learning Operations (MLOps)</a>.</li>
           <li>Diagnosticar cambios, corregir, reentrenar o revertir.</li>
           <li>Retirar el sistema y documentar el cierre.</li>
         </ol>
+        <p><strong>Go:</strong> el problema merece ML, los datos son accesibles y representativos, existen recursos, hay una métrica acordada y los riesgos son manejables. <strong>No Go:</strong> convienen reglas, faltan datos críticos, la calidad o el acceso son insuficientes, el costo es inviable o el riesgo supera el valor.</p>
 
         <h3>Propiedades del ciclo</h3>
         <ul>
@@ -883,7 +884,7 @@
           <li>Confirmar existencia y acceso efectivo a los datos.</li>
           <li>Estimar cómputo, almacenamiento, latencia, seguridad, presupuesto y conocimiento del dominio.</li>
         </ol>
-        <p><strong>Criterio de éxito:</strong> condición de negocio que vuelve útil al proyecto. <strong>Métrica:</strong> indicador numérico que permite medir esa condición. El criterio completo incluye valor mínimo, costo de errores, tiempo de respuesta, costo operativo y utilidad para quien decide.</p>
+        <p><strong>Criterio de éxito:</strong> condición de negocio que vuelve útil al proyecto. <strong>Métrica:</strong> indicador numérico que permite medir esa condición. El criterio completo incluye valor mínimo, costo de errores, tiempo de respuesta, costo operativo y utilidad para quien decide. La métrica se fija antes de ver resultados para no favorecer al algoritmo que mejor luce en lugar del que resuelve el problema.</p>
 
         <h3>Estimación</h3>
         <p>Se estima en dos tramos. El primero llega hasta el diagnóstico de datos. Con esa evidencia se reestiman limpieza, features, entrenamiento y producción. El estudio de viabilidad termina después del EDA y puede consumir entre 25% y 33% del esfuerzo total.</p>
@@ -894,7 +895,7 @@
           <li>Fuentes, acceso, granularidad, historial, etiquetas y restricciones.</li>
           <li>Diagnóstico de calidad y decisión Go o No Go.</li>
           <li>Preparación de datos y familia de aprendizaje.</li>
-          <li>Separación temporal o por grupos, baseline, entrenamiento y ajuste.</li>
+          <li>Separación temporal o por grupos, referencia simple o baseline, entrenamiento y ajuste.</li>
           <li>Métrica principal y complementarias.</li>
           <li>Explicabilidad, sesgos y validación con especialistas.</li>
           <li>Despliegue, latencia, monitoreo, reentrenamiento y retiro.</li>
@@ -929,6 +930,7 @@
           <li><strong>Estadística descriptiva:</strong> count mide presencia, mean y std resumen centro y dispersión, min y max muestran rango, y percentiles muestran concentración. Mínimo igual a máximo indica columna constante.</li>
           <li><strong>Nulos:</strong> no existe un porcentaje universal. Importan cantidad absoluta, patrón de ausencia, variable afectada, sesgo posible y recuperabilidad. Un 1% de millones puede ser tolerable y un 5% a 7% de pocos miles puede ser crítico.</li>
           <li><strong>Duplicados:</strong> se decide con una clave y el proceso de negocio. Dos registros iguales pueden ser una repetición inválida o eventos legítimos.</li>
+          <li><strong>Reversiones:</strong> anulaciones, devoluciones y notas de crédito deben vincularse con la transacción original para no distorsionar estadísticas.</li>
           <li><strong>Outlier o anomalía:</strong> observación fuera de norma, no sinónimo de error. Puede ser válida, fraude, evento excepcional o cambio de régimen. Debe investigarse antes de mantener, separar, transformar o excluir.</li>
           <li><strong>Régimen especial:</strong> un comportamiento correcto pero no representativo del funcionamiento habitual, Business as Usual, puede requerir segmento, features o modelo propios.</li>
           <li><strong>Serendipia:</strong> un objetivo secundario descubierto durante el análisis debe registrarse como conocimiento, aunque no sea la pregunta inicial.</li>
@@ -951,13 +953,13 @@
           <li>El análisis puede actuar como ciberseguridad reactiva al revelar fallas o manipulaciones que los controles en línea no detectaron.</li>
           <li>Comunicar problemas estructurales requiere evidencia, historia reconstruida y asertividad.</li>
           <li>La experiencia se acumula en patrones generales, patrones de industria y particularidades de cada empresa. Se desarrolla practicando con datasets distintos.</li>
-          <li>OSDU, <em>Open Subsurface Data Universe</em>, es una referencia para organizar datos de petróleo y gas.</li>
+          <li><em>Open Subsurface Data Universe</em> (OSDU) es una referencia para organizar datos de petróleo y gas.</li>
           <li>Pandas permite inspección detallada. DataPrep y AutoViz automatizan perfiles y gráficos, no la interpretación.</li>
-          <li>CSV guarda tablas como texto. Joblib guarda objetos binarios de Python y exige un entorno compatible.</li>
+          <li>El formato de valores separados por comas (CSV, <em>Comma-Separated Values</em>) guarda tablas como texto. Joblib guarda objetos binarios de Python y exige un entorno compatible.</li>
         </ul>
       </section>
 
-      <section class="chapter" id="features" data-title="limpieza data cleaning ingeniería características feature engineering escalado normalización estandarización codificación fechas PCA selección leakage">
+      <section class="chapter" id="features" data-title="limpieza data cleaning ingeniería características feature engineering escalado normalización reescalado codificación fechas PCA selección leakage">
         <div class="chapter-head"><div class="chapter-number">05</div><div><h2>Limpieza e ingeniería de características</h2></div></div>
 
         <h3>Limpieza</h3>
@@ -978,39 +980,40 @@
           <li>Descomponer fechas en año, mes, día, hora, día de semana, estación o trimestre.</li>
           <li>Codificar categorías según el modelo y evitar introducir orden inexistente.</li>
           <li><strong>Normalización MinMax:</strong> lleva valores a un rango, usualmente entre 0 y 1. Es sensible a extremos.</li>
-          <li><strong>Estandarización:</strong> centra en media 0 y escala a desvío 1. Suele usarse cuando importan magnitud o distancia.</li>
+          <li><strong>Reescalado:</strong> lleva magnitudes a escalas comparables para evitar que una variable domine por su unidad.</li>
           <li>Aplicar logaritmos a distribuciones muy asimétricas cuando el dominio lo permite.</li>
           <li>Crear ratios, acumulados, interacciones, ventanas temporales y variables de dominio.</li>
-          <li><strong>PCA, análisis de componentes principales:</strong> combina variables correlacionadas en menos componentes. Reduce dimensión y costo, pero pierde interpretación directa.</li>
+          <li><strong>Análisis de componentes principales (PCA, <em>Principal Component Analysis</em>):</strong> combina variables correlacionadas en menos componentes. Reduce dimensión y costo, pero pierde interpretación directa.</li>
         </ul>
 
         <h3>Fuentes y selección</h3>
         <ul>
-          <li><strong>Conocimiento genérico:</strong> transformaciones aplicables en múltiples dominios.</li>
-          <li><strong>Relaciones entre columnas:</strong> correlaciones, redundancias e interacciones.</li>
-          <li><strong>Árboles de inducción y modelos:</strong> importancia de variables y cortes útiles.</li>
-          <li><strong>Dominio:</strong> reglas de industria, proceso y empresa.</li>
+          <li><strong>Capa genérica:</strong> fechas, escalado, codificación y tratamiento de correlaciones aplicables en múltiples dominios.</li>
+          <li><strong>Capa de industria:</strong> representaciones propias del sector y sus procesos.</li>
+          <li><strong>Capa de empresa y experiencia:</strong> sistemas, cultura de carga, reglas e hipótesis particulares.</li>
         </ul>
-        <p>Más columnas no equivalen a más información. Una referencia operativa es que tres features pueden explicar 70% del resultado, dos adicionales llevarlo a 85% y el resto aportar 15%. Si eliminar variables cambia una métrica de 0,82 a 0,81, puede convenir el modelo menor por costo, latencia y mantenimiento.</p>
+        <p>La selección revisa variación, valores distintos, correlaciones, redundancias, interacciones, conocimiento del dominio e importancia obtenida con modelos, incluidos árboles de decisión. Más columnas no equivalen a más información. Una referencia operativa es que tres features pueden explicar 70% del resultado, dos adicionales llevarlo a 85% y el resto aportar 15%. Si eliminar variables cambia una métrica de 0,82 a 0,81, puede convenir el modelo menor por costo, latencia y mantenimiento.</p>
+        <p>Una accuracy, proporción total de aciertos, persistentemente entre 0,40 y 0,55 sugiere que pueden faltar features que describan el patrón. No lo demuestra: también pueden fallar el target, la calidad, el algoritmo, la separación o la posibilidad predictiva.</p>
         <p>Una feature se conserva si mejora desempeño, estabilidad o interpretabilidad sin producir <strong>leakage</strong>, filtración de información no disponible al momento real de inferencia. La preparación genérica corresponde principalmente al ingeniero de datos; el científico revisa transformaciones dependientes de la familia de modelos.</p>
       </section>
 
-      <section class="chapter" id="familias" data-title="familias clasificación regresión clustering supervisado no supervisado refuerzo algoritmos">
+      <section class="chapter" id="familias" data-title="familias clasificación regresión predicción clustering clusterización supervisado no supervisado refuerzo algoritmos">
         <div class="chapter-head"><div class="chapter-number">06</div><div><h2>Familias de aprendizaje y algoritmos</h2></div></div>
 
         <h3>Respuesta esperada de tres familias</h3>
         <div class="table-wrap"><table>
           <thead><tr><th>Familia</th><th>Target</th><th>Salida</th><th>Algoritmos frecuentes</th></tr></thead>
           <tbody>
-            <tr><td>Clasificación</td><td>Categoría conocida.</td><td>Clase o probabilidad.</td><td>Regresión logística, árboles, Random Forest, Naive Bayes, SVM, KNN, redes.</td></tr>
-            <tr><td>Regresión</td><td>Valor numérico conocido.</td><td>Valor continuo.</td><td>Regresión lineal, árboles, Random Forest, boosting, redes.</td></tr>
-            <tr><td>Clustering o clusterización</td><td>No existe.</td><td>Grupos o estructura.</td><td>K Means, DBSCAN y clustering jerárquico.</td></tr>
+            <tr><td>Clasificación</td><td>Categoría conocida.</td><td>Clase o probabilidad.</td><td>Regresión logística, árboles, Random Forest, Naive Bayes, máquinas de vectores de soporte (SVM, <em>Support Vector Machine</em>), K vecinos más cercanos (KNN, <em>K-Nearest Neighbors</em>) y redes.</td></tr>
+            <tr><td>Regresión o predicción</td><td>Valor numérico conocido.</td><td>Valor continuo.</td><td>Regresión lineal, árboles, Random Forest, boosting (combinación secuencial de modelos) y redes.</td></tr>
+            <tr><td>Clustering o clusterización</td><td>No existe.</td><td>Grupos o estructura.</td><td>K Means y agrupamiento espacial basado en densidad con ruido (DBSCAN, <em>Density-Based Spatial Clustering of Applications with Noise</em>).</td></tr>
           </tbody>
         </table></div>
         <p>Clasificación y regresión son supervisadas porque aprenden desde targets conocidos. Clustering es no supervisado. Otra taxonomía clasifica los paradigmas en supervisado, no supervisado y por refuerzo. En refuerzo, un agente aprende acciones mediante recompensas o penalizaciones.</p>
 
         <h3>Por qué existen familias</h3>
         <p>No se conocen de antemano todos los patrones ni su distribución. Problemas con el mismo objetivo y columnas pueden tener historias, concentraciones y regímenes distintos. No existe un algoritmo universalmente mejor: primero se elige la familia por el tipo de salida y después se comparan algoritmos con la métrica del problema.</p>
+        <p>Con pocos datos o baja representatividad se prefieren modelos simples y <a href="#regularizacion">regularizados</a>. <a href="#redes">Deep Learning</a> suele ser una peor primera opción por su demanda de datos. <a href="#datos">EDA</a> y clustering permiten investigar la estructura antes de plantear una predicción supervisada.</p>
 
         <h3>Propiedades mínimas de algoritmos</h3>
         <ul>
@@ -1050,6 +1053,7 @@
         <p>El ajuste suele mejorar poco una métrica, pero también puede reducir costo o inestabilidad. Diez configuraciones por diez folds producen cien entrenamientos, por lo que necesita presupuesto y criterio.</p>
 
         <h3>Validación cruzada</h3>
+        <p>Si todos los patrones se conocieran de antemano, no haría falta ML para descubrirlos. La validación cruzada ayuda a revelar que no están distribuidos uniformemente.</p>
         <p>K-fold divide el train en K partes. Entrena K veces, usando una parte diferente para validar y las restantes para ajustar. Produce una distribución de resultados y reduce la dependencia de una única partición. Son habituales entre 3 y 10 folds.</p>
         <ul>
           <li><strong>Media, lectura operativa:</strong> cuán bien discrimina los patrones encontrados.</li>
@@ -1063,6 +1067,7 @@
         <div class="chapter-head"><div class="chapter-number">08</div><div><h2>Métricas y costos de error</h2></div></div>
 
         <h3>Clasificación</h3>
+        <p>La notación usa verdadero positivo (TP), verdadero negativo (TN), falso positivo (FP) y falso negativo (FN).</p>
         <div class="table-wrap"><table>
           <thead><tr><th>Métrica</th><th>Fórmula</th><th>Uso</th></tr></thead>
           <tbody>
@@ -1070,18 +1075,19 @@
             <tr><td>Precision</td><td><span class="formula">TP / (TP + FP)</span></td><td>Importa cuando el falso positivo es costoso.</td></tr>
             <tr><td>Recall o sensibilidad</td><td><span class="formula">TP / (TP + FN)</span></td><td>Importa cuando omitir un positivo es grave.</td></tr>
             <tr><td>F1</td><td><span class="formula">2 x P x R / (P + R)</span></td><td>Media armónica de precision y recall.</td></tr>
-            <tr><td>ROC AUC</td><td>Área bajo ROC</td><td>Ordenamiento de positivos frente a negativos al variar el umbral.</td></tr>
-            <tr><td>PR AUC</td><td>Área bajo precision y recall</td><td>Más informativa con pocos positivos.</td></tr>
+            <tr><td>ROC AUC (<em>Receiver Operating Characteristic, Area Under the Curve</em>)</td><td>Área bajo la curva ROC</td><td>Ordenamiento de positivos frente a negativos al variar el umbral.</td></tr>
+            <tr><td>PR AUC (<em>Precision Recall, Area Under the Curve</em>)</td><td>Área bajo precision y recall</td><td>Más informativa con pocos positivos.</td></tr>
           </tbody>
         </table></div>
         <p>TP y TN son aciertos positivos y negativos. FP marca positivo algo negativo. FN omite un positivo real. La matriz de confusión contiene esos cuatro valores.</p>
+        <p>Con clases desbalanceadas, predecir siempre la clase mayoritaria puede producir accuracy alta y recall nulo para la minoritaria.</p>
 
         <h3>Regresión</h3>
         <ul>
-          <li><strong>MAE:</strong> promedio del error absoluto, en la unidad del target.</li>
-          <li><strong>RMSE:</strong> raíz del error cuadrático medio, penaliza errores grandes.</li>
+          <li><strong>Error absoluto medio (MAE, <em>Mean Absolute Error</em>):</strong> promedio del error absoluto, en la unidad del target.</li>
+          <li><strong>Raíz del error cuadrático medio (RMSE, <em>Root Mean Squared Error</em>):</strong> penaliza errores grandes.</li>
           <li><strong>R cuadrado:</strong> variabilidad explicada respecto de predecir el promedio. Puede ser negativa en datos nuevos.</li>
-          <li><strong>MAPE:</strong> error porcentual absoluto medio, inestable con valores reales cero o pequeños.</li>
+          <li><strong>Error porcentual absoluto medio (MAPE, <em>Mean Absolute Percentage Error</em>):</strong> inestable con valores reales cero o pequeños.</li>
         </ul>
 
         <h3>Selección</h3>
@@ -1092,7 +1098,7 @@
           <li>Elegir métrica principal, complementarias y umbral.</li>
           <li>Traducir resultados a costo o valor de negocio.</li>
         </ol>
-        <p>La métrica puede cambiar el algoritmo ganador. En la comparación de referencia, un modelo tuvo recall 85% y accuracy 40%, mientras Gradient Boosting tuvo accuracy 81% y recall 35%. Si se priorizan falsos negativos gana el primero; si se mira solo accuracy gana el segundo.</p>
+        <p>La métrica puede cambiar el algoritmo ganador. En la comparación de referencia, un modelo tuvo recall 85% y accuracy 40%, mientras Gradient Boosting, que combina árboles de forma secuencial, tuvo accuracy 81% y recall 35%. Si se priorizan falsos negativos gana el primero; si se mira solo accuracy gana el segundo.</p>
       </section>
 
       <section class="chapter" id="redes" data-title="red neuronal deep learning capas pesos activación backpropagation capacidad metaconceptos tensores datos entrada">
@@ -1119,7 +1125,7 @@
             <tr><td>Representación</td><td>Matriz tabular con features diseñadas.</td><td>Tensores de alta dimensión.</td></tr>
             <tr><td>Datos frecuentes</td><td>Numéricos y categóricos estructurados.</td><td>Imagen, audio, texto, video, señales y tablas.</td></tr>
             <tr><td>Features</td><td>Mayor diseño manual.</td><td>Aprende representaciones internas, pero aún requiere preparación.</td></tr>
-            <tr><td>Volumen y cómputo</td><td>Habitualmente menores.</td><td>Habitualmente mayores, con GPU u otros aceleradores.</td></tr>
+            <tr><td>Volumen y cómputo</td><td>Habitualmente menores.</td><td>Habitualmente mayores, con unidades de procesamiento gráfico (GPU, <em>Graphics Processing Unit</em>) u otros aceleradores.</td></tr>
             <tr><td>Interpretabilidad</td><td>Frecuentemente mayor.</td><td>Frecuentemente caja gris.</td></tr>
           </tbody>
         </table></div>
@@ -1132,12 +1138,11 @@
         <p><strong>Bias:</strong> error sistemático asociado con rigidez. <strong>Variance:</strong> sensibilidad a cambios de muestra. El objetivo es equilibrar ambos, no maximizar una métrica de entrenamiento.</p>
 
         <h3>Fuentes de sobreajuste</h3>
-        <ul>
-          <li>Dataset poco representativo o sesgado.</li>
-          <li>Capacidad, features o duración del entrenamiento mal calibradas.</li>
-          <li>Leakage o particiones que no representan producción.</li>
-        </ul>
-        <p>Una métrica muy alta es una señal para revisar, no una prueba. En Iris, dataset estándar y curado, 97% puede ser esperable. Una caída de 96% en train y 95% en test a aproximadamente 75% en producción exige investigar representatividad, drift, leakage y sobreajuste.</p>
+        <ol>
+          <li><strong>Dataset sesgado o poco representativo:</strong> faltan patrones que sí existen en producción.</li>
+          <li><strong>Capacidad o entrenamiento mal calibrados:</strong> el modelo se adapta al detalle o ruido del train.</li>
+        </ol>
+        <p>Leakage y particiones que no representan producción pueden producir una evaluación engañosa y deben auditarse por separado. Una métrica muy alta es una señal para revisar, no una prueba. En Iris, dataset estándar y curado, 97% puede ser esperable. Una caída de 96% en train y 95% en test a aproximadamente 75% en producción exige investigar representatividad, <a href="#mlops">drift</a> o cambio de los datos productivos, leakage y sobreajuste.</p>
 
         <h3>Técnicas</h3>
         <div class="table-wrap"><table>
@@ -1157,9 +1162,9 @@
       </section>
 
       <section class="chapter" id="automl" data-title="automl automated machine learning pipeline baseline pycaret tpot h2o autofeat flaml lazypredict ensamble">
-        <div class="chapter-head"><div class="chapter-number">11</div><div><h2>AutoML</h2></div></div>
+        <div class="chapter-head"><div class="chapter-number">11</div><div><h2>Automated Machine Learning (AutoML)</h2></div></div>
 
-        <p>AutoML, <em>Automated Machine Learning</em>, automatiza tareas repetitivas de comparación, validación y ajuste. Recibe dataset preparado, target, tipo de problema, métrica, validación y presupuesto. Devuelve resultados comparables y pipelines, secuencias de transformaciones más modelo.</p>
+        <p>AutoML automatiza tareas repetitivas de comparación, validación y ajuste. Recibe dataset preparado, target, tipo de problema, métrica, validación y presupuesto. Devuelve resultados comparables y pipelines, secuencias de transformaciones más modelo.</p>
         <ul>
           <li><strong>Preparación:</strong> preprocesamientos estandarizados, selección o generación de features.</li>
           <li><strong>Modelado:</strong> algoritmos, hiperparámetros y validación cruzada.</li>
@@ -1172,30 +1177,30 @@
           <thead><tr><th>Herramienta</th><th>Uso</th></tr></thead>
           <tbody>
             <tr><td>PyCaret</td><td>Comparación y baseline con pocas líneas.</td></tr>
-            <tr><td>TPOT</td><td>Programación genética de pipelines, búsqueda con tiempo máximo y exportación de código estándar. Corrida de referencia: diez minutos.</td></tr>
+            <tr><td>Tree-based Pipeline Optimization Tool (TPOT)</td><td>Programación genética de pipelines, búsqueda con tiempo máximo y exportación de código estándar. Corrida de referencia: diez minutos.</td></tr>
             <tr><td>H2O AutoML</td><td>Comparación, ensambles, tabla de resultados y análisis gráfico.</td></tr>
             <tr><td>AutoFeat</td><td>Generación y selección automática de features tabulares.</td></tr>
-            <tr><td>FLAML</td><td>Búsqueda liviana con presupuesto controlado.</td></tr>
+            <tr><td>Fast and Lightweight AutoML (FLAML)</td><td>Búsqueda liviana con presupuesto controlado.</td></tr>
             <tr><td>LazyPredict</td><td>Baseline rápido de modelos básicos.</td></tr>
           </tbody>
         </table></div>
-        <p>La selección considera mantenimiento, licencia, reproducibilidad, exportación, seguridad, integración, observabilidad y costo. El CISO puede autorizar dependencias diferentes por ambiente. Exportar un pipeline estándar permite usar una herramienta flexible en desarrollo sin llevarla a producción.</p>
+        <p>La selección considera mantenimiento, licencia, reproducibilidad, exportación, seguridad, integración, observabilidad y costo. El responsable principal de seguridad de la información (CISO, <em>Chief Information Security Officer</em>) puede autorizar dependencias diferentes por ambiente. Exportar un pipeline estándar permite usar una herramienta flexible en desarrollo sin llevarla a producción.</p>
       </section>
 
-      <section class="chapter" id="xai" data-title="xai explicabilidad interpretabilidad caja negra shap lime eli5 sesgos fairness contrafactual conocimiento reglas producción forrester senge">
+      <section class="chapter" id="xai" data-title="xai explicabilidad interpretabilidad caja negra caja blanca caja gris shap lime integrated gradients sesgos fairness contrafactual conocimiento reglas producción forrester senge">
         <div class="chapter-head"><div class="chapter-number">12</div><div><h2>Explicabilidad, conocimiento y sesgos</h2></div></div>
 
-        <p>XAI, <em>Explainable Artificial Intelligence</em>, reúne métodos para identificar qué variables influyeron en una salida. Una explicación puede ser <strong>global</strong>, comportamiento general, o <strong>local</strong>, una predicción particular.</p>
+        <p>La Inteligencia Artificial Explicable (XAI, <em>Explainable Artificial Intelligence</em>) reúne métodos para identificar qué variables influyeron en una salida. Busca pasar de una caja negra, cuyo razonamiento no es visible, hacia una caja blanca. Las redes profundas suelen quedar como caja gris porque la explicación es parcial. Una explicación puede ser <strong>global</strong>, comportamiento general, o <strong>local</strong>, una predicción particular.</p>
         <div class="table-wrap"><table>
           <thead><tr><th>Herramienta</th><th>Alcance</th></tr></thead>
           <tbody>
             <tr><td>Importancia de features</td><td>Peso global según el modelo, sin garantizar causalidad.</td></tr>
-            <tr><td>SHAP</td><td>Atribuciones locales y agregables basadas en contribuciones de variables.</td></tr>
-            <tr><td>LIME</td><td>Aproximación local interpretable alrededor de una observación.</td></tr>
-            <tr><td>ELI5</td><td>Inspección de pesos y predicciones en modelos compatibles.</td></tr>
+            <tr><td>SHapley Additive exPlanations (SHAP)</td><td>Atribuciones locales y agregables basadas en contribuciones de variables.</td></tr>
+            <tr><td>Local Interpretable Model-agnostic Explanations (LIME)</td><td>Aproximación local interpretable alrededor de una observación.</td></tr>
+            <tr><td>Integrated Gradients</td><td>Atribuye importancia en redes mediante gradientes calculados desde una referencia. La referencia elegida afecta la explicación.</td></tr>
           </tbody>
         </table></div>
-        <p>La dirección horizontal suele representar dirección y magnitud del impacto; el color puede representar valor alto o bajo. La leyenda concreta manda. La importancia puede cambiar entre observaciones.</p>
+        <p>La posición horizontal suele representar sentido y magnitud del impacto; el color puede representar valor alto o bajo. La leyenda concreta manda. La importancia puede cambiar entre observaciones.</p>
 
         <h3>Utilidad</h3>
         <ul>
@@ -1231,8 +1236,9 @@
         <ul>
           <li>Empaquetar exactamente el preprocesamiento, transformaciones, modelo y configuración validados.</li>
           <li>Versionar código, datos, features, modelo, entorno, parámetros, hiperparámetros y métricas.</li>
+          <li>Git versiona bien código, pero los datasets suelen requerir estrategias propias por su tamaño.</li>
           <li>Registrar fecha, archivos, decisiones, entradas y salidas con controles de privacidad.</li>
-          <li>Observar latencia, errores, disponibilidad, memoria, CPU, GPU, distribuciones y desempeño contra <strong>ground truth</strong>, valor real confirmado que llega después de la predicción.</li>
+          <li>Observar latencia, errores, disponibilidad, memoria, unidad central de procesamiento (CPU, <em>Central Processing Unit</em>), GPU, distribuciones y desempeño contra <strong>ground truth</strong>, valor real confirmado que llega después de la predicción.</li>
           <li>MLflow registra experimentos y permite recuperar una ejecución anterior, que puede ser mejor que la última.</li>
         </ul>
 
@@ -1251,9 +1257,9 @@
       </section>
 
       <section class="chapter" id="llm" data-title="llm large language model transformer token embedding posición atención bert gpt prompt prompting ROC fine tuning">
-        <div class="chapter-head"><div class="chapter-number">14</div><div><h2>LLM, Transformer y prompting</h2></div></div>
+        <div class="chapter-head"><div class="chapter-number">14</div><div><h2>Large Language Model (LLM), Transformer y prompting</h2></div></div>
 
-        <p>Un LLM, <em>Large Language Model</em>, es una red profunda entrenada con grandes corpus para predecir tokens y generar continuaciones. No es una base de datos ni garantiza verdad.</p>
+        <p>Un LLM es una red profunda entrenada con grandes corpus, colecciones de texto, para predecir tokens y generar continuaciones. No es una base de datos ni garantiza verdad.</p>
         <ol class="study-list">
           <li><strong>Tokenización:</strong> divide texto en palabras, partes o signos.</li>
           <li><strong>Embeddings:</strong> transforma tokens en vectores.</li>
@@ -1261,22 +1267,23 @@
           <li><strong>Atención:</strong> pondera qué partes del contexto son relevantes para cada token y procesa relaciones en paralelo.</li>
           <li><strong>Predicción:</strong> las capas Transformer calculan el token siguiente y repiten el proceso.</li>
         </ol>
-        <p>La genealogía conceptual es contexto de palabras, BERT como representación bidireccional, mecanismo de atención y GPT como Transformer generativo preentrenado. El preentrenamiento ajusta pesos y la inferencia utiliza esos pesos. La especialización posterior se compara con RAG en <a href="#rag">RAG y bases vectoriales</a>.</p>
+        <p>La genealogía conceptual es contexto de palabras, Bidirectional Encoder Representations from Transformers (BERT) como representación bidireccional, mecanismo de atención y Generative Pre-trained Transformer (GPT) como modelo generativo preentrenado. El preentrenamiento ajusta pesos y la inferencia utiliza esos pesos. La especialización posterior se compara con Retrieval Augmented Generation (RAG) en <a href="#rag">RAG y bases vectoriales</a>.</p>
+        <p>Visto desde afuera, el LLM simula un proceso cognitivo en sentido funcional: lee contexto, conserva relaciones, pondera lo relevante y construye una salida.</p>
 
         <h3>Prompting</h3>
         <p>Un prompt contiene instrucciones y contexto. La ingeniería de prompts redacta y refina esa entrada. El esquema ROC organiza <strong>rol, objetivo y contexto</strong>, sin relación con la curva ROC de clasificación.</p>
         <ul>
           <li>Explicitar tarea, entradas, restricciones, formato y criterios de aceptación.</li>
+          <li>Para un pipeline de ML, detallar features y target, variables de entrada, transformaciones o ecuaciones, algoritmo e hiperparámetros, y pasos de implementación y prueba.</li>
           <li>Dividir tareas complejas y revisar resultados intermedios.</li>
           <li>Refinar la instrucción con conocimiento del problema.</li>
         </ul>
-        <p>La seguridad verbal de la respuesta no demuestra comprensión ni corrección.</p>
       </section>
 
       <section class="chapter" id="rag" data-title="rag retrieval augmented generation recuperación embeddings chunks metadata base vectorial similitud coseno euclídea faiss alucinación fine tuning">
         <div class="chapter-head"><div class="chapter-number">15</div><div><h2>RAG y bases vectoriales</h2></div></div>
 
-        <p>RAG, <em>Retrieval Augmented Generation</em>, recupera fragmentos de un corpus y los agrega al contexto de un LLM. Cada chunk se almacena con embedding y metadata, como fuente, fecha y permisos.</p>
+        <p>RAG, <em>Retrieval Augmented Generation</em>, recupera fragmentos de un corpus, colección de documentos, y los agrega al contexto de un LLM. Cada chunk se almacena con embedding y metadata, como fuente, fecha y permisos.</p>
 
         <h3>Tres limitaciones del LLM y tres ventajas de RAG</h3>
         <div class="table-wrap"><table>
@@ -1287,6 +1294,7 @@
             <tr><td>Pesos opacos.</td><td>Traza fragmentos y fuentes recuperadas.</td></tr>
           </tbody>
         </table></div>
+        <p>También restringe el contexto a fuentes empresariales controladas.</p>
 
         <h3>Pipeline</h3>
         <ol>
@@ -1302,13 +1310,13 @@
         <ul>
           <li>Similitud coseno compara orientación; distancia euclídea, distancia recta; producto interno, orientación y magnitud.</li>
           <li>La medida depende del entrenamiento y normalización del embedding.</li>
-          <li>FAISS construye índices y busca vecinos, pero no valida relevancia ni permisos.</li>
+          <li>Facebook Artificial Intelligence Similarity Search (FAISS) construye índices y busca vecinos, pero no valida relevancia ni permisos.</li>
           <li>PCA puede visualizar vectores, no es requisito de recuperación.</li>
         </ul>
 
         <h3>Respuesta, alucinación y evaluación</h3>
-        <p>SQL exacto puede devolver cero filas. La búsqueda vectorial es difusa y siempre puede ordenar un vecino como el más cercano, aunque sea irrelevante. No existe un umbral universal verificado. Si lo recuperado no responde a la necesidad, se lo denomina alucinación en la lectura operativa. Técnicamente deben separarse recuperación irrelevante y generación sin respaldo.</p>
-        <p>Umbrales evaluados, filtros, reordenamiento, abstención y top K reducen errores, pero no garantizan verdad. Se evalúan por separado relevancia de recuperación, fidelidad, citas, latencia y respuesta final.</p>
+        <p>Una consulta en lenguaje estructurado (SQL, <em>Structured Query Language</em>) exacta puede devolver cero filas. La búsqueda vectorial es difusa y siempre puede ordenar un vecino como el más cercano, aunque sea irrelevante. No existe un umbral universal verificado. Si lo recuperado no responde a la necesidad, se lo denomina alucinación en la lectura operativa. Técnicamente deben separarse recuperación irrelevante y generación sin respaldo.</p>
+        <p>Umbrales evaluados, filtros, reordenamiento, abstención y top K, cantidad de resultados recuperados, reducen errores, pero no garantizan verdad. Se evalúan por separado relevancia de recuperación, fidelidad, citas, latencia y respuesta final.</p>
         <p>RAG puede fallar por corpus, chunking, embeddings, consulta, metadata, top K, contexto o prompt. <strong>Fine tuning</strong> es entrenamiento adicional que modifica pesos o adaptadores para especializar una conducta estable; RAG no modifica el modelo y cambia el contexto por consulta. Pueden combinarse.</p>
       </section>
 
@@ -1319,7 +1327,7 @@
 
         <h3>Método</h3>
         <ol>
-          <li>Construir corpus y síntesis con contexto y referencias.</li>
+          <li>Construir una colección documental o corpus y una síntesis con contexto y referencias.</li>
           <li>Buscar estado del arte y comparar evidencia a favor y en contra.</li>
           <li>Analizar en profundidad los trabajos seleccionados.</li>
           <li>Extraer dataset, features, target, ecuaciones, arquitectura, hiperparámetros y pipeline.</li>
@@ -1327,7 +1335,7 @@
           <li>Generar una primera versión con reglas, datos sintéticos y criterios de prueba.</li>
           <li>Registrar decisiones, leer, probar y refinar.</li>
         </ol>
-        <p>NotebookLM consulta corpus, Gemini investiga, Consensus compara evidencia, Elicit y Paperguide analizan papers y Antigravity genera una implementación inicial.</p>
+        <p>NotebookLM consulta la colección documental, Gemini investiga, Consensus compara evidencia, Elicit y Paperguide analizan papers y Antigravity genera una implementación inicial.</p>
 
         <h3>Riesgos</h3>
         <ul>
@@ -1347,7 +1355,7 @@
       <section class="chapter" id="agentes" data-title="agente inteligente autonomía reactividad proactividad multiagente orquestador colaboración n8n blackboard MCP hermes base casos">
         <div class="chapter-head"><div class="chapter-number">17</div><div><h2>Agentes y orquestación</h2></div></div>
 
-        <p><strong>Agente:</strong> programa que percibe información y ejecuta acciones para cumplir un objetivo dentro de permisos definidos. Sus propiedades son autonomía limitada, reactividad, proactividad y comunicación.</p>
+        <p><strong>Agente:</strong> programa que percibe información y ejecuta acciones para cumplir un objetivo dentro de permisos definidos. A diferencia de un programa que exige entradas en una posición o formato rígidos, percibe el estado y adapta su acción. Sus propiedades son autonomía limitada, reactividad, proactividad y comunicación.</p>
         <p><strong>Orquestador:</strong> decide qué agente o herramienta usar, en qué orden, con qué contexto y condiciones. Los agentes por sí solos no aportan conocimiento: el valor surge de sus capacidades y coordinación.</p>
         <p>La integración empresarial combina ML o Deep Learning para detectar patrones, RAG para aportar conocimiento documental actualizable y agentes para ejecutar tareas bajo un orquestador.</p>
 
@@ -1365,11 +1373,11 @@
         <ul>
           <li>Dividen el problema en agentes especializados con contratos de entrada y salida.</li>
           <li>Mejoran modularidad y reemplazo, pero agregan coordinación, observabilidad, seguridad, memoria y fallas distribuidas.</li>
-          <li><strong>Orquestación:</strong> flujo predefinido. n8n y Zapier automatizan pasos y eventos. n8n ofrece alrededor de 500 integraciones, cifra que cambia con el tiempo.</li>
+          <li><strong>Orquestación:</strong> flujo predefinido. n8n y Zapier automatizan pasos y eventos.</li>
           <li><strong>Colaboración:</strong> un planificador arma o revisa el plan dinámicamente.</li>
           <li><strong>Blackboard:</strong> memoria común donde los agentes leen y escriben estado.</li>
         </ul>
-        <p>MCP, <em>Model Context Protocol</em>, estandariza descubrimiento y uso de herramientas o recursos. No resuelve inteligencia, planificación, identidad, autorización ni seguridad.</p>
+        <p>Model Context Protocol (MCP) estandariza descubrimiento y uso de herramientas o recursos. No resuelve inteligencia, planificación, identidad, autorización ni seguridad.</p>
         <p>Hermes representa un asistente planificador sobre un orquestador. Puede usar una base de casos: recupera problemas resueltos, adapta un plan y conserva referencias operativas. Los casos no reemplazan validación.</p>
         <p><strong>Human in the loop</strong> significa que una persona participa explícitamente en una decisión, validación o aprobación del sistema.</p>
         <p>Más autonomía exige permisos mínimos, aislamiento, presupuestos, tiempos máximos, validación, registro, aprobación humana y capacidad de detener o revertir.</p>
@@ -1378,15 +1386,15 @@
       <section class="chapter" id="seguridad" data-title="seguridad llm owasp prompt injection fuga información sensible supply chain poisoning output agencia system prompt embeddings misinformation consumo NIST">
         <div class="chapter-head"><div class="chapter-number">18</div><div><h2>Seguridad en aplicaciones con LLM</h2></div></div>
 
-        <p>El LLM no es un control de seguridad. Autorización, validación, aislamiento y permisos deben ser determinísticos y externos.</p>
+        <p>El LLM no es un control de seguridad. Autorización, validación, aislamiento y permisos deben ser determinísticos y externos. La tabla reúne riesgos del Open Worldwide Application Security Project (OWASP) Top 10 para aplicaciones de LLM, edición 2025, y riesgos complementarios.</p>
         <div class="table-wrap"><table>
           <thead><tr><th>Riesgo</th><th>Falla</th><th>Control</th></tr></thead>
           <tbody>
             <tr><td><strong>1. Prompt injection</strong></td><td>Entrada directa o contenido externo cambia instrucciones, decisiones o herramientas.</td><td>Separar datos e instrucciones, tratar contenido como no confiable, limitar herramientas y validar acciones.</td></tr>
-            <tr><td><strong>2. Información sensible</strong></td><td>Fuga de PII, secretos, propiedad intelectual, credenciales o contexto entre usuarios.</td><td>Minimizar, clasificar, ocultar y controlar accesos. Nunca poner secretos en prompts.</td></tr>
+            <tr><td><strong>2. Información sensible</strong></td><td>Fuga de información personal identificable (PII, <em>Personally Identifiable Information</em>), secretos, propiedad intelectual, credenciales o contexto entre usuarios.</td><td>Minimizar, clasificar, ocultar y controlar accesos. Nunca poner secretos en prompts.</td></tr>
             <tr><td><strong>3a. Supply chain</strong></td><td>Modelos, adaptadores, paquetes, plugins, proveedores o repositorios comprometidos.</td><td>Verificar origen y firmas, inventariar componentes, fijar versiones y evaluar terceros.</td></tr>
             <tr><td><strong>3b. Data and model poisoning</strong></td><td>Datos de entrenamiento, fine tuning o embeddings manipulados alteran el comportamiento.</td><td>Curar datos, controlar escrituras, versionar, detectar anomalías y revertir.</td></tr>
-            <tr><td><strong>4. Manejo inseguro de salida</strong></td><td>Texto generado se ejecuta como comando, SQL, HTML o script.</td><td>Validar estructura, parametrizar, neutralizar caracteres y separar texto de ejecución.</td></tr>
+            <tr><td><strong>4. Manejo inseguro de salida</strong></td><td>Texto generado se ejecuta como comando, SQL, lenguaje de marcado de hipertexto (HTML, <em>HyperText Markup Language</em>) o script.</td><td>Validar estructura, parametrizar, neutralizar caracteres y separar texto de ejecución.</td></tr>
             <tr><td><strong>5. Agencia excesiva</strong></td><td>Permisos o autonomía producen acciones reales dañinas.</td><td>Permisos mínimos, acciones acotadas, sandbox y aprobación humana.</td></tr>
             <tr><td>System prompt leakage</td><td>Exposición de configuración interna.</td><td>No considerar secreto al prompt ni usarlo como autorización.</td></tr>
             <tr><td>Vector and embedding weaknesses</td><td>Recuperación sin permiso, documentos maliciosos o mezcla entre usuarios.</td><td>Permisos antes y después de recuperar, aislamiento y validación de metadata.</td></tr>
@@ -1398,11 +1406,11 @@
         <h3>Distinciones</h3>
         <ul>
           <li><strong>Inyección directa:</strong> instrucción hostil escrita por el usuario.</li>
-          <li><strong>Inyección indirecta:</strong> instrucción dentro de web, correo, PDF, imagen o documento recuperado.</li>
+          <li><strong>Inyección indirecta:</strong> instrucción dentro de web, correo, formato de documento portátil (PDF, <em>Portable Document Format</em>), imagen o documento recuperado.</li>
           <li><strong>Jailbreak:</strong> intento de evadir restricciones de conducta.</li>
-          <li><strong>RAG:</strong> agrega poisoning del corpus, fuga por permisos, inyección indirecta, abuso de metadata y fuentes adulteradas.</li>
+          <li><strong>RAG:</strong> agrega poisoning de la colección de documentos o corpus, fuga por permisos, inyección indirecta, abuso de metadata y fuentes adulteradas.</li>
         </ul>
-        <p>NIST AI RMF organiza el riesgo mediante gobernar, mapear, medir y gestionar. Evalúa validez y confiabilidad, seguridad operativa, protección y resiliencia, responsabilidad y transparencia, explicabilidad, privacidad y equidad. Organiza responsabilidades, no reemplaza controles técnicos.</p>
+        <p>El National Institute of Standards and Technology Artificial Intelligence Risk Management Framework (NIST AI RMF) organiza el riesgo mediante gobernar, mapear, medir y gestionar. Evalúa validez y confiabilidad, seguridad operativa, protección y resiliencia, responsabilidad y transparencia, explicabilidad, privacidad y equidad. Organiza responsabilidades, no reemplaza controles técnicos.</p>
       </section>
 
       <section class="chapter" id="cobots" data-title="aplicaciones industriales robot cobot visión artificial kinesthetic teaching mantenimiento predictivo prescriptivo MTBF OEE gemelo digital PINN">
@@ -1417,7 +1425,7 @@
         </table></div>
         <ol>
           <li><strong>1950 a fines de los 60:</strong> hidráulica, sensores básicos y jaulas.</li>
-          <li><strong>Década de 1970 hasta 1999:</strong> PLC y robots programables fijos, con poca percepción.</li>
+          <li><strong>Década de 1970 hasta 1999:</strong> controladores lógicos programables (PLC, <em>Programmable Logic Controller</em>) y robots programables fijos, con poca percepción.</li>
           <li><strong>Desde 2000, cuarta generación:</strong> cobots, autopercepción, fuerza y detección de personas.</li>
           <li><strong>Últimos cinco años de la periodización, quinta generación:</strong> nube, movilidad, Deep Learning e IA generativa.</li>
         </ol>
@@ -1434,12 +1442,12 @@
           </tbody>
         </table></div>
         <ul>
-          <li><strong>MTBF:</strong> tiempo medio entre fallas.</li>
-          <li><strong>OEE:</strong> efectividad general vinculada con disponibilidad, rendimiento y calidad. Referencia: 89% de efectividad, sin paradas imprevistas y con detenciones predichas.</li>
+          <li><strong>Tiempo medio entre fallas (MTBF, <em>Mean Time Between Failures</em>):</strong> caracteriza la confiabilidad del equipo.</li>
+          <li><strong>Efectividad general del equipo (OEE, <em>Overall Equipment Effectiveness</em>):</strong> se vincula con disponibilidad, rendimiento y calidad. Referencia: 89% de efectividad, sin paradas imprevistas y con detenciones predichas.</li>
         </ul>
 
         <h3>Gemelo digital</h3>
-        <p>Representación digital conectada con un activo o proceso real. Modela estado, comportamiento e interacción para simular desgaste, consumo, fallas y configuraciones. Los datos sintéticos requieren calibración. Las PINN, <em>Physics Informed Neural Networks</em>, incorporan leyes físicas como restricciones para excluir comportamientos imposibles.</p>
+        <p>Representación digital conectada con un activo o proceso real. Modela estado, comportamiento e interacción para simular desgaste, consumo, fallas y configuraciones. Los datos sintéticos requieren calibración. Las redes neuronales informadas por física (PINN, <em>Physics Informed Neural Networks</em>) incorporan leyes físicas como restricciones para excluir comportamientos imposibles.</p>
         <p>La infraestructura condiciona la solución: integración de fábrica, conectividad, cifrado, energía, disipación, latencia y ubicación del cómputo pueden ser tan importantes como el modelo.</p>
       </section>
 
