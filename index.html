@@ -839,16 +839,16 @@
         <h3>El ciclo de vida</h3>
         <p><strong>Hilo para memorizar:</strong> definir el problema, conseguir los datos, entenderlos, decidir si continuar, prepararlos, entrenar, evaluar, llevar a producción, vigilar y retirar.</p>
         <ol class="study-list" aria-label="Flujo del ciclo de Machine Learning">
-          <li><strong>1. Problema, definir:</strong> precisar la decisión que se quiere mejorar, qué se va a predecir y cómo se medirá el éxito. Esto fija qué datos hacen falta y qué resultado debe producir el proyecto.</li>
-          <li><strong>2. Datos, conseguir:</strong> localizar las fuentes, revisar antecedentes y obtener acceso efectivo. Sin datos disponibles no se puede comprobar si el proyecto es viable.</li>
-          <li><strong>3. Diagnóstico, entender:</strong> integrar copias de las fuentes y realizar el análisis exploratorio de datos (<strong>EDA</strong>, <em>Exploratory Data Analysis</em>) para conocer estructura, calidad, distribución y anomalías.</li>
-          <li><strong>4. Viabilidad, decidir:</strong> usar el diagnóstico para tomar una decisión <strong>Go</strong>, continuar, o <strong>No Go</strong>, detener o reformular. Recién acá se conoce el trabajo real que queda por delante.</li>
-          <li><strong>5. Preparación, transformar:</strong> limpiar errores y hacer ingeniería de características, es decir, transformar o crear variables para representar mejor el problema. El resultado es el dataset que recibirá el modelo.</li>
-          <li><strong>6. Entrenamiento, aprender:</strong> dividir los datos en una parte para entrenar, otra para comparar alternativas y una última para la prueba final. Luego se establece una referencia simple, se eligen familias de algoritmos y se ajustan sus opciones.</li>
-          <li><strong>7. Evaluación, comprobar:</strong> medir el modelo con el criterio fijado al comienzo, explicar sus resultados, probar sesgos y validarlo con especialistas. Solo un modelo que supera estos controles puede avanzar.</li>
-          <li><strong>8. Producción, integrar:</strong> diseñar la interfaz y las restricciones de seguridad, costo y tiempo de respuesta, desplegar juntos la preparación y el modelo, y registrar versiones para poder reproducirlos o revertirlos.</li>
-          <li><strong>9. Operación, vigilar:</strong> monitorear el servicio, los datos, las predicciones y el desempeño. Si algo cambia, primero se diagnostica y después se corrige, reentrena o revierte.</li>
-          <li><strong>10. Retiro, cerrar:</strong> desactivar el sistema y sus dependencias de forma controlada, conservar la evidencia necesaria y documentar lo aprendido.</li>
+          <li><strong>Definición del problema:</strong> precisar la decisión que se quiere mejorar, qué se va a predecir y cómo se medirá el éxito. Esto fija qué datos hacen falta y qué resultado debe producir el proyecto.</li>
+          <li><strong>Acceso a los datos:</strong> localizar las fuentes, revisar antecedentes y obtener acceso efectivo. Sin datos disponibles no se puede comprobar si el proyecto es viable.</li>
+          <li><strong>Diagnóstico de los datos:</strong> integrar copias de las fuentes y realizar el análisis exploratorio de datos (<strong>EDA</strong>, <em>Exploratory Data Analysis</em>) para conocer estructura, calidad, distribución y anomalías.</li>
+          <li><strong>Decisión de viabilidad:</strong> usar el diagnóstico para tomar una decisión <strong>Go</strong>, continuar, o <strong>No Go</strong>, detener o reformular. Recién acá se conoce el trabajo real que queda por delante.</li>
+          <li><strong>Preparación de los datos:</strong> limpiar errores y hacer ingeniería de características, es decir, transformar o crear variables para representar mejor el problema. El resultado es el dataset que recibirá el modelo.</li>
+          <li><strong>Entrenamiento del modelo:</strong> dividir los datos en una parte para entrenar, otra para comparar alternativas y una última para la prueba final. Luego se establece una referencia simple, se eligen familias de algoritmos y se ajustan sus opciones.</li>
+          <li><strong>Evaluación del modelo:</strong> medirlo con el criterio fijado al comienzo, explicar sus resultados, probar sesgos y validarlo con especialistas. Solo un modelo que supera estos controles puede avanzar.</li>
+          <li><strong>Puesta en producción:</strong> diseñar la interfaz y las restricciones de seguridad, costo y tiempo de respuesta, desplegar juntos la preparación y el modelo, y registrar versiones para poder reproducirlos o revertirlos.</li>
+          <li><strong>Monitoreo y mantenimiento:</strong> observar el servicio, los datos, las predicciones y el desempeño. Si algo cambia, primero se diagnostica y después se corrige, reentrena o revierte.</li>
+          <li><strong>Retiro del sistema:</strong> desactivarlo junto con sus dependencias de forma controlada, conservar la evidencia necesaria y documentar lo aprendido.</li>
         </ol>
         <p>La gestión del conocimiento y la trazabilidad atraviesan todas las etapas.</p>
 
@@ -893,12 +893,12 @@
 
         <h3>Preguntas para decidir Go o No Go</h3>
         <ol>
-          <li><strong>1. Problema, ¿qué se quiere decidir?</strong> Definir target, unidad de análisis, horizonte temporal y usuario de la salida.</li>
-          <li><strong>2. Pertinencia, ¿amerita Machine Learning?</strong> Si una regla fija, una consulta o una automatización convencional resuelve la decisión, ML agrega costo y riesgo sin aportar valor.</li>
-          <li><strong>3. Antecedentes, ¿ya fue resuelto?</strong> Revisar artículos, estudios, casos, algoritmos, datasets y métricas usadas evita repetir trabajo y ayuda a estimar la viabilidad.</li>
-          <li><strong>4. Éxito, ¿cómo se medirá?</strong> Acordar antes del entrenamiento una métrica técnica y el valor mínimo aceptable para el negocio.</li>
-          <li><strong>5. Datos, ¿existen y se puede acceder?</strong> Existencia y acceso son problemas distintos.</li>
-          <li><strong>6. Capacidad, ¿podemos implementarlo?</strong> Evaluar datos, cómputo, almacenamiento, conocimiento del dominio, seguridad, tiempo y presupuesto.</li>
+          <li><strong>Definición del problema:</strong> ¿qué se quiere decidir? Definir target, unidad de análisis, horizonte temporal y usuario de la salida.</li>
+          <li><strong>Pertinencia de Machine Learning:</strong> ¿el problema realmente lo requiere? Si una regla fija, una consulta o una automatización convencional resuelve la decisión, ML agrega costo y riesgo sin aportar valor.</li>
+          <li><strong>Antecedentes:</strong> ¿el problema ya fue resuelto? Revisar artículos, estudios, casos, algoritmos, datasets y métricas usadas evita repetir trabajo y ayuda a estimar la viabilidad.</li>
+          <li><strong>Criterio de éxito:</strong> ¿cómo se medirá el resultado? Acordar antes del entrenamiento una métrica técnica y el valor mínimo aceptable para el negocio.</li>
+          <li><strong>Disponibilidad de datos:</strong> ¿existen y se puede acceder? Existencia y acceso son problemas distintos.</li>
+          <li><strong>Capacidad de implementación:</strong> ¿podemos construirlo y operarlo? Evaluar datos, cómputo, almacenamiento, conocimiento del dominio, seguridad, tiempo y presupuesto.</li>
         </ol>
 
         <div class="callout danger">
