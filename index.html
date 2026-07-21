@@ -598,17 +598,17 @@
       <a href="#features"><span>04</span>Ingeniería de características</a>
       <a href="#entrenamiento"><span>05</span>Entrenamiento y métricas</a>
       <a href="#regularizacion"><span>06</span>Regularización</a>
-      <a href="#xai"><span>07</span>Explicabilidad y sesgos</a>
-      <a href="#mlops"><span>08</span>Producción y mantenimiento</a>
-      <a href="#automl"><span>09</span>Automatización del aprendizaje</a>
+      <a href="#automl"><span>07</span>Automatización del aprendizaje</a>
+      <a href="#xai"><span>08</span>Explicabilidad y sesgos</a>
+      <a href="#mlops"><span>09</span>Producción y mantenimiento</a>
     </nav>
     <div class="nav-title">IA generativa</div>
     <nav class="toc" aria-label="Modelos generativos y agentes">
       <a href="#llm"><span>10</span>Modelos de lenguaje y prompting</a>
-      <a href="#vibe"><span>11</span>Vibe coding</a>
-      <a href="#rag"><span>12</span>Recuperación aumentada y bases vectoriales</a>
-      <a href="#seguridad"><span>13</span>Seguridad en modelos de lenguaje</a>
-      <a href="#agentes"><span>14</span>Agentes inteligentes</a>
+      <a href="#rag"><span>11</span>Recuperación aumentada y bases vectoriales</a>
+      <a href="#vibe"><span>12</span>Vibe coding</a>
+      <a href="#agentes"><span>13</span>Agentes inteligentes</a>
+      <a href="#seguridad"><span>14</span>Seguridad en modelos de lenguaje</a>
     </nav>
     <div class="nav-title">Aplicaciones y repaso</div>
     <nav class="toc" aria-label="Aplicaciones y material de repaso">
@@ -795,6 +795,7 @@
         </ol>
 
         <p><strong>Optimización de tipos:</strong> una columna guardada como número decimal, tipo <code>float</code>, que solo contiene enteros puede convertirse a un tipo entero. Si un entero de 64 bits, <code>int64</code>, solo almacena valores entre 1 y 100, puede usarse un tipo menor. Antes de convertir hay que revisar rango, precisión, nulos y valores futuros posibles.</p>
+        <p><strong>Lectura de <code>describe()</code>:</strong> count muestra cuántos valores existen; mean y std resumen media y dispersión; min, max y los percentiles muestran rango y concentración. Un mínimo igual al máximo revela una columna constante. Percentiles muy concentrados frente a un máximo enorme pueden señalar asimetría, un valor extremo o un régimen distinto que conviene investigar.</p>
 
         <div class="callout">
           <strong>Arqueología de datos.</strong> El EDA es un movimiento de ida y vuelta: observar una letra extraña en un código, filtrar registros, comparar facturas, preguntar al área y reconstruir el proceso que produjo el dato. La intuición genera hipótesis, no conclusiones.
@@ -850,7 +851,7 @@
           <div><h2>Limpieza e ingeniería de características</h2></div>
         </div>
 
-        <p>La <strong>ingeniería de características</strong>, también llamada <em>feature engineering</em>, consiste en transformar las variables disponibles o crear nuevas para que los patrones relevantes queden representados de una forma que el algoritmo pueda usar. Transformar no significa alterar el significado del dato: significa cambiar su representación para hacer visibles regularidades útiles.</p>
+        <p>La <strong>ingeniería de características</strong>, también llamada <em>feature engineering</em>, consiste en transformar las variables disponibles o crear nuevas para que los patrones relevantes queden representados de una forma que el algoritmo pueda usar. Transformar no significa alterar el significado del dato: significa cambiar su representación para hacer visibles regularidades útiles, como “darle esteroides al dataset”.</p>
 
         <h3>Tres conceptos que no deben mezclarse</h3>
         <ul class="study-list">
@@ -887,11 +888,12 @@
 
         <h3>Selección y reducción</h3>
         <p>Antes de entrenar puede estimarse relevancia revisando cuánto varía una columna, cuántos valores distintos contiene, cómo se relaciona con otras variables y qué aporta según el conocimiento del problema. La importancia real se contrasta luego del entrenamiento. Si varias features tienen peso casi nulo y al retirarlas la métrica pasa, por ejemplo, de 0,82 a 0,81, la simplificación puede ser conveniente.</p>
+        <p>En un ejemplo, tres features concentraban alrededor de 70% del peso, cinco llegaban a 85% y las cinco restantes aportaban el 15% final. No es una proporción universal: muestra que unas pocas variables pueden explicar gran parte del resultado y que el costo de conservar el resto debe justificarse.</p>
         <p><strong>Ejemplo de costo:</strong> si cinco features ya alcanzan 85%, un modelo con decenas de variables que tarda tres horas para sostener ese 85% puede ser peor decisión que otro con alrededor de diez variables, 81% y diez minutos de entrenamiento. La diferencia se multiplica en cada validación y reentrenamiento. También puede ser útil retirar correlaciones obvias para que el análisis revele relaciones menos evidentes, siempre verificando que no se elimine información necesaria.</p>
-        <p>Si las métricas quedan persistentemente muy por debajo de lo esperado, una hipótesis es que faltan features que describan el patrón. No es una demostración automática: también puede fallar el target, la calidad, el algoritmo, la separación de datos o la propia posibilidad predictiva.</p>
+        <p>Si la accuracy queda persistentemente en una zona baja, por ejemplo entre 0,40 y 0,55, una hipótesis es que faltan features que describan el patrón. No es una demostración automática: también puede fallar el target, la calidad, el algoritmo, la separación de datos o la propia posibilidad predictiva.</p>
 
         <h3>Responsabilidades superpuestas</h3>
-        <p>El ingeniero de datos realiza la preparación genérica. El científico de datos puede revisarla al elegir la familia de algoritmos, porque el tratamiento de outliers, el escalado y la reducción dependen del modelo.</p>
+        <p>El ingeniero de datos realiza la preparación genérica. El científico de datos puede revisarla al elegir la familia de algoritmos, explicada en el capítulo siguiente, porque el tratamiento de outliers, el escalado y la reducción dependen del modelo.</p>
 
         <p><strong>Leakage o fuga de información:</strong> ocurre cuando el entrenamiento recibe un dato que no estaría disponible al momento de predecir, o cuando información del conjunto de prueba, reservado para la evaluación final, se filtra hacia el entrenamiento. La métrica parece mejorar, pero no representa el uso real.</p>
 
@@ -917,7 +919,8 @@
 
         <h3>Por qué se habla de familias y no de un mejor algoritmo</h3>
         <p>Los patrones y su distribución interna son invisibles antes de entrenar. Dos empresas pueden querer predecir las mismas ventas y tener columnas con los mismos nombres, pero distinto volumen, historia, concentración y distribución de casos. Por eso un algoritmo puede funcionar mejor en una y otro algoritmo de la misma familia en la otra.</p>
-        <p>La selección práctica consiste en identificar primero la familia adecuada al tipo de salida y luego comparar varios algoritmos de esa familia con la métrica definida para el problema. También pueden aparecer los nombres <strong>caracterización o clustering, clasificación y predicción o regresión</strong>.</p>
+        <p>La selección práctica consiste en identificar primero la familia adecuada al tipo de salida y luego comparar varios algoritmos de esa familia con la métrica definida para el problema. También pueden aparecer los nombres <strong>clusterización o clustering, clasificación y predicción o regresión</strong>.</p>
+        <p>La experiencia permite reducir la búsqueda: una persona senior puede preseleccionar unos pocos algoritmos plausibles, mientras una búsqueda sin criterio puede probar combinaciones caóticamente y quedarse en un mínimo local que no sea la mejor solución disponible. AutoML amplía la comparación, pero no reemplaza el criterio sobre familia, métrica y restricciones.</p>
 
         <div class="table-wrap"><table>
           <thead><tr><th>Familia</th><th>Target</th><th>Salida</th><th>Ejemplos</th></tr></thead>
@@ -972,9 +975,11 @@
         <h3>Hiperparámetros</h3>
         <p>Los parámetros son valores que el modelo aprende de los datos. Los <strong>hiperparámetros</strong> son configuraciones elegidas antes de entrenar, como la profundidad de un árbol, la cantidad de árboles o el tamaño de cada ajuste en una red. Cambiarlos puede modificar desempeño, tiempo de entrenamiento, costo y tendencia a memorizar ruido.</p>
         <p>Grid search prueba una lista fija de combinaciones, random search toma combinaciones al azar y la optimización bayesiana usa los resultados anteriores para decidir qué probar después.</p>
-        <p>El ajuste suele producir mejoras modestas, por ejemplo pasar de 78 a 78,5 o 79, no necesariamente saltos grandes. Su valor también puede estar en lograr mayor estabilidad, menor costo o menos sobreajuste, no sólo en elevar una métrica.</p>
+        <p>El ajuste suele producir mejoras modestas, por ejemplo pasar de 78 a 78,5 o 79, no necesariamente saltos grandes. Su valor también puede estar en lograr mayor estabilidad, menor costo o menos sobreajuste, no solo en elevar una métrica.</p>
+        <p>El costo se multiplica por la validación: probar diez configuraciones con diez folds implica cien entrenamientos. Por eso la búsqueda necesita presupuesto de tiempo y una estrategia, no combinaciones ilimitadas.</p>
 
         <h3>Validación cruzada o K-fold cross validation</h3>
+        <p>Si se conocieran de antemano todos los patrones encerrados en los datos, no haría falta usar Machine Learning para descubrirlos. La validación cruzada ayuda justamente a revelar que los patrones no están distribuidos de manera uniforme.</p>
         <p>Una única partición de validación puede favorecer o perjudicar al modelo por azar. La validación cruzada divide el conjunto de entrenamiento en K partes, llamadas <em>folds</em>. Se entrena K veces: en cada repetición se usa un fold para validar y los restantes para entrenar. Así se obtiene una distribución de resultados en lugar de una sola cifra.</p>
         <p>Son habituales entre 3 y 10 folds. Un K mayor deja menos datos en cada validación y aumenta el costo de cómputo. La elección depende del volumen y de la heterogeneidad de los datos.</p>
 
@@ -1082,6 +1087,7 @@
           <tbody>
             <tr><td>L2, Ridge</td><td>Penaliza pesos grandes al cuadrado.</td><td>Reduce magnitudes sin llevar muchas exactamente a cero.</td></tr>
             <tr><td>L1, Lasso</td><td>Penaliza valor absoluto de pesos.</td><td>Puede llevar coeficientes a cero y seleccionar variables.</td></tr>
+            <tr><td>Elastic Net</td><td>Combina penalizaciones L1 y L2.</td><td>Equilibra selección y reducción de coeficientes, especialmente cuando hay features correlacionadas.</td></tr>
             <tr><td>Early stopping</td><td>Detiene cuando validación deja de mejorar.</td><td>Evita seguir ajustando ruido.</td></tr>
             <tr><td>Dropout</td><td>Desactiva unidades aleatoriamente durante entrenamiento.</td><td>Reduce coadaptación en redes neuronales.</td></tr>
             <tr><td>Data augmentation</td><td>Crea variaciones plausibles o datos sintéticos.</td><td>Aumenta diversidad, siempre que preserve la etiqueta y la realidad.</td></tr>
@@ -1098,9 +1104,52 @@
         <p class="exam-answer"><strong>Respuesta:</strong> sobreajuste es obtener buen rendimiento en entrenamiento y peor rendimiento en datos nuevos por haber aprendido ruido o detalles específicos de la muestra. Se reduce con L1, L2, early stopping, dropout, augmentation, menor complejidad o más datos representativos.</p>
       </section>
 
-      <section class="chapter" id="xai" data-title="explicabilidad interpretabilidad XAI SHAP LIME integrated gradients sesgos fairness caja negra blanca gris">
+      <section class="chapter" id="automl" data-title="automl pycaret tpot h2o autofeat flaml lazypredict programación genética pipeline">
         <div class="chapter-head">
           <div class="chapter-number">07</div>
+          <div><h2>Automatización del aprendizaje automático (AutoML)</h2></div>
+        </div>
+
+        <p><strong>AutoML, Automated Machine Learning,</strong> reúne herramientas que automatizan partes repetitivas del entrenamiento y la comparación de modelos. Suele recibir un dataset preparado, el target, el tipo de problema, la métrica, la estrategia de validación y un presupuesto de tiempo. Como salida produce resultados comparables y uno o más pipelines candidatos. Un pipeline es una secuencia ordenada de transformaciones y modelo.</p>
+        <p>No significa que el proyecto de ML sea automático. Su primer valor suele ser generar un <strong>baseline</strong>, una referencia inicial contra la cual medir mejoras posteriores.</p>
+        <p>AutoML reduce el trabajo operativo necesario para entrenar y comparar muchos algoritmos. El conocimiento no desaparece: <strong>se desplaza hacia la definición del problema y la interpretación de las métricas</strong>.</p>
+
+        <h3>Tres bloques que puede automatizar</h3>
+        <ul class="study-list">
+          <li><strong>Preparación y features:</strong> aplica preprocesamientos estandarizados y, según la herramienta, selecciona o genera características.</li>
+          <li><strong>Modelo e hiperparámetros:</strong> compara algoritmos, prueba configuraciones y los evalúa con validación cruzada usando la métrica indicada.</li>
+          <li><strong>Combinación de modelos:</strong> puede crear ensambles, es decir, usar varios modelos y combinar sus predicciones. Bagging los entrena en paralelo y vota o promedia, boosting los entrena en secuencia para corregir errores, y stacking aprende a mezclar modelos distintos.</li>
+        </ul>
+        <p>Además puede registrar métricas, generar gráficos y exportar modelos, pipelines o código. La recolección, integración y limpieza de los datos crudos ocurren antes: AutoML recibe un dataset cuya calidad ya debe haber sido investigada.</p>
+
+        <h3>Qué no delega</h3>
+        <p>Definición del problema, acceso y calidad, prevención de leakage, métrica adecuada, separación de los datos, validación con expertos, análisis de sesgos, restricciones de producción, monitoreo y responsabilidad.</p>
+
+        <div class="table-wrap"><table>
+          <thead><tr><th>Herramienta</th><th>Qué hace</th><th>Uso pragmático</th></tr></thead>
+          <tbody>
+            <tr><td>PyCaret</td><td>Orquesta algoritmos de librerías existentes y permite comparar modelos con pocas líneas.</td><td>Baseline rápido y experimentación guiada.</td></tr>
+            <tr><td>TPOT</td><td>Usa programación genética: genera variantes de pipelines, conserva las que obtienen mejores resultados y las combina para crear nuevas variantes. Se le fija un tiempo máximo de búsqueda; en la corrida de referencia, diez minutos.</td><td>Exporta código basado en librerías estándar y no necesita TPOT durante la inferencia.</td></tr>
+            <tr><td>H2O AutoML</td><td>Compara modelos, combina varios de ellos y muestra una tabla ordenada de resultados junto con métricas, matriz de confusión y gráficos.</td><td>Experimentación más completa, con ecosistema empresarial.</td></tr>
+            <tr><td>AutoFeat</td><td>Generación y selección automática de características para datos tabulares.</td><td>Proponer transformaciones, siempre revisando sentido y leakage.</td></tr>
+            <tr><td>FLAML</td><td>AutoML liviano con presupuesto de tiempo o recursos para clasificación, regresión y series temporales.</td><td>Obtener una primera solución con costo controlado.</td></tr>
+            <tr><td>LazyPredict</td><td>Compara rápidamente modelos básicos de clasificación o regresión.</td><td>Baseline preliminar, no producto final.</td></tr>
+          </tbody>
+        </table></div>
+
+        <p>Para conocer una herramienta de AutoML conviene empezar con un dataset estándar y curado, no con el problema real todavía desconocido. Un ciclo corto, por ejemplo unas pocas líneas y un presupuesto de veinte minutos, permite entender sus salidas antes de aplicarla sobre datos propios.</p>
+
+        <h3>Criterios para seleccionar herramienta</h3>
+        <p>Actividad del proyecto, licencia, reproducibilidad, integración, seguridad, capacidad de exportar, soporte de tipos de problema, observabilidad, costo y dependencia en producción. PyCaret llegó a pasar más de un año sin una nueva versión mientras su creador publicaba sobre la adaptación a los LLM sin anunciar una actualización. El caso muestra por qué una herramienta open source puede ser adecuada para aprender, pero riesgosa como base corporativa si su mantenimiento se detiene.</p>
+
+        <p><strong>TPOT y seguridad:</strong> el CISO, responsable de seguridad de la información, puede autorizar librerías distintas para desarrollo, pruebas internas, validación de usuarios y producción. TPOT puede utilizarse en un entorno de desarrollo más flexible y exportar un pipeline basado en librerías estándar, sin necesitar TPOT en producción.</p>
+
+        <p class="exam-answer"><strong>Respuesta:</strong> AutoML automatiza comparación de algoritmos, pipelines, validación y ajuste. No define el problema, no corrige datos deficientes y no decide métricas, sesgos aceptables ni restricciones productivas.</p>
+      </section>
+
+      <section class="chapter" id="xai" data-title="explicabilidad interpretabilidad XAI SHAP LIME integrated gradients sesgos fairness caja negra blanca gris">
+        <div class="chapter-head">
+          <div class="chapter-number">08</div>
           <div><h2>Explicabilidad de modelos y detección de sesgos (XAI)</h2></div>
         </div>
 
@@ -1126,6 +1175,7 @@
         </table></div>
 
         <p><strong>Lectura de SHAP:</strong> en una predicción de 0,70 sobre el mejor jugador de un partido, una variable como goles puede empujar el resultado hacia arriba y otra como pocos pases hacia abajo. En los gráficos habituales, la posición horizontal muestra la dirección y magnitud del impacto, mientras el color representa si el valor de la variable es alto o bajo. Siempre debe leerse la leyenda concreta del gráfico.</p>
+        <p>El peso de una variable no tiene que ser igual para todos los registros. En un dataset de automóviles, el orden de importancia puede cambiar entre un vehículo de Japón y otro de Estados Unidos porque la explicación es local al caso analizado.</p>
 
         <h3>Por qué XAI importa</h3>
         <ul>
@@ -1138,6 +1188,7 @@
 
         <h3>ML, dinámica de sistemas y conocimiento</h3>
         <p>La dinámica de sistemas de Jay Forrester y el pensamiento sistémico difundido por Peter Senge modelan interacciones y retroalimentaciones entre procesos. Un modelo de ML puede predecir sin representar esas relaciones. Las explicaciones validadas por expertos deben documentarse como conocimiento o reglas de negocio, pero no prueban causalidad.</p>
+        <p>Una salida explicada puede destilarse en <strong>reglas de producción</strong> del tipo IF condición THEN acción. Esas reglas vuelven explícito conocimiento que antes estaba encerrado en el modelo, pero deben ser contrastadas con especialistas antes de usarse para decidir.</p>
 
         <h3>Sesgo en datos y modelo</h3>
         <p>Los datos históricos reflejan decisiones y desigualdades anteriores. Un algoritmo puede reproducirlas o amplificarlas. También puede usar un proxy, una variable que revela indirectamente otra, como el código postal respecto del nivel socioeconómico, aunque se elimine una variable sensible. Por eso no alcanza con mirar importancia sobre entrenamiento.</p>
@@ -1164,7 +1215,7 @@
 
       <section class="chapter" id="mlops" data-title="MLOps producción latencia seguridad computo logs trazabilidad drift data concept prediction reentrenamiento decomiso MLflow">
         <div class="chapter-head">
-          <div class="chapter-number">08</div>
+          <div class="chapter-number">09</div>
           <div><h2>Producción y mantenimiento de modelos (MLOps)</h2></div>
         </div>
 
@@ -1179,6 +1230,8 @@
         </ul>
 
         <p>Latencia, seguridad, costo, integración y capacidad de cómputo deben evaluarse durante la viabilidad, no después del entrenamiento.</p>
+
+        <p><strong>Empaquetado coherente:</strong> preprocesamiento, transformaciones, modelo, configuración y registro deben versionarse como un artefacto reproducible. El contenedor no es solamente Docker: la condición importante es que producción aplique exactamente las mismas transformaciones que se validaron, sin reconstruirlas de manera distinta.</p>
 
         <h3>Qué debe registrarse</h3>
         <ul>
@@ -1213,49 +1266,6 @@
         <p class="exam-answer"><strong>Respuesta:</strong> MLOps versiona código, datos, modelos y configuración, automatiza despliegues y registra operación. El monitoreo mide drift de entradas, relación con el target, predicciones y desempeño para decidir si corresponde corregir el pipeline, reentrenar, revertir o retirar el modelo.</p>
       </section>
 
-      <section class="chapter" id="automl" data-title="automl pycaret tpot h2o autofeat flaml lazypredict programación genética pipeline">
-        <div class="chapter-head">
-          <div class="chapter-number">09</div>
-          <div><h2>Automatización del aprendizaje automático (AutoML)</h2></div>
-        </div>
-
-        <p><strong>AutoML, Automated Machine Learning,</strong> reúne herramientas que automatizan partes repetitivas del entrenamiento y la comparación de modelos. Suele recibir un dataset preparado, el target, el tipo de problema, la métrica, la estrategia de validación y un presupuesto de tiempo. Como salida produce resultados comparables y uno o más pipelines candidatos. Un pipeline es una secuencia ordenada de transformaciones y modelo.</p>
-        <p>No significa que el proyecto de ML sea automático. Su primer valor suele ser generar un <strong>baseline</strong>, una referencia inicial contra la cual medir mejoras posteriores.</p>
-        <p>AutoML reduce el trabajo operativo necesario para entrenar y comparar muchos algoritmos. El conocimiento no desaparece: <strong>se desplaza hacia la definición del problema y la interpretación de las métricas</strong>.</p>
-
-        <h3>Tres bloques que puede automatizar</h3>
-        <ul class="study-list">
-          <li><strong>Preparación y features:</strong> aplica preprocesamientos estandarizados y, según la herramienta, selecciona o genera características.</li>
-          <li><strong>Modelo e hiperparámetros:</strong> compara algoritmos, prueba configuraciones y los evalúa con validación cruzada usando la métrica indicada.</li>
-          <li><strong>Combinación de modelos:</strong> puede crear ensambles, es decir, usar varios modelos y combinar sus predicciones. Bagging los entrena en paralelo y vota o promedia, boosting los entrena en secuencia para corregir errores, y stacking aprende a mezclar modelos distintos.</li>
-        </ul>
-        <p>Además puede registrar métricas, generar gráficos y exportar modelos, pipelines o código. La recolección, integración y limpieza de los datos crudos ocurren antes: AutoML recibe un dataset cuya calidad ya debe haber sido investigada.</p>
-
-        <h3>Qué no delega</h3>
-        <p>Definición del problema, acceso y calidad, prevención de leakage, métrica adecuada, separación de los datos, validación con expertos, análisis de sesgos, restricciones de producción, monitoreo y responsabilidad.</p>
-
-        <div class="table-wrap"><table>
-          <thead><tr><th>Herramienta</th><th>Qué hace</th><th>Uso pragmático</th></tr></thead>
-          <tbody>
-            <tr><td>PyCaret</td><td>Orquesta algoritmos de librerías existentes y permite comparar modelos con pocas líneas.</td><td>Baseline rápido y experimentación guiada.</td></tr>
-            <tr><td>TPOT</td><td>Usa programación genética: genera variantes de pipelines, conserva las que obtienen mejores resultados y las combina para crear nuevas variantes. Permite fijar un presupuesto de tiempo.</td><td>Exporta código basado en librerías estándar y no necesita TPOT durante la inferencia.</td></tr>
-            <tr><td>H2O AutoML</td><td>Compara modelos, combina varios de ellos y muestra una tabla ordenada de resultados junto con métricas, matriz de confusión y gráficos.</td><td>Experimentación más completa, con ecosistema empresarial.</td></tr>
-            <tr><td>AutoFeat</td><td>Generación y selección automática de características para datos tabulares.</td><td>Proponer transformaciones, siempre revisando sentido y leakage.</td></tr>
-            <tr><td>FLAML</td><td>AutoML liviano con presupuesto de tiempo o recursos para clasificación, regresión y series temporales.</td><td>Obtener una primera solución con costo controlado.</td></tr>
-            <tr><td>LazyPredict</td><td>Compara rápidamente modelos básicos de clasificación o regresión.</td><td>Baseline preliminar, no producto final.</td></tr>
-          </tbody>
-        </table></div>
-
-        <p>Para conocer una herramienta de AutoML conviene empezar con un dataset estándar y curado, no con el problema real todavía desconocido. Un ciclo corto, por ejemplo unas pocas líneas y un presupuesto de veinte minutos, permite entender sus salidas antes de aplicarla sobre datos propios.</p>
-
-        <h3>Criterios para seleccionar herramienta</h3>
-        <p>Actividad del proyecto, licencia, reproducibilidad, integración, seguridad, capacidad de exportar, soporte de tipos de problema, observabilidad, costo y dependencia en producción. Una herramienta open source abandonada puede ser adecuada para aprender, pero riesgosa como base corporativa.</p>
-
-        <p><strong>TPOT y seguridad:</strong> el CISO, responsable de seguridad de la información, puede autorizar librerías distintas para desarrollo, pruebas internas, validación de usuarios y producción. TPOT puede utilizarse en un entorno de desarrollo más flexible y exportar un pipeline basado en librerías estándar, sin necesitar TPOT en producción.</p>
-
-        <p class="exam-answer"><strong>Respuesta:</strong> AutoML automatiza comparación de algoritmos, pipelines, validación y ajuste. No define el problema, no corrige datos deficientes y no decide métricas, sesgos aceptables ni restricciones productivas.</p>
-      </section>
-
       <section class="chapter" id="llm" data-title="LLM modelo lenguaje Transformer tokenización embeddings atención prompt ingeniería prompting ROC fine tuning inferencia">
         <div class="chapter-head">
           <div class="chapter-number">10</div>
@@ -1265,6 +1275,7 @@
         <p>Un <strong>LLM, Large Language Model,</strong> es una red neuronal de Deep Learning entrenada con grandes cantidades de texto para predecir tokens y generar una continuación. Recibe un prompt, que contiene instrucciones y contexto, y produce una respuesta. No funciona como una base de datos ni garantiza que una afirmación sea verdadera.</p>
 
         <h3>Cómo procesa texto un LLM</h3>
+        <p>El recorrido conceptual fue: primero comprender que el contexto modifica el significado de una palabra; luego BERT mostró el valor de representar ese contexto; el mecanismo de atención permitió procesar bloques amplios en paralelo y ponderar sus partes; finalmente, arquitecturas generativas como GPT usaron ese mecanismo para producir continuaciones.</p>
         <ol class="study-list">
           <li><strong>Tokenización:</strong> divide el texto en tokens, que pueden ser palabras, partes de palabras o signos.</li>
           <li><strong>Embeddings:</strong> convierte cada token en un vector numérico que el modelo puede procesar.</li>
@@ -1273,17 +1284,84 @@
           <li><strong>Predicción:</strong> después de atravesar varias capas Transformer, calcula probabilidades para el token siguiente. Repite el proceso token por token hasta completar la respuesta.</li>
         </ol>
         <p>El <strong>Transformer</strong> es la arquitectura de red neuronal que organiza ese mecanismo de atención. Durante el preentrenamiento ajusta sus pesos con grandes corpus de texto. En inferencia usa esos pesos para responder. Un fine tuning posterior puede especializar su conducta, pero no convierte al modelo en una base de datos verificable.</p>
+        <p>Visto desde afuera, simula un proceso cognitivo: lee el contexto, conserva relaciones, pondera lo relevante y construye una respuesta. La similitud está en el resultado funcional, no en una comprensión humana interna.</p>
 
         <h3>Cómo escribir una instrucción útil</h3>
-        <p>Un <strong>prompt</strong> es el texto con el que se le indica una tarea al modelo. La ingeniería de prompts consiste en redactar y refinar esas instrucciones para obtener una salida útil. Un prompt necesita claridad, detalle suficiente y contexto. El esquema <strong>ROC</strong> ayuda a ordenarlo: rol que debe asumir el modelo, objetivo concreto y contexto necesario para resolverlo.</p>
+        <p>Un <strong>prompt</strong> es el texto con el que se le indica una tarea al modelo. La ingeniería de prompts consiste en redactar y refinar esas instrucciones para obtener una salida útil. Un prompt necesita claridad, detalle suficiente y contexto. El esquema <strong>ROC</strong> ayuda a ordenarlo: rol que debe asumir el modelo, objetivo concreto y contexto necesario para resolverlo. Este ROC no tiene relación con la curva ROC usada en métricas de clasificación.</p>
         <p>Para generar un pipeline de ML, por ejemplo, conviene pedir por separado las features y el target, variables de entrada, transformaciones o ecuaciones, algoritmo e hiperparámetros, y pasos de implementación y prueba. El primer resultado se revisa y el prompt se ajusta. Sin conocimiento del problema no hay forma de especificar ni controlar la salida.</p>
 
         <p class="exam-answer"><strong>Respuesta:</strong> un LLM tokeniza la entrada, la representa con vectores y usa atención dentro de una arquitectura Transformer para ponderar el contexto y predecir el token siguiente. Un prompt útil explicita rol, objetivo, contexto, formato y criterios de aceptación, y luego se refina según el resultado.</p>
       </section>
 
-      <section class="chapter" id="vibe" data-title="vibe coding generación código LLM patrones amnesia tokens Antigravity MCP Dunning Kruger">
+      <section class="chapter" id="rag" data-title="RAG retrieval augmented generation bases vectoriales embeddings cosine euclidean atención alucinación chunking trazabilidad LLM">
         <div class="chapter-head">
           <div class="chapter-number">11</div>
+          <div><h2>RAG (generación aumentada mediante recuperación) y bases vectoriales</h2></div>
+        </div>
+
+        <p><strong>RAG, Retrieval Augmented Generation,</strong> combina recuperación y generación. Busca fragmentos en un corpus, colección de documentos, y los agrega al prompt del LLM para que responda con esa evidencia.</p>
+        <p>Cada fragmento o chunk puede guardarse junto con metadata, como fuente, fecha y permisos. Un embedding lo representa como un vector numérico para buscar contenido semánticamente cercano.</p>
+
+        <h3>Las tres limitaciones del LLM y las tres ventajas de RAG</h3>
+        <ol class="study-list">
+          <li><strong>Fine tuning costoso:</strong> el fine tuning es un entrenamiento adicional que modifica el modelo para especializarlo. Requiere datos, cómputo y un nuevo proceso de ajuste. <strong>RAG:</strong> incorpora conocimiento mediante documentos e índice sin volver a entrenar todo el modelo.</li>
+          <li><strong>Obsolescencia:</strong> el conocimiento guardado en los pesos queda atrasado. <strong>RAG:</strong> se actualiza cambiando documentos y reindexando, sin volver a entrenar todo el modelo.</li>
+          <li><strong>Opacidad:</strong> es difícil reconstruir por qué los pesos produjeron una respuesta. <strong>RAG:</strong> permite trazar qué fragmentos y documentos fueron recuperados.</li>
+        </ol>
+
+        <h3>Pipeline básico</h3>
+        <ol class="study-list">
+          <li>Ingestar documentos confiables.</li>
+          <li>Limpiar, dividir en fragmentos o chunks y agregar metadata.</li>
+          <li>Convertir los chunks en embeddings.</li>
+          <li>Indexar los vectores.</li>
+          <li>Recuperar los vecinos relevantes para la consulta.</li>
+          <li>Generar la respuesta con contexto y fuentes.</li>
+        </ol>
+
+        <h3>Embeddings y similitud</h3>
+        <p>Un embedding representa contenido en un vector donde cercanía pretende capturar similitud semántica. La consulta se embebe con el mismo modelo y se buscan vecinos mediante similitud coseno, producto interno o distancia euclídea. PCA puede visualizar en pocas dimensiones, pero no forma parte necesaria de la búsqueda.</p>
+        <p>La similitud coseno compara la orientación de dos vectores, la distancia euclídea mide la distancia recta entre ellos y el producto interno combina orientación y magnitud. La medida correcta depende de cómo fue entrenado y normalizado el modelo de embeddings.</p>
+        <p><strong>FAISS</strong> es una biblioteca para construir índices y buscar vecinos entre vectores. Da control sobre indexación, distancia y rendimiento, pero no reemplaza la evaluación de relevancia ni los permisos sobre los documentos recuperados.</p>
+
+        <h3>Por qué la base vectorial siempre responde</h3>
+        <ol class="study-list">
+          <li>Una consulta exacta en una base de datos relacional, escrita en SQL, puede no devolver filas. Una búsqueda vectorial es difusa: ordena los fragmentos por cercanía semántica.</li>
+          <li>El índice siempre puede devolver el vector más cercano, aunque ese vecino siga siendo poco relevante.</li>
+          <li>No existe un punto de corte universal y verificado que separe una respuesta correcta de una incorrecta. Un umbral elegido sin evaluación para ese sistema es arbitrario.</li>
+          <li>La base vectorial siempre responde y, si lo recuperado no es lo que se necesitaba, se lo llama alucinación.</li>
+        </ol>
+        <p><strong>En una implementación real:</strong> pueden configurarse umbrales, abstención, filtros y un segundo ordenamiento. Eso reduce recuperaciones malas, pero ningún valor garantiza verdad para todas las consultas. Hay que distinguir recuperación irrelevante de alucinación generativa: la base recupera y el LLM redacta.</p>
+
+        <h3>Por qué usar RAG</h3>
+        <ul>
+          <li>Actualiza conocimiento cambiando documentos e índice, sin reentrenar todo el LLM.</li>
+          <li>Restringe el contexto a fuentes empresariales.</li>
+          <li>Permite citar y auditar documentos recuperados.</li>
+          <li>Reduce costo frente a ciertos ajustes o entrenamientos.</li>
+        </ul>
+
+        <h3>Limitaciones</h3>
+        <p>RAG no garantiza corrección. Puede fallar por documentos malos, fragmentación inadecuada, embeddings poco aptos, consulta ambigua, metadata ausente, una cantidad incorrecta de resultados recuperados, llamada <em>top K</em>, pérdida de contexto, prompt deficiente o generación que ignora la evidencia. Deben evaluarse tanto la recuperación como la respuesta final.</p>
+
+        <h3>RAG frente a fine tuning</h3>
+        <p>En síntesis, fine tuning modifica pesos o adaptadores para especializar el comportamiento; RAG mantiene el modelo y cambia el contexto de cada consulta.</p>
+        <div class="table-wrap"><table>
+          <thead><tr><th>RAG</th><th>Fine tuning</th></tr></thead>
+          <tbody>
+            <tr><td>Inyecta conocimiento en tiempo de consulta.</td><td>Modifica pesos o adaptadores del modelo.</td></tr>
+            <tr><td>Es apropiado para corpus cambiante y trazable.</td><td>Es apropiado para conducta, formato o especialización estable.</td></tr>
+            <tr><td>Depende de calidad de recuperación y contexto.</td><td>Depende de datos de ajuste y puede olvidar o sesgar.</td></tr>
+            <tr><td>Se actualiza reindexando.</td><td>Se actualiza con otro proceso de entrenamiento.</td></tr>
+          </tbody>
+        </table></div>
+
+        <p class="exam-answer"><strong>Respuesta:</strong> RAG recupera fragmentos mediante embeddings y los agrega al contexto del LLM. El corpus se actualiza reindexando, sin reentrenar el modelo. Deben evaluarse por separado recuperación, fidelidad a las fuentes, citas, latencia y seguridad.</p>
+      </section>
+
+      <section class="chapter" id="vibe" data-title="vibe coding generación código LLM patrones amnesia tokens Antigravity Dunning Kruger">
+        <div class="chapter-head">
+          <div class="chapter-number">12</div>
           <div><h2>Vibe coding y supervisión humana</h2></div>
         </div>
 
@@ -1292,24 +1370,25 @@
 
         <h3>Flujo de trabajo</h3>
         <ol>
-          <li>Cargar el documento base o corpus, conjunto de documentos de trabajo, en NotebookLM y extraer conceptos, preguntas y referencias.</li>
-          <li>Actualizar y contrastar la búsqueda con Gemini y Consensus, preferentemente sobre papers en inglés.</li>
-          <li>Extraer dataset, variables, ecuaciones, arquitectura y pipeline.</li>
+          <li>Cargar el documento base en NotebookLM y pedir una síntesis en Markdown que preserve contexto, conceptos y referencias.</li>
+          <li>Usar Gemini con investigación profunda para localizar trabajos recientes y ampliar el estado del arte.</li>
+          <li>Usar Consensus para comparar evidencia a favor y en contra entre distintos papers.</li>
+          <li>Usar Elicit o Paperguide para desgranar en profundidad los papers seleccionados.</li>
+          <li>Cargar esos papers en un segundo NotebookLM y construir un corpus enfocado.</li>
+          <li>Extraer dataset, features, target, variables, ecuaciones, arquitectura, hiperparámetros y pipeline.</li>
           <li>Crear un documento técnico en Markdown como especificación.</li>
-          <li>Dar al editor asistido reglas, contexto y criterios de prueba.</li>
-          <li>Generar una primera versión ejecutable con datos sintéticos.</li>
-          <li>Registrar decisiones, errores y ejecuciones en una bitácora como <code>memory.md</code>.</li>
+          <li>Dar a Antigravity reglas, contexto y criterios de prueba, generar una primera versión con datos sintéticos y registrar decisiones en <code>memory.md</code>.</li>
           <li>Leer, probar y refinar el código con conocimiento de ingeniería.</li>
         </ol>
 
-        <h3>Ejemplo de costos</h3>
+        <h3>Caso de aplicación: registros sónicos sintéticos</h3>
         <div class="table-wrap"><table>
           <thead><tr><th>Etapa</th><th>Aplicación</th></tr></thead>
           <tbody>
             <tr><td>Investigación</td><td>Artículos sobre generación de registros sónicos sintéticos para petróleo y gas.</td></tr>
             <tr><td>Especificación</td><td>Documento Markdown con 13 variables de entrada, 2 targets, ecuaciones, transformaciones e hiperparámetros.</td></tr>
             <tr><td>Implementación</td><td>Reescalado entre valores mínimos y máximos, y una red con dos capas ocultas de 13 neuronas, activación sigmoide y ajuste de pesos por backpropagation.</td></tr>
-            <tr><td>Control</td><td>Generación de datos sintéticos, validaciones y registro de decisiones en <code>memory.md</code>.</td></tr>
+            <tr><td>Control</td><td>Generación de datos sintéticos, validaciones y registro de decisiones en <code>memory.md</code>. Las primeras evaluaciones dieron R² de 0,72 y 0,76: resultados intermedios útiles para comenzar a iterar, no una solución terminada.</td></tr>
           </tbody>
         </table></div>
 
@@ -1343,79 +1422,69 @@
         </table></div>
 
         <h3>Herramientas citadas</h3>
-        <p>NotebookLM permite consultar un corpus, Gemini y Consensus ayudan a investigar y Antigravity funciona como entorno de generación. MCP, Model Context Protocol, estandariza la conexión de una aplicación de IA con herramientas y recursos externos.</p>
+        <p>NotebookLM permite consultar un corpus; Gemini investiga; Consensus compara evidencia; Elicit y Paperguide analizan papers; Antigravity funciona como entorno de generación.</p>
 
         <p class="exam-answer"><strong>Respuesta:</strong> vibe coding acelera la escritura, pero puede producir amnesia de código, errores no detectados y alto consumo de contexto. Se controla con arquitectura explícita, módulos pequeños, bitácora, pruebas, revisión del código y aprobación humana.</p>
       </section>
 
-      <section class="chapter" id="rag" data-title="RAG retrieval augmented generation bases vectoriales embeddings cosine euclidean atención alucinación chunking trazabilidad LLM">
+      <section class="chapter" id="agentes" data-title="agentes inteligentes autonomía reactividad proactividad multiagente orquestador colaboración n8n MCP memoria blackboard objetivo utilidad">
         <div class="chapter-head">
-          <div class="chapter-number">12</div>
-          <div><h2>RAG (generación aumentada mediante recuperación) y bases vectoriales</h2></div>
+          <div class="chapter-number">13</div>
+          <div><h2>Agentes inteligentes y orquestación</h2></div>
         </div>
 
-        <p><strong>RAG, Retrieval Augmented Generation,</strong> combina recuperación y generación. Busca fragmentos en un corpus, colección de documentos, y los agrega al prompt del LLM para que responda con esa evidencia.</p>
-        <p>Cada fragmento o chunk puede guardarse junto con metadata, como fuente, fecha y permisos. Un embedding lo representa como un vector numérico para buscar contenido semánticamente cercano.</p>
+        <p><strong>Agente:</strong> programa que recibe información del entorno y ejecuta acciones para cumplir un objetivo dentro de permisos definidos.</p>
+        <p><strong>Ejemplo del tornillo:</strong> un programa tradicional puede exigir que cada tornillo llegue siempre en la misma posición. Una persona toma el tornillo como venga, reconoce su orientación y coloca la tuerca. Un agente se acerca a este segundo comportamiento: percibe el estado, se adapta dentro de sus capacidades y elige una acción para avanzar hacia el objetivo.</p>
+        <p><strong>Orquestador:</strong> componente que decide qué agente o herramienta usar, en qué orden, con qué contexto y ante qué condiciones. <strong>Los agentes por sí solos no saben nada</strong>: su valor depende de capacidades bien definidas y de la coordinación.</p>
+        <p>n8n es un ejemplo de orquestador visual: permite dibujar una secuencia de pasos, condiciones y conexiones entre herramientas.</p>
 
-        <h3>Las tres limitaciones del LLM y las tres ventajas de RAG</h3>
-        <ol class="study-list">
-          <li><strong>Fine tuning costoso:</strong> el fine tuning es un entrenamiento adicional que modifica el modelo para especializarlo. Requiere datos, cómputo y un nuevo proceso de ajuste. <strong>RAG:</strong> incorpora conocimiento mediante documentos e índice sin volver a entrenar todo el modelo.</li>
-          <li><strong>Obsolescencia:</strong> el conocimiento guardado en los pesos queda atrasado. <strong>RAG:</strong> se actualiza cambiando documentos y reindexando, sin volver a entrenar todo el modelo.</li>
-          <li><strong>Opacidad:</strong> es difícil reconstruir por qué los pesos produjeron una respuesta. <strong>RAG:</strong> permite trazar qué fragmentos y documentos fueron recuperados.</li>
-        </ol>
+        <p><strong>Integración empresarial:</strong> Machine Learning o Deep Learning detecta y predice patrones, RAG aporta conocimiento documental actualizable y trazable, y los agentes ejecutan tareas coordinadas por un orquestador. La combinación integra modelado, conocimiento documental y ejecución controlada.</p>
 
-        <h3>Pipeline básico</h3>
-        <ol class="study-list">
-          <li>Ingestar documentos confiables.</li>
-          <li>Limpiar, dividir en fragmentos o chunks y agregar metadata.</li>
-          <li>Convertir los chunks en embeddings.</li>
-          <li>Indexar los vectores.</li>
-          <li>Recuperar los vecinos relevantes para la consulta.</li>
-          <li>Generar la respuesta con contexto y fuentes.</li>
-        </ol>
-
-        <h3>Embeddings y similitud</h3>
-        <p>Un embedding representa contenido en un vector donde cercanía pretende capturar similitud semántica. La consulta se embebe con el mismo modelo y se buscan vecinos mediante similitud coseno, producto interno o distancia euclídea. PCA puede visualizar en pocas dimensiones, pero no forma parte necesaria de la búsqueda.</p>
-        <p>La similitud coseno compara la orientación de dos vectores, la distancia euclídea mide la distancia recta entre ellos y el producto interno combina orientación y magnitud. La medida correcta depende de cómo fue entrenado y normalizado el modelo de embeddings.</p>
-
-        <h3>Por qué la base vectorial siempre responde</h3>
-        <ol class="study-list">
-          <li>Una consulta exacta en una base de datos relacional, escrita en SQL, puede no devolver filas. Una búsqueda vectorial es difusa: ordena los fragmentos por cercanía semántica.</li>
-          <li>El índice siempre puede devolver el vector más cercano, aunque ese vecino siga siendo poco relevante.</li>
-          <li>No existe un punto de corte universal y verificado que separe una respuesta correcta de una incorrecta. Un umbral elegido sin evaluación para ese sistema es arbitrario.</li>
-          <li>La base vectorial siempre responde y, si lo recuperado no es lo que se necesitaba, se lo llama alucinación.</li>
-        </ol>
-        <p><strong>En una implementación real:</strong> pueden configurarse umbrales, abstención, filtros y un segundo ordenamiento. Eso reduce recuperaciones malas, pero ningún valor garantiza verdad para todas las consultas. Hay que distinguir recuperación irrelevante de alucinación generativa: la base recupera y el LLM redacta.</p>
-
-        <h3>Por qué usar RAG</h3>
-        <ul>
-          <li>Actualiza conocimiento cambiando documentos e índice, sin reentrenar todo el LLM.</li>
-          <li>Restringe el contexto a fuentes empresariales.</li>
-          <li>Permite citar y auditar documentos recuperados.</li>
-          <li>Reduce costo frente a ciertos ajustes o entrenamientos.</li>
+        <h3>Propiedades</h3>
+        <ul class="study-list">
+          <li><strong>Autonomía:</strong> opera con intervención limitada y decide dentro de permisos definidos.</li>
+          <li><strong>Reactividad:</strong> responde oportunamente a cambios del entorno.</li>
+          <li><strong>Proactividad:</strong> toma iniciativa y planifica hacia objetivos.</li>
+          <li><strong>Habilidad social:</strong> se comunica con personas, herramientas u otros agentes.</li>
         </ul>
 
-        <h3>Limitaciones</h3>
-        <p>RAG no garantiza corrección. Puede fallar por documentos malos, fragmentación inadecuada, embeddings poco aptos, consulta ambigua, metadata ausente, una cantidad incorrecta de resultados recuperados, llamada <em>top K</em>, pérdida de contexto, prompt deficiente o generación que ignora la evidencia. Deben evaluarse tanto la recuperación como la respuesta final.</p>
-
-        <h3>RAG frente a fine tuning</h3>
-        <p>Fine tuning es un entrenamiento adicional que modifica pesos o adaptadores de un modelo para especializar su comportamiento. RAG no modifica el modelo: cambia el contexto que recibe en cada consulta.</p>
+        <h3>Tipos clásicos</h3>
         <div class="table-wrap"><table>
-          <thead><tr><th>RAG</th><th>Fine tuning</th></tr></thead>
+          <thead><tr><th>Tipo</th><th>Decisión</th><th>Memoria</th></tr></thead>
           <tbody>
-            <tr><td>Inyecta conocimiento en tiempo de consulta.</td><td>Modifica pesos o adaptadores del modelo.</td></tr>
-            <tr><td>Es apropiado para corpus cambiante y trazable.</td><td>Es apropiado para conducta, formato o especialización estable.</td></tr>
-            <tr><td>Depende de calidad de recuperación y contexto.</td><td>Depende de datos de ajuste y puede olvidar o sesgar.</td></tr>
-            <tr><td>Se actualiza reindexando.</td><td>Se actualiza con otro proceso de entrenamiento.</td></tr>
+            <tr><td>Reflejo simple</td><td>Reglas condición y acción sobre percepción actual.</td><td>No.</td></tr>
+            <tr><td>Basado en modelo</td><td>Usa un estado interno del entorno.</td><td>Sí.</td></tr>
+            <tr><td>Basado en objetivos</td><td>Elige acciones que acercan a una meta.</td><td>Usualmente.</td></tr>
+            <tr><td>Basado en utilidad</td><td>Compara alternativas según valor esperado.</td><td>Sí.</td></tr>
           </tbody>
         </table></div>
 
-        <p class="exam-answer"><strong>Respuesta:</strong> RAG recupera fragmentos mediante embeddings y los agrega al contexto del LLM. El corpus se actualiza reindexando, sin reentrenar el modelo. Deben evaluarse por separado recuperación, fidelidad a las fuentes, citas, latencia y seguridad.</p>
+        <h3>Sistemas multiagente</h3>
+        <p>Dividen un problema en tareas acotadas y agentes especializados. Los contratos de entrada y salida permiten reemplazar una pieza sin rehacer todo. La modularidad ayuda, pero introduce coordinación, observabilidad, seguridad, estado compartido y fallas distribuidas.</p>
+
+        <h3>Orquestación y colaboración</h3>
+        <ul class="study-list">
+          <li><strong>Orquestación, flujo predefinido:</strong> una persona o flujo de trabajo define primero A, luego B, condiciones y errores. n8n y Zapier son ejemplos de automatización por eventos.</li>
+          <li><strong>Colaboración, plan dinámico:</strong> un agente de nivel superior interpreta el objetivo, selecciona capacidades y arma o revisa el plan durante la ejecución.</li>
+        </ul>
+
+        <p>La memoria compartida puede implementar un patrón Blackboard: agentes leen y escriben estado común. El orquestador coordina, pero debe evitar que datos viejos, permisos excesivos o una salida errónea contaminen todo el flujo.</p>
+
+        <h3>MCP</h3>
+        <p>MCP significa Model Context Protocol. Estandariza cómo aplicaciones de IA descubren y usan herramientas o recursos. No vuelve inteligentes a los agentes ni resuelve por sí solo planificación, identidad, autorización o seguridad.</p>
+
+        <h3>Asistente sobre orquestador</h3>
+        <p>Un asistente planificador recibe el problema, identifica agentes disponibles y construye el plan. El agente ejecuta una capacidad específica y el orquestador coordina el flujo.</p>
+        <p>Hermes es un ejemplo de asistente sobre un orquestador. Puede apoyarse en una <strong>base de casos</strong>: conserva problemas testigo ya resueltos, recupera los más parecidos y los usa como referencia para construir un plan nuevo. Los casos no reemplazan la validación, pero aportan contexto operativo probado.</p>
+
+        <div class="callout danger"><strong>Riesgo productivo.</strong> Más autonomía exige más límites: permisos mínimos, ejecución aislada, aprobación humana para acciones sensibles, presupuestos, tiempos máximos, validación de resultados, registro de actividad y capacidad de detener o revertir.</div>
+
+        <p class="exam-answer"><strong>Respuesta:</strong> un agente recibe información y ejecuta acciones con cierta autonomía. Un sistema multiagente reparte tareas entre agentes especializados. Un orquestador ejecuta un flujo definido, mientras un planificador puede seleccionar capacidades y modificar el plan durante la ejecución.</p>
       </section>
 
       <section class="chapter" id="seguridad" data-title="seguridad LLM brechas vulnerabilidades prompt injection datos sensibles poisoning supply chain output agency system prompt vector embeddings misinformation consumption OWASP">
         <div class="chapter-head">
-          <div class="chapter-number">13</div>
+          <div class="chapter-number">14</div>
           <div><h2>Principales brechas de seguridad en modelos de lenguaje (LLM)</h2></div>
         </div>
 
@@ -1466,65 +1535,14 @@
           <li><strong>Fuentes falsas:</strong> una respuesta parece respaldada, pero cita contenido adulterado o irrelevante.</li>
         </ul>
 
+        <div class="callout blue"><strong>NIST AI RMF.</strong> Es un marco voluntario para gestionar riesgos de IA mediante cuatro funciones: gobernar, mapear el contexto, medir y gestionar. Considera siete propiedades: validez y confiabilidad; seguridad operativa; protección y resiliencia; responsabilidad y transparencia; explicabilidad e interpretabilidad; privacidad; y equidad con sesgos dañinos gestionados. Sirve para organizar responsabilidades y controles, no sustituye las defensas técnicas.</div>
+
         <p class="exam-answer"><strong>Respuesta:</strong> las brechas principales son prompt injection, fuga de información sensible, envenenamiento de datos o embeddings, cadena de suministro, manejo inseguro de la salida y agencia excesiva. En RAG se agregan fallas de permisos y documentos maliciosos. Las defensas son permisos mínimos, aislamiento, validación de entradas y salidas, trazabilidad, cuotas y aprobación humana para acciones sensibles.</p>
 
         <p><a href="https://genai.owasp.org/llm-top-10/" target="_blank" rel="noreferrer">Referencia: OWASP Top 10 para aplicaciones de LLM y GenAI.</a></p>
       </section>
 
-      <section class="chapter" id="agentes" data-title="agentes inteligentes autonomía reactividad proactividad multiagente orquestador colaboración n8n MCP memoria blackboard objetivo utilidad">
-        <div class="chapter-head">
-          <div class="chapter-number">14</div>
-          <div><h2>Agentes inteligentes y orquestación</h2></div>
-        </div>
-
-        <p><strong>Agente:</strong> programa que recibe información del entorno y ejecuta acciones para cumplir un objetivo dentro de permisos definidos.</p>
-        <p><strong>Orquestador:</strong> componente que decide qué agente o herramienta usar, en qué orden, con qué contexto y ante qué condiciones. <strong>Los agentes por sí solos no saben nada</strong>: su valor depende de capacidades bien definidas y de la coordinación.</p>
-        <p>n8n es un ejemplo de orquestador visual: permite dibujar una secuencia de pasos, condiciones y conexiones entre herramientas.</p>
-
-        <p><strong>Integración empresarial:</strong> Machine Learning o Deep Learning detecta y predice patrones, RAG aporta conocimiento documental actualizable y trazable, y los agentes ejecutan tareas coordinadas por un orquestador. La combinación integra modelado, conocimiento documental y ejecución controlada.</p>
-
-        <h3>Propiedades</h3>
-        <ul class="study-list">
-          <li><strong>Autonomía:</strong> opera con intervención limitada y decide dentro de permisos definidos.</li>
-          <li><strong>Reactividad:</strong> responde oportunamente a cambios del entorno.</li>
-          <li><strong>Proactividad:</strong> toma iniciativa y planifica hacia objetivos.</li>
-          <li><strong>Habilidad social:</strong> se comunica con personas, herramientas u otros agentes.</li>
-        </ul>
-
-        <h3>Tipos clásicos</h3>
-        <div class="table-wrap"><table>
-          <thead><tr><th>Tipo</th><th>Decisión</th><th>Memoria</th></tr></thead>
-          <tbody>
-            <tr><td>Reflejo simple</td><td>Reglas condición y acción sobre percepción actual.</td><td>No.</td></tr>
-            <tr><td>Basado en modelo</td><td>Usa un estado interno del entorno.</td><td>Sí.</td></tr>
-            <tr><td>Basado en objetivos</td><td>Elige acciones que acercan a una meta.</td><td>Usualmente.</td></tr>
-            <tr><td>Basado en utilidad</td><td>Compara alternativas según valor esperado.</td><td>Sí.</td></tr>
-          </tbody>
-        </table></div>
-
-        <h3>Sistemas multiagente</h3>
-        <p>Dividen un problema en tareas acotadas y agentes especializados. Los contratos de entrada y salida permiten reemplazar una pieza sin rehacer todo. La modularidad ayuda, pero introduce coordinación, observabilidad, seguridad, estado compartido y fallas distribuidas.</p>
-
-        <h3>Orquestación y colaboración</h3>
-        <ul class="study-list">
-          <li><strong>Orquestación, flujo predefinido:</strong> una persona o flujo de trabajo define primero A, luego B, condiciones y errores. n8n y Zapier son ejemplos de automatización por eventos.</li>
-          <li><strong>Colaboración, plan dinámico:</strong> un agente de nivel superior interpreta el objetivo, selecciona capacidades y arma o revisa el plan durante la ejecución.</li>
-        </ul>
-
-        <p>La memoria compartida puede implementar un patrón Blackboard: agentes leen y escriben estado común. El orquestador coordina, pero debe evitar que datos viejos, permisos excesivos o una salida errónea contaminen todo el flujo.</p>
-
-        <h3>MCP</h3>
-        <p>MCP significa Model Context Protocol. Estandariza cómo aplicaciones de IA descubren y usan herramientas o recursos. No vuelve inteligentes a los agentes ni resuelve por sí solo planificación, identidad, autorización o seguridad.</p>
-
-        <h3>Asistente sobre orquestador</h3>
-        <p>Un asistente planificador recibe el problema, identifica agentes disponibles y construye el plan. El agente ejecuta una capacidad específica y el orquestador coordina el flujo.</p>
-
-        <div class="callout danger"><strong>Riesgo productivo.</strong> Más autonomía exige más límites: permisos mínimos, ejecución aislada, aprobación humana para acciones sensibles, presupuestos, tiempos máximos, validación de resultados, registro de actividad y capacidad de detener o revertir.</div>
-
-        <p class="exam-answer"><strong>Respuesta:</strong> un agente recibe información y ejecuta acciones con cierta autonomía. Un sistema multiagente reparte tareas entre agentes especializados. Un orquestador ejecuta un flujo definido, mientras un planificador puede seleccionar capacidades y modificar el plan durante la ejecución.</p>
-      </section>
-
-      <section class="chapter" id="cobots" data-title="aplicaciones industriales casos cobots robots colaborativos mantenimiento predictivo prescriptivo gemelos digitales sensores kinetic teaching industria">
+      <section class="chapter" id="cobots" data-title="aplicaciones industriales casos cobots robots colaborativos mantenimiento predictivo prescriptivo gemelos digitales sensores kinesthetic teaching guiado cinestésico industria">
         <div class="chapter-head">
           <div class="chapter-number">15</div>
           <div><h2>Aplicaciones industriales de Machine Learning</h2></div>
@@ -1546,14 +1564,14 @@
           <li><strong>Desde el año 2000, cuarta generación:</strong> comienza el concepto de cobot, con autopercepción, sensores de fuerza y detección de personas para colaborar en un espacio compartido.</li>
           <li><strong>Últimos cinco años de la periodización, quinta generación:</strong> nube, mayor cómputo, movilidad, Deep Learning e IA generativa para una adaptación más rica.</li>
         </ol>
-        <p>Estas fechas sirven como periodización de la materia, pero la denominación por generaciones no constituye una taxonomía universal de robótica.</p>
+        <p>Estas fechas sirven como periodización usada en este apunte, pero la denominación por generaciones no constituye una taxonomía universal de robótica.</p>
 
         <h3>Capacidades destacadas</h3>
         <ul>
           <li>Sensores de fuerza, contacto y percepción del entorno.</li>
           <li><strong>Visión artificial no invasiva:</strong> permite percibir personas, piezas, posiciones, fugas, temperatura y defectos sin llenar el entorno de sensores de contacto. Un robot necesita este alto grado de percepción para ser considerado cobot.</li>
           <li>Movilidad y gestión de energía en equipos desconectados.</li>
-          <li>Kinetic teaching: una persona guía movimientos y el sistema ajusta la rutina.</li>
+          <li><strong>Kinesthetic teaching, guiado cinestésico:</strong> una persona mueve físicamente el brazo del cobot y el sistema aprende o ajusta la trayectoria.</li>
           <li>Asistencia ergonómica, por ejemplo sostener el peso de una pieza mientras el operario la posiciona.</li>
           <li>Conectividad y cómputo local o remoto para modelos más complejos.</li>
         </ul>
@@ -1592,7 +1610,7 @@
           <div><h2>Banco de preguntas para el final</h2></div>
         </div>
 
-        <p><strong>Formato del final:</strong> examen teórico, escrito y presencial. El trabajo práctico debe estar aprobado antes de rendir y, si se presenta en una fecha de examen, el final se rinde en una fecha posterior. Aproximadamente 40% puede evaluar ejemplos y conceptos que no aparecen en las diapositivas.</p>
+        <p><strong>Formato del final:</strong> examen teórico, escrito y presencial. El trabajo práctico debe estar aprobado antes de rendir y, si se presenta en una fecha de examen, el final se rinde en una fecha posterior. Aproximadamente 40% del examen evalúa lo hablado durante la cursada y sale de las notas y apuntes, no solamente de las diapositivas.</p>
 
         <h3>Simulacros basados en los enunciados reales</h3>
 
@@ -1614,7 +1632,7 @@
 
         <details><summary>C. Se quiere predecir una falla en un pozo petrolero a 2000 metros, ¿qué haría?</summary><div class="details-body">
           <p><strong>Definición:</strong> acordaría qué significa falla, en qué componente y con cuánto anticipo debe alertarse. Sin horizonte no hay target útil. También definiría el costo de falso negativo, falso positivo y parada.</p>
-          <p><strong>Datos:</strong> series temporales de presión, temperatura, caudal, vibración, torque, RPM, energía, propiedades del fluido, profundidad, mantenimiento, configuración y eventos. Validaría sincronización, frecuencia, sensores, unidades, cortes de comunicación y etiquetas de fallas.</p>
+          <p><strong>Datos:</strong> primero separaría existencia de acceso. Que la petrolera posea series históricas no implica que puedan obtenerse de inmediato: compliance, anonimización y permisos pueden demorar más de un mes. Luego revisaría presión, temperatura, caudal, vibración, torque, RPM, energía, propiedades del fluido, profundidad, mantenimiento, configuración y eventos, validando sincronización, frecuencia, sensores, unidades, cortes de comunicación y etiquetas de fallas.</p>
           <p><strong>Modelado:</strong> si existen suficientes fallas etiquetadas, plantearía clasificación para falla dentro de una ventana o regresión para vida útil restante. Si las fallas son muy escasas, complementaría con detección de anomalías no supervisada y conocimiento físico. Separaría por tiempo y, si hay varios pozos, también por pozo para medir generalización real.</p>
           <p><strong>Operación:</strong> priorizaría recall sin dejar que las falsas alarmas vuelvan inútil el sistema. Validaría con especialistas, simularía con gemelo digital si existe, desplegaría con límites seguros y monitorearía drift de sensores y regímenes. El modelo asesora mantenimiento predictivo. La acción prescriptiva debe considerar seguridad y costo.</p>
         </div></details>
