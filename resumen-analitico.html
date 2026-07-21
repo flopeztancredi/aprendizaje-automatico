@@ -1,0 +1,2032 @@
+<!doctype html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Resumen analítico y autocontenido de Aprendizaje Automático para el final de FIUBA.">
+  <link rel="icon" href="data:image/png;base64,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" type="image/png">
+  <title>Resumen analítico | Aprendizaje Automático</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f3f7f9;
+      --surface: #ffffff;
+      --surface-2: #eaf1f5;
+      --ink: #17242c;
+      --muted: #61717c;
+      --line: #d9e4e9;
+      --accent: #167e9e;
+      --accent-2: #d9f1f7;
+      --accent-ink: #0b5369;
+      --warm: #9b5f1d;
+      --warm-bg: #fff1dc;
+      --danger: #9e3f46;
+      --danger-bg: #fdebed;
+      --blue: #4267b2;
+      --blue-bg: #eaf0fc;
+      --hl-yellow: #ffe08a;
+      --hl-mint: #9fe4f2;
+      --hl-pink: #ffc1d2;
+      --hl-blue: #bcd7ff;
+      --shadow: 0 18px 55px rgba(18, 44, 58, .08);
+      --radius: 18px;
+      --sidebar: 292px;
+    }
+
+    html[data-theme="dark"] {
+      color-scheme: dark;
+      --bg: #0d161c;
+      --surface: #142129;
+      --surface-2: #1b2c36;
+      --ink: #edf5f8;
+      --muted: #9eb0ba;
+      --line: #293c47;
+      --accent: #63c9e7;
+      --accent-2: #153b49;
+      --accent-ink: #caf3ff;
+      --warm: #f0b766;
+      --warm-bg: #3b2c19;
+      --danger: #f19aa2;
+      --danger-bg: #3e2226;
+      --blue: #9bbcf7;
+      --blue-bg: #1d304e;
+      --hl-yellow: #725d19;
+      --hl-mint: #185a6d;
+      --hl-pink: #71384b;
+      --hl-blue: #294f78;
+      --shadow: 0 18px 55px rgba(0, 0, 0, .24);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 24px; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 16px;
+      line-height: 1.68;
+      text-rendering: optimizeLegibility;
+    }
+
+    a { color: inherit; }
+    button, input { font: inherit; }
+    button { color: inherit; }
+    code, .formula {
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+      font-size: .92em;
+    }
+
+    .progress {
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 100;
+      height: 3px;
+      background: transparent;
+    }
+    .progress span {
+      display: block;
+      width: 0;
+      height: 100%;
+      background: var(--accent);
+    }
+
+    .layout { min-height: 100vh; }
+    .sidebar {
+      position: fixed;
+      inset: 0 auto 0 0;
+      width: var(--sidebar);
+      padding: 26px 20px 24px;
+      border-right: 1px solid var(--line);
+      background: color-mix(in srgb, var(--bg) 92%, transparent);
+      backdrop-filter: blur(18px);
+      overflow-y: auto;
+      z-index: 30;
+    }
+
+    .brand {
+      margin: 0 8px 14px;
+    }
+    .brand-row {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .brand strong { display: block; line-height: 1.2; }
+    #menu-close { display: none; }
+
+    .search-wrap { position: relative; margin-bottom: 18px; }
+    .search-wrap svg {
+      position: absolute;
+      left: 13px;
+      top: 12px;
+      width: 18px;
+      color: var(--muted);
+    }
+    #search {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 10px 12px 10px 39px;
+      color: var(--ink);
+      background: var(--surface);
+      outline: none;
+    }
+    #search:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-2); }
+    .search-results {
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 0;
+      right: 0;
+      z-index: 60;
+      max-height: min(440px, 62vh);
+      overflow-y: auto;
+      padding: 7px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+    .search-results[hidden] { display: none; }
+    .search-summary {
+      padding: 7px 9px 8px;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .search-result {
+      display: block;
+      width: 100%;
+      padding: 10px 9px;
+      border: 0;
+      border-radius: 9px;
+      color: var(--ink);
+      background: transparent;
+      text-align: left;
+      cursor: pointer;
+    }
+    .search-result:hover,
+    .search-result.active { background: var(--surface-2); }
+    .search-result small {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--accent-ink);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+    }
+    .search-result span {
+      display: -webkit-box;
+      overflow: hidden;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.45;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 3;
+    }
+    .search-result mark {
+      padding: 0 2px;
+      border-radius: 3px;
+      color: var(--ink);
+      background: var(--accent-2);
+    }
+    .search-empty {
+      padding: 14px 9px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.5;
+    }
+    .search-target { animation: search-pulse 2.2s ease; }
+    @keyframes search-pulse {
+      0%, 35% { background: var(--accent-2); box-shadow: 0 0 0 5px var(--accent-2); }
+      100% { background: transparent; box-shadow: none; }
+    }
+
+    .nav-title {
+      margin: 18px 10px 8px;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .toc { display: grid; gap: 3px; }
+    .toc-item {
+      position: relative;
+      border-radius: 9px;
+      transition: .18s ease;
+    }
+    .toc a {
+      display: grid;
+      grid-template-columns: 24px 1fr;
+      gap: 7px;
+      align-items: baseline;
+      padding: 7px 9px 7px 36px;
+      border-radius: 9px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.35;
+      text-decoration: none;
+      transition: .18s ease;
+    }
+    .toc a span { color: color-mix(in srgb, var(--muted) 70%, transparent); font-variant-numeric: tabular-nums; }
+    .toc-item:hover, .toc-item.active { background: var(--surface-2); }
+    .toc a:hover, .toc a.active { color: var(--ink); }
+    .toc a.active span { color: var(--accent); }
+    .nav-check {
+      position: absolute;
+      top: 50%;
+      left: 9px;
+      z-index: 2;
+      display: grid;
+      place-items: center;
+      width: 18px;
+      height: 18px;
+      padding: 0;
+      border: 1px solid var(--line);
+      border-radius: 5px;
+      color: var(--surface);
+      background: transparent;
+      font-size: 12px;
+      font-weight: 900;
+      line-height: 1;
+      cursor: pointer;
+      transform: translateY(-50%);
+      transition: .18s ease;
+    }
+    .nav-check:hover { border-color: var(--accent); }
+    .toc-item.prepared .nav-check { border-color: var(--accent); background: var(--accent); }
+    .toc-item.prepared a {
+      opacity: .58;
+      text-decoration: line-through;
+      text-decoration-thickness: 1px;
+    }
+
+    .side-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-top: 20px;
+    }
+    .icon-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      min-height: 39px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: var(--surface);
+      cursor: pointer;
+    }
+    .icon-button:hover { border-color: var(--accent); }
+    .icon-button.active { border-color: var(--accent); color: var(--accent-ink); background: var(--accent-2); }
+    .icon-button svg { width: 17px; }
+    .icon-button.wide { grid-column: 1 / -1; }
+    .side-actions a { text-decoration: none; }
+
+    mark.user-highlight {
+      padding: .04em .05em;
+      border-radius: 4px;
+      color: inherit;
+      cursor: pointer;
+      box-decoration-break: clone;
+      -webkit-box-decoration-break: clone;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    mark.user-highlight[data-color="yellow"] { background: var(--hl-yellow); }
+    mark.user-highlight[data-color="mint"] { background: var(--hl-mint); }
+    mark.user-highlight[data-color="pink"] { background: var(--hl-pink); }
+    mark.user-highlight[data-color="blue"] { background: var(--hl-blue); }
+    mark.user-highlight.selected { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+    .highlight-toolbar {
+      position: fixed;
+      left: 50%;
+      bottom: 24px;
+      z-index: 90;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      max-width: calc(100vw - 28px);
+      padding: 9px 10px 9px 14px;
+      border: 1px solid var(--line);
+      border-radius: 15px;
+      background: color-mix(in srgb, var(--surface) 94%, transparent);
+      box-shadow: 0 16px 48px rgba(15, 25, 22, .2);
+      backdrop-filter: blur(16px);
+      transform: translateX(-50%);
+    }
+    .highlight-toolbar[hidden] { display: none; }
+    .highlight-label {
+      margin-right: 3px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .highlight-colors { display: flex; gap: 6px; }
+    .highlight-color {
+      width: 26px;
+      height: 26px;
+      padding: 0;
+      border: 2px solid var(--surface);
+      border-radius: 50%;
+      box-shadow: 0 0 0 1px var(--line);
+      cursor: pointer;
+    }
+    .highlight-color[data-color="yellow"] { background: var(--hl-yellow); }
+    .highlight-color[data-color="mint"] { background: var(--hl-mint); }
+    .highlight-color[data-color="pink"] { background: var(--hl-pink); }
+    .highlight-color[data-color="blue"] { background: var(--hl-blue); }
+    .highlight-color:hover { transform: translateY(-1px) scale(1.06); }
+    .highlight-color.active { outline: 2px solid var(--accent); outline-offset: 2px; }
+    .highlight-color:disabled { opacity: .35; cursor: default; transform: none; }
+    .highlight-tool-button {
+      display: grid;
+      place-items: center;
+      width: 30px;
+      height: 30px;
+      padding: 0;
+      border: 0;
+      border-radius: 8px;
+      color: var(--muted);
+      background: transparent;
+      cursor: pointer;
+    }
+    .highlight-tool-button.active { color: var(--surface); background: var(--accent); }
+    .highlight-pin { width: auto; padding: 0 9px; font-size: 11px; font-weight: 800; }
+    .highlight-tool-button:hover { color: var(--ink); background: var(--surface-2); }
+    .highlight-tool-button svg { width: 17px; height: 17px; }
+    #highlight-remove { color: var(--danger); }
+
+    .main { margin-left: var(--sidebar); }
+    .content { width: min(1080px, calc(100% - 64px)); margin: 0 auto; padding: 54px 0 110px; }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(30px, 5vw, 54px);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+    .hero:after {
+      content: "";
+      position: absolute;
+      width: 420px;
+      height: 420px;
+      right: -180px;
+      top: -220px;
+      border-radius: 50%;
+      background: radial-gradient(circle, var(--accent-2), transparent 68%);
+      pointer-events: none;
+    }
+    h1 {
+      max-width: 780px;
+      margin: 0;
+      font-size: clamp(42px, 7vw, 76px);
+      line-height: .98;
+      letter-spacing: -.055em;
+    }
+    .chapter {
+      padding-top: 82px;
+      scroll-margin-top: 10px;
+    }
+    .chapter-head {
+      display: grid;
+      grid-template-columns: 60px 1fr;
+      gap: 20px;
+      align-items: start;
+      margin-bottom: 28px;
+    }
+    .chapter-number {
+      display: grid;
+      place-items: center;
+      width: 54px;
+      height: 54px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      color: var(--accent);
+      background: var(--surface);
+      font-weight: 800;
+      font-variant-numeric: tabular-nums;
+    }
+    h2 {
+      margin: 0;
+      font-size: clamp(30px, 4vw, 44px);
+      line-height: 1.08;
+      letter-spacing: -.038em;
+    }
+    h3 { margin: 34px 0 13px; font-size: 23px; line-height: 1.25; letter-spacing: -.02em; }
+    h4 { margin: 24px 0 9px; font-size: 17px; }
+    p { margin: 0 0 14px; }
+    ul, ol { padding-left: 22px; }
+    li { margin: 6px 0; }
+    strong { letter-spacing: -.01em; }
+
+    .study-list { margin: 10px 0 22px; }
+    .study-list li { margin: 10px 0; padding-left: 3px; }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 9px;
+      border-radius: 999px;
+      color: var(--accent-ink);
+      background: var(--accent-2);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+    .tag.warm { color: var(--warm); background: var(--warm-bg); }
+    .tag.blue { color: var(--blue); background: var(--blue-bg); }
+    .tag.red { color: var(--danger); background: var(--danger-bg); }
+
+    .callout {
+      margin: 20px 0;
+      padding: 20px 22px;
+      border-left: 4px solid var(--accent);
+      border-radius: 0 14px 14px 0;
+      background: var(--accent-2);
+      color: var(--accent-ink);
+    }
+    .callout.warning { border-color: var(--warm); background: var(--warm-bg); color: var(--warm); }
+    .callout.danger { border-color: var(--danger); background: var(--danger-bg); color: var(--danger); }
+    .callout.blue { border-color: var(--blue); background: var(--blue-bg); color: var(--blue); }
+    .callout strong { color: inherit; }
+    .callout p:last-child { margin-bottom: 0; }
+
+    .table-wrap { overflow-x: auto; margin: 18px 0 24px; border: 1px solid var(--line); border-radius: 15px; }
+    table { width: 100%; border-collapse: collapse; background: var(--surface); font-size: 14px; }
+    th, td { padding: 13px 15px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+    th { color: var(--muted); background: var(--surface-2); font-size: 11px; letter-spacing: .07em; text-transform: uppercase; }
+    tr:last-child td { border-bottom: 0; }
+
+    .formula { display: inline-block; padding: 7px 9px; border-radius: 8px; color: var(--accent-ink); background: var(--accent-2); }
+
+    details {
+      margin: 10px 0;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--surface);
+      overflow: clip;
+    }
+    summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 17px 19px;
+      cursor: pointer;
+      font-weight: 700;
+      list-style: none;
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary:after { content: "+"; color: var(--accent); font-size: 22px; font-weight: 400; }
+    details[open] summary:after { content: "x"; font-size: 15px; }
+    .details-body { padding: 0 20px 20px; color: var(--muted); }
+    .details-body strong { color: var(--ink); }
+
+    .exam-answer {
+      position: relative;
+      padding: 16px 18px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--surface);
+    }
+
+    .top-mobile { display: none; }
+    .nav-backdrop { display: none; }
+    @media (max-width: 1050px) {
+      .sidebar { transform: translateX(-100%); transition: transform .22s ease; box-shadow: var(--shadow); }
+      body.nav-open .sidebar { transform: translateX(0); }
+      body.nav-open { overflow: hidden; }
+      .main { margin-left: 0; }
+      .nav-backdrop {
+        display: block;
+        position: fixed;
+        inset: 0;
+        z-index: 25;
+        background: rgba(7, 23, 31, .36);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity .22s ease;
+      }
+      body.nav-open .nav-backdrop { opacity: 1; pointer-events: auto; }
+      .top-mobile {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 12px 18px;
+        border-bottom: 1px solid var(--line);
+        background: color-mix(in srgb, var(--bg) 90%, transparent);
+        backdrop-filter: blur(16px);
+      }
+      .top-mobile button { border: 0; background: transparent; cursor: pointer; }
+      .top-mobile strong { font-size: 14px; }
+      #menu-close {
+        display: inline-flex;
+        align-items: center;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 4px 8px;
+        color: var(--muted);
+        background: var(--surface);
+        font-size: 12px;
+        line-height: 1.2;
+        cursor: pointer;
+      }
+      #menu-close:hover { color: var(--ink); border-color: var(--accent); }
+    }
+
+    @media (max-width: 720px) {
+      .content { width: min(100% - 28px, 1080px); padding-top: 20px; }
+      .hero { padding: 32px 24px; border-radius: 21px; }
+      .chapter { padding-top: 62px; }
+      .chapter-head { grid-template-columns: 44px 1fr; gap: 12px; }
+      .chapter-number { width: 42px; height: 42px; border-radius: 12px; }
+      .highlight-toolbar { bottom: 14px; flex-wrap: wrap; justify-content: center; }
+    }
+
+    @media print {
+      :root { --bg: #fff; --surface: #fff; --surface-2: #f4f4f2; --ink: #111; --muted: #444; --line: #ddd; }
+      .sidebar, .top-mobile, .progress, .side-actions, .search-wrap, .highlight-toolbar { display: none !important; }
+      .main { margin: 0; }
+      .content { width: 100%; padding: 0; }
+      .hero { box-shadow: none; break-after: page; }
+      .chapter { padding-top: 34px; break-before: page; }
+      details, .callout { break-inside: avoid; }
+      details > .details-body { display: block !important; }
+      details:not([open]) > .details-body { display: block !important; }
+      summary:after { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="progress" aria-hidden="true"><span id="reading-progress"></span></div>
+  <div class="nav-backdrop" id="nav-backdrop" aria-hidden="true"></div>
+
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">
+      <div class="brand-row">
+        <strong>Resumen analítico</strong>
+        <button id="menu-close" type="button" aria-label="Cerrar navegación">Cerrar</button>
+      </div>
+    </div>
+
+    <div class="search-wrap">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg>
+      <input id="search" type="search" placeholder="Buscar concepto..." autocomplete="off" aria-label="Buscar en el apunte" aria-controls="search-results" aria-expanded="false">
+      <div class="search-results" id="search-results" role="listbox" aria-label="Resultados de búsqueda" hidden></div>
+    </div>
+
+    <div class="nav-title">Fundamentos y proyecto</div>
+    <nav class="toc" aria-label="Tabla de contenidos">
+      <a href="#fundamentos"><span>01</span>Fundamentos y vocabulario</a>
+      <a href="#ciclo"><span>02</span>Ciclo de vida y roles</a>
+      <a href="#problema"><span>03</span>Problema y viabilidad</a>
+    </nav>
+    <div class="nav-title">Datos y modelos</div>
+    <nav class="toc" aria-label="Datos, entrenamiento y operación">
+      <a href="#datos"><span>04</span>Data Wrangling y EDA</a>
+      <a href="#features"><span>05</span>Limpieza y features</a>
+      <a href="#familias"><span>06</span>Familias y algoritmos</a>
+      <a href="#entrenamiento"><span>07</span>Entrenamiento y validación</a>
+      <a href="#metricas"><span>08</span>Métricas</a>
+      <a href="#redes"><span>09</span>Redes y Deep Learning</a>
+      <a href="#regularizacion"><span>10</span>Generalización y regularización</a>
+      <a href="#automl"><span>11</span>AutoML</a>
+      <a href="#xai"><span>12</span>XAI y sesgos</a>
+      <a href="#mlops"><span>13</span>MLOps y drift</a>
+    </nav>
+    <div class="nav-title">IA generativa</div>
+    <nav class="toc" aria-label="Modelos generativos y agentes">
+      <a href="#llm"><span>14</span>LLM y Transformer</a>
+      <a href="#rag"><span>15</span>RAG</a>
+      <a href="#vibe"><span>16</span>Vibe coding</a>
+      <a href="#agentes"><span>17</span>Agentes y orquestación</a>
+      <a href="#seguridad"><span>18</span>Seguridad de LLM</a>
+    </nav>
+    <div class="nav-title">Aplicación</div>
+    <nav class="toc" aria-label="Aplicaciones industriales">
+      <a href="#cobots"><span>19</span>Aplicaciones industriales</a>
+    </nav>
+
+    <div class="side-actions">
+      <button class="icon-button" id="theme-toggle" type="button" title="Cambiar tema">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg>
+        Tema
+      </button>
+      <button class="icon-button" id="print-button" type="button" title="Imprimir o guardar como PDF">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9V2h12v7"></path><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><path d="M6 14h12v8H6z"></path></svg>
+        PDF
+      </button>
+      <button class="icon-button wide" id="highlight-help" type="button" title="Seleccioná texto para resaltarlo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m9 11-6 6v4h4l6-6"></path><path d="m14 4 6 6-7 7-6-6z"></path><path d="M3 21h18"></path></svg>
+        Resaltador
+      </button>
+      <a class="icon-button wide" href="index.html">Apunte desarrollado</a>
+    </div>
+  </aside>
+
+  <div class="main">
+    <div class="top-mobile">
+      <button id="menu-toggle" type="button" aria-label="Abrir navegación" aria-expanded="false">Menu</button>
+      <strong>Resumen analítico</strong>
+      <button id="mobile-theme" type="button" aria-label="Cambiar tema">Tema</button>
+    </div>
+
+    <main class="content" id="content">
+      <header class="hero">
+        <h1>Resumen analítico</h1>
+        <p><a href="index.html">Abrir el apunte desarrollado</a></p>
+      </header>
+
+      <section class="chapter" id="fundamentos" data-title="fundamentos aprendizaje automático machine learning inteligencia artificial deep learning dataset feature target algoritmo parámetros modelo entrenamiento inferencia límites">
+        <div class="chapter-head"><div class="chapter-number">01</div><div><h2>Fundamentos y vocabulario</h2></div></div>
+
+        <h3>Jerarquía</h3>
+        <ul class="study-list">
+          <li><strong>Inteligencia Artificial, IA:</strong> campo que construye sistemas capaces de realizar tareas asociadas con inteligencia. Incluye aprendizaje, reglas, búsqueda y planificación.</li>
+          <li><strong>Machine Learning, ML, o aprendizaje automático:</strong> subcampo de la IA que ajusta modelos a partir de datos para aplicar patrones aprendidos sobre casos nuevos.</li>
+          <li><strong>Deep Learning, DL:</strong> área de ML desarrollada en <a href="#redes">Redes neuronales y Deep Learning</a>.</li>
+        </ul>
+
+        <h3>Objetos básicos</h3>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Concepto</th><th>Definición</th></tr></thead>
+          <tbody>
+            <tr><td>Dataset</td><td>Conjunto de observaciones. Habitualmente cada fila representa una observación y cada columna una variable.</td></tr>
+            <tr><td>Feature o característica</td><td>Variable de entrada utilizada para aprender o inferir.</td></tr>
+            <tr><td>Target</td><td>Resultado conocido que se intenta predecir en aprendizaje supervisado.</td></tr>
+            <tr><td>Algoritmo</td><td>Procedimiento de aprendizaje que busca relaciones o estructura en los datos.</td></tr>
+            <tr><td>Parámetros</td><td>Valores internos aprendidos durante el entrenamiento.</td></tr>
+            <tr><td>Entrenamiento</td><td>Ajuste del algoritmo con datos históricos.</td></tr>
+            <tr><td>Modelo</td><td>Resultado entrenado, con los parámetros ya ajustados.</td></tr>
+            <tr><td>Inferencia</td><td>Aplicación del modelo sobre datos nuevos para producir una salida.</td></tr>
+          </tbody>
+        </table></div>
+
+        <h3>Alcance y límites</h3>
+        <ul>
+          <li>ML mira datos pasados, abstrae regularidades y las aplica a casos nuevos para clasificar, predecir, agrupar, recomendar o detectar anomalías.</li>
+          <li>Funciona mejor en tareas tipificadas, con procedimiento conocido y variabilidad representada en los datos.</li>
+          <li>Extrapola dentro del dominio aprendido. No transfiere conocimiento entre dominios con la flexibilidad de una persona.</li>
+          <li>Una salida convincente no implica comprensión, consciencia ni verdad. El mecanismo es estadístico o probabilístico.</li>
+          <li>La combinación útil es IA más inteligencia natural: velocidad y repetición de la máquina, criterio y conocimiento del dominio de la persona.</li>
+        </ul>
+        <p>El software tradicional suele producir datos durante su operación. ML es primero un gran ingestor: consume historia para entrenar y luego genera una salida comparativamente pequeña, como una clase, una probabilidad o un número.</p>
+      </section>
+
+      <section class="chapter" id="ciclo" data-title="ciclo vida proyecto roles trazabilidad go no go gestión conocimiento bitácora cierre retiro">
+        <div class="chapter-head"><div class="chapter-number">02</div><div><h2>Ciclo de vida, roles y trazabilidad</h2></div></div>
+
+        <h3>Secuencia completa</h3>
+        <ol class="study-list">
+          <li>Validar el problema y fijar el criterio de éxito.</li>
+          <li>Investigar antecedentes, viabilidad, fuentes y acceso.</li>
+          <li>Preparar y diagnosticar los datos mediante <a href="#datos">Data Wrangling y EDA</a>.</li>
+          <li>Tomar una decisión Go, continuar, o No Go, detener o reformular.</li>
+          <li>Realizar <a href="#features">limpieza e ingeniería de características</a>.</li>
+          <li>Seleccionar una <a href="#familias">familia</a>, entrenar, validar y ajustar.</li>
+          <li>Evaluar con las <a href="#metricas">métricas</a> definidas.</li>
+          <li>Explicar resultados y probar sesgos.</li>
+          <li>Diseñar la interfaz y las restricciones productivas.</li>
+          <li>Desplegar, versionar y observar mediante <a href="#mlops">MLOps</a>.</li>
+          <li>Diagnosticar cambios, corregir, reentrenar o revertir.</li>
+          <li>Retirar el sistema y documentar el cierre.</li>
+        </ol>
+
+        <h3>Propiedades del ciclo</h3>
+        <ul>
+          <li><strong>Iterativo:</strong> un hallazgo puede obligar a volver a cualquier etapa anterior.</li>
+          <li><strong>Incierto:</strong> el dataset termina de entenderse cuando el modelo ya funciona y aparecen comportamientos no visibles al comienzo.</li>
+          <li><strong>Controlado:</strong> cada etapa necesita entregable, versión, criterio de aceptación y posibilidad de Go o No Go.</li>
+          <li><strong>Trazable:</strong> extracción, transformación, experimento, métrica, decisión y resultado deben quedar en una bitácora.</li>
+          <li><strong>Acumulativo:</strong> la bitácora alimenta una base de conocimiento. La experiencia de otra organización ayuda, pero no reemplaza la idiosincrasia propia.</li>
+        </ul>
+
+        <h3>Roles</h3>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Rol</th><th>Responsabilidad</th><th>Entregable</th></tr></thead>
+          <tbody>
+            <tr><td>Owner o experto de negocio</td><td>Problema, criterio de éxito y validación empírica.</td><td>Criterio aceptado y contraste de resultados.</td></tr>
+            <tr><td>Ingeniero de datos</td><td>Acceso, Data Wrangling, calidad, limpieza y primera construcción de features.</td><td>Dataset trazable e informe de calidad.</td></tr>
+            <tr><td>Científico de datos</td><td>Familias, entrenamiento, métricas, explicaciones y pruebas de sesgo.</td><td>Modelo validado y documento de interpretación.</td></tr>
+            <tr><td>Ingeniería de producción</td><td>Integración, seguridad, latencia, despliegue, monitoreo y retiro.</td><td>Servicio reproducible y observable.</td></tr>
+          </tbody>
+        </table></div>
+        <p>El conocimiento del dominio es obligatorio para formular features, interpretar anomalías y validar explicaciones. La figura del científico de datos itinerante pierde eficacia cuando cada industria exige criterios específicos.</p>
+      </section>
+
+      <section class="chapter" id="problema" data-title="definición problema viabilidad criterio éxito negocio métrica go no go estimación doble proyecto caso estudio">
+        <div class="chapter-head"><div class="chapter-number">03</div><div><h2>Definición del problema y viabilidad</h2></div></div>
+
+        <h3>Dos preguntas distintas</h3>
+        <ul class="study-list">
+          <li><strong>Pertinencia:</strong> ¿el problema requiere ML o alcanza una regla, consulta o automatización convencional?</li>
+          <li><strong>Capacidad:</strong> ¿la organización puede resolverlo con sus datos, acceso, tiempo, recursos, seguridad y conocimiento?</li>
+        </ul>
+
+        <h3>Definición mínima</h3>
+        <ol>
+          <li>Describir proceso, decisión que se quiere mejorar y usuario de la salida.</li>
+          <li>Definir unidad de análisis, target y horizonte temporal.</li>
+          <li>Revisar antecedentes, algoritmos, datasets y resultados de problemas equivalentes.</li>
+          <li>Fijar criterio de éxito, métrica, valor mínimo aceptable y costo de error antes de entrenar.</li>
+          <li>Confirmar existencia y acceso efectivo a los datos.</li>
+          <li>Estimar cómputo, almacenamiento, latencia, seguridad, presupuesto y conocimiento del dominio.</li>
+        </ol>
+        <p><strong>Criterio de éxito:</strong> condición de negocio que vuelve útil al proyecto. <strong>Métrica:</strong> indicador numérico que permite medir esa condición. El criterio completo incluye valor mínimo, costo de errores, tiempo de respuesta, costo operativo y utilidad para quien decide.</p>
+
+        <h3>Estimación</h3>
+        <p>Se estima en dos tramos. El primero llega hasta el diagnóstico de datos. Con esa evidencia se reestiman limpieza, features, entrenamiento y producción. El estudio de viabilidad termina después del EDA y puede consumir entre 25% y 33% del esfuerzo total.</p>
+
+        <h3>Plantilla para resolver un caso de final</h3>
+        <ol>
+          <li>Objetivo, target, horizonte y costo de error.</li>
+          <li>Fuentes, acceso, granularidad, historial, etiquetas y restricciones.</li>
+          <li>Diagnóstico de calidad y decisión Go o No Go.</li>
+          <li>Preparación de datos y familia de aprendizaje.</li>
+          <li>Separación temporal o por grupos, baseline, entrenamiento y ajuste.</li>
+          <li>Métrica principal y complementarias.</li>
+          <li>Explicabilidad, sesgos y validación con especialistas.</li>
+          <li>Despliegue, latencia, monitoreo, reentrenamiento y retiro.</li>
+        </ol>
+      </section>
+
+      <section class="chapter" id="datos" data-title="data wrangling EDA análisis exploratorio acceso almacenamiento calidad nulos duplicados outliers anomalías correlación pandas dataprep autoviz csv joblib">
+        <div class="chapter-head"><div class="chapter-number">04</div><div><h2>Data Wrangling y análisis exploratorio</h2></div></div>
+
+        <h3>Acceso y capacidad</h3>
+        <p>Existencia y acceso son condiciones diferentes. Antes de usar datos deben resolverse permisos, anonimización, cumplimiento, acuerdos entre áreas, claves de unión e infraestructura. Solo entonces se conocen volumen, granularidad, formato, período y calidad.</p>
+        <p>La reserva inicial de almacenamiento es aproximadamente 2,25 veces el tamaño del dataset: una copia de trabajo más estados intermedios. Puede reducirse a 1,75 eliminando o archivando estados, a costa de no poder reprocesar inmediatamente desde cualquier paso.</p>
+
+        <h3>Data Wrangling</h3>
+        <p>Es la preparación que convierte datos crudos y dispersos en un dataset utilizable. Comprende localización e integración de fuentes, revisión de formatos y calidad, limpieza y transformaciones. Puede abarcar EDA, limpieza e ingeniería de características según la metodología. Consume aproximadamente entre 45% y 80% del tiempo dedicado a los datos.</p>
+
+        <h3>EDA</h3>
+        <p>EDA significa <em>Exploratory Data Analysis</em>, análisis exploratorio de datos. Diagnostica estructura, calidad, distribución y anomalías antes de modificar el original.</p>
+        <ol>
+          <li>Preservar una copia inmutable.</li>
+          <li>Revisar filas, columnas, esquema, tipos, claves, target, granularidad, períodos, memoria y valores únicos.</li>
+          <li>Cuantificar nulos, duplicados, inconsistencias, rangos imposibles y desbalance, también por segmentos.</li>
+          <li>Analizar distribuciones, percentiles, correlaciones, estacionalidad, cambios y valores fuera de norma.</li>
+          <li>Investigar hallazgos con consultas dirigidas y especialistas.</li>
+          <li>Documentar hipótesis, evidencia y preguntas abiertas.</li>
+          <li>Emitir informe de calidad y recomendación Go o No Go.</li>
+        </ol>
+
+        <h3>Lecturas y criterios</h3>
+        <ul>
+          <li><strong>Tipos:</strong> deben ajustarse al significado y rango real. Reducir un tipo sobredimensionado ahorra memoria, pero exige revisar precisión, nulos y valores futuros.</li>
+          <li><strong>Estadística descriptiva:</strong> count mide presencia, mean y std resumen centro y dispersión, min y max muestran rango, y percentiles muestran concentración. Mínimo igual a máximo indica columna constante.</li>
+          <li><strong>Nulos:</strong> no existe un porcentaje universal. Importan cantidad absoluta, patrón de ausencia, variable afectada, sesgo posible y recuperabilidad. Un 1% de millones puede ser tolerable y un 5% a 7% de pocos miles puede ser crítico.</li>
+          <li><strong>Duplicados:</strong> se decide con una clave y el proceso de negocio. Dos registros iguales pueden ser una repetición inválida o eventos legítimos.</li>
+          <li><strong>Outlier o anomalía:</strong> observación fuera de norma, no sinónimo de error. Puede ser válida, fraude, evento excepcional o cambio de régimen. Debe investigarse antes de mantener, separar, transformar o excluir.</li>
+          <li><strong>Régimen especial:</strong> un comportamiento correcto pero no representativo del funcionamiento habitual, Business as Usual, puede requerir segmento, features o modelo propios.</li>
+          <li><strong>Serendipia:</strong> un objetivo secundario descubierto durante el análisis debe registrarse como conocimiento, aunque no sea la pregunta inicial.</li>
+        </ul>
+
+        <h3>Correlación</h3>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Método</th><th>Captura</th><th>Uso</th></tr></thead>
+          <tbody>
+            <tr><td>Pearson</td><td>Relación lineal numérica.</td><td>Forma aproximadamente lineal y sin dominio de outliers.</td></tr>
+            <tr><td>Spearman</td><td>Relación monótona mediante rangos.</td><td>El orden se conserva aunque la forma no sea lineal.</td></tr>
+            <tr><td>Kendall Tau</td><td>Concordancia entre pares.</td><td>Muestras menores, empates o análisis robusto del orden.</td></tr>
+          </tbody>
+        </table></div>
+        <p>Correlación no implica causalidad. Puede ser espuria, temporal o producida por una tercera variable. También detecta redundancia, pero no autoriza a eliminar features sin contexto.</p>
+
+        <h3>Práctica y herramientas</h3>
+        <ul>
+          <li>La arqueología de datos reconstruye el proceso que produjo cada hallazgo. La intuición genera hipótesis, no conclusiones.</li>
+          <li>El análisis puede actuar como ciberseguridad reactiva al revelar fallas o manipulaciones que los controles en línea no detectaron.</li>
+          <li>Comunicar problemas estructurales requiere evidencia, historia reconstruida y asertividad.</li>
+          <li>La experiencia se acumula en patrones generales, patrones de industria y particularidades de cada empresa. Se desarrolla practicando con datasets distintos.</li>
+          <li>OSDU, <em>Open Subsurface Data Universe</em>, es una referencia para organizar datos de petróleo y gas.</li>
+          <li>Pandas permite inspección detallada. DataPrep y AutoViz automatizan perfiles y gráficos, no la interpretación.</li>
+          <li>CSV guarda tablas como texto. Joblib guarda objetos binarios de Python y exige un entorno compatible.</li>
+        </ul>
+      </section>
+
+      <section class="chapter" id="features" data-title="limpieza data cleaning ingeniería características feature engineering escalado normalización estandarización codificación fechas PCA selección leakage">
+        <div class="chapter-head"><div class="chapter-number">05</div><div><h2>Limpieza e ingeniería de características</h2></div></div>
+
+        <h3>Limpieza</h3>
+        <p>La limpieza corrige o trata problemas para alcanzar una calidad utilizable sin alterar silenciosamente el significado.</p>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Problema</th><th>Opciones</th><th>Control</th></tr></thead>
+          <tbody>
+            <tr><td>Faltantes</td><td>Recuperar fuente, eliminar, imputar, crear indicador o mantener como no aplicable.</td><td>Patrón de ausencia, cantidad, sesgo y efecto sobre distribución.</td></tr>
+            <tr><td>Duplicados</td><td>Eliminar, consolidar según clave o conservar.</td><td>Definición de evento y granularidad.</td></tr>
+            <tr><td>Categorías</td><td>Normalizar mayúsculas, espacios, códigos y equivalencias.</td><td>Reglas trazables validadas por negocio.</td></tr>
+            <tr><td>Rangos imposibles</td><td>Corregir, excluir o recuperar origen.</td><td>No asumir error antes de investigar.</td></tr>
+          </tbody>
+        </table></div>
+
+        <h3>Ingeniería de características</h3>
+        <p>Transforma variables disponibles o crea nuevas para representar patrones en una forma que el algoritmo pueda utilizar.</p>
+        <ul>
+          <li>Descomponer fechas en año, mes, día, hora, día de semana, estación o trimestre.</li>
+          <li>Codificar categorías según el modelo y evitar introducir orden inexistente.</li>
+          <li><strong>Normalización MinMax:</strong> lleva valores a un rango, usualmente entre 0 y 1. Es sensible a extremos.</li>
+          <li><strong>Estandarización:</strong> centra en media 0 y escala a desvío 1. Suele usarse cuando importan magnitud o distancia.</li>
+          <li>Aplicar logaritmos a distribuciones muy asimétricas cuando el dominio lo permite.</li>
+          <li>Crear ratios, acumulados, interacciones, ventanas temporales y variables de dominio.</li>
+          <li><strong>PCA, análisis de componentes principales:</strong> combina variables correlacionadas en menos componentes. Reduce dimensión y costo, pero pierde interpretación directa.</li>
+        </ul>
+
+        <h3>Fuentes y selección</h3>
+        <ul>
+          <li><strong>Conocimiento genérico:</strong> transformaciones aplicables en múltiples dominios.</li>
+          <li><strong>Relaciones entre columnas:</strong> correlaciones, redundancias e interacciones.</li>
+          <li><strong>Árboles de inducción y modelos:</strong> importancia de variables y cortes útiles.</li>
+          <li><strong>Dominio:</strong> reglas de industria, proceso y empresa.</li>
+        </ul>
+        <p>Más columnas no equivalen a más información. Una referencia operativa es que tres features pueden explicar 70% del resultado, dos adicionales llevarlo a 85% y el resto aportar 15%. Si eliminar variables cambia una métrica de 0,82 a 0,81, puede convenir el modelo menor por costo, latencia y mantenimiento.</p>
+        <p>Una feature se conserva si mejora desempeño, estabilidad o interpretabilidad sin producir <strong>leakage</strong>, filtración de información no disponible al momento real de inferencia. La preparación genérica corresponde principalmente al ingeniero de datos; el científico revisa transformaciones dependientes de la familia de modelos.</p>
+      </section>
+
+      <section class="chapter" id="familias" data-title="familias clasificación regresión clustering supervisado no supervisado refuerzo algoritmos">
+        <div class="chapter-head"><div class="chapter-number">06</div><div><h2>Familias de aprendizaje y algoritmos</h2></div></div>
+
+        <h3>Respuesta esperada de tres familias</h3>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Familia</th><th>Target</th><th>Salida</th><th>Algoritmos frecuentes</th></tr></thead>
+          <tbody>
+            <tr><td>Clasificación</td><td>Categoría conocida.</td><td>Clase o probabilidad.</td><td>Regresión logística, árboles, Random Forest, Naive Bayes, SVM, KNN, redes.</td></tr>
+            <tr><td>Regresión</td><td>Valor numérico conocido.</td><td>Valor continuo.</td><td>Regresión lineal, árboles, Random Forest, boosting, redes.</td></tr>
+            <tr><td>Clustering o clusterización</td><td>No existe.</td><td>Grupos o estructura.</td><td>K Means, DBSCAN y clustering jerárquico.</td></tr>
+          </tbody>
+        </table></div>
+        <p>Clasificación y regresión son supervisadas porque aprenden desde targets conocidos. Clustering es no supervisado. Otra taxonomía clasifica los paradigmas en supervisado, no supervisado y por refuerzo. En refuerzo, un agente aprende acciones mediante recompensas o penalizaciones.</p>
+
+        <h3>Por qué existen familias</h3>
+        <p>No se conocen de antemano todos los patrones ni su distribución. Problemas con el mismo objetivo y columnas pueden tener historias, concentraciones y regímenes distintos. No existe un algoritmo universalmente mejor: primero se elige la familia por el tipo de salida y después se comparan algoritmos con la métrica del problema.</p>
+
+        <h3>Propiedades mínimas de algoritmos</h3>
+        <ul>
+          <li><strong>Regresión lineal:</strong> relación lineal, rápida e interpretable.</li>
+          <li><strong>Regresión logística:</strong> clasificación probabilística pese a su nombre.</li>
+          <li><strong>Árbol de decisión:</strong> reglas interpretables, sensible al sobreajuste si es profundo.</li>
+          <li><strong>Random Forest:</strong> conjunto de árboles que votan o promedian, más estable y menos directamente explicable.</li>
+          <li><strong>KNN:</strong> decide por vecinos; requiere escalas comparables.</li>
+          <li><strong>Naive Bayes y SVM:</strong> frecuentes en clasificación y espacios con muchas variables.</li>
+          <li><strong>K Means:</strong> exige cantidad de grupos. <strong>DBSCAN:</strong> busca regiones densas y puede marcar ruido.</li>
+          <li><strong>Redes neuronales:</strong> alta capacidad y menor transparencia, desarrolladas en <a href="#redes">Redes y Deep Learning</a>.</li>
+        </ul>
+        <p>Una persona con experiencia reduce candidatos plausibles. Una búsqueda sin criterio puede consumir recursos y quedar en un mínimo local, solución mejor que sus alternativas cercanas pero no la mejor disponible.</p>
+      </section>
+
+      <section class="chapter" id="entrenamiento" data-title="entrenamiento validación test holdout hiperparámetros grid random bayesiana cross validation k fold patrones heterogéneos">
+        <div class="chapter-head"><div class="chapter-number">07</div><div><h2>Entrenamiento, hiperparámetros y validación</h2></div></div>
+
+        <h3>Particiones</h3>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Conjunto</th><th>Uso</th></tr></thead>
+          <tbody>
+            <tr><td>Train</td><td>Ajustar los parámetros del modelo.</td></tr>
+            <tr><td>Validación</td><td>Comparar alternativas durante el desarrollo.</td></tr>
+            <tr><td>Test o holdout</td><td>Evaluación final e independiente. Si guía decisiones repetidas, deja de ser test.</td></tr>
+          </tbody>
+        </table></div>
+        <p>La proporción 80/20 es habitual, no una ley. Debe respetar tiempo, grupos, desbalance y dependencia entre observaciones. En series temporales no se usa información futura para predecir el pasado.</p>
+
+        <h3>Hiperparámetros</h3>
+        <p>Son configuraciones fijadas antes de entrenar, como profundidad, cantidad de árboles o tasa de aprendizaje. Afectan desempeño, costo y generalización.</p>
+        <ul>
+          <li><strong>Grid search:</strong> lista fija de combinaciones.</li>
+          <li><strong>Random search:</strong> combinaciones aleatorias.</li>
+          <li><strong>Optimización bayesiana:</strong> usa resultados previos para elegir la próxima prueba.</li>
+        </ul>
+        <p>El ajuste suele mejorar poco una métrica, pero también puede reducir costo o inestabilidad. Diez configuraciones por diez folds producen cien entrenamientos, por lo que necesita presupuesto y criterio.</p>
+
+        <h3>Validación cruzada</h3>
+        <p>K-fold divide el train en K partes. Entrena K veces, usando una parte diferente para validar y las restantes para ajustar. Produce una distribución de resultados y reduce la dependencia de una única partición. Son habituales entre 3 y 10 folds.</p>
+        <ul>
+          <li><strong>Media, lectura operativa:</strong> cuán bien discrimina los patrones encontrados.</li>
+          <li><strong>Desviación estándar, lectura operativa:</strong> si algún fold contiene patrones distintos. Dispersión alta exige investigar segmentos, períodos, anomalías o cambios de régimen.</li>
+          <li><strong>Matiz técnico:</strong> dispersión baja demuestra estabilidad entre folds observados, no cobertura de todos los patrones posibles.</li>
+        </ul>
+        <p>Los patrones pueden concentrarse por tiempo, región, cliente, paciente o equipo. Las particiones deben evitar que observaciones relacionadas aparezcan a ambos lados y deben representar el uso real.</p>
+      </section>
+
+      <section class="chapter" id="metricas" data-title="métricas matriz confusión accuracy precision recall sensibilidad f1 roc auc pr auc mae rmse r cuadrado mape costos error">
+        <div class="chapter-head"><div class="chapter-number">08</div><div><h2>Métricas y costos de error</h2></div></div>
+
+        <h3>Clasificación</h3>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Métrica</th><th>Fórmula</th><th>Uso</th></tr></thead>
+          <tbody>
+            <tr><td>Accuracy</td><td><span class="formula">(TP + TN) / Total</span></td><td>Aciertos totales. Engañosa con clases desbalanceadas.</td></tr>
+            <tr><td>Precision</td><td><span class="formula">TP / (TP + FP)</span></td><td>Importa cuando el falso positivo es costoso.</td></tr>
+            <tr><td>Recall o sensibilidad</td><td><span class="formula">TP / (TP + FN)</span></td><td>Importa cuando omitir un positivo es grave.</td></tr>
+            <tr><td>F1</td><td><span class="formula">2 x P x R / (P + R)</span></td><td>Media armónica de precision y recall.</td></tr>
+            <tr><td>ROC AUC</td><td>Área bajo ROC</td><td>Ordenamiento de positivos frente a negativos al variar el umbral.</td></tr>
+            <tr><td>PR AUC</td><td>Área bajo precision y recall</td><td>Más informativa con pocos positivos.</td></tr>
+          </tbody>
+        </table></div>
+        <p>TP y TN son aciertos positivos y negativos. FP marca positivo algo negativo. FN omite un positivo real. La matriz de confusión contiene esos cuatro valores.</p>
+
+        <h3>Regresión</h3>
+        <ul>
+          <li><strong>MAE:</strong> promedio del error absoluto, en la unidad del target.</li>
+          <li><strong>RMSE:</strong> raíz del error cuadrático medio, penaliza errores grandes.</li>
+          <li><strong>R cuadrado:</strong> variabilidad explicada respecto de predecir el promedio. Puede ser negativa en datos nuevos.</li>
+          <li><strong>MAPE:</strong> error porcentual absoluto medio, inestable con valores reales cero o pequeños.</li>
+        </ul>
+
+        <h3>Selección</h3>
+        <ol>
+          <li>Definir clase positiva y usuario de la decisión.</li>
+          <li>Asignar consecuencias a FP y FN.</li>
+          <li>Revisar desbalance.</li>
+          <li>Elegir métrica principal, complementarias y umbral.</li>
+          <li>Traducir resultados a costo o valor de negocio.</li>
+        </ol>
+        <p>La métrica puede cambiar el algoritmo ganador. En la comparación de referencia, un modelo tuvo recall 85% y accuracy 40%, mientras Gradient Boosting tuvo accuracy 81% y recall 35%. Si se priorizan falsos negativos gana el primero; si se mira solo accuracy gana el segundo.</p>
+      </section>
+
+      <section class="chapter" id="redes" data-title="red neuronal deep learning capas pesos activación backpropagation capacidad metaconceptos tensores datos entrada">
+        <div class="chapter-head"><div class="chapter-number">09</div><div><h2>Redes neuronales y Deep Learning</h2></div></div>
+
+        <p>Una red neuronal conecta unidades en una capa de entrada, capas ocultas y una capa de salida. Cada conexión tiene un peso. La unidad combina entradas y aplica una función de activación.</p>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Concepto</th><th>Contenido</th></tr></thead>
+          <tbody>
+            <tr><td>Backpropagation</td><td>Propaga el error desde la salida hacia atrás y ajusta pesos repetidamente.</td></tr>
+            <tr><td>Entrenamiento</td><td>Encuentra pesos o umbrales de activación que estabilizan la red.</td></tr>
+            <tr><td>Almacenamiento</td><td>Los pesos conservan una abstracción de patrones, no filas originales.</td></tr>
+            <tr><td>Capacidad</td><td>Es finita. Más unidades y capas amplían patrones posibles, cómputo, tiempo y riesgo.</td></tr>
+            <tr><td>Interferencia</td><td>Ajustar pesos para una clase puede empeorar otra.</td></tr>
+            <tr><td>Encadenamiento</td><td>Una red reconoce metaconceptos y otra resuelve distinciones internas, reduciendo patrones simultáneos por subred.</td></tr>
+          </tbody>
+        </table></div>
+        <p>Deep Learning usa redes de múltiples capas para construir representaciones jerárquicas. La formulación operativa agrega buenas prácticas de preprocesamiento y encadenamiento de redes. Un tensor es un arreglo numérico multidimensional para representar lotes, imágenes, audio, texto o señales.</p>
+
+        <h3>Entrada de ML tradicional y Deep Learning</h3>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Dimensión</th><th>ML tradicional</th><th>Deep Learning</th></tr></thead>
+          <tbody>
+            <tr><td>Representación</td><td>Matriz tabular con features diseñadas.</td><td>Tensores de alta dimensión.</td></tr>
+            <tr><td>Datos frecuentes</td><td>Numéricos y categóricos estructurados.</td><td>Imagen, audio, texto, video, señales y tablas.</td></tr>
+            <tr><td>Features</td><td>Mayor diseño manual.</td><td>Aprende representaciones internas, pero aún requiere preparación.</td></tr>
+            <tr><td>Volumen y cómputo</td><td>Habitualmente menores.</td><td>Habitualmente mayores, con GPU u otros aceleradores.</td></tr>
+            <tr><td>Interpretabilidad</td><td>Frecuentemente mayor.</td><td>Frecuentemente caja gris.</td></tr>
+          </tbody>
+        </table></div>
+      </section>
+
+      <section class="chapter" id="regularizacion" data-title="generalización underfitting overfitting sobreajuste bias variance regularización ridge lasso elastic net dropout early stopping augmentation">
+        <div class="chapter-head"><div class="chapter-number">10</div><div><h2>Generalización y regularización</h2></div></div>
+
+        <p><strong>Generalización:</strong> capacidad de mantener desempeño sobre datos nuevos. <strong>Underfitting:</strong> modelo demasiado rígido, con error alto en train y validación. <strong>Overfitting:</strong> adaptación al detalle o ruido del train, con deterioro fuera de muestra.</p>
+        <p><strong>Bias:</strong> error sistemático asociado con rigidez. <strong>Variance:</strong> sensibilidad a cambios de muestra. El objetivo es equilibrar ambos, no maximizar una métrica de entrenamiento.</p>
+
+        <h3>Fuentes de sobreajuste</h3>
+        <ul>
+          <li>Dataset poco representativo o sesgado.</li>
+          <li>Capacidad, features o duración del entrenamiento mal calibradas.</li>
+          <li>Leakage o particiones que no representan producción.</li>
+        </ul>
+        <p>Una métrica muy alta es una señal para revisar, no una prueba. En Iris, dataset estándar y curado, 97% puede ser esperable. Una caída de 96% en train y 95% en test a aproximadamente 75% en producción exige investigar representatividad, drift, leakage y sobreajuste.</p>
+
+        <h3>Técnicas</h3>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Técnica</th><th>Mecanismo</th></tr></thead>
+          <tbody>
+            <tr><td>L2 o Ridge</td><td>Penaliza pesos grandes al cuadrado y reduce magnitudes.</td></tr>
+            <tr><td>L1 o Lasso</td><td>Penaliza valores absolutos y puede llevar coeficientes a cero.</td></tr>
+            <tr><td>Elastic Net</td><td>Combina L1 y L2, útil con features correlacionadas.</td></tr>
+            <tr><td>Early stopping</td><td>Detiene cuando validación deja de mejorar.</td></tr>
+            <tr><td>Dropout</td><td>Desactiva unidades al azar para reducir coadaptación.</td></tr>
+            <tr><td>Data augmentation</td><td>Crea variaciones plausibles que preservan target y realidad.</td></tr>
+            <tr><td>Simplificación</td><td>Reduce profundidad, parámetros o features.</td></tr>
+            <tr><td>Más datos representativos</td><td>Amplía cobertura real, no repite los mismos sesgos.</td></tr>
+          </tbody>
+        </table></div>
+        <p>Datos sintéticos o aumentados deben validarse contra reglas estadísticas, físicas y de negocio. Si son pobres, amplifican ruido, sesgo o situaciones imposibles.</p>
+      </section>
+
+      <section class="chapter" id="automl" data-title="automl automated machine learning pipeline baseline pycaret tpot h2o autofeat flaml lazypredict ensamble">
+        <div class="chapter-head"><div class="chapter-number">11</div><div><h2>AutoML</h2></div></div>
+
+        <p>AutoML, <em>Automated Machine Learning</em>, automatiza tareas repetitivas de comparación, validación y ajuste. Recibe dataset preparado, target, tipo de problema, métrica, validación y presupuesto. Devuelve resultados comparables y pipelines, secuencias de transformaciones más modelo.</p>
+        <ul>
+          <li><strong>Preparación:</strong> preprocesamientos estandarizados, selección o generación de features.</li>
+          <li><strong>Modelado:</strong> algoritmos, hiperparámetros y validación cruzada.</li>
+          <li><strong>Ensambles:</strong> bagging entrena en paralelo y combina; boosting corrige errores secuencialmente; stacking aprende a mezclar modelos.</li>
+          <li><strong>Salida:</strong> baseline, referencia simple que las alternativas deben superar, métricas, gráficos, modelo, pipeline o código exportable.</li>
+        </ul>
+        <p>No delega problema, calidad, leakage, métrica, particiones, sesgos, restricciones productivas, monitoreo ni responsabilidad. El conocimiento se desplaza desde la operación de entrenamiento hacia el problema y la interpretación.</p>
+
+        <div class="table-wrap"><table>
+          <thead><tr><th>Herramienta</th><th>Uso</th></tr></thead>
+          <tbody>
+            <tr><td>PyCaret</td><td>Comparación y baseline con pocas líneas.</td></tr>
+            <tr><td>TPOT</td><td>Programación genética de pipelines, búsqueda con tiempo máximo y exportación de código estándar. Corrida de referencia: diez minutos.</td></tr>
+            <tr><td>H2O AutoML</td><td>Comparación, ensambles, tabla de resultados y análisis gráfico.</td></tr>
+            <tr><td>AutoFeat</td><td>Generación y selección automática de features tabulares.</td></tr>
+            <tr><td>FLAML</td><td>Búsqueda liviana con presupuesto controlado.</td></tr>
+            <tr><td>LazyPredict</td><td>Baseline rápido de modelos básicos.</td></tr>
+          </tbody>
+        </table></div>
+        <p>La selección considera mantenimiento, licencia, reproducibilidad, exportación, seguridad, integración, observabilidad y costo. El CISO puede autorizar dependencias diferentes por ambiente. Exportar un pipeline estándar permite usar una herramienta flexible en desarrollo sin llevarla a producción.</p>
+      </section>
+
+      <section class="chapter" id="xai" data-title="xai explicabilidad interpretabilidad caja negra shap lime eli5 sesgos fairness contrafactual conocimiento reglas producción forrester senge">
+        <div class="chapter-head"><div class="chapter-number">12</div><div><h2>Explicabilidad, conocimiento y sesgos</h2></div></div>
+
+        <p>XAI, <em>Explainable Artificial Intelligence</em>, reúne métodos para identificar qué variables influyeron en una salida. Una explicación puede ser <strong>global</strong>, comportamiento general, o <strong>local</strong>, una predicción particular.</p>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Herramienta</th><th>Alcance</th></tr></thead>
+          <tbody>
+            <tr><td>Importancia de features</td><td>Peso global según el modelo, sin garantizar causalidad.</td></tr>
+            <tr><td>SHAP</td><td>Atribuciones locales y agregables basadas en contribuciones de variables.</td></tr>
+            <tr><td>LIME</td><td>Aproximación local interpretable alrededor de una observación.</td></tr>
+            <tr><td>ELI5</td><td>Inspección de pesos y predicciones en modelos compatibles.</td></tr>
+          </tbody>
+        </table></div>
+        <p>La dirección horizontal suele representar dirección y magnitud del impacto; el color puede representar valor alto o bajo. La leyenda concreta manda. La importancia puede cambiar entre observaciones.</p>
+
+        <h3>Utilidad</h3>
+        <ul>
+          <li>Detectar señales plausibles, atajos y features innecesarias.</li>
+          <li>Validar con especialistas.</li>
+          <li>Auditar, responder reclamos y cumplir requisitos.</li>
+          <li>Descubrir reglas de negocio y orientar nuevas features.</li>
+        </ul>
+        <p>Las explicaciones validadas pueden destilarse en reglas IF condición THEN acción y alimentar conocimiento organizacional. No demuestran causalidad. La dinámica de sistemas de Forrester y Senge modela relaciones y retroalimentaciones que una predicción de ML puede no representar.</p>
+
+        <h3>Sesgos perjudiciales</h3>
+        <p>Los datos históricos pueden reproducir o amplificar desigualdades. Eliminar una variable sensible no elimina necesariamente sus proxies, variables que la revelan indirectamente.</p>
+        <ol>
+          <li>Identificar grupos, variables sensibles y daños.</li>
+          <li>Revisar representación, etiquetas, calidad y proxies.</li>
+          <li>Construir pruebas por grupos y pares contrafácticos.</li>
+          <li>Comparar predicciones, tasas de error y resultados.</li>
+          <li>Analizar explicaciones globales y locales.</li>
+          <li>Mitigar en datos, features, objetivo, umbral o algoritmo.</li>
+          <li>Documentar límites y riesgo residual.</li>
+          <li>Monitorear en producción.</li>
+        </ol>
+        <p>Explicabilidad y fairness, equidad, no son equivalentes. Un modelo puede ser explicable y discriminatorio, o menos interpretable y mostrar mejores resultados entre grupos. La responsabilidad permanece en el equipo y la organización.</p>
+      </section>
+
+      <section class="chapter" id="mlops" data-title="mlops producción despliegue latencia seguridad cómputo versionado mlflow drift data concept prediction monitoreo retiro">
+        <div class="chapter-head"><div class="chapter-number">13</div><div><h2>MLOps, monitoreo y drift</h2></div></div>
+
+        <p>MLOps, <em>Machine Learning Operations</em>, versiona, despliega, observa y mantiene modelos. Conecta datos y modelado con ingeniería y operación, y comienza durante la viabilidad.</p>
+        <p>La referencia operativa es que aproximadamente 40% de los proyectos validados no llegan a producción por problemas de gestión. Los tres bloqueos principales son latencia, seguridad y cómputo. También importan integración, costo, concurrencia y dependencias.</p>
+
+        <h3>Artefacto y registro</h3>
+        <ul>
+          <li>Empaquetar exactamente el preprocesamiento, transformaciones, modelo y configuración validados.</li>
+          <li>Versionar código, datos, features, modelo, entorno, parámetros, hiperparámetros y métricas.</li>
+          <li>Registrar fecha, archivos, decisiones, entradas y salidas con controles de privacidad.</li>
+          <li>Observar latencia, errores, disponibilidad, memoria, CPU, GPU, distribuciones y desempeño contra <strong>ground truth</strong>, valor real confirmado que llega después de la predicción.</li>
+          <li>MLflow registra experimentos y permite recuperar una ejecución anterior, que puede ser mejor que la última.</li>
+        </ul>
+
+        <h3>Drift</h3>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Tipo</th><th>Cambio</th></tr></thead>
+          <tbody>
+            <tr><td>Data drift</td><td>Distribución de entradas.</td></tr>
+            <tr><td>Concept drift</td><td>Relación entre entradas y target.</td></tr>
+            <tr><td>Prediction drift</td><td>Distribución de salidas del modelo.</td></tr>
+            <tr><td>Cambio de fuente</td><td>Pipeline, unidad, codificación o significado.</td></tr>
+          </tbody>
+        </table></div>
+        <p>Prediction drift es una alarma, no un diagnóstico. Reentrenar automáticamente puede empeorar el sistema. Primero se determina si cambió el mundo, la relación con el target o el pipeline, y luego se corrige, reentrena, revierte o retira.</p>
+        <p>El cierre desactiva servicios y automatizaciones, archiva evidencia, resuelve dependencias, comunica a usuarios, cumple retención y documenta lecciones.</p>
+      </section>
+
+      <section class="chapter" id="llm" data-title="llm large language model transformer token embedding posición atención bert gpt prompt prompting ROC fine tuning">
+        <div class="chapter-head"><div class="chapter-number">14</div><div><h2>LLM, Transformer y prompting</h2></div></div>
+
+        <p>Un LLM, <em>Large Language Model</em>, es una red profunda entrenada con grandes corpus para predecir tokens y generar continuaciones. No es una base de datos ni garantiza verdad.</p>
+        <ol class="study-list">
+          <li><strong>Tokenización:</strong> divide texto en palabras, partes o signos.</li>
+          <li><strong>Embeddings:</strong> transforma tokens en vectores.</li>
+          <li><strong>Posición:</strong> representa el orden.</li>
+          <li><strong>Atención:</strong> pondera qué partes del contexto son relevantes para cada token y procesa relaciones en paralelo.</li>
+          <li><strong>Predicción:</strong> las capas Transformer calculan el token siguiente y repiten el proceso.</li>
+        </ol>
+        <p>La genealogía conceptual es contexto de palabras, BERT como representación bidireccional, mecanismo de atención y GPT como Transformer generativo preentrenado. El preentrenamiento ajusta pesos y la inferencia utiliza esos pesos. La especialización posterior se compara con RAG en <a href="#rag">RAG y bases vectoriales</a>.</p>
+
+        <h3>Prompting</h3>
+        <p>Un prompt contiene instrucciones y contexto. La ingeniería de prompts redacta y refina esa entrada. El esquema ROC organiza <strong>rol, objetivo y contexto</strong>, sin relación con la curva ROC de clasificación.</p>
+        <ul>
+          <li>Explicitar tarea, entradas, restricciones, formato y criterios de aceptación.</li>
+          <li>Dividir tareas complejas y revisar resultados intermedios.</li>
+          <li>Refinar la instrucción con conocimiento del problema.</li>
+        </ul>
+        <p>La seguridad verbal de la respuesta no demuestra comprensión ni corrección.</p>
+      </section>
+
+      <section class="chapter" id="rag" data-title="rag retrieval augmented generation recuperación embeddings chunks metadata base vectorial similitud coseno euclídea faiss alucinación fine tuning">
+        <div class="chapter-head"><div class="chapter-number">15</div><div><h2>RAG y bases vectoriales</h2></div></div>
+
+        <p>RAG, <em>Retrieval Augmented Generation</em>, recupera fragmentos de un corpus y los agrega al contexto de un LLM. Cada chunk se almacena con embedding y metadata, como fuente, fecha y permisos.</p>
+
+        <h3>Tres limitaciones del LLM y tres ventajas de RAG</h3>
+        <div class="table-wrap"><table>
+          <thead><tr><th>LLM</th><th>RAG</th></tr></thead>
+          <tbody>
+            <tr><td>Fine tuning costoso.</td><td>Incorpora conocimiento sin reentrenar el modelo completo.</td></tr>
+            <tr><td>Conocimiento obsoleto.</td><td>Actualiza documentos y reindexa.</td></tr>
+            <tr><td>Pesos opacos.</td><td>Traza fragmentos y fuentes recuperadas.</td></tr>
+          </tbody>
+        </table></div>
+
+        <h3>Pipeline</h3>
+        <ol>
+          <li>Ingestar documentos confiables.</li>
+          <li>Limpiar, dividir en chunks y agregar metadata.</li>
+          <li>Crear embeddings e indexarlos.</li>
+          <li>Convertir la consulta con el mismo modelo.</li>
+          <li>Recuperar vecinos relevantes.</li>
+          <li>Generar la respuesta con contexto y fuentes.</li>
+        </ol>
+
+        <h3>Recuperación</h3>
+        <ul>
+          <li>Similitud coseno compara orientación; distancia euclídea, distancia recta; producto interno, orientación y magnitud.</li>
+          <li>La medida depende del entrenamiento y normalización del embedding.</li>
+          <li>FAISS construye índices y busca vecinos, pero no valida relevancia ni permisos.</li>
+          <li>PCA puede visualizar vectores, no es requisito de recuperación.</li>
+        </ul>
+
+        <h3>Respuesta, alucinación y evaluación</h3>
+        <p>SQL exacto puede devolver cero filas. La búsqueda vectorial es difusa y siempre puede ordenar un vecino como el más cercano, aunque sea irrelevante. No existe un umbral universal verificado. Si lo recuperado no responde a la necesidad, se lo denomina alucinación en la lectura operativa. Técnicamente deben separarse recuperación irrelevante y generación sin respaldo.</p>
+        <p>Umbrales evaluados, filtros, reordenamiento, abstención y top K reducen errores, pero no garantizan verdad. Se evalúan por separado relevancia de recuperación, fidelidad, citas, latencia y respuesta final.</p>
+        <p>RAG puede fallar por corpus, chunking, embeddings, consulta, metadata, top K, contexto o prompt. <strong>Fine tuning</strong> es entrenamiento adicional que modifica pesos o adaptadores para especializar una conducta estable; RAG no modifica el modelo y cambia el contexto por consulta. Pueden combinarse.</p>
+      </section>
+
+      <section class="chapter" id="vibe" data-title="vibe coding código llm patrones scaffolding andamiaje contexto tokens amnesia diversidad dunning kruger sesgo heredado">
+        <div class="chapter-head"><div class="chapter-number">16</div><div><h2>Vibe coding</h2></div></div>
+
+        <p>Vibe coding desarrolla software con LLM mediante lenguaje natural. El resultado es probabilístico: que compile no garantiza arquitectura, contratos, seguridad ni mantenibilidad.</p>
+
+        <h3>Método</h3>
+        <ol>
+          <li>Construir corpus y síntesis con contexto y referencias.</li>
+          <li>Buscar estado del arte y comparar evidencia a favor y en contra.</li>
+          <li>Analizar en profundidad los trabajos seleccionados.</li>
+          <li>Extraer dataset, features, target, ecuaciones, arquitectura, hiperparámetros y pipeline.</li>
+          <li>Escribir una especificación técnica en Markdown.</li>
+          <li>Generar una primera versión con reglas, datos sintéticos y criterios de prueba.</li>
+          <li>Registrar decisiones, leer, probar y refinar.</li>
+        </ol>
+        <p>NotebookLM consulta corpus, Gemini investiga, Consensus compara evidencia, Elicit y Paperguide analizan papers y Antigravity genera una implementación inicial.</p>
+
+        <h3>Riesgos</h3>
+        <ul>
+          <li><strong>Amnesia de código:</strong> el equipo deja de comprender estructura y decisiones.</li>
+          <li><strong>Promedio funcional:</strong> solución frecuente que puede compilar sin ser buena.</li>
+          <li><strong>Colapso de diversidad:</strong> entrenar modelos con código generado por modelos acentúa la media y reduce alternativas.</li>
+          <li><strong>Costo de contexto:</strong> depende de la cantidad de tokens necesarios para comunicar repositorio y relaciones. Seniors más gran consumo de tokens puede igualar o superar costos previos.</li>
+          <li><strong>Exposición:</strong> enviar repositorios amplios aumenta fuga, alcance impreciso y errores.</li>
+          <li><strong>Falsa confianza:</strong> tono seguro sin comprensión real.</li>
+        </ul>
+
+        <h3>Control</h3>
+        <p>El proceso sigue un embudo: arquitectura, patrones, módulos, contratos y código. Ese scaffolding o andamiaje comprime contexto y permite pedidos acotados. La única forma consistente de trabajar es pasarle al modelo los patrones requeridos y mantener revisión humana, pruebas, bitácora y aprobación.</p>
+        <p>El efecto Dunning Kruger describe sobreconfianza con conocimiento superficial. Adoptar la certeza del LLM como propia constituye sesgo heredado. Se contrarresta con conocimiento suficiente para interpelar, comparar y verificar.</p>
+      </section>
+
+      <section class="chapter" id="agentes" data-title="agente inteligente autonomía reactividad proactividad multiagente orquestador colaboración n8n blackboard MCP hermes base casos">
+        <div class="chapter-head"><div class="chapter-number">17</div><div><h2>Agentes y orquestación</h2></div></div>
+
+        <p><strong>Agente:</strong> programa que percibe información y ejecuta acciones para cumplir un objetivo dentro de permisos definidos. Sus propiedades son autonomía limitada, reactividad, proactividad y comunicación.</p>
+        <p><strong>Orquestador:</strong> decide qué agente o herramienta usar, en qué orden, con qué contexto y condiciones. Los agentes por sí solos no aportan conocimiento: el valor surge de sus capacidades y coordinación.</p>
+        <p>La integración empresarial combina ML o Deep Learning para detectar patrones, RAG para aportar conocimiento documental actualizable y agentes para ejecutar tareas bajo un orquestador.</p>
+
+        <div class="table-wrap"><table>
+          <thead><tr><th>Tipo</th><th>Decisión</th><th>Memoria</th></tr></thead>
+          <tbody>
+            <tr><td>Reflejo simple</td><td>Reglas condición y acción.</td><td>No.</td></tr>
+            <tr><td>Basado en modelo</td><td>Estado interno del entorno.</td><td>Sí.</td></tr>
+            <tr><td>Basado en objetivos</td><td>Acciones que acercan a una meta.</td><td>Usualmente.</td></tr>
+            <tr><td>Basado en utilidad</td><td>Compara alternativas por valor esperado.</td><td>Sí.</td></tr>
+          </tbody>
+        </table></div>
+
+        <h3>Sistemas multiagente</h3>
+        <ul>
+          <li>Dividen el problema en agentes especializados con contratos de entrada y salida.</li>
+          <li>Mejoran modularidad y reemplazo, pero agregan coordinación, observabilidad, seguridad, memoria y fallas distribuidas.</li>
+          <li><strong>Orquestación:</strong> flujo predefinido. n8n y Zapier automatizan pasos y eventos. n8n ofrece alrededor de 500 integraciones, cifra que cambia con el tiempo.</li>
+          <li><strong>Colaboración:</strong> un planificador arma o revisa el plan dinámicamente.</li>
+          <li><strong>Blackboard:</strong> memoria común donde los agentes leen y escriben estado.</li>
+        </ul>
+        <p>MCP, <em>Model Context Protocol</em>, estandariza descubrimiento y uso de herramientas o recursos. No resuelve inteligencia, planificación, identidad, autorización ni seguridad.</p>
+        <p>Hermes representa un asistente planificador sobre un orquestador. Puede usar una base de casos: recupera problemas resueltos, adapta un plan y conserva referencias operativas. Los casos no reemplazan validación.</p>
+        <p><strong>Human in the loop</strong> significa que una persona participa explícitamente en una decisión, validación o aprobación del sistema.</p>
+        <p>Más autonomía exige permisos mínimos, aislamiento, presupuestos, tiempos máximos, validación, registro, aprobación humana y capacidad de detener o revertir.</p>
+      </section>
+
+      <section class="chapter" id="seguridad" data-title="seguridad llm owasp prompt injection fuga información sensible supply chain poisoning output agencia system prompt embeddings misinformation consumo NIST">
+        <div class="chapter-head"><div class="chapter-number">18</div><div><h2>Seguridad en aplicaciones con LLM</h2></div></div>
+
+        <p>El LLM no es un control de seguridad. Autorización, validación, aislamiento y permisos deben ser determinísticos y externos.</p>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Riesgo</th><th>Falla</th><th>Control</th></tr></thead>
+          <tbody>
+            <tr><td><strong>1. Prompt injection</strong></td><td>Entrada directa o contenido externo cambia instrucciones, decisiones o herramientas.</td><td>Separar datos e instrucciones, tratar contenido como no confiable, limitar herramientas y validar acciones.</td></tr>
+            <tr><td><strong>2. Información sensible</strong></td><td>Fuga de PII, secretos, propiedad intelectual, credenciales o contexto entre usuarios.</td><td>Minimizar, clasificar, ocultar y controlar accesos. Nunca poner secretos en prompts.</td></tr>
+            <tr><td><strong>3a. Supply chain</strong></td><td>Modelos, adaptadores, paquetes, plugins, proveedores o repositorios comprometidos.</td><td>Verificar origen y firmas, inventariar componentes, fijar versiones y evaluar terceros.</td></tr>
+            <tr><td><strong>3b. Data and model poisoning</strong></td><td>Datos de entrenamiento, fine tuning o embeddings manipulados alteran el comportamiento.</td><td>Curar datos, controlar escrituras, versionar, detectar anomalías y revertir.</td></tr>
+            <tr><td><strong>4. Manejo inseguro de salida</strong></td><td>Texto generado se ejecuta como comando, SQL, HTML o script.</td><td>Validar estructura, parametrizar, neutralizar caracteres y separar texto de ejecución.</td></tr>
+            <tr><td><strong>5. Agencia excesiva</strong></td><td>Permisos o autonomía producen acciones reales dañinas.</td><td>Permisos mínimos, acciones acotadas, sandbox y aprobación humana.</td></tr>
+            <tr><td>System prompt leakage</td><td>Exposición de configuración interna.</td><td>No considerar secreto al prompt ni usarlo como autorización.</td></tr>
+            <tr><td>Vector and embedding weaknesses</td><td>Recuperación sin permiso, documentos maliciosos o mezcla entre usuarios.</td><td>Permisos antes y después de recuperar, aislamiento y validación de metadata.</td></tr>
+            <tr><td>Misinformation</td><td>Contenido falso o sin respaldo se usa para decidir.</td><td>Fuentes, citas, abstención, revisión y verificación.</td></tr>
+            <tr><td>Unbounded consumption</td><td>Bucles, prompts o automatizaciones agotan tokens y presupuesto.</td><td>Cuotas, límites, presupuestos, contexto y tiempos máximos.</td></tr>
+          </tbody>
+        </table></div>
+
+        <h3>Distinciones</h3>
+        <ul>
+          <li><strong>Inyección directa:</strong> instrucción hostil escrita por el usuario.</li>
+          <li><strong>Inyección indirecta:</strong> instrucción dentro de web, correo, PDF, imagen o documento recuperado.</li>
+          <li><strong>Jailbreak:</strong> intento de evadir restricciones de conducta.</li>
+          <li><strong>RAG:</strong> agrega poisoning del corpus, fuga por permisos, inyección indirecta, abuso de metadata y fuentes adulteradas.</li>
+        </ul>
+        <p>NIST AI RMF organiza el riesgo mediante gobernar, mapear, medir y gestionar. Evalúa validez y confiabilidad, seguridad operativa, protección y resiliencia, responsabilidad y transparencia, explicabilidad, privacidad y equidad. Organiza responsabilidades, no reemplaza controles técnicos.</p>
+      </section>
+
+      <section class="chapter" id="cobots" data-title="aplicaciones industriales robot cobot visión artificial kinesthetic teaching mantenimiento predictivo prescriptivo MTBF OEE gemelo digital PINN">
+        <div class="chapter-head"><div class="chapter-number">19</div><div><h2>Aplicaciones industriales</h2></div></div>
+
+        <p>Cobots, mantenimiento y gemelos digitales aplican percepción, predicción, simulación y decisión. No son familias nuevas de ML.</p>
+
+        <h3>Robots y cobots</h3>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Robot tradicional</th><th>Cobot</th></tr></thead>
+          <tbody><tr><td>Tarea y espacio controlados, normalmente fijo, aislado y con secuencia previsible.</td><td>Comparte espacio mediante percepción, limitación de fuerza, sensores y control adaptativo. Colaborativo no significa seguro por defecto.</td></tr></tbody>
+        </table></div>
+        <ol>
+          <li><strong>1950 a fines de los 60:</strong> hidráulica, sensores básicos y jaulas.</li>
+          <li><strong>Década de 1970 hasta 1999:</strong> PLC y robots programables fijos, con poca percepción.</li>
+          <li><strong>Desde 2000, cuarta generación:</strong> cobots, autopercepción, fuerza y detección de personas.</li>
+          <li><strong>Últimos cinco años de la periodización, quinta generación:</strong> nube, movilidad, Deep Learning e IA generativa.</li>
+        </ol>
+        <p>La periodización no es una taxonomía universal. Un cobot requiere sensores de fuerza y contacto, movilidad o gestión de energía cuando corresponde, y visión artificial no invasiva para percibir entorno, personas, piezas y defectos. Kinesthetic teaching, guiado cinestésico, permite enseñar trayectorias moviendo físicamente el brazo.</p>
+
+        <h3>Mantenimiento</h3>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Estrategia</th><th>Decisión</th></tr></thead>
+          <tbody>
+            <tr><td>Reactivo</td><td>Intervenir después de la falla.</td></tr>
+            <tr><td>Preventivo</td><td>Intervenir por calendario o uso.</td></tr>
+            <tr><td>Predictivo</td><td>Estimar qué fallará y cuándo.</td></tr>
+            <tr><td>Prescriptivo</td><td>Recomendar qué acción conviene realizar.</td></tr>
+          </tbody>
+        </table></div>
+        <ul>
+          <li><strong>MTBF:</strong> tiempo medio entre fallas.</li>
+          <li><strong>OEE:</strong> efectividad general vinculada con disponibilidad, rendimiento y calidad. Referencia: 89% de efectividad, sin paradas imprevistas y con detenciones predichas.</li>
+        </ul>
+
+        <h3>Gemelo digital</h3>
+        <p>Representación digital conectada con un activo o proceso real. Modela estado, comportamiento e interacción para simular desgaste, consumo, fallas y configuraciones. Los datos sintéticos requieren calibración. Las PINN, <em>Physics Informed Neural Networks</em>, incorporan leyes físicas como restricciones para excluir comportamientos imposibles.</p>
+        <p>La infraestructura condiciona la solución: integración de fábrica, conectividad, cifrado, energía, disipación, latencia y ubicación del cómputo pueden ser tan importantes como el modelo.</p>
+      </section>
+
+    </main>
+  </div>
+
+  <div class="highlight-toolbar" id="highlight-toolbar" role="toolbar" aria-label="Resaltador de estudio" hidden>
+    <span class="highlight-label" id="highlight-label" aria-live="polite">Resaltar selección</span>
+    <div class="highlight-colors" aria-label="Color del resaltado">
+      <button class="highlight-color" type="button" data-color="yellow" aria-label="Resaltar en amarillo"></button>
+      <button class="highlight-color" type="button" data-color="mint" aria-label="Resaltar en verde"></button>
+      <button class="highlight-color" type="button" data-color="pink" aria-label="Resaltar en rosa"></button>
+      <button class="highlight-color" type="button" data-color="blue" aria-label="Resaltar en azul"></button>
+    </div>
+    <button class="highlight-tool-button highlight-pin" id="highlight-pin" type="button" aria-label="Dejar resaltador fijo" aria-pressed="false" title="Dejar resaltador fijo">Fijar</button>
+    <button class="highlight-tool-button" id="highlight-remove" type="button" aria-label="Quitar resaltado" title="Quitar resaltado" hidden>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 6h18"></path><path d="M8 6V4h8v2"></path><path d="m19 6-1 15H6L5 6"></path><path d="M10 11v6M14 11v6"></path></svg>
+    </button>
+    <button class="highlight-tool-button" id="highlight-close" type="button" aria-label="Cerrar resaltador" title="Cerrar">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"></path></svg>
+    </button>
+  </div>
+
+  <script>
+    const root = document.documentElement;
+    const body = document.body;
+    const chapters = [...document.querySelectorAll('.chapter')];
+    const navLinks = [...document.querySelectorAll('.toc a')];
+    const search = document.getElementById('search');
+    const searchResults = document.getElementById('search-results');
+    const searchWrap = document.querySelector('.search-wrap');
+    const progress = document.getElementById('reading-progress');
+    const content = document.getElementById('content');
+    const highlightToolbar = document.getElementById('highlight-toolbar');
+    const highlightLabel = document.getElementById('highlight-label');
+    const highlightRemove = document.getElementById('highlight-remove');
+    const highlightPin = document.getElementById('highlight-pin');
+    const highlightHelp = document.getElementById('highlight-help');
+    const highlightColors = [...document.querySelectorAll('.highlight-color')];
+    const highlightStorageKey = 'aa-resumen-highlights-v1';
+    const highlightModeStorageKey = 'aa-resumen-highlight-fixed-v1';
+    const highlightColorStorageKey = 'aa-resumen-highlight-color-v1';
+    const preparedStorageKey = 'aa-resumen-prepared-topics-v1';
+
+    function loadPreparedTopics() {
+      try {
+        const stored = JSON.parse(localStorage.getItem(preparedStorageKey) || '[]');
+        return new Set(Array.isArray(stored) ? stored.filter(topic => typeof topic === 'string') : []);
+      } catch (error) {
+        return new Set();
+      }
+    }
+
+    const preparedTopics = loadPreparedTopics();
+
+    function savePreparedTopics() {
+      localStorage.setItem(preparedStorageKey, JSON.stringify([...preparedTopics]));
+    }
+
+    navLinks.forEach(link => {
+      const topicId = link.getAttribute('href').slice(1);
+      const topicName = link.textContent.replace(/\s+/g, ' ').trim().replace(/^(?:\d+|[A-Z])\s*/, '');
+      const item = document.createElement('div');
+      const button = document.createElement('button');
+      item.className = 'toc-item';
+      button.className = 'nav-check';
+      button.type = 'button';
+
+      link.before(item);
+      item.append(button, link);
+
+      function renderPreparedState() {
+        const prepared = preparedTopics.has(topicId);
+        item.classList.toggle('prepared', prepared);
+        button.textContent = prepared ? '✓' : '';
+        button.setAttribute('aria-pressed', String(prepared));
+        button.setAttribute('aria-label', `${prepared ? 'Volver a pendiente' : 'Marcar como preparado'}: ${topicName}`);
+        button.title = prepared ? 'Volver a pendiente' : 'Marcar como preparado';
+      }
+
+      button.addEventListener('click', () => {
+        if (preparedTopics.has(topicId)) preparedTopics.delete(topicId);
+        else preparedTopics.add(topicId);
+        savePreparedTopics();
+        renderPreparedState();
+      });
+
+      renderPreparedState();
+    });
+
+    function setTheme(theme) {
+      root.dataset.theme = theme;
+      localStorage.setItem('aa-theme', theme);
+    }
+
+    const savedTheme = localStorage.getItem('aa-theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    setTheme(savedTheme || (prefersDark ? 'dark' : 'light'));
+
+    function toggleTheme() {
+      setTheme(root.dataset.theme === 'dark' ? 'light' : 'dark');
+    }
+
+    document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
+    document.getElementById('mobile-theme').addEventListener('click', toggleTheme);
+    document.getElementById('print-button').addEventListener('click', () => window.print());
+    const menuToggle = document.getElementById('menu-toggle');
+    const menuClose = document.getElementById('menu-close');
+    const navBackdrop = document.getElementById('nav-backdrop');
+
+    function setNavOpen(open) {
+      body.classList.toggle('nav-open', open);
+      menuToggle.setAttribute('aria-expanded', String(open));
+      menuToggle.setAttribute('aria-label', open ? 'Cerrar navegación' : 'Abrir navegación');
+    }
+
+    menuToggle.addEventListener('click', () => setNavOpen(!body.classList.contains('nav-open')));
+    menuClose.addEventListener('click', () => setNavOpen(false));
+    navBackdrop.addEventListener('click', () => setNavOpen(false));
+
+    navLinks.forEach(link => link.addEventListener('click', () => setNavOpen(false)));
+
+    function updateProgress() {
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      const value = max > 0 ? (window.scrollY / max) * 100 : 0;
+      progress.style.width = `${Math.min(100, Math.max(0, value))}%`;
+    }
+
+    window.addEventListener('scroll', updateProgress, { passive: true });
+    updateProgress();
+
+    const observer = new IntersectionObserver(entries => {
+      const visible = entries
+        .filter(entry => entry.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+      if (!visible) return;
+      navLinks.forEach(link => {
+        const active = link.getAttribute('href') === `#${visible.target.id}`;
+        link.classList.toggle('active', active);
+        link.closest('.toc-item')?.classList.toggle('active', active);
+      });
+    }, { rootMargin: '-12% 0px -72% 0px', threshold: [0, .1, .5] });
+
+    chapters.forEach(chapter => observer.observe(chapter));
+
+    function normalize(value) {
+      return value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim();
+    }
+
+    const seenSearchEntries = new Set();
+    const searchIndex = chapters.flatMap(chapter => {
+      const chapterTitle = chapter.querySelector('h2')?.textContent.trim() || chapter.id;
+      return [...chapter.querySelectorAll('h2, h3, h4, p, li, td, summary')].map((node, index) => {
+        const text = node.textContent.replace(/\s+/g, ' ').trim();
+        const normalized = normalize(text);
+        const key = `${chapter.id}:${normalized}`;
+        if (text.length < 3 || seenSearchEntries.has(key)) return null;
+        seenSearchEntries.add(key);
+        if (!node.id) node.id = `search-${chapter.id}-${index}`;
+        return {
+          node,
+          text,
+          normalized,
+          chapterTitle,
+          priority: /^H[2-4]$/.test(node.tagName) ? 0 : node.tagName === 'SUMMARY' ? 1 : 2
+        };
+      }).filter(Boolean);
+    });
+
+    let activeResult = -1;
+    let currentMatches = [];
+
+    function foldWithMap(value) {
+      let folded = '';
+      const map = [];
+      [...value].forEach((character, rawIndex) => {
+        const part = character.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+        [...part].forEach(unit => {
+          folded += unit;
+          map.push(rawIndex);
+        });
+      });
+      return { folded, map };
+    }
+
+    function makeSnippet(text, query) {
+      const { folded, map } = foldWithMap(text);
+      const matchAt = folded.indexOf(query);
+      if (matchAt < 0) return text.slice(0, 180);
+      const rawStart = map[matchAt] ?? 0;
+      const rawEnd = (map[matchAt + query.length - 1] ?? rawStart) + 1;
+      const start = Math.max(0, rawStart - 62);
+      const end = Math.min(text.length, rawEnd + 105);
+      return `${start > 0 ? '...' : ''}${text.slice(start, end)}${end < text.length ? '...' : ''}`;
+    }
+
+    function addHighlightedText(container, text, query) {
+      const { folded, map } = foldWithMap(text);
+      const matchAt = folded.indexOf(query);
+      if (matchAt < 0) {
+        container.textContent = text;
+        return;
+      }
+      const start = map[matchAt];
+      const end = (map[matchAt + query.length - 1] ?? start) + 1;
+      container.append(document.createTextNode(text.slice(0, start)));
+      const mark = document.createElement('mark');
+      mark.textContent = text.slice(start, end);
+      container.append(mark, document.createTextNode(text.slice(end)));
+    }
+
+    function closeSearch() {
+      searchResults.hidden = true;
+      search.setAttribute('aria-expanded', 'false');
+      activeResult = -1;
+    }
+
+    function setActiveResult(index) {
+      const buttons = [...searchResults.querySelectorAll('.search-result')];
+      if (!buttons.length) return;
+      activeResult = (index + buttons.length) % buttons.length;
+      buttons.forEach((button, buttonIndex) => {
+        const active = buttonIndex === activeResult;
+        button.classList.toggle('active', active);
+        button.setAttribute('aria-selected', String(active));
+      });
+      buttons[activeResult].scrollIntoView({ block: 'nearest' });
+    }
+
+    function goToSearchResult(result) {
+      result.node.closest('details')?.setAttribute('open', '');
+      result.node.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      result.node.classList.remove('search-target');
+      void result.node.offsetWidth;
+      result.node.classList.add('search-target');
+      window.setTimeout(() => result.node.classList.remove('search-target'), 2300);
+      body.classList.remove('nav-open');
+      closeSearch();
+    }
+
+    function renderSearch(rawQuery) {
+      const query = normalize(rawQuery);
+      searchResults.replaceChildren();
+      activeResult = -1;
+      if (!query) {
+        closeSearch();
+        return;
+      }
+
+      currentMatches = searchIndex
+        .filter(item => item.normalized.includes(query))
+        .sort((a, b) => {
+          const startDifference = Number(!a.normalized.startsWith(query)) - Number(!b.normalized.startsWith(query));
+          return startDifference || a.priority - b.priority || a.text.length - b.text.length;
+        })
+        .slice(0, 10);
+
+      if (!currentMatches.length) {
+        const empty = document.createElement('div');
+        empty.className = 'search-empty';
+        empty.textContent = 'No encontré coincidencias. Probá con una palabra más general o una sigla.';
+        searchResults.append(empty);
+      } else {
+        const summary = document.createElement('div');
+        summary.className = 'search-summary';
+        summary.textContent = `${currentMatches.length}${currentMatches.length === 10 ? '+' : ''} coincidencias`;
+        searchResults.append(summary);
+
+        currentMatches.forEach((result, index) => {
+          const button = document.createElement('button');
+          button.type = 'button';
+          button.className = 'search-result';
+          button.setAttribute('role', 'option');
+          button.setAttribute('aria-selected', 'false');
+
+          const chapterLabel = document.createElement('small');
+          chapterLabel.textContent = result.chapterTitle;
+          const snippet = document.createElement('span');
+          addHighlightedText(snippet, makeSnippet(result.text, query), query);
+          button.append(chapterLabel, snippet);
+          button.addEventListener('click', () => goToSearchResult(result));
+          button.addEventListener('mouseenter', () => setActiveResult(index));
+          searchResults.append(button);
+        });
+      }
+
+      searchResults.hidden = false;
+      search.setAttribute('aria-expanded', 'true');
+    }
+
+    search.addEventListener('input', event => renderSearch(event.target.value));
+    search.addEventListener('focus', () => {
+      if (search.value) renderSearch(search.value);
+    });
+    search.addEventListener('keydown', event => {
+      if (event.key === 'Escape') {
+        closeSearch();
+        return;
+      }
+      if (!currentMatches.length || searchResults.hidden) return;
+      if (event.key === 'ArrowDown') {
+        event.preventDefault();
+        setActiveResult(activeResult + 1);
+      } else if (event.key === 'ArrowUp') {
+        event.preventDefault();
+        setActiveResult(activeResult - 1);
+      } else if (event.key === 'Enter' && activeResult >= 0) {
+        event.preventDefault();
+        goToSearchResult(currentMatches[activeResult]);
+      }
+    });
+    document.addEventListener('click', event => {
+      if (!searchWrap.contains(event.target)) closeSearch();
+    });
+
+    const initialQuery = new URLSearchParams(window.location.search).get('buscar');
+    if (initialQuery) {
+      search.value = initialQuery;
+      renderSearch(initialQuery);
+    }
+
+    function loadHighlights() {
+      try {
+        const stored = JSON.parse(localStorage.getItem(highlightStorageKey) || '[]');
+        return Array.isArray(stored) ? stored.filter(item =>
+          item &&
+          typeof item.id === 'string' &&
+          typeof item.chapterId === 'string' &&
+          Number.isInteger(item.start) &&
+          Number.isInteger(item.end) &&
+          item.start >= 0 &&
+          item.end > item.start
+        ) : [];
+      } catch (error) {
+        return [];
+      }
+    }
+
+    let highlights = loadHighlights();
+    let pendingHighlight = null;
+    let activeHighlightId = null;
+    let fixedHighlightMode = localStorage.getItem(highlightModeStorageKey) === 'true';
+    let activeHighlightColor = localStorage.getItem(highlightColorStorageKey) || 'yellow';
+    if (!highlightColors.some(button => button.dataset.color === activeHighlightColor)) activeHighlightColor = 'yellow';
+    const highlightHistory = [];
+    const highlightRedo = [];
+
+    function saveHighlights() {
+      localStorage.setItem(highlightStorageKey, JSON.stringify(highlights));
+    }
+
+    function cloneHighlights(items = highlights) {
+      return items.map(item => ({ ...item }));
+    }
+
+    function recordHighlightState() {
+      highlightHistory.push(cloneHighlights());
+      if (highlightHistory.length > 100) highlightHistory.shift();
+      highlightRedo.length = 0;
+    }
+
+    function unwrapHighlights() {
+      document.querySelectorAll('mark.user-highlight').forEach(mark => {
+        mark.replaceWith(document.createTextNode(mark.textContent));
+      });
+      chapters.forEach(chapter => chapter.normalize());
+    }
+
+    function wrapHighlight(item) {
+      const chapter = document.getElementById(item.chapterId);
+      if (!chapter) return;
+
+      const walker = document.createTreeWalker(chapter, NodeFilter.SHOW_TEXT);
+      const segments = [];
+      let position = 0;
+      let node;
+
+      while ((node = walker.nextNode())) {
+        const nextPosition = position + node.data.length;
+        if (item.start < nextPosition && item.end > position) {
+          segments.push({
+            node,
+            start: Math.max(0, item.start - position),
+            end: Math.min(node.data.length, item.end - position)
+          });
+        }
+        position = nextPosition;
+        if (position >= item.end) break;
+      }
+
+      segments.reverse().forEach(segment => {
+        if (segment.end <= segment.start) return;
+        const range = document.createRange();
+        range.setStart(segment.node, segment.start);
+        range.setEnd(segment.node, segment.end);
+        const mark = document.createElement('mark');
+        mark.className = 'user-highlight';
+        mark.dataset.highlightId = item.id;
+        mark.dataset.color = item.color || 'yellow';
+        range.surroundContents(mark);
+      });
+    }
+
+    function renderHighlights() {
+      unwrapHighlights();
+      let repaired = false;
+
+      highlights.forEach(item => {
+        const chapter = document.getElementById(item.chapterId);
+        if (!chapter || !item.quote) return;
+        const chapterText = chapter.textContent;
+        if (chapterText.slice(item.start, item.end) !== item.quote) {
+          const newStart = chapterText.indexOf(item.quote);
+          if (newStart >= 0) {
+            item.start = newStart;
+            item.end = newStart + item.quote.length;
+            repaired = true;
+          } else {
+            const matches = chapters.map(candidate => ({
+              chapter: candidate,
+              start: candidate.textContent.indexOf(item.quote)
+            })).filter(match => match.start >= 0);
+
+            if (matches.length === 1) {
+              item.chapterId = matches[0].chapter.id;
+              item.start = matches[0].start;
+              item.end = matches[0].start + item.quote.length;
+              repaired = true;
+            }
+          }
+        }
+      });
+
+      [...highlights]
+        .sort((a, b) => a.chapterId.localeCompare(b.chapterId) || b.start - a.start)
+        .forEach(wrapHighlight);
+
+      if (repaired) saveHighlights();
+    }
+
+    function clearSelectedHighlight() {
+      document.querySelectorAll('mark.user-highlight.selected').forEach(mark => mark.classList.remove('selected'));
+    }
+
+    function renderHighlightControls() {
+      body.classList.toggle('highlight-mode', fixedHighlightMode);
+      highlightPin.classList.toggle('active', fixedHighlightMode);
+      highlightPin.setAttribute('aria-pressed', String(fixedHighlightMode));
+      highlightPin.setAttribute('aria-label', fixedHighlightMode ? 'Desactivar resaltador fijo' : 'Dejar resaltador fijo');
+      highlightPin.title = fixedHighlightMode ? 'Desactivar resaltador fijo' : 'Dejar resaltador fijo';
+      highlightPin.textContent = fixedHighlightMode ? 'Fijo' : 'Fijar';
+      highlightHelp.classList.toggle('active', fixedHighlightMode);
+      highlightHelp.setAttribute('aria-pressed', String(fixedHighlightMode));
+      highlightHelp.title = fixedHighlightMode ? 'Desactivar resaltador fijo' : 'Activar resaltador fijo';
+      highlightColors.forEach(button => {
+        const active = button.dataset.color === activeHighlightColor;
+        button.classList.toggle('active', active);
+        button.setAttribute('aria-pressed', String(active));
+      });
+    }
+
+    function setActiveHighlightColor(color) {
+      activeHighlightColor = color;
+      localStorage.setItem(highlightColorStorageKey, color);
+      renderHighlightControls();
+    }
+
+    function closeHighlightToolbar(force = false) {
+      pendingHighlight = null;
+      activeHighlightId = null;
+      clearSelectedHighlight();
+      if (fixedHighlightMode && !force) {
+        showHighlightToolbar('fixed');
+        return;
+      }
+      highlightToolbar.hidden = true;
+    }
+
+    function showHighlightToolbar(mode) {
+      const editing = mode === 'edit';
+      const help = mode === 'help';
+      const fixed = mode === 'fixed';
+      highlightLabel.textContent = editing
+        ? 'Editar resaltado'
+        : help
+          ? 'Seleccioná texto para resaltarlo'
+          : fixed
+            ? 'Resaltador fijo'
+            : 'Resaltar selección';
+      highlightRemove.hidden = !editing;
+      highlightColors.forEach(button => { button.disabled = help; });
+      renderHighlightControls();
+      highlightToolbar.hidden = false;
+    }
+
+    function setFixedHighlightMode(enabled) {
+      fixedHighlightMode = enabled;
+      localStorage.setItem(highlightModeStorageKey, String(enabled));
+      pendingHighlight = null;
+      activeHighlightId = null;
+      clearSelectedHighlight();
+      renderHighlightControls();
+      if (enabled) showHighlightToolbar('fixed');
+      else closeHighlightToolbar(true);
+      body.classList.remove('nav-open');
+    }
+
+    function chapterOffset(chapter, node, offset) {
+      const range = document.createRange();
+      range.selectNodeContents(chapter);
+      range.setEnd(node, offset);
+      return range.toString().length;
+    }
+
+    function isWordCharacter(character) {
+      return Boolean(character) && /[\p{L}\p{N}\p{M}_]/u.test(character);
+    }
+
+    function snapToWholeWords(text, start, end) {
+      while (start > 0 && isWordCharacter(text[start - 1])) start -= 1;
+      while (end < text.length && isWordCharacter(text[end])) end += 1;
+      return { start, end };
+    }
+
+    function captureHighlightSelection() {
+      const selection = window.getSelection();
+      if (!selection || selection.rangeCount === 0 || selection.isCollapsed) return;
+
+      const range = selection.getRangeAt(0);
+      const startElement = range.startContainer.nodeType === Node.TEXT_NODE
+        ? range.startContainer.parentElement
+        : range.startContainer;
+      const endElement = range.endContainer.nodeType === Node.TEXT_NODE
+        ? range.endContainer.parentElement
+        : range.endContainer;
+      const startChapter = startElement?.closest?.('.chapter');
+      const endChapter = endElement?.closest?.('.chapter');
+      if (!startChapter || startChapter !== endChapter || !content.contains(startChapter)) return;
+
+      const rawText = range.toString();
+      const leadingSpace = rawText.length - rawText.trimStart().length;
+      const trailingSpace = rawText.length - rawText.trimEnd().length;
+      if (!rawText.trim()) return;
+
+      const chapterText = startChapter.textContent;
+      const selectionStart = chapterOffset(startChapter, range.startContainer, range.startOffset) + leadingSpace;
+      const selectionEnd = chapterOffset(startChapter, range.endContainer, range.endOffset) - trailingSpace;
+      const { start, end } = snapToWholeWords(chapterText, selectionStart, selectionEnd);
+      if (end <= start) return;
+
+      pendingHighlight = {
+        chapterId: startChapter.id,
+        start,
+        end,
+        quote: chapterText.slice(start, end)
+      };
+      activeHighlightId = null;
+      clearSelectedHighlight();
+      if (fixedHighlightMode) addHighlight(activeHighlightColor);
+      else showHighlightToolbar('selection');
+    }
+
+    function makeHighlightId() {
+      return `hl-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`;
+    }
+
+    function addHighlight(color) {
+      if (!pendingHighlight) return;
+      recordHighlightState();
+      setActiveHighlightColor(color);
+      let start = pendingHighlight.start;
+      let end = pendingHighlight.end;
+
+      const overlaps = highlights.filter(item =>
+        item.chapterId === pendingHighlight.chapterId &&
+        item.start < end &&
+        item.end > start
+      );
+      overlaps.forEach(item => {
+        start = Math.min(start, item.start);
+        end = Math.max(end, item.end);
+      });
+
+      const chapter = document.getElementById(pendingHighlight.chapterId);
+      const overlapIds = new Set(overlaps.map(item => item.id));
+      highlights = highlights.filter(item => !overlapIds.has(item.id));
+      highlights.push({
+        id: makeHighlightId(),
+        chapterId: pendingHighlight.chapterId,
+        start,
+        end,
+        quote: chapter.textContent.slice(start, end),
+        color
+      });
+      saveHighlights();
+      renderHighlights();
+      window.getSelection()?.removeAllRanges();
+      closeHighlightToolbar();
+    }
+
+    function recolorHighlight(color) {
+      const item = highlights.find(highlight => highlight.id === activeHighlightId);
+      if (!item) return;
+      recordHighlightState();
+      setActiveHighlightColor(color);
+      item.color = color;
+      saveHighlights();
+      renderHighlights();
+      closeHighlightToolbar();
+    }
+
+    highlightColors.forEach(button => button.addEventListener('click', () => {
+      const color = button.dataset.color;
+      if (activeHighlightId) recolorHighlight(color);
+      else if (pendingHighlight) addHighlight(color);
+      else {
+        setActiveHighlightColor(color);
+        if (fixedHighlightMode) showHighlightToolbar('fixed');
+      }
+    }));
+
+    highlightRemove.addEventListener('click', () => {
+      if (!activeHighlightId) return;
+      recordHighlightState();
+      highlights = highlights.filter(item => item.id !== activeHighlightId);
+      saveHighlights();
+      renderHighlights();
+      closeHighlightToolbar();
+    });
+
+    function restoreHighlightState(state) {
+      highlights = cloneHighlights(state);
+      pendingHighlight = null;
+      activeHighlightId = null;
+      clearSelectedHighlight();
+      saveHighlights();
+      renderHighlights();
+      if (fixedHighlightMode) showHighlightToolbar('fixed');
+      else closeHighlightToolbar(true);
+    }
+
+    function undoHighlight() {
+      if (!highlightHistory.length) return;
+      highlightRedo.push(cloneHighlights());
+      restoreHighlightState(highlightHistory.pop());
+    }
+
+    function redoHighlight() {
+      if (!highlightRedo.length) return;
+      highlightHistory.push(cloneHighlights());
+      restoreHighlightState(highlightRedo.pop());
+    }
+
+    document.addEventListener('keydown', event => {
+      const target = event.target;
+      const isEditable = target instanceof HTMLInputElement ||
+        target instanceof HTMLTextAreaElement ||
+        target instanceof HTMLSelectElement ||
+        target.isContentEditable;
+      if (isEditable || !(event.ctrlKey || event.metaKey)) return;
+
+      const key = event.key.toLowerCase();
+      if (key === 'z' && event.shiftKey) {
+        event.preventDefault();
+        redoHighlight();
+      } else if (key === 'z') {
+        event.preventDefault();
+        undoHighlight();
+      } else if (key === 'y') {
+        event.preventDefault();
+        redoHighlight();
+      }
+    });
+
+    highlightPin.addEventListener('click', () => setFixedHighlightMode(!fixedHighlightMode));
+    document.getElementById('highlight-close').addEventListener('click', () => {
+      if (fixedHighlightMode) setFixedHighlightMode(false);
+      else closeHighlightToolbar(true);
+    });
+    highlightHelp.addEventListener('click', () => setFixedHighlightMode(!fixedHighlightMode));
+
+    content.addEventListener('click', event => {
+      const mark = event.target.closest('mark.user-highlight');
+      if (!mark) return;
+      event.preventDefault();
+      window.getSelection()?.removeAllRanges();
+      pendingHighlight = null;
+      activeHighlightId = mark.dataset.highlightId;
+      clearSelectedHighlight();
+      document.querySelectorAll(`mark.user-highlight[data-highlight-id="${activeHighlightId}"]`)
+        .forEach(part => part.classList.add('selected'));
+      showHighlightToolbar('edit');
+    });
+
+    let pointerSelecting = false;
+    document.addEventListener('pointerdown', event => {
+      pointerSelecting = content.contains(event.target);
+      if (highlightToolbar.contains(event.target)) return;
+      if (!event.target.closest('mark.user-highlight')) closeHighlightToolbar();
+    });
+    document.addEventListener('pointerup', event => {
+      pointerSelecting = false;
+      if (highlightToolbar.contains(event.target) || event.target.closest('mark.user-highlight')) return;
+      window.setTimeout(captureHighlightSelection, 20);
+    });
+    document.addEventListener('pointercancel', () => { pointerSelecting = false; });
+    document.addEventListener('keyup', event => {
+      if (event.key.startsWith('Arrow') || event.key === 'Shift') captureHighlightSelection();
+    });
+    let selectionTimer;
+    document.addEventListener('selectionchange', () => {
+      window.clearTimeout(selectionTimer);
+      selectionTimer = window.setTimeout(() => {
+        if (pointerSelecting) return;
+        const selection = window.getSelection();
+        if (selection && !selection.isCollapsed) captureHighlightSelection();
+      }, 120);
+    });
+
+    renderHighlights();
+    renderHighlightControls();
+    if (fixedHighlightMode) showHighlightToolbar('fixed');
+  </script>
+</body>
+</html>
