@@ -395,6 +395,7 @@
       line-height: .98;
       letter-spacing: -.055em;
     }
+    .print-title { display: none; }
     .chapter {
       padding-top: 82px;
       scroll-margin-top: 10px;
@@ -617,6 +618,8 @@
         line-height: 1.05;
         letter-spacing: -.025em;
       }
+      .screen-title { display: none; }
+      .print-title { display: inline; }
       .chapter {
         padding-top: 7mm;
         break-before: auto;
@@ -784,7 +787,7 @@
 
     <main class="content" id="content">
       <header class="hero">
-        <h1>Resumen</h1>
+        <h1><span class="screen-title">Resumen</span><span class="print-title">Aprendizaje Automático</span></h1>
         <p><a href="index.html">Abrir apunte</a></p>
       </header>
 
