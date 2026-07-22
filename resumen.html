@@ -380,7 +380,7 @@
     @media (min-width: 1051px) {
       .notes-panel {
         position: fixed;
-        left: calc(var(--sidebar) + 18px);
+        right: 18px;
         bottom: 0;
         z-index: 40;
         display: flex;
@@ -398,23 +398,27 @@
         min-width: 0;
         width: 100%;
         flex-direction: column;
-        animation: notes-rise .18s ease-out;
       }
-      @keyframes notes-rise {
-        from { transform: translateY(14px); }
+      body.notes-opening .notes-panel { animation: notes-rise-in .2s ease-out both; }
+      body.notes-closing .notes-panel { animation: notes-drop-out .18s ease-in both; }
+      @keyframes notes-rise-in {
+        from { transform: translateY(100%); }
         to { transform: translateY(0); }
+      }
+      @keyframes notes-drop-out {
+        from { transform: translateY(0); }
+        to { transform: translateY(100%); }
       }
       .notes-header {
         display: flex;
         align-items: center;
         justify-content: space-between;
         gap: 16px;
-        padding: 14px 14px 12px 17px;
+        padding: 7px 9px 7px 14px;
         border-bottom: 1px solid var(--line);
+        cursor: pointer;
       }
-      .notes-heading { display: grid; gap: 1px; }
       .notes-heading strong { line-height: 1.25; }
-      .notes-status { color: var(--muted); font-size: 11px; }
       .notes-header-actions { display: flex; gap: 6px; }
       .notes-collapse,
       .notes-download,
@@ -426,16 +430,16 @@
       }
       .notes-collapse {
         display: grid;
-        width: 32px;
-        height: 32px;
+        width: 28px;
+        height: 28px;
         flex: 0 0 auto;
         place-items: center;
         border-radius: 9px;
       }
       .notes-download {
         display: grid;
-        width: 32px;
-        height: 32px;
+        width: 28px;
+        height: 28px;
         place-items: center;
         border-radius: 9px;
       }
@@ -961,10 +965,9 @@
       Notas
     </button>
     <div class="notes-panel-content">
-      <div class="notes-header">
+      <div class="notes-header" id="notes-header" title="Contraer notas">
         <div class="notes-heading">
           <strong>Mis notas</strong>
-          <span class="notes-status" id="notes-status">Guardado</span>
         </div>
         <div class="notes-header-actions">
           <button class="notes-download" id="notes-download" type="button" aria-label="Descargar notas en Markdown" title="Descargar Markdown">
@@ -2392,7 +2395,7 @@
   </script>
   <script>
     const studyNotes = document.getElementById('study-notes');
-    const notesStatus = document.getElementById('notes-status');
+    const notesHeader = document.getElementById('notes-header');
     const notesCollapse = document.getElementById('notes-collapse');
     const notesExpand = document.getElementById('notes-expand');
     const notesDownload = document.getElementById('notes-download');
@@ -2401,29 +2404,49 @@
     const notesCommandButtons = [...document.querySelectorAll('[data-note-command]')];
     const notesStorageKey = 'aa-study-notes-v1';
     const notesStateKey = 'aa-study-notes-collapsed-v1';
-    let notesSaveTimer;
+    let notesAnimationTimer;
     let notesPreviewVisible = false;
 
     studyNotes.value = localStorage.getItem(notesStorageKey) || '';
 
-    function setNotesOpen(open) {
-      document.body.classList.toggle('notes-open', open);
-      document.body.classList.toggle('notes-collapsed', !open);
+    function setNotesOpen(open, animate = true) {
+      window.clearTimeout(notesAnimationTimer);
       localStorage.setItem(notesStateKey, String(!open));
-      if (open) window.setTimeout(() => studyNotes.focus(), 220);
+      document.body.classList.remove('notes-opening', 'notes-closing');
+
+      if (open) {
+        document.body.classList.remove('notes-collapsed');
+        document.body.classList.add('notes-open');
+        if (animate) {
+          document.body.classList.add('notes-opening');
+          notesAnimationTimer = window.setTimeout(() => document.body.classList.remove('notes-opening'), 210);
+        }
+        window.setTimeout(() => studyNotes.focus(), animate ? 220 : 0);
+        return;
+      }
+
+      if (!animate) {
+        document.body.classList.remove('notes-open');
+        document.body.classList.add('notes-collapsed');
+        return;
+      }
+
+      document.body.classList.add('notes-closing');
+      notesAnimationTimer = window.setTimeout(() => {
+        document.body.classList.remove('notes-open', 'notes-closing');
+        document.body.classList.add('notes-collapsed');
+      }, 180);
     }
 
-    if (localStorage.getItem(notesStateKey) === 'true') setNotesOpen(false);
+    if (localStorage.getItem(notesStateKey) === 'true') setNotesOpen(false, false);
     notesCollapse.addEventListener('click', () => setNotesOpen(false));
     notesExpand.addEventListener('click', () => setNotesOpen(true));
+    notesHeader.addEventListener('click', event => {
+      if (!event.target.closest('button')) setNotesOpen(false);
+    });
 
     studyNotes.addEventListener('input', () => {
-      notesStatus.textContent = 'Guardando...';
       localStorage.setItem(notesStorageKey, studyNotes.value);
-      window.clearTimeout(notesSaveTimer);
-      notesSaveTimer = window.setTimeout(() => {
-        notesStatus.textContent = 'Guardado';
-      }, 250);
     });
 
     function appendInlineMarkdown(parent, text) {
