@@ -427,6 +427,13 @@
         color: var(--accent);
         place-items: center;
       }
+      .notes-saved .notes-saving-icon { display: none; }
+      .notes-saved.is-saving .notes-saved-icon { display: none; }
+      .notes-saved.is-saving .notes-saving-icon {
+        display: block;
+        animation: notes-spin .7s linear infinite;
+      }
+      @keyframes notes-spin { to { transform: rotate(360deg); } }
       .notes-collapse,
       .notes-import,
       .notes-download,
@@ -1000,7 +1007,8 @@
         </div>
         <div class="notes-header-actions">
           <span class="notes-saved" aria-label="Guardado automáticamente" title="Guardado automáticamente">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg>
+            <svg class="notes-saved-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg>
+            <svg class="notes-saving-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12a9 9 0 1 1-2.64-6.36"></path></svg>
           </span>
           <button class="notes-import" id="notes-import" type="button" aria-label="Importar notas desde Markdown" title="Importar Markdown">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21V9"></path><path d="m7 14 5-5 5 5"></path><path d="M5 3h14"></path></svg>
@@ -2905,11 +2913,13 @@
     const notesFile = document.getElementById('notes-file');
     const notesDownload = document.getElementById('notes-download');
     const notesPreview = document.getElementById('notes-preview');
+    const notesSaved = document.querySelector('.notes-saved');
     const notesPreviewToggle = document.getElementById('notes-preview-toggle');
     const notesCommandButtons = [...document.querySelectorAll('[data-note-command]')];
     const notesStorageKey = 'aa-study-notes-v1';
     const notesStateKey = 'aa-study-notes-collapsed-v1';
     let notesAnimationTimer;
+    let notesSaveTimer;
     let notesPreviewVisible = false;
 
     studyNotes.value = localStorage.getItem(notesStorageKey) || '';
@@ -2950,9 +2960,22 @@
       if (!event.target.closest('button')) setNotesOpen(false);
     });
 
-    studyNotes.addEventListener('input', () => {
+    function saveNotes() {
+      window.clearTimeout(notesSaveTimer);
       localStorage.setItem(notesStorageKey, studyNotes.value);
+      notesSaved.classList.remove('is-saving');
+      notesSaved.setAttribute('aria-label', 'Guardado automáticamente');
+      notesSaved.title = 'Guardado automáticamente';
+    }
+
+    studyNotes.addEventListener('input', () => {
+      window.clearTimeout(notesSaveTimer);
+      notesSaved.classList.add('is-saving');
+      notesSaved.setAttribute('aria-label', 'Guardando notas');
+      notesSaved.title = 'Guardando notas';
+      notesSaveTimer = window.setTimeout(saveNotes, 450);
     });
+    window.addEventListener('pagehide', saveNotes);
 
     function appendInlineMarkdown(parent, text) {
       const tokenPattern = /(\*\*[^*\n]+\*\*|`[^`\n]+`|\*[^*\n]+\*)/g;
