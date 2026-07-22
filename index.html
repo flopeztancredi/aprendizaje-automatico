@@ -380,15 +380,16 @@
     @media (min-width: 1051px) {
       .notes-panel {
         position: fixed;
-        top: 18px;
-        right: 18px;
+        left: calc(var(--sidebar) + 18px);
+        bottom: 0;
         z-index: 40;
         display: flex;
         height: min(430px, calc(100vh - 36px));
         width: clamp(280px, 24vw, 340px);
         overflow: hidden;
         border: 1px solid var(--line);
-        border-radius: 16px;
+        border-bottom: 0;
+        border-radius: 16px 16px 0 0;
         background: var(--surface);
         box-shadow: var(--shadow);
       }
@@ -397,6 +398,11 @@
         min-width: 0;
         width: 100%;
         flex-direction: column;
+        animation: notes-rise .18s ease-out;
+      }
+      @keyframes notes-rise {
+        from { transform: translateY(14px); }
+        to { transform: translateY(0); }
       }
       .notes-header {
         display: flex;
@@ -517,7 +523,8 @@
         gap: 8px;
         min-height: 42px;
         padding: 0 14px;
-        border-radius: 11px;
+        border-bottom: 0;
+        border-radius: 11px 11px 0 0;
         color: var(--ink);
         font-weight: 750;
         box-shadow: var(--shadow);
