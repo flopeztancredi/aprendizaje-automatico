@@ -1695,14 +1695,14 @@
           <tbody>
             <tr><td><strong>1. Prompt injection</strong></td><td>Entrada directa o contenido externo cambia instrucciones, decisiones o herramientas.</td><td>Separar datos e instrucciones, tratar contenido como no confiable, limitar herramientas y validar acciones.</td></tr>
             <tr><td><strong>2. Información sensible</strong></td><td>Fuga de información personal identificable (PII, <em>Personally Identifiable Information</em>), secretos, propiedad intelectual, credenciales o contexto entre usuarios.</td><td>Minimizar, clasificar, ocultar y controlar accesos. Nunca poner secretos en prompts.</td></tr>
-            <tr><td><strong>3a. Supply chain</strong></td><td>Modelos, adaptadores, paquetes, plugins, proveedores o repositorios comprometidos.</td><td>Verificar origen y firmas, inventariar componentes, fijar versiones y evaluar terceros.</td></tr>
-            <tr><td><strong>3b. Data and model poisoning</strong></td><td>Datos de entrenamiento, fine tuning o embeddings manipulados alteran el comportamiento.</td><td>Curar datos, controlar escrituras, versionar, detectar anomalías y revertir.</td></tr>
-            <tr><td><strong>4. Manejo inseguro de salida</strong></td><td>Texto generado se ejecuta como comando, SQL, lenguaje de marcado de hipertexto (HTML, <em>HyperText Markup Language</em>) o script.</td><td>Validar estructura, parametrizar, neutralizar caracteres y separar texto de ejecución.</td></tr>
-            <tr><td><strong>5. Agencia excesiva</strong></td><td>Permisos o autonomía producen acciones reales dañinas.</td><td>Permisos mínimos, acciones acotadas, sandbox y aprobación humana.</td></tr>
-            <tr><td>System prompt leakage</td><td>Exposición de configuración interna.</td><td>No considerar secreto al prompt ni usarlo como autorización.</td></tr>
-            <tr><td>Vector and embedding weaknesses</td><td>Recuperación sin permiso, documentos maliciosos o mezcla entre usuarios.</td><td>Permisos antes y después de recuperar, aislamiento y validación de metadata.</td></tr>
-            <tr><td>Misinformation</td><td>Contenido falso o sin respaldo se usa para decidir.</td><td>Fuentes, citas, abstención, revisión y verificación.</td></tr>
-            <tr><td>Unbounded consumption</td><td>Bucles, prompts o automatizaciones agotan tokens y presupuesto.</td><td>Cuotas, límites, presupuestos, contexto y tiempos máximos.</td></tr>
+            <tr><td><strong>3. Supply chain</strong></td><td>Modelos, adaptadores, paquetes, plugins, proveedores o repositorios comprometidos.</td><td>Verificar origen y firmas, inventariar componentes, fijar versiones y evaluar terceros.</td></tr>
+            <tr><td><strong>4. Data and model poisoning</strong></td><td>Datos de entrenamiento, fine tuning o embeddings manipulados alteran el comportamiento.</td><td>Curar datos, controlar escrituras, versionar, detectar anomalías y revertir.</td></tr>
+            <tr><td><strong>5. Manejo inseguro de salida</strong></td><td>Texto generado se ejecuta como comando, SQL, lenguaje de marcado de hipertexto (HTML, <em>HyperText Markup Language</em>) o script.</td><td>Validar estructura, parametrizar, neutralizar caracteres y separar texto de ejecución.</td></tr>
+            <tr><td><strong>6. Agencia excesiva</strong></td><td>Permisos o autonomía producen acciones reales dañinas.</td><td>Permisos mínimos, acciones acotadas, sandbox y aprobación humana.</td></tr>
+            <tr><td><strong>7. System prompt leakage</strong></td><td>Exposición de configuración interna.</td><td>No considerar secreto al prompt ni usarlo como autorización.</td></tr>
+            <tr><td><strong>8. Vector and embedding weaknesses</strong></td><td>Recuperación sin permiso, documentos maliciosos o mezcla entre usuarios.</td><td>Permisos antes y después de recuperar, aislamiento y validación de metadata.</td></tr>
+            <tr><td><strong>9. Misinformation</strong></td><td>Contenido falso o sin respaldo se usa para decidir.</td><td>Fuentes, citas, abstención, revisión y verificación.</td></tr>
+            <tr><td><strong>10. Unbounded consumption</strong></td><td>Bucles, prompts o automatizaciones agotan tokens y presupuesto.</td><td>Cuotas, límites, presupuestos, contexto y tiempos máximos.</td></tr>
           </tbody>
         </table></div>
 
