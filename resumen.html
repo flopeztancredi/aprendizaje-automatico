@@ -386,7 +386,7 @@
       .desktop-nav-toggle {
         position: fixed;
         top: 24px;
-        left: calc(var(--sidebar) - 14px);
+        left: calc(var(--sidebar) - 48px);
         z-index: 35;
         display: grid;
         width: 28px;
@@ -397,7 +397,7 @@
         border-radius: 9px;
         color: var(--muted);
         background: var(--surface);
-        box-shadow: 0 6px 18px rgba(18, 44, 58, .1);
+        box-shadow: none;
         cursor: pointer;
         transition: left .22s ease, color .15s ease, border-color .15s ease;
       }
@@ -408,7 +408,10 @@
         height: 16px;
         transition: transform .22s ease;
       }
-      body.sidebar-collapsed .desktop-nav-toggle { left: 14px; }
+      body.sidebar-collapsed .desktop-nav-toggle {
+        left: 14px;
+        box-shadow: 0 6px 18px rgba(18, 44, 58, .1);
+      }
       body.sidebar-collapsed .desktop-nav-toggle svg { transform: rotate(180deg); }
       .notes-panel {
         position: fixed;
