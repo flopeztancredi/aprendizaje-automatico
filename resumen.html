@@ -376,6 +376,99 @@
     .main { margin-left: var(--sidebar); }
     .content { width: min(1080px, calc(100% - 64px)); margin: 0 auto; padding: 54px 0 110px; }
 
+    .notes-panel { display: none; }
+    @media (min-width: 1051px) {
+      .main { transition: margin-right .22s ease; }
+      body.notes-open .main { margin-right: calc(clamp(280px, 24vw, 340px) + 36px); }
+      .notes-panel {
+        position: fixed;
+        top: 18px;
+        right: 18px;
+        bottom: 18px;
+        z-index: 40;
+        display: flex;
+        width: clamp(280px, 24vw, 340px);
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        background: var(--surface);
+        box-shadow: var(--shadow);
+      }
+      .notes-panel-content {
+        display: flex;
+        min-width: 0;
+        width: 100%;
+        flex-direction: column;
+      }
+      .notes-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 14px 14px 12px 17px;
+        border-bottom: 1px solid var(--line);
+      }
+      .notes-heading { display: grid; gap: 1px; }
+      .notes-heading strong { line-height: 1.25; }
+      .notes-status { color: var(--muted); font-size: 11px; }
+      .notes-collapse,
+      .notes-tab {
+        border: 1px solid var(--line);
+        color: var(--muted);
+        background: var(--surface);
+        cursor: pointer;
+      }
+      .notes-collapse {
+        display: grid;
+        width: 32px;
+        height: 32px;
+        flex: 0 0 auto;
+        place-items: center;
+        border-radius: 9px;
+      }
+      .notes-collapse:hover,
+      .notes-tab:hover { color: var(--ink); border-color: var(--accent); }
+      .notes-collapse svg,
+      .notes-tab svg { width: 17px; }
+      .notes-textarea {
+        width: 100%;
+        min-height: 0;
+        flex: 1;
+        resize: none;
+        border: 0;
+        padding: 18px;
+        outline: 0;
+        color: var(--ink);
+        background: var(--surface);
+        font: inherit;
+        font-size: 15px;
+        line-height: 1.55;
+      }
+      .notes-textarea::placeholder { color: var(--muted); opacity: .72; }
+      .notes-tab {
+        display: none;
+        align-items: center;
+        gap: 8px;
+        min-height: 42px;
+        padding: 0 14px;
+        border-radius: 11px;
+        color: var(--ink);
+        font-weight: 750;
+        box-shadow: var(--shadow);
+      }
+      body.notes-collapsed .notes-panel {
+        top: auto;
+        bottom: 20px;
+        width: auto;
+        border: 0;
+        overflow: visible;
+        background: transparent;
+        box-shadow: none;
+      }
+      body.notes-collapsed .notes-panel-content { display: none; }
+      body.notes-collapsed .notes-tab { display: flex; }
+    }
+
     .hero {
       position: relative;
       overflow: hidden;
@@ -601,7 +694,7 @@
         line-height: 1.43;
       }
       .sidebar, .top-mobile, .progress, .side-actions, .search-wrap,
-      .highlight-toolbar, .nav-backdrop { display: none !important; }
+      .highlight-toolbar, .nav-backdrop, .notes-panel { display: none !important; }
       .main { margin: 0; }
       .content {
         width: 100%;
@@ -719,7 +812,7 @@
     }
   </style>
 </head>
-<body>
+<body class="notes-open">
   <div class="progress" aria-hidden="true"><span id="reading-progress"></span></div>
   <div class="nav-backdrop" id="nav-backdrop" aria-hidden="true"></div>
 
@@ -787,6 +880,25 @@
         Instalar app
       </button>
       <a class="icon-button wide" href="index.html">Apunte</a>
+    </div>
+  </aside>
+
+  <aside class="notes-panel" id="notes-panel" aria-label="Mis notas de estudio">
+    <button class="notes-tab" id="notes-expand" type="button" aria-label="Abrir mis notas">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16v16H4z"></path><path d="M8 9h8M8 13h8M8 17h5"></path></svg>
+      Notas
+    </button>
+    <div class="notes-panel-content">
+      <div class="notes-header">
+        <div class="notes-heading">
+          <strong>Mis notas</strong>
+          <span class="notes-status" id="notes-status">Guardado</span>
+        </div>
+        <button class="notes-collapse" id="notes-collapse" type="button" aria-label="Contraer mis notas" title="Contraer notas">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 12h10"></path></svg>
+        </button>
+      </div>
+      <textarea class="notes-textarea" id="study-notes" aria-label="Notas de estudio" placeholder="Escribí tus notas mientras estudiás..." spellcheck="true"></textarea>
     </div>
   </aside>
 
@@ -2184,6 +2296,37 @@
     renderHighlights();
     renderHighlightControls();
     if (fixedHighlightMode) showHighlightToolbar('fixed');
+  </script>
+  <script>
+    const studyNotes = document.getElementById('study-notes');
+    const notesStatus = document.getElementById('notes-status');
+    const notesCollapse = document.getElementById('notes-collapse');
+    const notesExpand = document.getElementById('notes-expand');
+    const notesStorageKey = 'aa-study-notes-v1';
+    const notesStateKey = 'aa-study-notes-collapsed-v1';
+    let notesSaveTimer;
+
+    studyNotes.value = localStorage.getItem(notesStorageKey) || '';
+
+    function setNotesOpen(open) {
+      document.body.classList.toggle('notes-open', open);
+      document.body.classList.toggle('notes-collapsed', !open);
+      localStorage.setItem(notesStateKey, String(!open));
+      if (open) window.setTimeout(() => studyNotes.focus(), 220);
+    }
+
+    if (localStorage.getItem(notesStateKey) === 'true') setNotesOpen(false);
+    notesCollapse.addEventListener('click', () => setNotesOpen(false));
+    notesExpand.addEventListener('click', () => setNotesOpen(true));
+
+    studyNotes.addEventListener('input', () => {
+      notesStatus.textContent = 'Guardando...';
+      localStorage.setItem(notesStorageKey, studyNotes.value);
+      window.clearTimeout(notesSaveTimer);
+      notesSaveTimer = window.setTimeout(() => {
+        notesStatus.textContent = 'Guardado';
+      }, 250);
+    });
   </script>
   <script>
     const installAppButton = document.getElementById('install-app');

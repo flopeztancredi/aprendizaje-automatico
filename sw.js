@@ -1,4 +1,4 @@
-const CACHE_NAME = 'aprendizaje-automatico-v1';
+const CACHE_NAME = 'aprendizaje-automatico-v2';
 const APP_SHELL = [
   './',
   './index.html',
