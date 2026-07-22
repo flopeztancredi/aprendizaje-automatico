@@ -2742,6 +2742,21 @@
       });
     });
 
+    studyNotes.addEventListener('keydown', event => {
+      if (!(event.ctrlKey || event.metaKey) || event.altKey) return;
+      const key = event.key.toLowerCase();
+      let handled = true;
+
+      if (!event.shiftKey && key === 'b') wrapNotesSelection('**', '**', 'texto');
+      else if (!event.shiftKey && key === 'i') wrapNotesSelection('*', '*', 'texto');
+      else if (!event.shiftKey && event.key === '`') wrapNotesSelection('`', '`', 'código');
+      else if (event.shiftKey && event.code === 'Digit7') prefixNotesLines('1. ');
+      else if (event.shiftKey && event.code === 'Digit8') prefixNotesLines('- ');
+      else handled = false;
+
+      if (handled) event.preventDefault();
+    });
+
     notesPreviewToggle.addEventListener('click', () => setNotesPreview(!notesPreviewVisible));
     notesImport.addEventListener('click', () => notesFile.click());
     notesFile.addEventListener('change', async () => {
