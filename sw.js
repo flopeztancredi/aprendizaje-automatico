@@ -1,8 +1,9 @@
-const CACHE_NAME = 'aprendizaje-automatico-v2';
+const CACHE_NAME = 'aprendizaje-automatico-v3';
 const APP_SHELL = [
   './',
   './index.html',
   './resumen.html',
+  './resumen.md',
   './resumen-analitico.html',
   './manifest.webmanifest',
   './pwa-icon-192.png',
