@@ -378,15 +378,13 @@
 
     .notes-panel { display: none; }
     @media (min-width: 1051px) {
-      .main { transition: margin-right .22s ease; }
-      body.notes-open .main { margin-right: calc(clamp(280px, 24vw, 340px) + 36px); }
       .notes-panel {
         position: fixed;
         top: 18px;
         right: 18px;
-        bottom: 18px;
         z-index: 40;
         display: flex;
+        height: min(430px, calc(100vh - 36px));
         width: clamp(280px, 24vw, 340px);
         overflow: hidden;
         border: 1px solid var(--line);
@@ -411,7 +409,9 @@
       .notes-heading { display: grid; gap: 1px; }
       .notes-heading strong { line-height: 1.25; }
       .notes-status { color: var(--muted); font-size: 11px; }
+      .notes-header-actions { display: flex; gap: 6px; }
       .notes-collapse,
+      .notes-download,
       .notes-tab {
         border: 1px solid var(--line);
         color: var(--muted);
@@ -426,14 +426,49 @@
         place-items: center;
         border-radius: 9px;
       }
+      .notes-download {
+        display: grid;
+        width: 32px;
+        height: 32px;
+        place-items: center;
+        border-radius: 9px;
+      }
       .notes-collapse:hover,
+      .notes-download:hover,
       .notes-tab:hover { color: var(--ink); border-color: var(--accent); }
       .notes-collapse svg,
+      .notes-download svg,
       .notes-tab svg { width: 17px; }
+      .notes-toolbar {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        padding: 7px 10px;
+        border-bottom: 1px solid var(--line);
+        background: var(--surface-2);
+      }
+      .notes-tool-button {
+        display: grid;
+        min-width: 30px;
+        height: 30px;
+        padding: 0 7px;
+        place-items: center;
+        border: 0;
+        border-radius: 7px;
+        color: var(--muted);
+        background: transparent;
+        font-size: 13px;
+        font-weight: 800;
+        cursor: pointer;
+      }
+      .notes-tool-button:hover,
+      .notes-tool-button.active { color: var(--accent-ink); background: var(--accent-2); }
+      .notes-tool-button svg { width: 16px; }
+      .notes-preview-toggle { margin-left: auto; font-weight: 650; }
+      .notes-editor { min-height: 0; flex: 1; }
       .notes-textarea {
         width: 100%;
-        min-height: 0;
-        flex: 1;
+        height: 100%;
         resize: none;
         border: 0;
         padding: 18px;
@@ -445,6 +480,37 @@
         line-height: 1.55;
       }
       .notes-textarea::placeholder { color: var(--muted); opacity: .72; }
+      .notes-textarea[hidden] { display: none; }
+      .notes-preview {
+        height: 100%;
+        overflow-y: auto;
+        padding: 15px 18px 22px;
+        color: var(--ink);
+        font-size: 14px;
+        line-height: 1.55;
+      }
+      .notes-preview[hidden] { display: none; }
+      .notes-preview > :first-child { margin-top: 0; }
+      .notes-preview > :last-child { margin-bottom: 0; }
+      .notes-preview h1,
+      .notes-preview h2,
+      .notes-preview h3 { margin: 16px 0 7px; line-height: 1.25; }
+      .notes-preview h1 { font-size: 20px; }
+      .notes-preview h2 { font-size: 17px; }
+      .notes-preview h3 { font-size: 15px; }
+      .notes-preview p,
+      .notes-preview ul,
+      .notes-preview ol,
+      .notes-preview pre,
+      .notes-preview blockquote { margin: 8px 0; }
+      .notes-preview ul,
+      .notes-preview ol { padding-left: 21px; }
+      .notes-preview blockquote { padding-left: 11px; border-left: 3px solid var(--accent); color: var(--muted); }
+      .notes-preview code { padding: 1px 4px; border-radius: 4px; background: var(--surface-2); }
+      .notes-preview pre { overflow-x: auto; padding: 10px; border-radius: 8px; background: var(--surface-2); }
+      .notes-preview pre code { padding: 0; background: transparent; }
+      .notes-task { display: flex; align-items: flex-start; gap: 7px; list-style: none; }
+      .notes-task input { margin-top: 5px; }
       .notes-tab {
         display: none;
         align-items: center;
@@ -457,8 +523,7 @@
         box-shadow: var(--shadow);
       }
       body.notes-collapsed .notes-panel {
-        top: auto;
-        bottom: 20px;
+        height: auto;
         width: auto;
         border: 0;
         overflow: visible;
@@ -894,11 +959,32 @@
           <strong>Mis notas</strong>
           <span class="notes-status" id="notes-status">Guardado</span>
         </div>
-        <button class="notes-collapse" id="notes-collapse" type="button" aria-label="Contraer mis notas" title="Contraer notas">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 12h10"></path></svg>
-        </button>
+        <div class="notes-header-actions">
+          <button class="notes-download" id="notes-download" type="button" aria-label="Descargar notas en Markdown" title="Descargar Markdown">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3v12"></path><path d="m7 10 5 5 5-5"></path><path d="M5 21h14"></path></svg>
+          </button>
+          <button class="notes-collapse" id="notes-collapse" type="button" aria-label="Contraer mis notas" title="Contraer notas">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 12h10"></path></svg>
+          </button>
+        </div>
       </div>
-      <textarea class="notes-textarea" id="study-notes" aria-label="Notas de estudio" placeholder="Escribí tus notas mientras estudiás..." spellcheck="true"></textarea>
+      <div class="notes-toolbar" aria-label="Formato Markdown">
+        <button class="notes-tool-button" type="button" data-note-command="heading" title="Título">H</button>
+        <button class="notes-tool-button" type="button" data-note-command="bold" title="Negrita">B</button>
+        <button class="notes-tool-button" type="button" data-note-command="italic" title="Cursiva"><em>I</em></button>
+        <button class="notes-tool-button" type="button" data-note-command="list" title="Lista">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h13"></path><path d="M3 6h.01M3 12h.01M3 18h.01"></path></svg>
+        </button>
+        <button class="notes-tool-button" type="button" data-note-command="task" title="Tarea">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 11l3 3L22 4"></path><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1 2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+        </button>
+        <button class="notes-tool-button" type="button" data-note-command="code" title="Código">&lt;/&gt;</button>
+        <button class="notes-tool-button notes-preview-toggle" id="notes-preview-toggle" type="button">Vista</button>
+      </div>
+      <div class="notes-editor">
+        <textarea class="notes-textarea" id="study-notes" aria-label="Notas de estudio en Markdown" placeholder="Escribí tus notas en Markdown..." spellcheck="true"></textarea>
+        <div class="notes-preview" id="notes-preview" aria-label="Vista previa de las notas" hidden></div>
+      </div>
     </div>
   </aside>
 
@@ -2302,9 +2388,14 @@
     const notesStatus = document.getElementById('notes-status');
     const notesCollapse = document.getElementById('notes-collapse');
     const notesExpand = document.getElementById('notes-expand');
+    const notesDownload = document.getElementById('notes-download');
+    const notesPreview = document.getElementById('notes-preview');
+    const notesPreviewToggle = document.getElementById('notes-preview-toggle');
+    const notesCommandButtons = [...document.querySelectorAll('[data-note-command]')];
     const notesStorageKey = 'aa-study-notes-v1';
     const notesStateKey = 'aa-study-notes-collapsed-v1';
     let notesSaveTimer;
+    let notesPreviewVisible = false;
 
     studyNotes.value = localStorage.getItem(notesStorageKey) || '';
 
@@ -2326,6 +2417,199 @@
       notesSaveTimer = window.setTimeout(() => {
         notesStatus.textContent = 'Guardado';
       }, 250);
+    });
+
+    function appendInlineMarkdown(parent, text) {
+      const tokenPattern = /(\*\*[^*\n]+\*\*|`[^`\n]+`|\*[^*\n]+\*)/g;
+      let cursor = 0;
+      for (const match of text.matchAll(tokenPattern)) {
+        parent.append(document.createTextNode(text.slice(cursor, match.index)));
+        const token = match[0];
+        let element;
+        if (token.startsWith('**')) {
+          element = document.createElement('strong');
+          element.textContent = token.slice(2, -2);
+        } else if (token.startsWith('`')) {
+          element = document.createElement('code');
+          element.textContent = token.slice(1, -1);
+        } else {
+          element = document.createElement('em');
+          element.textContent = token.slice(1, -1);
+        }
+        parent.append(element);
+        cursor = match.index + token.length;
+      }
+      parent.append(document.createTextNode(text.slice(cursor)));
+    }
+
+    function renderNotesPreview() {
+      notesPreview.replaceChildren();
+      const markdown = studyNotes.value;
+      if (!markdown.trim()) {
+        const empty = document.createElement('p');
+        empty.textContent = 'Todavía no hay notas.';
+        empty.style.color = 'var(--muted)';
+        notesPreview.append(empty);
+        return;
+      }
+
+      let currentList = null;
+      let currentListType = '';
+      let inCodeBlock = false;
+      let codeLines = [];
+
+      function resetList() {
+        currentList = null;
+        currentListType = '';
+      }
+
+      function appendCodeBlock() {
+        const pre = document.createElement('pre');
+        const code = document.createElement('code');
+        code.textContent = codeLines.join('\n');
+        pre.append(code);
+        notesPreview.append(pre);
+        codeLines = [];
+      }
+
+      function getList(type) {
+        if (currentList && currentListType === type) return currentList;
+        currentList = document.createElement(type === 'ordered' ? 'ol' : 'ul');
+        currentListType = type;
+        notesPreview.append(currentList);
+        return currentList;
+      }
+
+      for (const line of markdown.split(/\r?\n/)) {
+        if (/^```/.test(line)) {
+          resetList();
+          if (inCodeBlock) appendCodeBlock();
+          inCodeBlock = !inCodeBlock;
+          continue;
+        }
+        if (inCodeBlock) {
+          codeLines.push(line);
+          continue;
+        }
+        if (!line.trim()) {
+          resetList();
+          continue;
+        }
+
+        const heading = line.match(/^(#{1,3})\s+(.+)$/);
+        if (heading) {
+          resetList();
+          const element = document.createElement(`h${heading[1].length}`);
+          appendInlineMarkdown(element, heading[2]);
+          notesPreview.append(element);
+          continue;
+        }
+
+        const task = line.match(/^[-*]\s+\[([ xX])\]\s+(.+)$/);
+        if (task) {
+          const item = document.createElement('li');
+          item.className = 'notes-task';
+          const checkbox = document.createElement('input');
+          checkbox.type = 'checkbox';
+          checkbox.checked = task[1].toLowerCase() === 'x';
+          checkbox.disabled = true;
+          const label = document.createElement('span');
+          appendInlineMarkdown(label, task[2]);
+          item.append(checkbox, label);
+          getList('task').append(item);
+          continue;
+        }
+
+        const unordered = line.match(/^[-*]\s+(.+)$/);
+        if (unordered) {
+          const item = document.createElement('li');
+          appendInlineMarkdown(item, unordered[1]);
+          getList('unordered').append(item);
+          continue;
+        }
+
+        const ordered = line.match(/^\d+\.\s+(.+)$/);
+        if (ordered) {
+          const item = document.createElement('li');
+          appendInlineMarkdown(item, ordered[1]);
+          getList('ordered').append(item);
+          continue;
+        }
+
+        resetList();
+        const quote = line.match(/^>\s?(.*)$/);
+        const element = document.createElement(quote ? 'blockquote' : 'p');
+        appendInlineMarkdown(element, quote ? quote[1] : line);
+        notesPreview.append(element);
+      }
+
+      if (inCodeBlock || codeLines.length) appendCodeBlock();
+    }
+
+    function setNotesPreview(visible) {
+      notesPreviewVisible = visible;
+      if (visible) renderNotesPreview();
+      studyNotes.hidden = visible;
+      notesPreview.hidden = !visible;
+      notesPreviewToggle.textContent = visible ? 'Editar' : 'Vista';
+      notesPreviewToggle.classList.toggle('active', visible);
+      if (!visible) studyNotes.focus();
+    }
+
+    function dispatchNotesInput() {
+      studyNotes.dispatchEvent(new Event('input', { bubbles: true }));
+    }
+
+    function wrapNotesSelection(before, after, placeholder) {
+      if (notesPreviewVisible) setNotesPreview(false);
+      const start = studyNotes.selectionStart;
+      const end = studyNotes.selectionEnd;
+      const selected = studyNotes.value.slice(start, end) || placeholder;
+      const replacement = `${before}${selected}${after}`;
+      studyNotes.setRangeText(replacement, start, end, 'end');
+      studyNotes.setSelectionRange(start + before.length, start + before.length + selected.length);
+      dispatchNotesInput();
+      studyNotes.focus();
+    }
+
+    function prefixNotesLines(prefix) {
+      if (notesPreviewVisible) setNotesPreview(false);
+      const value = studyNotes.value;
+      const start = studyNotes.selectionStart;
+      const end = studyNotes.selectionEnd;
+      const blockStart = value.lastIndexOf('\n', Math.max(0, start - 1)) + 1;
+      const nextBreak = value.indexOf('\n', end);
+      const blockEnd = nextBreak === -1 ? value.length : nextBreak;
+      const replacement = value.slice(blockStart, blockEnd).split('\n').map(line => `${prefix}${line}`).join('\n');
+      studyNotes.setRangeText(replacement, blockStart, blockEnd, 'end');
+      studyNotes.setSelectionRange(blockStart, blockStart + replacement.length);
+      dispatchNotesInput();
+      studyNotes.focus();
+    }
+
+    notesCommandButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const command = button.dataset.noteCommand;
+        if (command === 'heading') prefixNotesLines('## ');
+        if (command === 'bold') wrapNotesSelection('**', '**', 'texto');
+        if (command === 'italic') wrapNotesSelection('*', '*', 'texto');
+        if (command === 'list') prefixNotesLines('- ');
+        if (command === 'task') prefixNotesLines('- [ ] ');
+        if (command === 'code') wrapNotesSelection('`', '`', 'código');
+      });
+    });
+
+    notesPreviewToggle.addEventListener('click', () => setNotesPreview(!notesPreviewVisible));
+    notesDownload.addEventListener('click', () => {
+      const blob = new Blob([studyNotes.value], { type: 'text/markdown;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = 'notas-aprendizaje-automatico.md';
+      document.body.append(link);
+      link.click();
+      link.remove();
+      URL.revokeObjectURL(url);
     });
   </script>
   <script>
