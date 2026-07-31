@@ -1,13 +1,11 @@
-# Material de terceros: nunca se republica. Son las diapositivas y los PDF de
-# la cátedra, las clases grabadas y el resumen de otra persona.
+# Material de terceros: no se republica.
 material/
 clases/
 resumen-de-otro.pdf
 Aprendizaje Automático.pdf
 plan_estudios.pdf
 
-# Trabajo propio que no va al sitio: las fuentes del apunte, las auditorías y
-# una copia vieja del index.
+# Local
 Aprendizaje Automatico - Studio/
 AUDITORIA-*.md
 apunte-final.html
